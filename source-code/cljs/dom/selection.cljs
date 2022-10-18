@@ -4,9 +4,9 @@
 
 (ns dom.selection
     (:require [dom.config        :as config]
+              [io.api            :as io]
               [mid-fruits.candy  :refer [param return]]
               [mid-fruits.css    :as css]
-              [mid-fruits.io     :as io]
               [mid-fruits.map    :as map]
               [mid-fruits.math   :as math]
               [mid-fruits.string :as string]
