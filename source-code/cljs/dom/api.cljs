@@ -191,9 +191,6 @@
 ; dom.viewport
 (def get-viewport-height      viewport/get-viewport-height)
 (def get-viewport-width       viewport/get-viewport-width)
-(def viewport-profile-match?  viewport/viewport-profile-match?)
-(def viewport-profiles-match? viewport/viewport-profiles-match?)
-(def get-viewport-profile     viewport/get-viewport-profile)
 (def get-viewport-orientation viewport/get-viewport-orientation)
 (def square-viewport?         viewport/square-viewport?)
 (def landscape-viewport?      viewport/landscape-viewport?)
