@@ -14,7 +14,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-style my-element)
+  ;  (get-element-style my-element)
   [element])
   ; ...
 
@@ -23,7 +23,7 @@
   ; @param (map) style
   ;
   ; @usage
-  ;  (dom/set-element-style! my-element {:position "fixed" :top "0"})
+  ;  (set-element-style! my-element {:position "fixed" :top "0"})
   [element style]
   (let [parsed-style (css/unparse style)]
        (.setAttribute element "style" parsed-style)))
@@ -32,7 +32,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/remove-element-style! my-element)
+  ;  (remove-element-style! my-element)
   [element]
   (.removeAttribute element "style"))
 
@@ -46,7 +46,7 @@
   ; @param (string) style-name
   ;
   ; @usage
-  ;  (dom/get-element-style my-element "position")
+  ;  (get-element-style my-element "position")
   ;
   ; @return (string)
   [element style-name]
@@ -59,7 +59,7 @@
   ; @param (*) style-value
   ;
   ; @usage
-  ;  (dom/set-element-style-value! my-element "position" "fixed")
+  ;  (set-element-style-value! my-element "position" "fixed")
   [element style-name style-value]
   (-> element .-style (aset style-name style-value)))
 
@@ -68,7 +68,7 @@
   ; @param (string) style-name
 
   ; @usage
-  ;  (dom/remove-element-style-value! my-element "position")
+  ;  (remove-element-style-value! my-element "position")
   [element style-name]
   (-> element .-style (aset style-name nil)))
 
@@ -81,7 +81,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-computed-style my-element)
+  ;  (get-element-computed-style my-element)
   ;
   ; @return (CSSStyleDeclarationObject)
   ;  The returned object updates automatically when the element's styles are changed

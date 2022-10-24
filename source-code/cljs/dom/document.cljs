@@ -11,7 +11,7 @@
 
 (defn get-document-element
   ; @usage
-  ;  (dom/get-document-element)
+  ;  (get-document-element)
   ;
   ; @return (DOM-element)
   []
@@ -24,7 +24,7 @@
 
 (defn get-document-height
   ; @usage
-  ;  (dom/get-document-height)
+  ;  (get-document-height)
   ;
   ; @return (px)
   []
@@ -32,7 +32,7 @@
 
 (defn get-document-width
   ; @usage
-  ;  (dom/get-document-width)
+  ;  (get-document-width)
   ;
   ; @return (px)
   []
@@ -45,7 +45,7 @@
 
 (defn toggle-design-mode!
   ; @usage
-  ;  (dom/toggle-design-mode!)
+  ;  (toggle-design-mode!)
   []
   (let [design-mode (-> js/document .-designMode)]
        (case design-mode "on" (aset js/document "designMode" "off")

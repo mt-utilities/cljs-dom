@@ -11,7 +11,7 @@
 
 (defn get-body-element
   ; @usage
-  ;  (dom/get-body-element)
+  ;  (get-body-element)
   ;
   ; @return (DOM-element)
   []
@@ -27,7 +27,7 @@
   ; @param (string) style-name
   ;
   ; @usage
-  ;  (dom/get-element-style "background-color")
+  ;  (get-element-style "background-color")
   ;
   ; @return (string)
   [style-name]

@@ -16,7 +16,7 @@
   ; @param (string) script
   ;
   ; @usage
-  ;  (dom/append-script! "console.log('420')")
+  ;  (append-script! "console.log('420')")
   [script]
   (let [body-element   (body/get-body-element)
         script-element (node/create-element! "script")]

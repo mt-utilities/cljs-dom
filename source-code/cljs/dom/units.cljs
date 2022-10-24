@@ -14,7 +14,7 @@
   ; @param (px) n
   ;
   ; @usage
-  ;  (dom/px->vh 420)
+  ;  (px->vh 420)
   ;
   ; @return (vh)
   [n]
@@ -24,7 +24,7 @@
   ; @param (px) n
   ;
   ; @usage
-  ;  (dom/px->vw 420)
+  ;  (px->vw 420)
   ;
   ; @return (vw)
   [n]
@@ -34,7 +34,7 @@
   ; @param (vh) n
   ;
   ; @usage
-  ;  (dom/vh->px 42)
+  ;  (vh->px 42)
   ;
   ; @return (px)
   [n]
@@ -44,7 +44,7 @@
   ; @param (vw) n
   ;
   ; @usage
-  ;  (dom/vw->px 42)
+  ;  (vw->px 42)
   ;
   ; @return (px)
   [n]

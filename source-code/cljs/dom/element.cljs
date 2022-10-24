@@ -15,7 +15,7 @@
   ;  Default: js/document
   ;
   ; @usage
-  ;  (dom/get-element-by-id "my-element")
+  ;  (get-element-by-id "my-element")
   ;
   ; @return (DOM-element or nil)
   ([element-id]                (.getElementById js/document    element-id))
@@ -27,10 +27,10 @@
   ;  XXX#7603
   ;
   ; @usage
-  ;  (dom/get-elements-by-query-selector head-element "[type=\"text/css\"]")
+  ;  (get-elements-by-query-selector head-element "[type=\"text/css\"]")
   ;
   ; @usage
-  ;  (dom/get-elements-by-query-selector body-element "div.my-class, div.your-class")
+  ;  (get-elements-by-query-selector body-element "div.my-class, div.your-class")
   ;
   ; @return (vector)
   [parent-element query-selector]
@@ -42,7 +42,7 @@
   ;  Default: js/document
   ;
   ; @usage
-  ;  (dom/get-elements-by-class-name "my-class")
+  ;  (get-elements-by-class-name "my-class")
   ;
   ; @return (vector)
   ([class-name]                (-> js/document    (.getElementsByClassName class-name) array-seq vec))
@@ -54,7 +54,7 @@
   ;  Default: js/document
   ;
   ; @usage
-  ;  (dom/get-elements-by-class-name "div")
+  ;  (get-elements-by-class-name "div")
   ;
   ; @return (vector)
   ([tag-name]                (-> js/document    (.getElementsByTagName tag-name) array-seq vec))
@@ -69,7 +69,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/element-disabled? my-element)
+  ;  (element-disabled? my-element)
   ;
   ; @return (boolean)
   [element]
@@ -79,7 +79,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/element-enabled? my-element)
+  ;  (element-enabled? my-element)
   ;
   ; @return (boolean)
   [element]
@@ -95,6 +95,6 @@
   ; @param (string) element-id
   ;
   ; @usage
-  ;  (dom/set-element-id! my-element "my-element-id")
+  ;  (set-element-id! my-element "my-element-id")
   [element element-id]
   (-> element .-id (set! element-id)))

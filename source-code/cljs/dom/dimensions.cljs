@@ -15,7 +15,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-width my-element)
+  ;  (get-element-width my-element)
   ;
   ; @return (px)
   [element]
@@ -25,7 +25,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-height my-element)
+  ;  (get-element-height my-element)
   ;
   ; @return (px)
   [element]
@@ -42,7 +42,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-relative-left my-element)
+  ;  (get-element-relative-left my-element)
   ;
   ; @return (px)
   [element]
@@ -54,7 +54,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-relative-top my-element)
+  ;  (get-element-relative-top my-element)
   ;
   ; @return (px)
   [element]
@@ -71,7 +71,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-absolute-left my-element)
+  ;  (get-element-absolute-left my-element)
   ;
   ; @return (px)
   [element]
@@ -84,7 +84,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-absolute-top my-element)
+  ;  (get-element-absolute-top my-element)
   ;
   ; @return (px)
   [element]
@@ -102,7 +102,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-offset-left my-element)
+  ;  (get-element-offset-left my-element)
   ;
   ; @return (px)
   [element]
@@ -114,7 +114,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-offset-top my-element)
+  ;  (get-element-offset-top my-element)
   ;
   ; @return (px)
   [element]
@@ -129,7 +129,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-masspoint-x my-element)
+  ;  (get-element-masspoint-x my-element)
   ;
   ; @return (px)
   [element]
@@ -141,7 +141,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-masspoint-y my-element)
+  ;  (get-element-masspoint-y my-element)
   ;
   ; @return (px)
   [element]
@@ -158,7 +158,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/element-on-viewport-left? my-element)
+  ;  (element-on-viewport-left? my-element)
   ;
   ; @return (boolean)
   [element]
@@ -171,7 +171,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/element-on-viewport-right? my-element)
+  ;  (element-on-viewport-right? my-element)
   ;
   ; @return (boolean)
   [element]
@@ -184,7 +184,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/element-on-viewport-top? my-element)
+  ;  (element-on-viewport-top? my-element)
   ;
   ; @return (boolean)
   [element]
@@ -197,7 +197,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/element-on-viewport-bottom? my-element)
+  ;  (element-on-viewport-bottom? my-element)
   ;
   ; @return (boolean)
   [element]
@@ -215,7 +215,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/get-element-masspoint-orientation my-element)
+  ;  (get-element-masspoint-orientation my-element)
   ;
   ; @return (keyword)
   ;  :bl, :br, :tl, :tr

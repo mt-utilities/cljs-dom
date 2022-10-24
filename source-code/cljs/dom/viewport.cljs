@@ -15,7 +15,7 @@
 
 (defn get-viewport-height
   ; @usage
-  ;  (dom/get-viewport-height)
+  ;  (get-viewport-height)
   ;
   ; @return (px)
   []
@@ -23,7 +23,7 @@
 
 (defn get-viewport-width
   ; @usage
-  ;  (dom/get-viewport-width)
+  ;  (get-viewport-width)
   ;
   ; @return (px)
   []
@@ -39,7 +39,7 @@
   ;  :xxs, :xs, :s, :m, :l, :xl, :xxl
   ;
   ; @usage
-  ;  (dom/viewport-profile-match? :xl)
+  ;  (viewport-profile-match? :xl)
   ;
   ; @return (boolean)
   [profile]
@@ -52,7 +52,7 @@
   ;  [:xxs, :xs, :s, :m, :l, :xl, :xxl]
   ;
   ; @usage
-  ;  (dom/viewport-profiles-match? [:xs :s :m])
+  ;  (viewport-profiles-match? [:xs :s :m])
   ;
   ; @return (boolean)
   [profiles]
@@ -69,7 +69,7 @@
 
 (defn get-viewport-profile
   ; @usage
-  ;  (dom/get-viewport-profile)
+  ;  (get-viewport-profile)
   ;
   ; @return (keyword)
   ;  :xxs, :xs, :s, :m, :l, :xl, :xxl
@@ -82,7 +82,7 @@
 
 (defn get-viewport-orientation
   ; @usage
-  ;  (dom/get-viewport-orientation)
+  ;  (get-viewport-orientation)
   ;
   ; @return (keyword)
   ;  :landscape, :portrait
@@ -99,7 +99,7 @@
 
 (defn square-viewport?
   ; @usage
-  ;  (dom/square-viewport?)
+  ;  (square-viewport?)
   ;
   ; @return (boolean)
   []
@@ -108,7 +108,7 @@
 
 (defn landscape-viewport?
   ; @usage
-  ;  (dom/landscape-viewport?)
+  ;  (landscape-viewport?)
   ;
   ; @return (boolean)
   []
@@ -117,7 +117,7 @@
 
 (defn portrait-viewport?
   ; @usage
-  ;  (dom/portrait-viewport?)
+  ;  (portrait-viewport?)
   ;
   ; @return (boolean)
   []

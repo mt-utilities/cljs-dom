@@ -14,7 +14,7 @@
 
 (defn get-scroll-x
   ; @usage
-  ;  (dom/get-scroll-x)
+  ;  (get-scroll-x)
   ;
   ; @return (px)
   []
@@ -22,7 +22,7 @@
 
 (defn get-scroll-y
   ; @usage
-  ;  (dom/get-scroll-y)
+  ;  (get-scroll-y)
   ;
   ; @return (px)
   []
@@ -37,7 +37,7 @@
   ; @param (integer) last-scroll-y
   ;
   ; @usage
-  ;  (dom/scroll-direction-ttb? 100)
+  ;  (scroll-direction-ttb? 100)
   ;
   ; @return (boolean)
   [last-scroll-y]
@@ -50,7 +50,7 @@
   ; @param (integer) last-scroll-y
   ;
   ; @usage
-  ;  (dom/scroll-direction-btt? 100)
+  ;  (scroll-direction-btt? 100)
   ;
   ; @return (boolean)
   [last-scroll-y]
@@ -68,7 +68,7 @@
   ; @param (integer) last-scroll-y
   ;
   ; @usage
-  ;  (dom/get-scroll-direction 100)
+  ;  (get-scroll-direction 100)
   ;
   ; @return (keyword or nil)
   ;   nil, :btt, :ttb
@@ -100,7 +100,7 @@
 
 (defn get-scroll-progress
   ; @usage
-  ;  (dom/get-scroll-progress)
+  ;  (get-scroll-progress)
   ;
   ; @return (percent)
   ;  0 - 100
@@ -127,7 +127,7 @@
   ;    Default: false}
   ;
   ; @usage
-  ;  (dom/set-scroll-x! 100)
+  ;  (set-scroll-x! 100)
   ([scroll-x]
    (set-scroll-x! scroll-x {}))
 
@@ -146,7 +146,7 @@
   ;    Default: false}
   ;
   ; @usage
-  ;  (dom/set-scroll-y! 100)
+  ;  (set-scroll-y! 100)
   ([scroll-y]
    (set-scroll-y! scroll-y {}))
 
@@ -163,7 +163,7 @@
   ; @param (px)(opt) offset
   ;
   ; @usage
-  ;  (dom/scroll-to-element-top! my-element)
+  ;  (scroll-to-element-top! my-element)
   ([element]
    (scroll-to-element-top! element 0))
 

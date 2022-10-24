@@ -15,9 +15,9 @@
 ;     :max (px)}}
 ;
 ; XXX#6408
-; - A viewport szélessége alapján kerül kiszámításra
-; - A [:meta {:content "width=320" :name "viewport"}] beállítás használatával
-;   az eszköz virtual-viewport-width értéke minimum 320px!
+; A viewport szélessége alapján kerül kiszámításra
+; A [:meta {:content "width=320" :name "viewport"}] beállítás használatával
+; az eszköz virtual-viewport-width értéke minimum 320px!
 (def VIEWPORT-PROFILES {:xxs {:min    0 :max  319}
                         :xs  {:min  320 :max  359}
                         :s   {:min  360 :max  479}

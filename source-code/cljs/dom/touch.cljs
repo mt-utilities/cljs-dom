@@ -11,7 +11,7 @@
 
 (defn touch-events-api-detected?
   ; @usage
-  ;  (dom/touch-events-api-detected?)
+  ;  (touch-events-api-detected?)
   ;
   ; @return (boolean)
   []

@@ -14,7 +14,7 @@
   ; @param (string) attribute-name
   ;
   ; @usage
-  ;  (dom/get-element-attribute my-element "my-attribute")
+  ;  (get-element-attribute my-element "my-attribute")
   ;
   ; @return (string)
   [element attribute-name]
@@ -26,7 +26,7 @@
   ; @param (string) attribute-value
   ;
   ; @usage
-  ;  (dom/set-element-attribute! my-element "my-attribute" "my-value")
+  ;  (set-element-attribute! my-element "my-attribute" "my-value")
   ;
   ; @return (undefined)
   [element attribute-name attribute-value]
@@ -37,7 +37,7 @@
   ; @param (string) attribute-name
   ;
   ; @usage
-  ;  (dom/remove-element-attribute! my-element "my-attribute")
+  ;  (remove-element-attribute! my-element "my-attribute")
   ;
   ; @return (undefined)
   [element attribute-name]

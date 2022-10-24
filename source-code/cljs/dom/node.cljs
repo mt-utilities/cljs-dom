@@ -15,7 +15,7 @@
   ; @param (DOM-element) after-element
   ;
   ; @usage
-  ;  (dom/insert-before! my-parent-element my-child-element my-after-element)
+  ;  (insert-before! my-parent-element my-child-element my-after-element)
   [parent-element child-element after-element]
   (.insertBefore parent-element child-element after-element))
 
@@ -27,7 +27,7 @@
   ; @param (DOM-element) before-element
   ;
   ; @usage
-  ;  (dom/insert-after! my-parent-element my-child-element my-before-element)
+  ;  (insert-after! my-parent-element my-child-element my-before-element)
   [parent-element child-element before-element]
   (.insertBefore parent-element child-element (.-nextSibling before-element)))
 
@@ -41,7 +41,7 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
-  ;  (dom/insert-as-first-of-type! my-parent-element my-child-element)
+  ;  (insert-as-first-of-type! my-parent-element my-child-element)
   [parent-element child-element]
   (.insertBefore parent-element child-element
                  (-> parent-element (.getElementsByTagName (-> child-element .-tagName))
@@ -52,7 +52,7 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
-  ;  (dom/insert-as-last-of-type! my-parent-element my-child-element)
+  ;  (insert-as-last-of-type! my-parent-element my-child-element)
   [parent-element child-element]
   (.insertBefore parent-element child-element
                  (-> parent-element (.getElementsByTagName (-> child-element .-tagName))
@@ -70,10 +70,10 @@
   ;  XXX#7603
   ;
   ; @usage
-  ;  (dom/insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
+  ;  (insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
   ;
   ; @usage
-  ;  (dom/insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
+  ;  (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
   [parent-element child-element query-selector]
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query-selector) array-seq first)))
@@ -85,10 +85,10 @@
   ;  XXX#7603
   ;
   ; @usage
-  ;  (dom/insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
+  ;  (insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
   ;
   ; @usage
-  ;  (dom/insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
+  ;  (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
   [parent-element child-element query-selector]
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query-selector) array-seq last .-nextSibling)))
@@ -103,7 +103,7 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
-  ;  (dom/append-element! my-parent-element my-child-element)
+  ;  (append-element! my-parent-element my-child-element)
   [parent-element child-element]
   (.appendChild parent-element child-element))
 
@@ -112,7 +112,7 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
-  ;  (dom/prepend-element! my-parent-element my-child-element)
+  ;  (prepend-element! my-parent-element my-child-element)
   [parent-element child-element]
   (.insertBefore parent-element child-element (.-firstChild parent-element)))
 
@@ -125,7 +125,7 @@
   ; @param (string) nodename
   ;
   ; @usage
-  ;  (dom/create-element! "div")
+  ;  (create-element! "div")
   ;
   ; @return (DOM-element)
   [nodename]
@@ -135,7 +135,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/remove-element! my-element)
+  ;  (remove-element! my-element)
   [element]
   (.remove element))
 
@@ -144,7 +144,7 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
-  ;  (dom/remove-child! my-parent-element my-child-element)
+  ;  (remove-child! my-parent-element my-child-element)
   [parent-element child-element]
   (.removeChild parent-element child-element))
 
@@ -157,7 +157,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (dom/empty-element! my-element)
+  ;  (empty-element! my-element)
   [element]
   (while (.-firstChild element)
          (.removeChild element (.-firstChild element))))
@@ -167,7 +167,7 @@
   ; @param (string) content
   ;
   ; @usage
-  ;  (dom/set-element-content! my-element "Hakuna Matata!")
+  ;  (set-element-content! my-element "Hakuna Matata!")
   ;
   ; @return (string)
   [element content]

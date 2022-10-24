@@ -16,17 +16,17 @@
   ; @param (string)(opt) flag
   ;
   ; @example
-  ;  (dom/value "my-namespace/my-value?")
+  ;  (value "my-namespace/my-value?")
   ;  =>
   ;  "my-namespace--my-value"
   ;
   ; @example
-  ;  (dom/value :your-namespace/your-value!)
+  ;  (value :your-namespace/your-value!)
   ;  =>
   ;  "your-namespace--your-value"
   ;
   ; @example
-  ;  (dom/value :our-namespace/our-value "420")
+  ;  (value :our-namespace/our-value "420")
   ;  =>
   ;  "our-namespace--our-value--420"
   ;

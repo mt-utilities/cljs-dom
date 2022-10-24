@@ -14,7 +14,7 @@
   ; @param (string) class-name
   ;
   ; @usage
-  ;  (dom/set-element-class! my-element "my-class")
+  ;  (set-element-class! my-element "my-class")
   [element class-name]
   (-> element .-classList (.add class-name)))
 
@@ -23,6 +23,6 @@
   ; @param (string) class-name
   ;
   ; @usage
-  ;  (dom/remove-element-class! my-element "my-class")
+  ;  (remove-element-class! my-element "my-class")
   [element class-name]
   (-> element .-classList (.remove class-name)))

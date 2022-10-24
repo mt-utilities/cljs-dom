@@ -14,7 +14,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
-  ;  (dom/file-selector->files my-file-selector)
+  ;  (file-selector->files my-file-selector)
   ;
   ; @return (?)
   [file-selector]
@@ -24,7 +24,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
-  ;  (dom/file-selector->file-list my-file-selector)
+  ;  (file-selector->file-list my-file-selector)
   ;
   ; @return (?)
   [file-selector]
@@ -35,7 +35,7 @@
   ; @param (integer) file-dex
   ;
   ; @usage
-  ;  (dom/file-selector->file my-file-selector 2)
+  ;  (file-selector->file my-file-selector 2)
   ;
   ; @return (file object)
   [file-selector file-dex]
@@ -45,7 +45,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
-  ;  (dom/file-selector->files-size my-file-selector)
+  ;  (file-selector->files-size my-file-selector)
   ;
   ; @return (B)
   [file-selector]
@@ -55,7 +55,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
-  ;  (dom/file-selector->file-count my-file-selector)
+  ;  (file-selector->file-count my-file-selector)
   ;
   ; @return (integer)
   [file-selector]
@@ -65,7 +65,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
-  ;  (dom/file-selector->any-file-selected? my-file-selector)
+  ;  (file-selector->any-file-selected? my-file-selector)
   ;
   ; @return (boolean)
   [file-selector]
@@ -75,7 +75,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
-  ;  (dom/file-selector->mime-types my-file-selector)
+  ;  (file-selector->mime-types my-file-selector)
   ;
   ; @return (strings in vector)
   [file-selector]
@@ -85,7 +85,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
-  ;  (dom/file-selector->files-data my-file-selector)
+  ;  (file-selector->files-data my-file-selector)
   ;
   ; @return (maps in vector)
   [file-selector]
@@ -95,7 +95,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
-  ;  (dom/file-selector->files-meta my-file-selector)
+  ;  (file-selector->files-meta my-file-selector)
   ;
   ; @return (map)
   ;  {:file-count (integer)
@@ -109,7 +109,7 @@
   ; @param (integer) file-dex
   ;
   ; @usage
-  ;  (dom/file-selector->image-data-url my-file-selector 2)
+  ;  (file-selector->image-data-url my-file-selector 2)
   ;
   ; @return (string)
   [file-selector file-dex]

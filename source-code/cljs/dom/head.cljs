@@ -11,7 +11,7 @@
 
 (defn get-head-element
   ; @usage
-  ;  (dom/get-head-element)
+  ;  (get-head-element)
   ;
   ; @return (DOM-element)
   []

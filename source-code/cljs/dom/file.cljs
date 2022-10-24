@@ -14,7 +14,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (dom/file->filesize my-file)
+  ;  (file->filesize my-file)
   ;
   ; @return (B)
   [file]
@@ -24,7 +24,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (dom/file->filename my-file)
+  ;  (file->filename my-file)
   ;
   ; @return (string)
   [file]
@@ -34,7 +34,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (dom/file->mime-type my-file)
+  ;  (file->mime-type my-file)
   ;
   ; @return (string)
   [file]
@@ -44,7 +44,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (dom/file->image? my-file)
+  ;  (file->image? my-file)
   ;
   ; @return (boolean)
   [file]
@@ -55,7 +55,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (dom/file->file-data 2 my-file)
+  ;  (file->file-data 2 my-file)
   ;
   ; @return (map)
   ;  {:file-dex (integer)
