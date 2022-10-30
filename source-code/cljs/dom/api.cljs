@@ -19,7 +19,8 @@
               [dom.script                :as script]
               [dom.scroll                :as scroll]
               [dom.selection             :as selection]
-              [dom.style                 :as style]))
+              [dom.style                 :as style]
+              [dom.title                 :as title]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -170,3 +171,7 @@
 (def set-element-style-value!    style/set-element-style-value!)
 (def remove-element-style-value! style/remove-element-style-value!)
 (def get-element-computed-style  style/get-element-computed-style)
+
+; dom.title
+(def get-document-title  title/get-document-title)
+(def set-document-title! title/set-document-title!)
