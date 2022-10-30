@@ -1,7 +1,4 @@
 
-;; -- Namespace ---------------------------------------------------------------
-;; ----------------------------------------------------------------------------
-
 (ns dom.api
     (:require [dom.attribute             :as attribute]
               [dom.body                  :as body]
@@ -22,12 +19,7 @@
               [dom.script                :as script]
               [dom.scroll                :as scroll]
               [dom.selection             :as selection]
-              [dom.style                 :as style]
-              [dom.touch                 :as touch]
-              [dom.units                 :as units]
-              [dom.viewport              :as viewport]))
-
-
+              [dom.style                 :as style]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -178,20 +170,3 @@
 (def set-element-style-value!    style/set-element-style-value!)
 (def remove-element-style-value! style/remove-element-style-value!)
 (def get-element-computed-style  style/get-element-computed-style)
-
-; dom.touch
-(def touch-events-api-detected? touch/touch-events-api-detected?)
-
-; dom.units
-(def px->vh units/px->vh)
-(def px->vw units/px->vw)
-(def vh->px units/vh->px)
-(def vw->px units/vw->px)
-
-; dom.viewport
-(def get-viewport-height      viewport/get-viewport-height)
-(def get-viewport-width       viewport/get-viewport-width)
-(def get-viewport-orientation viewport/get-viewport-orientation)
-(def square-viewport?         viewport/square-viewport?)
-(def landscape-viewport?      viewport/landscape-viewport?)
-(def portrait-viewport?       viewport/portrait-viewport?)

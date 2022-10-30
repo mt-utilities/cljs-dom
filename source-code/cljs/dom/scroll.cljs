@@ -1,13 +1,8 @@
 
-;; -- Namespace ---------------------------------------------------------------
-;; ----------------------------------------------------------------------------
-
 (ns dom.scroll
     (:require [dom.config       :as config]
               [mid-fruits.candy :refer [return]]
               [mid-fruits.math  :as math]))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -27,8 +22,6 @@
   ; @return (px)
   []
   (-> js/document .-documentElement .-scrollTop))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -58,8 +51,6 @@
   ; értékével kisebb, mint a last-scroll-y értéke ...
   (> (- last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
      (-> js/document .-documentElement .-scrollTop)))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -105,7 +96,7 @@
   ; @return (percent)
   ;  0 - 100
   []
-  (let [viewport-height (.-innerHeight js/window)
+  (let [viewport-height (-> js/window   .-innerHeight)
         scroll-y        (-> js/document .-documentElement .-scrollTop)
         document-height (-> js/document .-documentElement .-scrollHeight)
         max-scroll-y    (- document-height viewport-height)
@@ -114,8 +105,6 @@
       ; a document-height értéke nem valós, ebből kifolyólag a scroll-progress
       ; értéke ilyenkor kisebb lenne, mint 0.
       (math/between! scroll-progress 0 100)))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

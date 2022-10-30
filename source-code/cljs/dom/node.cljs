@@ -1,10 +1,5 @@
 
-;; -- Namespace ---------------------------------------------------------------
-;; ----------------------------------------------------------------------------
-
 (ns dom.node)
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -31,8 +26,6 @@
   [parent-element child-element before-element]
   (.insertBefore parent-element child-element (.-nextSibling before-element)))
 
-
-
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
@@ -57,8 +50,6 @@
   (.insertBefore parent-element child-element
                  (-> parent-element (.getElementsByTagName (-> child-element .-tagName))
                      array-seq last .-nextSibling)))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -93,8 +84,6 @@
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query-selector) array-seq last .-nextSibling)))
 
-
-
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
@@ -115,8 +104,6 @@
   ;  (prepend-element! my-parent-element my-child-element)
   [parent-element child-element]
   (.insertBefore parent-element child-element (.-firstChild parent-element)))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -147,8 +134,6 @@
   ;  (remove-child! my-parent-element my-child-element)
   [parent-element child-element]
   (.removeChild parent-element child-element))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
