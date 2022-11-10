@@ -2,7 +2,7 @@
 (ns dom.scroll
     (:require [dom.config       :as config]
               [mid-fruits.candy :refer [return]]
-              [mid-fruits.math  :as math]))
+              [math.api         :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

@@ -3,9 +3,9 @@
     (:require [dom.config        :as config]
               [io.api            :as io]
               [mid-fruits.candy  :refer [param return]]
-              [mid-fruits.css    :as css]
+              [css.api           :as css]
               [mid-fruits.map    :as map]
-              [mid-fruits.math   :as math]
+              [math.api          :as math]
               [mid-fruits.string :as string]
               [mid-fruits.vector :as vector]))
 
