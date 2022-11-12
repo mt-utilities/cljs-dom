@@ -1,7 +1,7 @@
 
 (ns dom.form-data
-    (:require [dom.file-selector :as file-selector]
-              [mid-fruits.candy  :refer [return]]))
+    (:require [candy.api         :refer [return]]
+              [dom.file-selector :as file-selector]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

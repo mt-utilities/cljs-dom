@@ -1,8 +1,8 @@
 
 (ns dom.scroll
-    (:require [dom.config       :as config]
-              [mid-fruits.candy :refer [return]]
-              [math.api         :as math]))
+    (:require [candy.api  :refer [return]]
+              [dom.config :as config]
+              [math.api   :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

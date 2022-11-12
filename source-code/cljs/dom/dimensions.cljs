@@ -1,7 +1,7 @@
 
 (ns dom.dimensions
-    (:require [mid-fruits.candy :refer [return]]
-              [math.api         :as math]))
+    (:require [candy.api :refer [return]]
+              [math.api  :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
