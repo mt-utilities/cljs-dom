@@ -17,13 +17,13 @@
          (js/IntersectionObserver. f {})))
 
 (defn setup-intersection-observer!
-  ; @param (DOM element) element
+  ; @param (DOM-element) element
   ; @param (function) callback-f
   ;
   ; @usage
   ;  (setup-intersection-observer! my-element (fn [intersecting?] ...))
   ;
-  ; @return (?)
+  ; @return (DOM-element)
   [element callback-f]
   (let [observer (intersection-observer callback-f)]
        (.observe observer element)
@@ -31,11 +31,12 @@
 
 (defn remove-intersection-observer!
   ; @param (?) observer
-  ; @param (DOM element) element
+  ; @param (DOM-element) element
   ;
   ; @usage
   ;  (remove-intersection-observer! my-observer my-element)
   ;
-  ; @return (undefined)
+  ; @return (DOM-element)
   [observer element]
-  (.unobserve observer element))
+  (.unobserve observer element)
+  (return     observer))

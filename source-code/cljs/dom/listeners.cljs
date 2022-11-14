@@ -1,5 +1,6 @@
 
-(ns dom.listeners)
+(ns dom.listeners
+    (:require [candy.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -12,8 +13,14 @@
   ;
   ; @usage
   ;  (add-event-listener! "mousemove" (fn [] ...))
-  ([type listener-f]        (.addEventListener js/window type listener-f false))
-  ([type listener-f target] (.addEventListener target    type listener-f false)))
+  ;
+  ; @return (DOM-element)
+  ([type listener-f]
+   (add-event-listener! type listener-f js/window))
+
+  ([type listener-f target]
+   (.addEventListener target type listener-f false)
+   (return            target)))
 
 (defn remove-event-listener!
   ; @param (string) type
@@ -24,5 +31,11 @@
   ; @usage
   ;  (def my-listener-f (fn []))
   ;  (remove-event-listener! "mousemove" my-listener-f)
-  ([type listener-f]        (.removeEventListener js/window type listener-f false))
-  ([type listener-f target] (.removeEventListener target    type listener-f false)))
+  ;
+  ; @return (DOM-element)
+  ([type listener-f]
+   (remove-event-listener! type listener-f js/window))
+
+  ([type listener-f target]
+   (.removeEventListener target type listener-f false)
+   (return               target)))

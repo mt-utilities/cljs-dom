@@ -20,10 +20,8 @@
   (let [prop-key (if (keyword? prop-key)
                      (name     prop-key)
                      (return   prop-key))]
-       (.append form-data prop-key prop-value)
-
-       ; Ez szükséges? Az .append függvény nem a form-data objektummal tér vissza?
-       (return  form-data)))
+       (.append form-data prop-key prop-value))
+  (return form-data))
 
 (defn merge-to-form-data!
   ; @param (FormData object) form-data
@@ -42,8 +40,6 @@
   (doseq [n xyz]
          (doseq [[k v] n]
                 (append-to-form-data! form-data k v)))
-
-  ; Ez szükséges? Az .append függvény nem a form-data objektummal tér vissza?
   (return form-data))
 
 ;; ----------------------------------------------------------------------------
@@ -70,6 +66,4 @@
        (doseq [file-key file-keys]
               (let [file (aget files file-key)]
                    (append-to-form-data! form-data file-key file)))
-
-       ; Ez szükséges? Az .append függvény nem a form-data objektummal tér vissza?
        (return form-data)))

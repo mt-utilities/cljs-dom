@@ -1,5 +1,6 @@
 
-(ns dom.class)
+(ns dom.class
+    (:require [candy.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -10,8 +11,11 @@
   ;
   ; @usage
   ;  (set-element-class! my-element "my-class")
+  ;
+  ; @return (DOM-element)
   [element class-name]
-  (-> element .-classList (.add class-name)))
+  (->     element .-classList (.add class-name))
+  (return element))
 
 (defn remove-element-class!
   ; @param (DOM-element) element
@@ -19,5 +23,8 @@
   ;
   ; @usage
   ;  (remove-element-class! my-element "my-class")
+  ;
+  ; @return (DOM-element)
   [element class-name]
-  (-> element .-classList (.remove class-name)))
+  (->     element .-classList (.remove class-name))
+  (return element))

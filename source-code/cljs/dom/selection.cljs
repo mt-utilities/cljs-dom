@@ -1,13 +1,6 @@
 
 (ns dom.selection
-    (:require [candy.api         :refer [param return]]
-              [css.api           :as css]
-              [dom.config        :as config]
-              [io.api            :as io]
-              [mid-fruits.map    :as map]
-              [math.api          :as math]
-              [mid-fruits.string :as string]
-              [mid-fruits.vector :as vector]))
+    (:require [candy.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -42,9 +35,10 @@
   ; @usage
   ;  (set-selection-start! my-element 2)
   ;
-  ; @return (?)
+  ; @return (DOM-element)
   [element selection-start]
-  (-> element .-selectionStart (set! selection-start)))
+  (->     element .-selectionStart (set! selection-start))
+  (return element))
 
 (defn set-selection-end!
   ; @param (DOM-element) element
@@ -53,9 +47,10 @@
   ; @usage
   ;  (set-selection-end! my-element 2)
   ;
-  ; @return (?)
+  ; @return (DOM-element)
   [element selection-end]
-  (-> element .-selectionEnd (set! selection-end)))
+  (->     element .-selectionEnd (set! selection-end))
+  (return element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -68,10 +63,11 @@
   ; @usage
   ;  (set-selection-range! my-element 2 10)
   ;
-  ; @return (?)
+  ; @return (DOM-element)
   [element selection-start selection-end]
   (set-selection-start! element selection-start)
-  (set-selection-end!   element selection-end))
+  (set-selection-end!   element selection-end)
+  (return               element))
 
 (defn set-caret-position!
   ; @param (DOM-element) element
@@ -80,10 +76,11 @@
   ; @usage
   ;  (set-caret-position! my-element 20)
   ;
-  ; @return (?)
+  ; @return (DOM-element)
   [element caret-position]
   (set-selection-start! element caret-position)
-  (set-selection-end!   element caret-position))
+  (set-selection-end!   element caret-position)
+  (return               element))
 
 (defn move-caret-to-start!
   ; @param (DOM-element) element
@@ -91,9 +88,10 @@
   ; @usage
   ;  (move-caret-to-start! my-element)
   ;
-  ; @return (?)
+  ; @return (DOM-element)
   [element]
-  (set-selection-range! element 0 0))
+  (set-selection-range! element 0 0)
+  (return               element))
 
 (defn move-caret-to-end!
   ; @param (DOM-element) element
@@ -101,7 +99,8 @@
   ; @usage
   ;  (move-caret-to-end! my-element)
   ;
-  ; @return (?)
+  ; @return (DOM-element)
   [element]
   (let [length (-> element .-value .-length)]
-       (set-selection-range! element length length)))
+       (set-selection-range! element length length))
+  (return element))

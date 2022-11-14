@@ -1,12 +1,13 @@
 
-(ns dom.element)
+(ns dom.element
+    (:require [candy.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-by-id
   ; @param (string) element-id
-  ; @param (DOM element)(opt) parent-element
+  ; @param (DOM-element)(opt) parent-element
   ;  Default: js/document
   ;
   ; @usage
@@ -33,7 +34,7 @@
 
 (defn get-elements-by-class-name
   ; @param (string) class-name
-  ; @param (DOM element)(opt) parent-element
+  ; @param (DOM-element)(opt) parent-element
   ;  Default: js/document
   ;
   ; @usage
@@ -45,7 +46,7 @@
 
 (defn get-elements-by-tag-name
   ; @param (string) tag-name
-  ; @param (DOM element)(opt) parent-element
+  ; @param (DOM-element)(opt) parent-element
   ;  Default: js/document
   ;
   ; @usage
@@ -87,5 +88,8 @@
   ;
   ; @usage
   ;  (set-element-id! my-element "my-element-id")
+  ;
+  ; @return (DOM-element)
   [element element-id]
-  (-> element .-id (set! element-id)))
+  (->     element .-id (set! element-id))
+  (return element))

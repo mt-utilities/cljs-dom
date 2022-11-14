@@ -1,5 +1,6 @@
 
-(ns dom.focus)
+(ns dom.focus
+    (:require [candy.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -20,13 +21,19 @@
   ;
   ; @usage
   ;  (focus-element!)
+  ;
+  ; @return (DOM-element)
   [element]
-  (.focus element))
+  (.focus element)
+  (return element))
 
 (defn blur-element!
   ; @param (DOM-element) element
   ;
   ; @usage
   ;  (blur-element!)
+  ;
+  ; @return (DOM-element)
   [element]
-  (.blur element))
+  (.blur element)
+  (return element))

@@ -1,6 +1,7 @@
 
 (ns dom.style
-    (:require [css.api :as css]))
+    (:require [candy.api :refer [return]]
+              [css.api :as css]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -19,17 +20,23 @@
   ;
   ; @usage
   ;  (set-element-style! my-element {:position "fixed" :top "0"})
+  ;
+  ; @return (DOM-element)
   [element style]
   (let [parsed-style (css/unparse style)]
-       (.setAttribute element "style" parsed-style)))
+       (.setAttribute element "style" parsed-style))
+  (return element))
 
 (defn remove-element-style!
   ; @param (DOM-element) element
   ;
   ; @usage
   ;  (remove-element-style! my-element)
+  ;
+  ; @return (DOM-element)
   [element]
-  (.removeAttribute element "style"))
+  (.removeAttribute element "style")
+  (return           element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -53,8 +60,11 @@
   ;
   ; @usage
   ;  (set-element-style-value! my-element "position" "fixed")
+  ;
+  ; @return (DOM-element)
   [element style-name style-value]
-  (-> element .-style (aset style-name style-value)))
+  (->     element .-style (aset style-name style-value))
+  (return element))
 
 (defn remove-element-style-value!
   ; @param (DOM-element) element
@@ -62,8 +72,11 @@
 
   ; @usage
   ;  (remove-element-style-value! my-element "position")
+  ;
+  ; @return (DOM-element)
   [element style-name]
-  (-> element .-style (aset style-name nil)))
+  (->     element .-style (aset style-name nil))
+  (return element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

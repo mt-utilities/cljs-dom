@@ -1,8 +1,9 @@
 
 (ns dom.script
-    (:require [dom.attribute :as attribute]
-              [dom.body      :as body]
-              [dom.node      :as node]))
+    (:require [candy.api      :refer [return]]
+              [dom.attributes :as attributes]
+              [dom.body       :as body]
+              [dom.node       :as node]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -12,9 +13,12 @@
   ;
   ; @usage
   ;  (append-script! "console.log('420')")
+  ;
+  ; @return (DOM-element)
   [script]
   (let [body-element   (body/get-body-element)
         script-element (node/create-element! "script")]
-       (attribute/set-element-attribute! script-element "type" "text/javascript")
-       (node/set-element-content!        script-element script)
-       (node/append-element!             body-element   script-element)))
+       (attributes/set-element-attribute! script-element "type" "text/javascript")
+       (node/set-element-content!         script-element script)
+       (node/append-element!              body-element   script-element)
+       (return                            script-element)))

@@ -1,5 +1,6 @@
 
-(ns dom.node)
+(ns dom.node
+    (:require [candy.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -11,8 +12,11 @@
   ;
   ; @usage
   ;  (insert-before! my-parent-element my-child-element my-after-element)
+  ;
+  ; @return (DOM-element)
   [parent-element child-element after-element]
-  (.insertBefore parent-element child-element after-element))
+  (.insertBefore parent-element child-element after-element)
+  (return        parent-element))
 
 (defn insert-after!
   ; https://www.javascripttutorial.net/javascript-dom/javascript-insertafter/
@@ -23,8 +27,11 @@
   ;
   ; @usage
   ;  (insert-after! my-parent-element my-child-element my-before-element)
+  ;
+  ; @return (DOM-element)
   [parent-element child-element before-element]
-  (.insertBefore parent-element child-element (.-nextSibling before-element)))
+  (.insertBefore parent-element child-element (.-nextSibling before-element))
+  (return        parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -35,10 +42,19 @@
   ;
   ; @usage
   ;  (insert-as-first-of-type! my-parent-element my-child-element)
+  ;
+  ; @return (DOM-element)
   [parent-element child-element]
-  (.insertBefore parent-element child-element
-                 (-> parent-element (.getElementsByTagName (-> child-element .-tagName))
-                     array-seq first)))
+  ; XXX#5507
+  ; https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+  ; The :scope pseudo-class restores the expected behavior,
+  ; only matching selectors on descendants of the base element:
+  (let [tag-name (-> child-element .-tagName)
+        query    (str ":scope > "tag-name)]
+       (.insertBefore parent-element child-element
+                      (-> parent-element (.querySelectorAll query)
+                          array-seq first)))
+  (return parent-element))
 
 (defn insert-as-last-of-type!
   ; @param (DOM-element) parent-element
@@ -46,10 +62,16 @@
   ;
   ; @usage
   ;  (insert-as-last-of-type! my-parent-element my-child-element)
+  ;
+  ; @return (DOM-element)
   [parent-element child-element]
-  (.insertBefore parent-element child-element
-                 (-> parent-element (.getElementsByTagName (-> child-element .-tagName))
-                     array-seq last .-nextSibling)))
+  ; XXX#5507
+  (let [tag-name (-> child-element .-tagName)
+        query    (str ":scope > "tag-name)]
+       (.insertBefore parent-element child-element
+                      (-> parent-element (.querySelectorAll query)
+                          array-seq last .-nextSibling)))
+  (return parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -65,9 +87,12 @@
   ;
   ; @usage
   ;  (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
+  ;
+  ; @return (DOM-element)
   [parent-element child-element query-selector]
   (.insertBefore parent-element child-element
-                 (-> parent-element (.querySelectorAll query-selector) array-seq first)))
+                 (-> parent-element (.querySelectorAll query-selector) array-seq first))
+  (return parent-element))
 
 (defn insert-as-last-of-query-selected!
   ; @param (DOM-element) parent-element
@@ -80,9 +105,12 @@
   ;
   ; @usage
   ;  (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
+  ;
+  ; @return (DOM-element)
   [parent-element child-element query-selector]
   (.insertBefore parent-element child-element
-                 (-> parent-element (.querySelectorAll query-selector) array-seq last .-nextSibling)))
+                 (-> parent-element (.querySelectorAll query-selector) array-seq last .-nextSibling))
+  (return parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -93,8 +121,11 @@
   ;
   ; @usage
   ;  (append-element! my-parent-element my-child-element)
+  ;
+  ; @return (DOM-element)
   [parent-element child-element]
-  (.appendChild parent-element child-element))
+  (.appendChild parent-element child-element)
+  (return       parent-element))
 
 (defn prepend-element!
   ; @param (DOM-element) parent-element
@@ -102,8 +133,11 @@
   ;
   ; @usage
   ;  (prepend-element! my-parent-element my-child-element)
+  ;
+  ; @return (DOM-element)
   [parent-element child-element]
-  (.insertBefore parent-element child-element (.-firstChild parent-element)))
+  (.insertBefore parent-element child-element (.-firstChild parent-element))
+  (return        parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -123,6 +157,8 @@
   ;
   ; @usage
   ;  (remove-element! my-element)
+  ;
+  ; @return (undefined)
   [element]
   (.remove element))
 
@@ -132,8 +168,11 @@
   ;
   ; @usage
   ;  (remove-child! my-parent-element my-child-element)
+  ;
+  ; @return (DOM-element)
   [parent-element child-element]
-  (.removeChild parent-element child-element))
+  (.removeChild parent-element child-element)
+  (return       parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -143,9 +182,12 @@
   ;
   ; @usage
   ;  (empty-element! my-element)
+  ;
+  ; @return (DOM-element)
   [element]
   (while (.-firstChild element)
-         (.removeChild element (.-firstChild element))))
+         (.removeChild element (.-firstChild element)))
+  (return element))
 
 (defn set-element-content!
   ; @param (DOM-element) element
@@ -154,6 +196,7 @@
   ; @usage
   ;  (set-element-content! my-element "Hakuna Matata!")
   ;
-  ; @return (string)
+  ; @return (DOM-element)
   [element content]
-  (-> element .-innerHTML (set! content)))
+  (->     element .-innerHTML (set! content))
+  (return element))

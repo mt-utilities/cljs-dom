@@ -1,6 +1,6 @@
 
 (ns dom.api
-    (:require [dom.attribute             :as attribute]
+    (:require [dom.attributes            :as attributes]
               [dom.body                  :as body]
               [dom.class                 :as class]
               [dom.dimensions            :as dimensions]
@@ -25,10 +25,13 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; dom.attribute
-(def get-element-attribute     attribute/get-element-attribute)
-(def set-element-attribute!    attribute/set-element-attribute!)
-(def remove-element-attribute! attribute/remove-element-attribute!)
+; dom.attributes
+(def get-element-attributes     attributes/get-element-attributes)
+(def set-element-attributes!    attributes/set-element-attributes!)
+(def remove-element-attributes! attributes/remove-element-attributes!)
+(def get-element-attribute      attributes/get-element-attribute)
+(def set-element-attribute!     attributes/set-element-attribute!)
+(def remove-element-attribute!  attributes/remove-element-attribute!)
 
 ; dom.body
 (def get-body-element     body/get-body-element)

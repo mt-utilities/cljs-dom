@@ -1,5 +1,6 @@
 
-(ns dom.title)
+(ns dom.title
+    (:require [candy.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -19,5 +20,8 @@
   ;
   ; @usage
   ;  (set-document-title! "My title")
+  ;
+  ; @return (string)
   [title]
-  (set! (-> js/document .-title) title))
+  (set! (-> js/document .-title) title)
+  (return title))

@@ -5,7 +5,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn on-mouse-left
-  ; @param (DOM event) mouse-event
+  ; @param (DOM-event) mouse-event
   ; @param (function) f
   ;
   ; @usage
@@ -20,7 +20,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn stop-propagation!
-  ; @param (DOM event) event
+  ; @param (DOM-event) event
   ;
   ; @usage
   ;  (stop-propagation! my-event)
@@ -30,7 +30,7 @@
   (.stopPropagation event))
 
 (defn prevent-default!
-  ; @param (DOM event) event
+  ; @param (DOM-event) event
   ;
   ; @usage
   ;  (prevent-default! my-event)
@@ -43,7 +43,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn event->node-name
-  ; @param (DOM event) event
+  ; @param (DOM-event) event
   ;
   ; @usage
   ;  (event->node-name %)
