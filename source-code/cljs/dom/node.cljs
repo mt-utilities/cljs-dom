@@ -79,8 +79,7 @@
 (defn insert-as-first-of-query-selected!
   ; @param (DOM-element) parent-element
   ; @param (DOM-element) child-element
-  ; @param (string) query-selector
-  ;  XXX#7603
+  ; @param (string) query
   ;
   ; @usage
   ;  (insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
@@ -89,16 +88,15 @@
   ;  (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
   ;
   ; @return (DOM-element)
-  [parent-element child-element query-selector]
+  [parent-element child-element query]
   (.insertBefore parent-element child-element
-                 (-> parent-element (.querySelectorAll query-selector) array-seq first))
+                 (-> parent-element (.querySelectorAll query) array-seq first))
   (return parent-element))
 
 (defn insert-as-last-of-query-selected!
   ; @param (DOM-element) parent-element
   ; @param (DOM-element) child-element
-  ; @param (string) query-selector
-  ;  XXX#7603
+  ; @param (string) query
   ;
   ; @usage
   ;  (insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
@@ -107,9 +105,9 @@
   ;  (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
   ;
   ; @return (DOM-element)
-  [parent-element child-element query-selector]
+  [parent-element child-element query]
   (.insertBefore parent-element child-element
-                 (-> parent-element (.querySelectorAll query-selector) array-seq last .-nextSibling))
+                 (-> parent-element (.querySelectorAll query) array-seq last .-nextSibling))
   (return parent-element))
 
 ;; ----------------------------------------------------------------------------

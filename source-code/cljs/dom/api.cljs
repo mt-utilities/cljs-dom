@@ -65,13 +65,14 @@
 (def toggle-design-mode!  document/toggle-design-mode!)
 
 ; dom.element
-(def get-element-by-id              element/get-element-by-id)
-(def get-elements-by-query-selector element/get-elements-by-query-selector)
-(def get-elements-by-class-name     element/get-elements-by-class-name)
-(def get-elements-by-tag-name       element/get-elements-by-tag-name)
-(def element-disabled?              element/element-disabled?)
-(def element-enabled?               element/element-enabled?)
-(def set-element-id!                element/set-element-id!)
+(def get-element-by-id          element/get-element-by-id)
+(def get-elements-by-class-name element/get-elements-by-class-name)
+(def get-elements-by-tag-name   element/get-elements-by-tag-name)
+(def get-element-by-query       element/get-element-by-query)
+(def get-elements-by-query      element/get-elements-by-query)
+(def element-disabled?          element/element-disabled?)
+(def element-enabled?           element/element-enabled?)
+(def set-element-id!            element/set-element-id!)
 
 ; dom.event
 (def on-mouse-left     event/on-mouse-left)
