@@ -1419,7 +1419,8 @@
 ```
 @usage
 (def my-element (get-element-by-id "my-element"))
-(get-element-style my-element)```
+(get-element-style my-element)
+```
 
 ---
 
@@ -2466,7 +2467,8 @@
 ```
 @usage
 (def my-element (get-element-by-id "my-element"))
-(scroll-to-element-top! my-element)```
+(scroll-to-element-top! my-element)
+```
 
 ---
 
@@ -2487,7 +2489,8 @@
 ```
 @usage
 (fn [mouse-event]
-    (select-preventer mouse-event))```
+    (select-preventer mouse-event))
+```
 
 ---
 
@@ -2751,7 +2754,8 @@
 
 ```
 @usage
-(set-scroll-x! 100)```
+(set-scroll-x! 100)
+```
 
 ---
 
@@ -2902,4 +2906,5 @@
 
 ```
 @usage
-(toggle-design-mode!)```
+(toggle-design-mode!)
+```
