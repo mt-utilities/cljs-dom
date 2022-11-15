@@ -1,6 +1,15 @@
 
 # dom-api
-  "A man is but a product of his thoughts. What he thinks he becomes." – Mahatma Gandhi
+> "A man is but a product of his thoughts. What he thinks he becomes." – Mahatma Gandhi
 
-# Documentation book is releasing soon ...
-  2023.01.01.
+### Overview
+
+...
+
+### Current version
+
+The <strong>dom-api</strong> is releasing soon on Clojars!
+
+### Documentation
+
+The <strong>dom-api</strong> documentation is [available here](documentation/COVER.md).
