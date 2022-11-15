@@ -10,6 +10,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-width my-element)
   ;
   ; @return (px)
@@ -20,6 +21,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-height my-element)
   ;
   ; @return (px)
@@ -35,6 +37,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-relative-left my-element)
   ;
   ; @return (px)
@@ -47,6 +50,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-relative-top my-element)
   ;
   ; @return (px)
@@ -62,6 +66,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-absolute-left my-element)
   ;
   ; @return (px)
@@ -75,6 +80,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-absolute-top my-element)
   ;
   ; @return (px)
@@ -91,6 +97,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-offset-left my-element)
   ;
   ; @return (px)
@@ -103,6 +110,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-offset-top my-element)
   ;
   ; @return (px)
@@ -116,6 +124,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-masspoint-x my-element)
   ;
   ; @return (px)
@@ -128,6 +137,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-masspoint-y my-element)
   ;
   ; @return (px)
@@ -143,6 +153,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (element-on-viewport-left? my-element)
   ;
   ; @return (boolean)
@@ -156,6 +167,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (element-on-viewport-right? my-element)
   ;
   ; @return (boolean)
@@ -169,6 +181,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (element-on-viewport-top? my-element)
   ;
   ; @return (boolean)
@@ -182,6 +195,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (element-on-viewport-bottom? my-element)
   ;
   ; @return (boolean)
@@ -198,6 +212,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-masspoint-orientation my-element)
   ;
   ; @return (keyword)

@@ -11,6 +11,9 @@
   ; @param (DOM-element) after-element
   ;
   ; @usage
+  ; (def my-parent-element (get-element-by-id "my-parent-element"))
+  ; (def my-after-element  (get-element-by-id "my-after-element"))
+  ; (def my-child-element  (create-element! "div"))
   ; (insert-before! my-parent-element my-child-element my-after-element)
   ;
   ; @return (DOM-element)
@@ -26,6 +29,9 @@
   ; @param (DOM-element) before-element
   ;
   ; @usage
+  ; (def my-parent-element (get-element-by-id "my-parent-element"))
+  ; (def my-before-element (get-element-by-id "my-before-element"))
+  ; (def my-child-element  (create-element! "div"))
   ; (insert-after! my-parent-element my-child-element my-before-element)
   ;
   ; @return (DOM-element)
@@ -41,6 +47,8 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
+  ; (def my-parent-element (get-element-by-id "my-parent-element"))
+  ; (def my-child-element  (create-element! "div"))
   ; (insert-as-first-of-type! my-parent-element my-child-element)
   ;
   ; @return (DOM-element)
@@ -61,6 +69,8 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
+  ; (def my-parent-element (get-element-by-id "my-parent-element"))
+  ; (def my-child-element  (create-element! "div"))
   ; (insert-as-last-of-type! my-parent-element my-child-element)
   ;
   ; @return (DOM-element)
@@ -82,9 +92,13 @@
   ; @param (string) query
   ;
   ; @usage
-  ; (insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
+  ; (def head-element    (get-head-element))
+  ; (def my-link-element (create-element! "link"))
+  ; (insert-as-first-of-query-selected! head-element my-link-element "[type=\"text/css\"]")
   ;
   ; @usage
+  ; (def body-element (get-body-element))
+  ; (def my-element   (create-element! "div"))
   ; (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
   ;
   ; @return (DOM-element)
@@ -99,9 +113,13 @@
   ; @param (string) query
   ;
   ; @usage
-  ; (insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
+  ; (def head-element    (get-head-element))
+  ; (def my-link-element (create-element! "link"))
+  ; (insert-as-first-of-query-selected! head-element my-link-element "[type=\"text/css\"]")
   ;
   ; @usage
+  ; (def body-element (get-body-element))
+  ; (def my-element   (create-element! "div"))
   ; (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
   ;
   ; @return (DOM-element)
@@ -118,6 +136,8 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
+  ; (def my-parent-element (get-element-by-id "my-parent-element"))
+  ; (def my-child-element  (create-element! "div"))
   ; (append-element! my-parent-element my-child-element)
   ;
   ; @return (DOM-element)
@@ -130,6 +150,8 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
+  ; (def my-parent-element (get-element-by-id "my-parent-element"))
+  ; (def my-child-element  (create-element! "div"))
   ; (prepend-element! my-parent-element my-child-element)
   ;
   ; @return (DOM-element)
@@ -154,6 +176,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element! my-element)
   ;
   ; @return (undefined)
@@ -165,6 +188,8 @@
   ; @param (DOM-element) child-element
   ;
   ; @usage
+  ; (def my-parent-element (get-element-by-id "my-parent-element"))
+  ; (def my-child-element  (get-element-by-id "my-child-element"))
   ; (remove-child! my-parent-element my-child-element)
   ;
   ; @return (DOM-element)
@@ -179,6 +204,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (empty-element! my-element)
   ;
   ; @return (DOM-element)
@@ -192,6 +218,7 @@
   ; @param (string) content
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-content! my-element "Hakuna Matata!")
   ;
   ; @return (DOM-element)

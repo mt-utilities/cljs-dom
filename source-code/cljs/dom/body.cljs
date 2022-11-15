@@ -20,7 +20,7 @@
   ; @param (string) style-name
   ;
   ; @usage
-  ; (get-element-style "background-color")
+  ; (get-body-style-value "background-color")
   ;
   ; @return (string)
   [style-name]

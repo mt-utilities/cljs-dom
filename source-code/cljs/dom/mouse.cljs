@@ -9,7 +9,8 @@
   ; @param (DOM-event) mouse-event
   ;
   ; @usage
-  ; (get-mouse-x %)
+  ; (fn [mouse-event]
+  ;     (get-mouse-x mouse-event))
   ;
   ; @return (px)
   [mouse-event]
@@ -19,7 +20,8 @@
   ; @param (DOM-event) mouse-event
   ;
   ; @usage
-  ; (get-mouse-x %)
+  ; (fn [mouse-event]
+  ;     (get-mouse-x %)
   ;
   ; @return (px)
   [mouse-event]
@@ -32,7 +34,8 @@
   ; @param (DOM-event) mouse-event
   ;
   ; @usage
-  ; (get-mouse-viewport-quarter %)
+  ; (fn [mouse-event]
+  ;     (get-mouse-viewport-quarter mouse-event))
   ;
   ; @return (keyword)
   ; :tl, :tr, :bl, :br
@@ -57,7 +60,8 @@
   ; @param (DOM-event) mouse-event
   ;
   ; @usage
-  ; (select-preventer %)
+  ; (fn [mouse-event]
+  ;     (select-preventer mouse-event))
   [mouse-event]
   (let [node-name (-> mouse-event .-srcElement .-nodeName string/lowercase)]
        ; Az input es textarea elemek hasznalatahoz szukseg van mouse-down eventre!

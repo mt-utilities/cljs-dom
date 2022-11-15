@@ -9,8 +9,8 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ; (let [my-element (get-element-by-id "my-element")]
-  ;      (get-element-attributes my-element))
+  ; (def my-element (get-element-by-id "my-element"))
+  ; (get-element-attributes my-element)
   ;
   ; @return (map)
   [element]
@@ -21,6 +21,7 @@
   ; @param (map) attributes
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-attributes! my-element {"my-attribute" "my-value"})
   ;
   ; @return (DOM-element)
@@ -36,6 +37,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-attribute! my-element)
   ;
   ; @return (DOM-element)
@@ -51,6 +53,7 @@
   ; @param (string) attribute-name
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-attribute my-element "my-attribute")
   ;
   ; @return (string)
@@ -63,6 +66,7 @@
   ; @param (string) attribute-value
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-attribute! my-element "my-attribute" "my-value")
   ;
   ; @return (DOM-element)
@@ -75,6 +79,7 @@
   ; @param (string) attribute-name
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-attribute! my-element "my-attribute")
   ;
   ; @return (DOM-element)

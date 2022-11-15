@@ -9,7 +9,7 @@
   ; @param (function) f
   ;
   ; @usage
-  ; (on-mouse-left % (fn [] ...))
+  ; (on-mouse-left % (fn [mouse-event] ...))
   ;
   ; @return (*)
   [mouse-event f]
@@ -23,7 +23,8 @@
   ; @param (DOM-event) event
   ;
   ; @usage
-  ; (stop-propagation! my-event)
+  ; (fn [my-event]
+  ;     (stop-propagation! my-event))
   ;
   ; @return (*)
   [event]
@@ -33,7 +34,8 @@
   ; @param (DOM-event) event
   ;
   ; @usage
-  ; (prevent-default! my-event)
+  ; (fn [my-event]
+  ;     (prevent-default! my-event))
   ;
   ; @return (*)
   [event]
@@ -46,7 +48,8 @@
   ; @param (DOM-event) event
   ;
   ; @usage
-  ; (event->node-name %)
+  ; (fn [my-event]
+  ;     (event->node-name my-event))
   ;
   ; @return (string)
   [event]
@@ -56,7 +59,8 @@
   ; @param (dom-event) n
   ;
   ; @usage
-  ; (event->value %)
+  ; (fn [my-event]
+  ;     (event->value my-event))
   ;
   ; @return (*)
   [n]

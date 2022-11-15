@@ -20,7 +20,8 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ; (focus-element!)
+  ; (def my-element (get-element-by-id "my-element"))
+  ; (focus-element! my-element)
   ;
   ; @return (DOM-element)
   [element]
@@ -31,9 +32,10 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ; (blur-element!)
+  ; (def my-element (get-element-by-id "my-element"))
+  ; (blur-element! my-element)
   ;
   ; @return (DOM-element)
   [element]
-  (.blur element)
+  (.blur  element)
   (return element))

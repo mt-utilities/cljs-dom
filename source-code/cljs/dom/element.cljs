@@ -84,6 +84,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (element-disabled? my-element)
   ;
   ; @return (boolean)
@@ -94,6 +95,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (element-enabled? my-element)
   ;
   ; @return (boolean)
@@ -108,6 +110,7 @@
   ; @param (string) element-id
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-id! my-element "my-element-id")
   ;
   ; @return (DOM-element)

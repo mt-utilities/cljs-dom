@@ -21,6 +21,7 @@
   ; @param (function) callback-f
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (setup-intersection-observer! my-element (fn [intersecting?] ...))
   ;
   ; @return (DOM-element)
@@ -34,6 +35,8 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element  (get-element-by-id "my-element"))
+  ; (def my-observer (intersection-observer! my-element (fn [intersecting?])))
   ; (remove-intersection-observer! my-observer my-element)
   ;
   ; @return (DOM-element)

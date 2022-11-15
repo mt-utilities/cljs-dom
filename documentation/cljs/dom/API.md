@@ -46,6 +46,8 @@
 
 ```
 @usage
+(def my-parent-element (get-element-by-id "my-parent-element"))
+(def my-child-element  (create-element! "div"))
 (append-element! my-parent-element my-child-element)
 ```
 
@@ -124,7 +126,8 @@
 
 ```
 @usage
-(blur-element!)
+(def my-element (get-element-by-id "my-element"))
+(blur-element! my-element)
 ```
 
 ```
@@ -174,6 +177,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (element-disabled? my-element)
 ```
 
@@ -199,6 +203,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (element-enabled? my-element)
 ```
 
@@ -224,6 +229,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (element-on-viewport-bottom? my-element)
 ```
 
@@ -249,6 +255,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (element-on-viewport-left? my-element)
 ```
 
@@ -274,6 +281,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (element-on-viewport-right? my-element)
 ```
 
@@ -299,6 +307,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (element-on-viewport-top? my-element)
 ```
 
@@ -324,6 +333,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (empty-element! my-element)
 ```
 
@@ -349,7 +359,8 @@
 
 ```
 @usage
-(event->node-name %)
+(fn [my-event]
+    (event->node-name my-event))
 ```
 
 ```
@@ -374,7 +385,8 @@
 
 ```
 @usage
-(event->value %)
+(fn [my-event]
+    (event->value my-event))
 ```
 
 ```
@@ -400,6 +412,8 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
+(def my-file          (file-selector->file my-file-selector 0))
 (file->file-data 2 my-file)
 ```
 
@@ -425,6 +439,8 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
+(def my-file          (file-selector->file my-file-selector 0))
 (file->filename my-file)
 ```
 
@@ -450,6 +466,8 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
+(def my-file          (file-selector->file my-file-selector 0))
 (file->filesize my-file)
 ```
 
@@ -475,6 +493,8 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
+(def my-file          (file-selector->file my-file-selector 0))
 (file->image? my-file)
 ```
 
@@ -500,6 +520,8 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
+(def my-file          (file-selector->file my-file-selector 0))
 (file->mime-type my-file)
 ```
 
@@ -525,6 +547,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->any-file-selected? my-file-selector)
 ```
 
@@ -550,6 +573,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->files my-file-selector)
 ```
 
@@ -575,6 +599,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->file-count my-file-selector)
 ```
 
@@ -600,11 +625,12 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->file-list my-file-selector)
 ```
 
 ```
-@return (?)
+@return (file objects in vector)
 ```
 
 ---
@@ -625,6 +651,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->files my-file-selector)
 ```
 
@@ -650,6 +677,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->files-data my-file-selector)
 ```
 
@@ -675,6 +703,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->files-meta my-file-selector)
 ```
 
@@ -700,6 +729,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->files-size my-file-selector)
 ```
 
@@ -759,6 +789,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->image-data-url my-file-selector 2)
 ```
 
@@ -784,6 +815,7 @@
 
 ```
 @usage
+(def my-file-selector (get-element-by-id "my-file-selector"))
 (file-selector->mime-types my-file-selector)
 ```
 
@@ -809,7 +841,8 @@
 
 ```
 @usage
-(focus-element!)
+(def my-element (get-element-by-id "my-element"))
+(focus-element! my-element)
 ```
 
 ```
@@ -876,7 +909,7 @@
 
 ```
 @usage
-(get-element-style "background-color")
+(get-body-style-value "background-color")
 ```
 
 ```
@@ -985,6 +1018,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-absolute-left my-element)
 ```
 
@@ -1010,6 +1044,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-absolute-top my-element)
 ```
 
@@ -1035,8 +1070,8 @@
 
 ```
 @usage
-(let [my-element (get-element-by-id "my-element")]
-     (get-element-attributes my-element))
+(def my-element (get-element-by-id "my-element"))
+(get-element-attributes my-element)
 ```
 
 ```
@@ -1061,8 +1096,8 @@
 
 ```
 @usage
-(let [my-element (get-element-by-id "my-element")]
-     (get-element-attributes my-element))
+(def my-element (get-element-by-id "my-element"))
+(get-element-attributes my-element)
 ```
 
 ```
@@ -1149,6 +1184,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-computed-style my-element)
 ```
 
@@ -1174,6 +1210,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-height my-element)
 ```
 
@@ -1199,6 +1236,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-masspoint-orientation my-element)
 ```
 
@@ -1224,6 +1262,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-masspoint-x my-element)
 ```
 
@@ -1249,6 +1288,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-masspoint-y my-element)
 ```
 
@@ -1274,6 +1314,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-offset-left my-element)
 ```
 
@@ -1299,6 +1340,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-offset-top my-element)
 ```
 
@@ -1324,6 +1366,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-relative-left my-element)
 ```
 
@@ -1349,6 +1392,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-relative-top my-element)
 ```
 
@@ -1374,6 +1418,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-style my-element)```
 
 ---
@@ -1395,6 +1440,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-style my-element "position")
 ```
 
@@ -1420,6 +1466,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-element-width my-element)
 ```
 
@@ -1554,7 +1601,8 @@
 
 ```
 @usage
-(get-mouse-viewport-quarter %)
+(fn [mouse-event]
+    (get-mouse-viewport-quarter mouse-event))
 ```
 
 ```
@@ -1579,32 +1627,8 @@
 
 ```
 @usage
-(get-mouse-x %)
-```
-
-```
-@return (px)
-```
-
----
-
-### get-mouse-y
-
-```
-@require
-(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-y]]))
-
-(dom/get-mouse-y ...)
-(get-mouse-y     ...)
-```
-
-```
-@param (DOM-event) mouse-event
-```
-
-```
-@usage
-(get-mouse-x %)
+(fn [mouse-event]
+    (get-mouse-x mouse-event))
 ```
 
 ```
@@ -1717,6 +1741,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-selection-end my-element)
 ```
 
@@ -1742,6 +1767,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (get-selection-start my-element)
 ```
 
@@ -1769,6 +1795,9 @@
 
 ```
 @usage
+(def my-parent-element (get-element-by-id "my-parent-element"))
+(def my-before-element (get-element-by-id "my-before-element"))
+(def my-child-element  (create-element! "div"))
 (insert-after! my-parent-element my-child-element my-before-element)
 ```
 
@@ -1796,11 +1825,15 @@
 
 ```
 @usage
-(insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
+(def head-element    (get-head-element))
+(def my-link-element (create-element! "link"))
+(insert-as-first-of-query-selected! head-element my-link-element "[type=\"text/css\"]")
 ```
 
 ```
 @usage
+(def body-element (get-body-element))
+(def my-element   (create-element! "div"))
 (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
 ```
 
@@ -1827,6 +1860,8 @@
 
 ```
 @usage
+(def my-parent-element (get-element-by-id "my-parent-element"))
+(def my-child-element  (create-element! "div"))
 (insert-as-first-of-type! my-parent-element my-child-element)
 ```
 
@@ -1854,11 +1889,15 @@
 
 ```
 @usage
-(insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
+(def head-element    (get-head-element))
+(def my-link-element (create-element! "link"))
+(insert-as-first-of-query-selected! head-element my-link-element "[type=\"text/css\"]")
 ```
 
 ```
 @usage
+(def body-element (get-body-element))
+(def my-element   (create-element! "div"))
 (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
 ```
 
@@ -1885,6 +1924,8 @@
 
 ```
 @usage
+(def my-parent-element (get-element-by-id "my-parent-element"))
+(def my-child-element  (create-element! "div"))
 (insert-as-last-of-type! my-parent-element my-child-element)
 ```
 
@@ -1912,6 +1953,9 @@
 
 ```
 @usage
+(def my-parent-element (get-element-by-id "my-parent-element"))
+(def my-after-element  (get-element-by-id "my-after-element"))
+(def my-child-element  (create-element! "div"))
 (insert-before! my-parent-element my-child-element my-after-element)
 ```
 
@@ -1995,6 +2039,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (move-caret-to-end! my-element)
 ```
 
@@ -2020,6 +2065,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (move-caret-to-start! my-element)
 ```
 
@@ -2046,7 +2092,7 @@
 
 ```
 @usage
-(on-mouse-left % (fn [] ...))
+(on-mouse-left % (fn [mouse-event] ...))
 ```
 
 ```
@@ -2072,6 +2118,8 @@
 
 ```
 @usage
+(def my-parent-element (get-element-by-id "my-parent-element"))
+(def my-child-element  (create-element! "div"))
 (prepend-element! my-parent-element my-child-element)
 ```
 
@@ -2097,7 +2145,8 @@
 
 ```
 @usage
-(prevent-default! my-event)
+(fn [my-event]
+    (prevent-default! my-event))
 ```
 
 ```
@@ -2123,6 +2172,8 @@
 
 ```
 @usage
+(def my-parent-element (get-element-by-id "my-parent-element"))
+(def my-child-element  (get-element-by-id "my-child-element"))
 (remove-child! my-parent-element my-child-element)
 ```
 
@@ -2148,6 +2199,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (remove-element! my-element)
 ```
 
@@ -2174,6 +2226,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (remove-element-attribute! my-element "my-attribute")
 ```
 
@@ -2199,6 +2252,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (remove-element-attribute! my-element)
 ```
 
@@ -2225,6 +2279,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (remove-element-class! my-element "my-class")
 ```
 
@@ -2250,6 +2305,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (remove-element-style! my-element)
 ```
 
@@ -2276,6 +2332,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (remove-element-style-value! my-element "position")
 ```
 
@@ -2330,6 +2387,8 @@
 
 ```
 @usage
+(def my-element  (get-element-by-id "my-element"))
+(def my-observer (intersection-observer! my-element (fn [intersecting?])))
 (remove-intersection-observer! my-observer my-element)
 ```
 
@@ -2406,6 +2465,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (scroll-to-element-top! my-element)```
 
 ---
@@ -2426,7 +2486,8 @@
 
 ```
 @usage
-(select-preventer %)```
+(fn [mouse-event]
+    (select-preventer mouse-event))```
 
 ---
 
@@ -2447,6 +2508,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-caret-position! my-element 20)
 ```
 
@@ -2499,6 +2561,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-element-attribute! my-element "my-attribute" "my-value")
 ```
 
@@ -2525,6 +2588,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-element-attributes! my-element {"my-attribute" "my-value"})
 ```
 
@@ -2551,6 +2615,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-element-class! my-element "my-class")
 ```
 
@@ -2577,6 +2642,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-element-content! my-element "Hakuna Matata!")
 ```
 
@@ -2603,6 +2669,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-element-id! my-element "my-element-id")
 ```
 
@@ -2629,6 +2696,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-element-style! my-element {:position "fixed" :top "0"})
 ```
 
@@ -2656,6 +2724,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-element-style-value! my-element "position" "fixed")
 ```
 
@@ -2703,6 +2772,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-selection-end! my-element 2)
 ```
 
@@ -2730,6 +2800,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-selection-range! my-element 2 10)
 ```
 
@@ -2756,6 +2827,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (set-selection-start! my-element 2)
 ```
 
@@ -2782,6 +2854,7 @@
 
 ```
 @usage
+(def my-element (get-element-by-id "my-element"))
 (setup-intersection-observer! my-element (fn [intersecting?] ...))
 ```
 
@@ -2807,7 +2880,8 @@
 
 ```
 @usage
-(stop-propagation! my-event)
+(fn [my-event]
+    (stop-propagation! my-event))
 ```
 
 ```

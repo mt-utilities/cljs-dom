@@ -10,6 +10,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-style my-element)
   [element])
   ; ...
@@ -19,6 +20,7 @@
   ; @param (map) style
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-style! my-element {:position "fixed" :top "0"})
   ;
   ; @return (DOM-element)
@@ -31,6 +33,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-style! my-element)
   ;
   ; @return (DOM-element)
@@ -46,6 +49,7 @@
   ; @param (string) style-name
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-style my-element "position")
   ;
   ; @return (string)
@@ -59,6 +63,7 @@
   ; @param (*) style-value
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-style-value! my-element "position" "fixed")
   ;
   ; @return (DOM-element)
@@ -71,6 +76,7 @@
   ; @param (string) style-name
 
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-style-value! my-element "position")
   ;
   ; @return (DOM-element)
@@ -85,6 +91,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-computed-style my-element)
   ;
   ; @return (CSSStyleDeclarationObject)

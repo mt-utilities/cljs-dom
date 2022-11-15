@@ -9,6 +9,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->files my-file-selector)
   ;
   ; @return (?)
@@ -19,9 +20,10 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->file-list my-file-selector)
   ;
-  ; @return (?)
+  ; @return (file objects in vector)
   [file-selector]
   (-> file-selector .-files array-seq))
 
@@ -30,6 +32,7 @@
   ; @param (integer) file-dex
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->file my-file-selector 2)
   ;
   ; @return (file object)
@@ -40,16 +43,19 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->files-size my-file-selector)
   ;
   ; @return (B)
   [file-selector]
-  (reduce #(+ %1 (.-size %2)) 0 (-> file-selector .-files array-seq)))
+  (letfn [(f [%1 %2] (+ %1 (.-size %2)))]
+         (reduce f 0 (-> file-selector .-files array-seq))))
 
 (defn file-selector->file-count
   ; @param (DOM-element) file-selector
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->file-count my-file-selector)
   ;
   ; @return (integer)
@@ -60,6 +66,7 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->any-file-selected? my-file-selector)
   ;
   ; @return (boolean)
@@ -70,26 +77,31 @@
   ; @param (DOM-element) file-selector
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->mime-types my-file-selector)
   ;
   ; @return (strings in vector)
   [file-selector]
-  (reduce #(conj %1 (.-type %2)) [] (-> file-selector .-files array-seq)))
+  (letfn [(f [%1 %2] (conj %1 (.-type %2)))]
+         (reduce f [] (-> file-selector .-files array-seq))))
 
 (defn file-selector->files-data
   ; @param (DOM-element) file-selector
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->files-data my-file-selector)
   ;
   ; @return (maps in vector)
   [file-selector]
-  (reduce-kv #(conj %1 (file/file->file-data %2 %3)) [] (-> file-selector .-files array-seq vec)))
+  (letfn [(f [%1 %2 %3] (conj %1 (file/file->file-data %2 %3)))]
+         (reduce-kv f [] (-> file-selector .-files array-seq vec))))
 
 (defn file-selector->files-meta
   ; @param (DOM-element) file-selector
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->files-meta my-file-selector)
   ;
   ; @return (map)
@@ -104,6 +116,7 @@
   ; @param (integer) file-dex
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (file-selector->image-data-url my-file-selector 2)
   ;
   ; @return (string)

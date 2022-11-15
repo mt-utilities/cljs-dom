@@ -152,6 +152,7 @@
   ; @param (px)(opt) offset
   ;
   ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
   ; (scroll-to-element-top! my-element)
   ([element]
    (scroll-to-element-top! element 0))

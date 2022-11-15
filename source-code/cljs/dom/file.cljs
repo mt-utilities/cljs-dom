@@ -9,6 +9,8 @@
   ; @param (file object) file
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
+  ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->filesize my-file)
   ;
   ; @return (B)
@@ -19,6 +21,8 @@
   ; @param (file object) file
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
+  ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->filename my-file)
   ;
   ; @return (string)
@@ -29,6 +33,8 @@
   ; @param (file object) file
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
+  ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->mime-type my-file)
   ;
   ; @return (string)
@@ -39,6 +45,8 @@
   ; @param (file object) file
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
+  ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->image? my-file)
   ;
   ; @return (boolean)
@@ -50,6 +58,8 @@
   ; @param (file object) file
   ;
   ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
+  ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->file-data 2 my-file)
   ;
   ; @return (map)
