@@ -5,14 +5,6 @@
 ### add-event-listener!
 
 ```
-@require
-(ns my-namespace (:require [dom.api :as dom :refer [add-event-listener!]]))
-
-(dom/add-event-listener! ...)
-(add-event-listener!     ...)
-```
-
-```
 @param (string) type
 @param (function) listener-f
 @param (DOM-element)(opt) target
@@ -27,17 +19,37 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### append-element!
+```
+(defn add-event-listener!
+  ([type listener-f]
+   (add-event-listener! type listener-f js/window))
+
+  ([type listener-f target]
+   (.addEventListener target type listener-f false)
+   (return            target))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [append-element!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [add-event-listener!]]))
 
-(dom/append-element! ...)
-(append-element!     ...)
+(dom/add-event-listener! ...)
+(add-event-listener!     ...)
 ```
+
+</details>
+
+---
+
+### append-element!
 
 ```
 @param (DOM-element) parent-element
@@ -55,17 +67,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### append-script!
+```
+(defn append-element!
+  [parent-element child-element]
+  (.appendChild parent-element child-element)
+  (return       parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [append-script!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [append-element!]]))
 
-(dom/append-script! ...)
-(append-script!     ...)
+(dom/append-element! ...)
+(append-element!     ...)
 ```
+
+</details>
+
+---
+
+### append-script!
 
 ```
 @param (string) script
@@ -80,17 +109,38 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### append-to-form-data!
+```
+(defn append-script!
+  [script]
+  (let [body-element   (body/get-body-element)
+        script-element (node/create-element! "script")]
+       (attributes/set-element-attribute! script-element "type" "text/javascript")
+       (node/set-element-content!         script-element script)
+       (node/append-element!              body-element   script-element)
+       (return                            script-element))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [append-to-form-data!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [append-script!]]))
 
-(dom/append-to-form-data! ...)
-(append-to-form-data!     ...)
+(dom/append-script! ...)
+(append-script!     ...)
 ```
+
+</details>
+
+---
+
+### append-to-form-data!
 
 ```
 @param (FormData object) 
@@ -108,17 +158,37 @@
 @return (FormData object)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### blur-element!
+```
+(defn append-to-form-data!
+  [form-data prop-key prop-value]
+  (let [prop-key (if (keyword? prop-key)
+                     (name     prop-key)
+                     (return   prop-key))]
+       (.append form-data prop-key prop-value))
+  (return form-data)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [blur-element!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [append-to-form-data!]]))
 
-(dom/blur-element! ...)
-(blur-element!     ...)
+(dom/append-to-form-data! ...)
+(append-to-form-data!     ...)
 ```
+
+</details>
+
+---
+
+### blur-element!
 
 ```
 @param (DOM-element) element
@@ -134,17 +204,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### create-element!
+```
+(defn blur-element!
+  [element]
+  (.blur  element)
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [create-element!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [blur-element!]]))
 
-(dom/create-element! ...)
-(create-element!     ...)
+(dom/blur-element! ...)
+(blur-element!     ...)
 ```
+
+</details>
+
+---
+
+### create-element!
 
 ```
 @param (string) nodename
@@ -159,17 +246,33 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### element-disabled?
+```
+(defn create-element!
+  [nodename]
+  (.createElement js/document nodename)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [element-disabled?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [create-element!]]))
 
-(dom/element-disabled? ...)
-(element-disabled?     ...)
+(dom/create-element! ...)
+(create-element!     ...)
 ```
+
+</details>
+
+---
+
+### element-disabled?
 
 ```
 @param (DOM-element) element
@@ -185,17 +288,33 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### element-enabled?
+```
+(defn element-disabled?
+  [element]
+  (-> element .-disabled boolean)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [element-enabled?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [element-disabled?]]))
 
-(dom/element-enabled? ...)
-(element-enabled?     ...)
+(dom/element-disabled? ...)
+(element-disabled?     ...)
 ```
+
+</details>
+
+---
+
+### element-enabled?
 
 ```
 @param (DOM-element) element
@@ -211,17 +330,33 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### element-on-viewport-bottom?
+```
+(defn element-enabled?
+  [element]
+  (-> element .-disabled not)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-bottom?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [element-enabled?]]))
 
-(dom/element-on-viewport-bottom? ...)
-(element-on-viewport-bottom?     ...)
+(dom/element-enabled? ...)
+(element-enabled?     ...)
 ```
+
+</details>
+
+---
+
+### element-on-viewport-bottom?
 
 ```
 @param (DOM-element) element
@@ -237,17 +372,36 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### element-on-viewport-left?
+```
+(defn element-on-viewport-bottom?
+  [element]
+  (> (+ (-> element     .-offsetHeight (/ 2))
+        (-> element     .getBoundingClientRect .-left)
+        (-> js/document .-documentElement      .-scrollTop))
+     (-> js/window .-innerWidth (/ 2)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-left?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-bottom?]]))
 
-(dom/element-on-viewport-left? ...)
-(element-on-viewport-left?     ...)
+(dom/element-on-viewport-bottom? ...)
+(element-on-viewport-bottom?     ...)
 ```
+
+</details>
+
+---
+
+### element-on-viewport-left?
 
 ```
 @param (DOM-element) element
@@ -263,17 +417,36 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### element-on-viewport-right?
+```
+(defn element-on-viewport-left?
+  [element]
+  (<= (+ (-> element     .-offsetWidth (/ 2))
+         (-> element     .getBoundingClientRect .-left)
+         (-> js/document .-documentElement      .-scrollLeft))
+      (-> js/window .-innerWidth (/ 2)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-right?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-left?]]))
 
-(dom/element-on-viewport-right? ...)
-(element-on-viewport-right?     ...)
+(dom/element-on-viewport-left? ...)
+(element-on-viewport-left?     ...)
 ```
+
+</details>
+
+---
+
+### element-on-viewport-right?
 
 ```
 @param (DOM-element) element
@@ -289,17 +462,36 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### element-on-viewport-top?
+```
+(defn element-on-viewport-right?
+  [element]
+  (> (+ (-> element     .-offsetWidth (/ 2))
+        (-> element     .getBoundingClientRect .-left)
+        (-> js/document .-documentElement      .-scrollLeft))
+     (-> js/window .-innerWidth (/ 2)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-top?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-right?]]))
 
-(dom/element-on-viewport-top? ...)
-(element-on-viewport-top?     ...)
+(dom/element-on-viewport-right? ...)
+(element-on-viewport-right?     ...)
 ```
+
+</details>
+
+---
+
+### element-on-viewport-top?
 
 ```
 @param (DOM-element) element
@@ -315,17 +507,36 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### empty-element!
+```
+(defn element-on-viewport-top?
+  [element]
+  (<= (+ (-> element     .-offsetHeight (/ 2))
+         (-> element     .getBoundingClientRect .-left)
+         (-> js/document .-documentElement      .-scrollTop))
+      (-> js/window .-innerWidth (/ 2)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [empty-element!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-top?]]))
 
-(dom/empty-element! ...)
-(empty-element!     ...)
+(dom/element-on-viewport-top? ...)
+(element-on-viewport-top?     ...)
 ```
+
+</details>
+
+---
+
+### empty-element!
 
 ```
 @param (DOM-element) element
@@ -341,17 +552,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### event->node-name
+```
+(defn empty-element!
+  [element]
+  (while (.-firstChild element)
+         (.removeChild element (.-firstChild element)))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [event->node-name]]))
+(ns my-namespace (:require [dom.api :as dom :refer [empty-element!]]))
 
-(dom/event->node-name ...)
-(event->node-name     ...)
+(dom/empty-element! ...)
+(empty-element!     ...)
 ```
+
+</details>
+
+---
+
+### event->node-name
 
 ```
 @param (DOM-event) event
@@ -367,17 +596,33 @@
 @return (string)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### event->value
+```
+(defn event->node-name
+  [event]
+  (-> event .-srcElement .-nodeName)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [event->value]]))
+(ns my-namespace (:require [dom.api :as dom :refer [event->node-name]]))
 
-(dom/event->value ...)
-(event->value     ...)
+(dom/event->node-name ...)
+(event->node-name     ...)
 ```
+
+</details>
+
+---
+
+### event->value
 
 ```
 @param (dom-event) n
@@ -393,17 +638,33 @@
 @return (*)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file->file-data
+```
+(defn event->value
+  [n]
+  (-> n .-target .-value)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file->file-data]]))
+(ns my-namespace (:require [dom.api :as dom :refer [event->value]]))
 
-(dom/file->file-data ...)
-(file->file-data     ...)
+(dom/event->value ...)
+(event->value     ...)
 ```
+
+</details>
+
+---
+
+### file->file-data
 
 ```
 @param (integer)(opt) file-dex
@@ -421,17 +682,40 @@
 @return (map)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file->filename
+```
+(defn file->file-data
+  ([file]
+   (file->file-data nil file))
+
+  ([file-dex file]
+   {:file-dex   file-dex
+    :filename   (.-name file)
+    :filesize   (.-size file)
+    :mime-type  (.-type file)
+    :object-url (.createObjectURL js/URL file)})
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file->filename]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file->file-data]]))
 
-(dom/file->filename ...)
-(file->filename     ...)
+(dom/file->file-data ...)
+(file->file-data     ...)
 ```
+
+</details>
+
+---
+
+### file->filename
 
 ```
 @param (file object) file
@@ -448,17 +732,33 @@
 @return (string)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file->filesize
+```
+(defn file->filename
+  [file]
+  (.-name file)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file->filesize]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file->filename]]))
 
-(dom/file->filesize ...)
-(file->filesize     ...)
+(dom/file->filename ...)
+(file->filename     ...)
 ```
+
+</details>
+
+---
+
+### file->filesize
 
 ```
 @param (file object) file
@@ -475,17 +775,33 @@
 @return (B)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file->image?
+```
+(defn file->filesize
+  [file]
+  (.-size file)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file->image?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file->filesize]]))
 
-(dom/file->image? ...)
-(file->image?     ...)
+(dom/file->filesize ...)
+(file->filesize     ...)
 ```
+
+</details>
+
+---
+
+### file->image?
 
 ```
 @param (file object) file
@@ -502,17 +818,33 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file->mime-type
+```
+(defn file->image?
+  [file]
+  (-> file .-type io/mime-type->image?)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file->mime-type]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file->image?]]))
 
-(dom/file->mime-type ...)
-(file->mime-type     ...)
+(dom/file->image? ...)
+(file->image?     ...)
 ```
+
+</details>
+
+---
+
+### file->mime-type
 
 ```
 @param (file object) file
@@ -529,17 +861,33 @@
 @return (string)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->any-file-selected?
+```
+(defn file->mime-type
+  [file]
+  (.-type file)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->any-file-selected?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file->mime-type]]))
 
-(dom/file-selector->any-file-selected? ...)
-(file-selector->any-file-selected?     ...)
+(dom/file->mime-type ...)
+(file->mime-type     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->any-file-selected?
 
 ```
 @param (DOM-element) file-selector
@@ -555,17 +903,33 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->file
+```
+(defn file-selector->any-file-selected?
+  [file-selector]
+  (-> file-selector .-files .-length (> 0))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->any-file-selected?]]))
 
-(dom/file-selector->file ...)
-(file-selector->file     ...)
+(dom/file-selector->any-file-selected? ...)
+(file-selector->any-file-selected?     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->file
 
 ```
 @param (DOM-element) file-selector
@@ -581,17 +945,33 @@
 @return (?)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->file-count
+```
+(defn file-selector->files
+  [file-selector]
+  (-> file-selector .-files)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file-count]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file]]))
 
-(dom/file-selector->file-count ...)
-(file-selector->file-count     ...)
+(dom/file-selector->file ...)
+(file-selector->file     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->file-count
 
 ```
 @param (DOM-element) file-selector
@@ -607,17 +987,33 @@
 @return (integer)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->file-list
+```
+(defn file-selector->file-count
+  [file-selector]
+  (-> file-selector .-files .-length)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file-list]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file-count]]))
 
-(dom/file-selector->file-list ...)
-(file-selector->file-list     ...)
+(dom/file-selector->file-count ...)
+(file-selector->file-count     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->file-list
 
 ```
 @param (DOM-element) file-selector
@@ -633,17 +1029,33 @@
 @return (file objects in vector)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->files
+```
+(defn file-selector->file-list
+  [file-selector]
+  (-> file-selector .-files array-seq)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file-list]]))
 
-(dom/file-selector->files ...)
-(file-selector->files     ...)
+(dom/file-selector->file-list ...)
+(file-selector->file-list     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->files
 
 ```
 @param (DOM-element) file-selector
@@ -659,17 +1071,33 @@
 @return (?)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->files-data
+```
+(defn file-selector->files
+  [file-selector]
+  (-> file-selector .-files)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-data]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files]]))
 
-(dom/file-selector->files-data ...)
-(file-selector->files-data     ...)
+(dom/file-selector->files ...)
+(file-selector->files     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->files-data
 
 ```
 @param (DOM-element) file-selector
@@ -685,17 +1113,34 @@
 @return (maps in vector)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->files-meta
+```
+(defn file-selector->files-data
+  [file-selector]
+  (letfn [(f [%1 %2 %3] (conj %1 (file/file->file-data %2 %3)))]
+         (reduce-kv f [] (-> file-selector .-files array-seq vec)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-meta]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-data]]))
 
-(dom/file-selector->files-meta ...)
-(file-selector->files-meta     ...)
+(dom/file-selector->files-data ...)
+(file-selector->files-data     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->files-meta
 
 ```
 @param (DOM-element) file-selector
@@ -711,17 +1156,34 @@
 @return (map)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->files-size
+```
+(defn file-selector->files-meta
+  [file-selector]
+  {:file-count (file-selector->file-count file-selector)
+   :files-size (file-selector->files-size file-selector)}
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-size]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-meta]]))
 
-(dom/file-selector->files-size ...)
-(file-selector->files-size     ...)
+(dom/file-selector->files-meta ...)
+(file-selector->files-meta     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->files-size
 
 ```
 @param (DOM-element) file-selector
@@ -737,17 +1199,34 @@
 @return (B)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->form-data
+```
+(defn file-selector->files-size
+  [file-selector]
+  (letfn [(f [%1 %2] (+ %1 (.-size %2)))]
+         (reduce f 0 (-> file-selector .-files array-seq)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->form-data]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-size]]))
 
-(dom/file-selector->form-data ...)
-(file-selector->form-data     ...)
+(dom/file-selector->files-size ...)
+(file-selector->files-size     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->form-data
 
 ```
 @param (DOM-element) file-selector
@@ -770,17 +1249,40 @@
 @return (FormData object)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->image-data-url
+```
+(defn file-selector->form-data
+  [file-selector & [filtered-file-keys]]
+  (let [files     (file-selector/file-selector->files file-selector)
+        form-data (js/FormData.)
+        file-keys (.keys js/Object files)
+        file-keys (or filtered-file-keys file-keys)]
+       (doseq [file-key file-keys]
+              (let [file (aget files file-key)]
+                   (append-to-form-data! form-data file-key file)))
+       (return form-data))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->image-data-url]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->form-data]]))
 
-(dom/file-selector->image-data-url ...)
-(file-selector->image-data-url     ...)
+(dom/file-selector->form-data ...)
+(file-selector->form-data     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->image-data-url
 
 ```
 @param (DOM-element) file-selector
@@ -797,17 +1299,34 @@
 @return (string)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### file-selector->mime-types
+```
+(defn file-selector->image-data-url
+  [file-selector file-dex]
+  (let [file        (file-selector->file file-selector file-dex)
+        file-reader (js/FileReader.)])
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->mime-types]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->image-data-url]]))
 
-(dom/file-selector->mime-types ...)
-(file-selector->mime-types     ...)
+(dom/file-selector->image-data-url ...)
+(file-selector->image-data-url     ...)
 ```
+
+</details>
+
+---
+
+### file-selector->mime-types
 
 ```
 @param (DOM-element) file-selector
@@ -823,17 +1342,34 @@
 @return (strings in vector)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### focus-element!
+```
+(defn file-selector->mime-types
+  [file-selector]
+  (letfn [(f [%1 %2] (conj %1 (.-type %2)))]
+         (reduce f [] (-> file-selector .-files array-seq)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [focus-element!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [file-selector->mime-types]]))
 
-(dom/focus-element! ...)
-(focus-element!     ...)
+(dom/file-selector->mime-types ...)
+(file-selector->mime-types     ...)
 ```
+
+</details>
+
+---
+
+### focus-element!
 
 ```
 @param (DOM-element) element
@@ -849,9 +1385,57 @@
 @return (DOM-element)
 ```
 
+<details>
+<summary>Source code</summary>
+
+```
+(defn focus-element!
+  [element]
+  (.focus element)
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+@require
+(ns my-namespace (:require [dom.api :as dom :refer [focus-element!]]))
+
+(dom/focus-element! ...)
+(focus-element!     ...)
+```
+
+</details>
+
 ---
 
 ### get-active-element
+
+```
+@usage
+(get-active-element)
+```
+
+```
+@return (DOM-element)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-active-element
+  []
+  (.-activeElement js/document)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
@@ -861,18 +1445,35 @@
 (get-active-element)
 ```
 
+</details>
+
+---
+
+### get-body-element
+
 ```
 @usage
-(get-active-element)
+(get-body-element)
 ```
 
 ```
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-body-element
+```
+(defn get-body-element
+  []
+  (-> js/document (.getElementsByTagName "body")
+                  (aget 0))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
@@ -882,26 +1483,11 @@
 (get-body-element)
 ```
 
-```
-@usage
-(get-body-element)
-```
-
-```
-@return (DOM-element)
-```
+</details>
 
 ---
 
 ### get-body-style-value
-
-```
-@require
-(ns my-namespace (:require [dom.api :as dom :refer [get-body-style-value]]))
-
-(dom/get-body-style-value ...)
-(get-body-style-value     ...)
-```
 
 ```
 @param (string) style-name
@@ -916,17 +1502,35 @@
 @return (string)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-document-element
+```
+(defn get-body-style-value
+  [style-name]
+  (-> js/window (.getComputedStyle (-> js/document (.getElementsByTagName "body")
+                                                   (aget 0)))
+                (aget style-name))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-document-element]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-body-style-value]]))
 
-(dom/get-document-element)
-(get-document-element)
+(dom/get-body-style-value ...)
+(get-body-style-value     ...)
 ```
+
+</details>
+
+---
+
+### get-document-element
 
 ```
 @usage
@@ -937,17 +1541,33 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-document-height
+```
+(defn get-document-element
+  []
+  (.-documentElement js/document)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-document-height]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-document-element]]))
 
-(dom/get-document-height)
-(get-document-height)
+(dom/get-document-element)
+(get-document-element)
 ```
+
+</details>
+
+---
+
+### get-document-height
 
 ```
 @usage
@@ -958,17 +1578,33 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-document-title
+```
+(defn get-document-height
+  []
+  (-> js/document .-documentElement .-scrollHeight)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-document-title]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-document-height]]))
 
-(dom/get-document-title)
-(get-document-title)
+(dom/get-document-height)
+(get-document-height)
 ```
+
+</details>
+
+---
+
+### get-document-title
 
 ```
 @usage
@@ -979,17 +1615,33 @@
 @return (string)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-document-width
+```
+(defn get-document-title
+  []
+  (str (-> js/document .-title))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-document-width]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-document-title]]))
 
-(dom/get-document-width)
-(get-document-width)
+(dom/get-document-title)
+(get-document-title)
 ```
+
+</details>
+
+---
+
+### get-document-width
 
 ```
 @usage
@@ -1000,17 +1652,33 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-absolute-left
+```
+(defn get-document-width
+  []
+  (-> js/document .-documentElement .-scrollWidth)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-absolute-left]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-document-width]]))
 
-(dom/get-element-absolute-left ...)
-(get-element-absolute-left     ...)
+(dom/get-document-width)
+(get-document-width)
 ```
+
+</details>
+
+---
+
+### get-element-absolute-left
 
 ```
 @param (DOM-element) element
@@ -1026,17 +1694,34 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-absolute-top
+```
+(defn get-element-absolute-left
+  [element]
+  (math/round (+ (-> element     .getBoundingClientRect .-left)
+                 (-> js/document .-documentElement .-scrollLeft)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-absolute-top]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-absolute-left]]))
 
-(dom/get-element-absolute-top ...)
-(get-element-absolute-top     ...)
+(dom/get-element-absolute-left ...)
+(get-element-absolute-left     ...)
 ```
+
+</details>
+
+---
+
+### get-element-absolute-top
 
 ```
 @param (DOM-element) element
@@ -1052,9 +1737,62 @@
 @return (px)
 ```
 
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-element-absolute-top
+  [element]
+  (math/round (+ (-> element     .getBoundingClientRect .-top)
+                 (-> js/document .-documentElement .-scrollTop)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+@require
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-absolute-top]]))
+
+(dom/get-element-absolute-top ...)
+(get-element-absolute-top     ...)
+```
+
+</details>
+
 ---
 
 ### get-element-attribute
+
+```
+@param (DOM-element) element
+```
+
+```
+@usage
+(def my-element (get-element-by-id "my-element"))
+(get-element-attributes my-element)
+```
+
+```
+@return (map)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-element-attributes
+  [element]
+  (.getAttributes element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
@@ -1064,6 +1802,12 @@
 (get-element-attribute     ...)
 ```
 
+</details>
+
+---
+
+### get-element-attributes
+
 ```
 @param (DOM-element) element
 ```
@@ -1078,9 +1822,19 @@
 @return (map)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-attributes
+```
+(defn get-element-attributes
+  [element]
+  (.getAttributes element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
@@ -1090,31 +1844,11 @@
 (get-element-attributes     ...)
 ```
 
-```
-@param (DOM-element) element
-```
-
-```
-@usage
-(def my-element (get-element-by-id "my-element"))
-(get-element-attributes my-element)
-```
-
-```
-@return (map)
-```
+</details>
 
 ---
 
 ### get-element-by-id
-
-```
-@require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-id]]))
-
-(dom/get-element-by-id ...)
-(get-element-by-id     ...)
-```
 
 ```
 @param (DOM-element)(opt) parent-element
@@ -1130,17 +1864,33 @@
 @return (DOM-element or nil)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-by-query
+```
+(defn get-element-by-id
+  ([element-id]                (.getElementById js/document    element-id))
+  ([parent-element element-id] (.getElementById parent-element element-id))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-query]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-id]]))
 
-(dom/get-element-by-query ...)
-(get-element-by-query     ...)
+(dom/get-element-by-id ...)
+(get-element-by-id     ...)
 ```
+
+</details>
+
+---
+
+### get-element-by-query
 
 ```
 @param (DOM-element)(opt) parent-element
@@ -1166,17 +1916,33 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-computed-style
+```
+(defn get-element-by-query
+  ([query]                (-> js/document    (.querySelector query)))
+  ([parent-element query] (-> parent-element (.querySelector query)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-computed-style]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-query]]))
 
-(dom/get-element-computed-style ...)
-(get-element-computed-style     ...)
+(dom/get-element-by-query ...)
+(get-element-by-query     ...)
 ```
+
+</details>
+
+---
+
+### get-element-computed-style
 
 ```
 @param (DOM-element) element
@@ -1192,17 +1958,33 @@
 @return (CSSStyleDeclarationObject)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-height
+```
+(defn get-element-computed-style
+  [element]
+  (.getComputedStyle js/window element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-height]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-computed-style]]))
 
-(dom/get-element-height ...)
-(get-element-height     ...)
+(dom/get-element-computed-style ...)
+(get-element-computed-style     ...)
 ```
+
+</details>
+
+---
+
+### get-element-height
 
 ```
 @param (DOM-element) element
@@ -1218,17 +2000,33 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-masspoint-orientation
+```
+(defn get-element-height
+  [element]
+  (.-offsetHeight element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-orientation]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-height]]))
 
-(dom/get-element-masspoint-orientation ...)
-(get-element-masspoint-orientation     ...)
+(dom/get-element-height ...)
+(get-element-height     ...)
 ```
+
+</details>
+
+---
+
+### get-element-masspoint-orientation
 
 ```
 @param (DOM-element) element
@@ -1244,17 +2042,39 @@
 @return (keyword)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-masspoint-x
+```
+(defn get-element-masspoint-orientation
+  [element]
+  (if (element-on-viewport-bottom? element)
+      (if (element-on-viewport-left? element)
+          (return :bl)
+          (return :br))
+      (if (element-on-viewport-left? element)
+          (return :tl)
+          (return :tr)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-x]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-orientation]]))
 
-(dom/get-element-masspoint-x ...)
-(get-element-masspoint-x     ...)
+(dom/get-element-masspoint-orientation ...)
+(get-element-masspoint-orientation     ...)
 ```
+
+</details>
+
+---
+
+### get-element-masspoint-x
 
 ```
 @param (DOM-element) element
@@ -1270,17 +2090,35 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-masspoint-y
+```
+(defn get-element-masspoint-x
+  [element]
+  (math/round (+ (-> element     .-offsetWidth (/ 2))
+                 (-> element     .getBoundingClientRect .-left)
+                 (-> js/document .-documentElement      .-scrollLeft)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-y]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-x]]))
 
-(dom/get-element-masspoint-y ...)
-(get-element-masspoint-y     ...)
+(dom/get-element-masspoint-x ...)
+(get-element-masspoint-x     ...)
 ```
+
+</details>
+
+---
+
+### get-element-masspoint-y
 
 ```
 @param (DOM-element) element
@@ -1296,17 +2134,35 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-offset-left
+```
+(defn get-element-masspoint-y
+  [element]
+  (math/round (+ (-> element     .-offsetHeight (/ 2))
+                 (-> element     .getBoundingClientRect .-left)
+                 (-> js/document .-documentElement      .-scrollTop)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-offset-left]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-y]]))
 
-(dom/get-element-offset-left ...)
-(get-element-offset-left     ...)
+(dom/get-element-masspoint-y ...)
+(get-element-masspoint-y     ...)
 ```
+
+</details>
+
+---
+
+### get-element-offset-left
 
 ```
 @param (DOM-element) element
@@ -1322,17 +2178,33 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-offset-top
+```
+(defn get-element-offset-left
+  [element]
+  (-> element .-offsetLeft math/round)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-offset-top]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-offset-left]]))
 
-(dom/get-element-offset-top ...)
-(get-element-offset-top     ...)
+(dom/get-element-offset-left ...)
+(get-element-offset-left     ...)
 ```
+
+</details>
+
+---
+
+### get-element-offset-top
 
 ```
 @param (DOM-element) element
@@ -1348,17 +2220,33 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-relative-left
+```
+(defn get-element-offset-top
+  [element]
+  (-> element .-offsetTop math/round)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-relative-left]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-offset-top]]))
 
-(dom/get-element-relative-left ...)
-(get-element-relative-left     ...)
+(dom/get-element-offset-top ...)
+(get-element-offset-top     ...)
 ```
+
+</details>
+
+---
+
+### get-element-relative-left
 
 ```
 @param (DOM-element) element
@@ -1374,17 +2262,33 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-relative-top
+```
+(defn get-element-relative-left
+  [element]
+  (-> element .getBoundingClientRect .-left math/round)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-relative-top]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-relative-left]]))
 
-(dom/get-element-relative-top ...)
-(get-element-relative-top     ...)
+(dom/get-element-relative-left ...)
+(get-element-relative-left     ...)
 ```
+
+</details>
+
+---
+
+### get-element-relative-top
 
 ```
 @param (DOM-element) element
@@ -1400,17 +2304,33 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-style
+```
+(defn get-element-relative-top
+  [element]
+  (-> element .getBoundingClientRect .-top math/round)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-style]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-relative-top]]))
 
-(dom/get-element-style ...)
-(get-element-style     ...)
+(dom/get-element-relative-top ...)
+(get-element-relative-top     ...)
 ```
+
+</details>
+
+---
+
+### get-element-style
 
 ```
 @param (DOM-element) element
@@ -1422,17 +2342,32 @@
 (get-element-style my-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-style-value
+```
+(defn get-element-style
+  [element]
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-style-value]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-style]]))
 
-(dom/get-element-style-value ...)
-(get-element-style-value     ...)
+(dom/get-element-style ...)
+(get-element-style     ...)
 ```
+
+</details>
+
+---
+
+### get-element-style-value
 
 ```
 @param (DOM-element) element
@@ -1449,17 +2384,34 @@
 @return (string)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-element-width
+```
+(defn get-element-style-value
+  [element style-name]
+  (-> js/window (.getComputedStyle element)
+                (aget style-name))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-width]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-style-value]]))
 
-(dom/get-element-width ...)
-(get-element-width     ...)
+(dom/get-element-style-value ...)
+(get-element-style-value     ...)
 ```
+
+</details>
+
+---
+
+### get-element-width
 
 ```
 @param (DOM-element) element
@@ -1475,17 +2427,33 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-elements-by-class-name
+```
+(defn get-element-width
+  [element]
+  (.-offsetWidth element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-class-name]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-width]]))
 
-(dom/get-elements-by-class-name ...)
-(get-elements-by-class-name     ...)
+(dom/get-element-width ...)
+(get-element-width     ...)
 ```
+
+</details>
+
+---
+
+### get-elements-by-class-name
 
 ```
 @param (DOM-element)(opt) parent-element
@@ -1501,17 +2469,33 @@
 @return (vector)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-elements-by-query
+```
+(defn get-elements-by-class-name
+  ([class-name]                (-> js/document    (.getElementsByClassName class-name) array-seq vec))
+  ([parent-element class-name] (-> parent-element (.getElementsByClassName class-name) array-seq vec))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-query]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-class-name]]))
 
-(dom/get-elements-by-query ...)
-(get-elements-by-query     ...)
+(dom/get-elements-by-class-name ...)
+(get-elements-by-class-name     ...)
 ```
+
+</details>
+
+---
+
+### get-elements-by-query
 
 ```
 @param (DOM-element)(opt) parent-element
@@ -1537,17 +2521,33 @@
 @return (vector)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-elements-by-tag-name
+```
+(defn get-elements-by-query
+  ([query]                (-> js/document    (.querySelectorAll query) array-seq vec))
+  ([parent-element query] (-> parent-element (.querySelectorAll query) array-seq vec))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-tag-name]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-query]]))
 
-(dom/get-elements-by-tag-name ...)
-(get-elements-by-tag-name     ...)
+(dom/get-elements-by-query ...)
+(get-elements-by-query     ...)
 ```
+
+</details>
+
+---
+
+### get-elements-by-tag-name
 
 ```
 @param (DOM-element)(opt) parent-element
@@ -1563,17 +2563,33 @@
 @return (vector)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-head-element
+```
+(defn get-elements-by-tag-name
+  ([tag-name]                (-> js/document    (.getElementsByTagName tag-name) array-seq vec))
+  ([parent-element tag-name] (-> parent-element (.getElementsByTagName tag-name) array-seq vec))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-head-element]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-tag-name]]))
 
-(dom/get-head-element)
-(get-head-element)
+(dom/get-elements-by-tag-name ...)
+(get-elements-by-tag-name     ...)
 ```
+
+</details>
+
+---
+
+### get-head-element
 
 ```
 @usage
@@ -1584,17 +2600,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-mouse-viewport-quarter
+```
+(defn get-head-element
+  []
+  (-> js/document (.getElementsByTagName "head")
+                  (aget 0))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-viewport-quarter]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-head-element]]))
 
-(dom/get-mouse-viewport-quarter ...)
-(get-mouse-viewport-quarter     ...)
+(dom/get-head-element)
+(get-head-element)
 ```
+
+</details>
+
+---
+
+### get-mouse-viewport-quarter
 
 ```
 @param (DOM-event) mouse-event
@@ -1610,17 +2643,44 @@
 @return (keyword)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-mouse-x
+```
+(defn get-mouse-viewport-quarter
+  [mouse-event]
+  (let [half-viewport-height (-> js/window .-innerHeight (/ 2))
+        half-viewport-width  (-> js/window .-innerWidth  (/ 2))
+        mouse-x              (.-clientX mouse-event)
+        mouse-y              (.-clientY mouse-event)]
+       (cond (and (< mouse-x half-viewport-width)
+                  (< mouse-y half-viewport-height))
+             :tl
+             (and (>= mouse-x half-viewport-width)
+                  (<  mouse-y half-viewport-height))
+             :tr
+             (< mouse-x half-viewport-width)
+             :bl :return :br))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-x]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-viewport-quarter]]))
 
-(dom/get-mouse-x ...)
-(get-mouse-x     ...)
+(dom/get-mouse-viewport-quarter ...)
+(get-mouse-viewport-quarter     ...)
 ```
+
+</details>
+
+---
+
+### get-mouse-x
 
 ```
 @param (DOM-event) mouse-event
@@ -1636,17 +2696,59 @@
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-scroll-direction
+```
+(defn get-mouse-x
+  [mouse-event]
+  (.-clientX mouse-event)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-scroll-direction]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-x]]))
 
-(dom/get-scroll-direction ...)
-(get-scroll-direction     ...)
+(dom/get-mouse-x ...)
+(get-mouse-x     ...)
 ```
+
+</details>
+
+---
+
+### get-mouse-y
+
+<details>
+<summary>Source code</summary>
+
+```
+
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+@require
+(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-y]]))
+
+(dom/get-mouse-y)
+(get-mouse-y)
+```
+
+</details>
+
+---
+
+### get-scroll-direction
 
 ```
 @param (integer) last-scroll-y
@@ -1661,17 +2763,44 @@
 @return (keyword or nil)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-scroll-progress
+```
+(defn get-scroll-direction
+  [last-scroll-y]
+  (cond (and             (scroll-direction-ttb? last-scroll-y)
+             (math/nonnegative?     last-scroll-y))
+        (return :ttb)
+
+        (and             (scroll-direction-btt? last-scroll-y)
+             (math/nonnegative?     last-scroll-y))
+        (return :btt)
+
+        (math/negative? last-scroll-y)
+        (return :btt)
+
+        :return nil)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-scroll-progress]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-scroll-direction]]))
 
-(dom/get-scroll-progress)
-(get-scroll-progress)
+(dom/get-scroll-direction ...)
+(get-scroll-direction     ...)
 ```
+
+</details>
+
+---
+
+### get-scroll-progress
 
 ```
 @usage
@@ -1682,9 +2811,61 @@
 @return (percent)
 ```
 
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-scroll-progress
+  []
+  (let [viewport-height (-> js/window   .-innerHeight)
+        scroll-y        (-> js/document .-documentElement .-scrollTop)
+        document-height (-> js/document .-documentElement .-scrollHeight)
+        max-scroll-y    (- document-height viewport-height)
+        scroll-progress (math/percent max-scroll-y scroll-y)]
+      (math/between! scroll-progress 0 100))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+@require
+(ns my-namespace (:require [dom.api :as dom :refer [get-scroll-progress]]))
+
+(dom/get-scroll-progress)
+(get-scroll-progress)
+```
+
+</details>
+
 ---
 
 ### get-scroll-x
+
+```
+@usage
+(get-scroll-x)
+```
+
+```
+@return (px)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-scroll-x
+  []
+  (-> js/document .-documentElement .-scrollLeft)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
@@ -1694,18 +2875,34 @@
 (get-scroll-x)
 ```
 
+</details>
+
+---
+
+### get-scroll-y
+
 ```
 @usage
-(get-scroll-x)
+(get-scroll-y)
 ```
 
 ```
 @return (px)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-scroll-y
+```
+(defn get-scroll-y
+  []
+  (-> js/document .-documentElement .-scrollTop)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
@@ -1715,26 +2912,11 @@
 (get-scroll-y)
 ```
 
-```
-@usage
-(get-scroll-y)
-```
-
-```
-@return (px)
-```
+</details>
 
 ---
 
 ### get-selection-end
-
-```
-@require
-(ns my-namespace (:require [dom.api :as dom :refer [get-selection-end]]))
-
-(dom/get-selection-end ...)
-(get-selection-end     ...)
-```
 
 ```
 @param (DOM-element) element
@@ -1750,17 +2932,33 @@
 @return (integer)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### get-selection-start
+```
+(defn get-selection-end
+  [element]
+  (.-selectionStart element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [get-selection-start]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-selection-end]]))
 
-(dom/get-selection-start ...)
-(get-selection-start     ...)
+(dom/get-selection-end ...)
+(get-selection-end     ...)
 ```
+
+</details>
+
+---
+
+### get-selection-start
 
 ```
 @param (DOM-element) element
@@ -1776,17 +2974,33 @@
 @return (integer)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### insert-after!
+```
+(defn get-selection-start
+  [element]
+  (.-selectionStart element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [insert-after!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [get-selection-start]]))
 
-(dom/insert-after! ...)
-(insert-after!     ...)
+(dom/get-selection-start ...)
+(get-selection-start     ...)
 ```
+
+</details>
+
+---
+
+### insert-after!
 
 ```
 @param (DOM-element) parent-element
@@ -1806,17 +3020,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### insert-as-first-of-query-selected!
+```
+(defn insert-after!
+  [parent-element child-element before-element]
+  (.insertBefore parent-element child-element (.-nextSibling before-element))
+  (return        parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [insert-as-first-of-query-selected!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [insert-after!]]))
 
-(dom/insert-as-first-of-query-selected! ...)
-(insert-as-first-of-query-selected!     ...)
+(dom/insert-after! ...)
+(insert-after!     ...)
 ```
+
+</details>
+
+---
+
+### insert-as-first-of-query-selected!
 
 ```
 @param (DOM-element) parent-element
@@ -1842,17 +3073,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### insert-as-first-of-type!
+```
+(defn insert-as-first-of-query-selected!
+  [parent-element child-element query]
+  (.insertBefore parent-element child-element
+                 (-> parent-element (.querySelectorAll query) array-seq first))
+  (return parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [insert-as-first-of-type!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [insert-as-first-of-query-selected!]]))
 
-(dom/insert-as-first-of-type! ...)
-(insert-as-first-of-type!     ...)
+(dom/insert-as-first-of-query-selected! ...)
+(insert-as-first-of-query-selected!     ...)
 ```
+
+</details>
+
+---
+
+### insert-as-first-of-type!
 
 ```
 @param (DOM-element) parent-element
@@ -1870,17 +3119,38 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### insert-as-last-of-query-selected!
+```
+(defn insert-as-first-of-type!
+  [parent-element child-element]
+  (let [tag-name (-> child-element .-tagName)
+        query    (str ":scope > "tag-name)]
+       (.insertBefore parent-element child-element
+                      (-> parent-element (.querySelectorAll query)
+                          array-seq first)))
+  (return parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [insert-as-last-of-query-selected!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [insert-as-first-of-type!]]))
 
-(dom/insert-as-last-of-query-selected! ...)
-(insert-as-last-of-query-selected!     ...)
+(dom/insert-as-first-of-type! ...)
+(insert-as-first-of-type!     ...)
 ```
+
+</details>
+
+---
+
+### insert-as-last-of-query-selected!
 
 ```
 @param (DOM-element) parent-element
@@ -1906,17 +3176,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### insert-as-last-of-type!
+```
+(defn insert-as-last-of-query-selected!
+  [parent-element child-element query]
+  (.insertBefore parent-element child-element
+                 (-> parent-element (.querySelectorAll query) array-seq last .-nextSibling))
+  (return parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [insert-as-last-of-type!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [insert-as-last-of-query-selected!]]))
 
-(dom/insert-as-last-of-type! ...)
-(insert-as-last-of-type!     ...)
+(dom/insert-as-last-of-query-selected! ...)
+(insert-as-last-of-query-selected!     ...)
 ```
+
+</details>
+
+---
+
+### insert-as-last-of-type!
 
 ```
 @param (DOM-element) parent-element
@@ -1934,17 +3222,38 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### insert-before!
+```
+(defn insert-as-last-of-type!
+  [parent-element child-element]
+  (let [tag-name (-> child-element .-tagName)
+        query    (str ":scope > "tag-name)]
+       (.insertBefore parent-element child-element
+                      (-> parent-element (.querySelectorAll query)
+                          array-seq last .-nextSibling)))
+  (return parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [insert-before!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [insert-as-last-of-type!]]))
 
-(dom/insert-before! ...)
-(insert-before!     ...)
+(dom/insert-as-last-of-type! ...)
+(insert-as-last-of-type!     ...)
 ```
+
+</details>
+
+---
+
+### insert-before!
 
 ```
 @param (DOM-element) parent-element
@@ -1964,17 +3273,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### intersection-observer
+```
+(defn insert-before!
+  [parent-element child-element after-element]
+  (.insertBefore parent-element child-element after-element)
+  (return        parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [intersection-observer]]))
+(ns my-namespace (:require [dom.api :as dom :refer [insert-before!]]))
 
-(dom/intersection-observer ...)
-(intersection-observer     ...)
+(dom/insert-before! ...)
+(insert-before!     ...)
 ```
+
+</details>
+
+---
+
+### intersection-observer
 
 ```
 @param (function) callback-f
@@ -1989,17 +3315,34 @@
 @return (?)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### merge-to-form-data!
+```
+(defn intersection-observer
+  [callback-f]
+  (letfn [(f [%] (callback-f (-> % (aget 0) .-isIntersecting)))]
+         (js/IntersectionObserver. f {}))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [merge-to-form-data!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [intersection-observer]]))
 
-(dom/merge-to-form-data! ...)
-(merge-to-form-data!     ...)
+(dom/intersection-observer ...)
+(intersection-observer     ...)
 ```
+
+</details>
+
+---
+
+### merge-to-form-data!
 
 ```
 @param (FormData object) form-data
@@ -2022,17 +3365,36 @@
 @return (FormData object)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### move-caret-to-end!
+```
+(defn merge-to-form-data!
+  [form-data & xyz]
+  (doseq [n xyz]
+         (doseq [[k v] n]
+                (append-to-form-data! form-data k v)))
+  (return form-data)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [move-caret-to-end!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [merge-to-form-data!]]))
 
-(dom/move-caret-to-end! ...)
-(move-caret-to-end!     ...)
+(dom/merge-to-form-data! ...)
+(merge-to-form-data!     ...)
 ```
+
+</details>
+
+---
+
+### move-caret-to-end!
 
 ```
 @param (DOM-element) element
@@ -2048,17 +3410,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### move-caret-to-start!
+```
+(defn move-caret-to-end!
+  [element]
+  (let [length (-> element .-value .-length)]
+       (set-selection-range! element length length))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [move-caret-to-start!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [move-caret-to-end!]]))
 
-(dom/move-caret-to-start! ...)
-(move-caret-to-start!     ...)
+(dom/move-caret-to-end! ...)
+(move-caret-to-end!     ...)
 ```
+
+</details>
+
+---
+
+### move-caret-to-start!
 
 ```
 @param (DOM-element) element
@@ -2074,17 +3454,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### on-mouse-left
+```
+(defn move-caret-to-start!
+  [element]
+  (set-selection-range! element 0 0)
+  (return               element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [on-mouse-left]]))
+(ns my-namespace (:require [dom.api :as dom :refer [move-caret-to-start!]]))
 
-(dom/on-mouse-left ...)
-(on-mouse-left     ...)
+(dom/move-caret-to-start! ...)
+(move-caret-to-start!     ...)
 ```
+
+</details>
+
+---
+
+### on-mouse-left
 
 ```
 @param (DOM-event) mouse-event
@@ -2100,17 +3497,34 @@
 @return (*)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### prepend-element!
+```
+(defn on-mouse-left
+  [mouse-event f]
+  (if (= (.-button mouse-event) 0)
+      (f))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [prepend-element!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [on-mouse-left]]))
 
-(dom/prepend-element! ...)
-(prepend-element!     ...)
+(dom/on-mouse-left ...)
+(on-mouse-left     ...)
 ```
+
+</details>
+
+---
+
+### prepend-element!
 
 ```
 @param (DOM-element) parent-element
@@ -2128,17 +3542,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### prevent-default!
+```
+(defn prepend-element!
+  [parent-element child-element]
+  (.insertBefore parent-element child-element (.-firstChild parent-element))
+  (return        parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [prevent-default!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [prepend-element!]]))
 
-(dom/prevent-default! ...)
-(prevent-default!     ...)
+(dom/prepend-element! ...)
+(prepend-element!     ...)
 ```
+
+</details>
+
+---
+
+### prevent-default!
 
 ```
 @param (DOM-event) event
@@ -2154,17 +3585,33 @@
 @return (*)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-child!
+```
+(defn prevent-default!
+  [event]
+  (.preventDefault event)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-child!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [prevent-default!]]))
 
-(dom/remove-child! ...)
-(remove-child!     ...)
+(dom/prevent-default! ...)
+(prevent-default!     ...)
 ```
+
+</details>
+
+---
+
+### remove-child!
 
 ```
 @param (DOM-element) parent-element
@@ -2182,17 +3629,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-element!
+```
+(defn remove-child!
+  [parent-element child-element]
+  (.removeChild parent-element child-element)
+  (return       parent-element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-child!]]))
 
-(dom/remove-element! ...)
-(remove-element!     ...)
+(dom/remove-child! ...)
+(remove-child!     ...)
 ```
+
+</details>
+
+---
+
+### remove-element!
 
 ```
 @param (DOM-element) element
@@ -2208,17 +3672,33 @@
 @return (undefined)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-element-attribute!
+```
+(defn remove-element!
+  [element]
+  (.remove element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-attribute!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-element!]]))
 
-(dom/remove-element-attribute! ...)
-(remove-element-attribute!     ...)
+(dom/remove-element! ...)
+(remove-element!     ...)
 ```
+
+</details>
+
+---
+
+### remove-element-attribute!
 
 ```
 @param (DOM-element) element
@@ -2235,17 +3715,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-element-attributes!
+```
+(defn remove-element-attribute!
+  [element attribute-name]
+  (.removeAttribute element attribute-name)
+  (return           element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-attributes!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-element-attribute!]]))
 
-(dom/remove-element-attributes! ...)
-(remove-element-attributes!     ...)
+(dom/remove-element-attribute! ...)
+(remove-element-attribute!     ...)
 ```
+
+</details>
+
+---
+
+### remove-element-attributes!
 
 ```
 @param (DOM-element) element
@@ -2261,17 +3758,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-element-class!
+```
+(defn remove-element-attributes!
+  [element]
+  (.removeAttributes element)
+  (return            element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-class!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-element-attributes!]]))
 
-(dom/remove-element-class! ...)
-(remove-element-class!     ...)
+(dom/remove-element-attributes! ...)
+(remove-element-attributes!     ...)
 ```
+
+</details>
+
+---
+
+### remove-element-class!
 
 ```
 @param (DOM-element) element
@@ -2288,17 +3802,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-element-style!
+```
+(defn remove-element-class!
+  [element class-name]
+  (->     element .-classList (.remove class-name))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-style!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-element-class!]]))
 
-(dom/remove-element-style! ...)
-(remove-element-style!     ...)
+(dom/remove-element-class! ...)
+(remove-element-class!     ...)
 ```
+
+</details>
+
+---
+
+### remove-element-style!
 
 ```
 @param (DOM-element) element
@@ -2314,17 +3845,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-element-style-value!
+```
+(defn remove-element-style!
+  [element]
+  (.removeAttribute element "style")
+  (return           element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-style-value!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-element-style!]]))
 
-(dom/remove-element-style-value! ...)
-(remove-element-style-value!     ...)
+(dom/remove-element-style! ...)
+(remove-element-style!     ...)
 ```
+
+</details>
+
+---
+
+### remove-element-style-value!
 
 ```
 @param (DOM-element) element
@@ -2341,17 +3889,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-event-listener!
+```
+(defn remove-element-style-value!
+
+  [element style-name]
+  (->     element .-style (aset style-name nil))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-event-listener!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-element-style-value!]]))
 
-(dom/remove-event-listener! ...)
-(remove-event-listener!     ...)
+(dom/remove-element-style-value! ...)
+(remove-element-style-value!     ...)
 ```
+
+</details>
+
+---
+
+### remove-event-listener!
 
 ```
 @param (string) type
@@ -2369,17 +3935,37 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### remove-intersection-observer!
+```
+(defn remove-event-listener!
+  ([type listener-f]
+   (remove-event-listener! type listener-f js/window))
+
+  ([type listener-f target]
+   (.removeEventListener target type listener-f false)
+   (return               target))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [remove-intersection-observer!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-event-listener!]]))
 
-(dom/remove-intersection-observer! ...)
-(remove-intersection-observer!     ...)
+(dom/remove-event-listener! ...)
+(remove-event-listener!     ...)
 ```
+
+</details>
+
+---
+
+### remove-intersection-observer!
 
 ```
 @param (?) observer
@@ -2397,17 +3983,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### scroll-direction-btt?
+```
+(defn remove-intersection-observer!
+  [observer element]
+  (.unobserve observer element)
+  (return     observer)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [scroll-direction-btt?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [remove-intersection-observer!]]))
 
-(dom/scroll-direction-btt? ...)
-(scroll-direction-btt?     ...)
+(dom/remove-intersection-observer! ...)
+(remove-intersection-observer!     ...)
 ```
+
+</details>
+
+---
+
+### scroll-direction-btt?
 
 ```
 @param (integer) last-scroll-y
@@ -2422,17 +4025,34 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### scroll-direction-ttb?
+```
+(defn scroll-direction-btt?
+  [last-scroll-y]
+  (> (- last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
+     (-> js/document .-documentElement .-scrollTop))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [scroll-direction-ttb?]]))
+(ns my-namespace (:require [dom.api :as dom :refer [scroll-direction-btt?]]))
 
-(dom/scroll-direction-ttb? ...)
-(scroll-direction-ttb?     ...)
+(dom/scroll-direction-btt? ...)
+(scroll-direction-btt?     ...)
 ```
+
+</details>
+
+---
+
+### scroll-direction-ttb?
 
 ```
 @param (integer) last-scroll-y
@@ -2447,17 +4067,34 @@
 @return (boolean)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### scroll-to-element-top!
+```
+(defn scroll-direction-ttb?
+  [last-scroll-y]
+  (< (+ last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
+     (-> js/document .-documentElement .-scrollTop))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [scroll-to-element-top!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [scroll-direction-ttb?]]))
 
-(dom/scroll-to-element-top! ...)
-(scroll-to-element-top!     ...)
+(dom/scroll-direction-ttb? ...)
+(scroll-direction-ttb?     ...)
 ```
+
+</details>
+
+---
+
+### scroll-to-element-top!
 
 ```
 @param (DOM-element) element
@@ -2470,17 +4107,38 @@
 (scroll-to-element-top! my-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### select-preventer
+```
+(defn scroll-to-element-top!
+  ([element]
+   (scroll-to-element-top! element 0))
+
+  ([element offset]
+   (-> js/document .-documentElement .-scrollTop
+       (set! (+ offset (-> element     .getBoundingClientRect .-top)
+                       (-> js/document .-documentElement      .-scrollTop)))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [select-preventer]]))
+(ns my-namespace (:require [dom.api :as dom :refer [scroll-to-element-top!]]))
 
-(dom/select-preventer ...)
-(select-preventer     ...)
+(dom/scroll-to-element-top! ...)
+(scroll-to-element-top!     ...)
 ```
+
+</details>
+
+---
+
+### select-preventer
 
 ```
 @param (DOM-event) mouse-event
@@ -2492,17 +4150,37 @@
     (select-preventer mouse-event))
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-caret-position!
+```
+(defn select-preventer
+  [mouse-event]
+  (let [node-name (-> mouse-event .-srcElement .-nodeName string/lowercase)]
+       (when-not (or (= node-name "input")
+                     (= node-name "textarea"))
+                 (do (-> mouse-event .preventDefault)
+                     (-> js/document .-activeElement .blur))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-caret-position!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [select-preventer]]))
 
-(dom/set-caret-position! ...)
-(set-caret-position!     ...)
+(dom/select-preventer ...)
+(select-preventer     ...)
 ```
+
+</details>
+
+---
+
+### set-caret-position!
 
 ```
 @param (DOM-element) element
@@ -2519,17 +4197,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-document-title!
+```
+(defn set-caret-position!
+  [element caret-position]
+  (set-selection-start! element caret-position)
+  (set-selection-end!   element caret-position)
+  (return               element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-document-title!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-caret-position!]]))
 
-(dom/set-document-title! ...)
-(set-document-title!     ...)
+(dom/set-caret-position! ...)
+(set-caret-position!     ...)
 ```
+
+</details>
+
+---
+
+### set-document-title!
 
 ```
 @param (string) title
@@ -2544,17 +4240,34 @@
 @return (string)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-element-attribute!
+```
+(defn set-document-title!
+  [title]
+  (set! (-> js/document .-title) title)
+  (return title)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-attribute!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-document-title!]]))
 
-(dom/set-element-attribute! ...)
-(set-element-attribute!     ...)
+(dom/set-document-title! ...)
+(set-document-title!     ...)
 ```
+
+</details>
+
+---
+
+### set-element-attribute!
 
 ```
 @param (DOM-element) element
@@ -2572,17 +4285,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-element-attributes!
+```
+(defn set-element-attribute!
+  [element attribute-name attribute-value]
+  (.setAttribute element attribute-name attribute-value)
+  (return        element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-attributes!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-element-attribute!]]))
 
-(dom/set-element-attributes! ...)
-(set-element-attributes!     ...)
+(dom/set-element-attribute! ...)
+(set-element-attribute!     ...)
 ```
+
+</details>
+
+---
+
+### set-element-attributes!
 
 ```
 @param (DOM-element) element
@@ -2599,17 +4329,38 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-element-class!
+```
+(defn set-element-attributes!
+  [element attributes]
+  (letfn [(f [_ attribute-name attribute-value]
+             (if (keyword? attribute-name)
+                 (.setAttribute element (name attribute-name) attribute-value)
+                 (.setAttribute element       attribute-name  attribute-value)))]
+         (reduce-kv f nil attributes))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-class!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-element-attributes!]]))
 
-(dom/set-element-class! ...)
-(set-element-class!     ...)
+(dom/set-element-attributes! ...)
+(set-element-attributes!     ...)
 ```
+
+</details>
+
+---
+
+### set-element-class!
 
 ```
 @param (DOM-element) element
@@ -2626,17 +4377,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-element-content!
+```
+(defn set-element-class!
+  [element class-name]
+  (->     element .-classList (.add class-name))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-content!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-element-class!]]))
 
-(dom/set-element-content! ...)
-(set-element-content!     ...)
+(dom/set-element-class! ...)
+(set-element-class!     ...)
 ```
+
+</details>
+
+---
+
+### set-element-content!
 
 ```
 @param (DOM-element) element
@@ -2653,17 +4421,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-element-id!
+```
+(defn set-element-content!
+  [element content]
+  (->     element .-innerHTML (set! content))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-id!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-element-content!]]))
 
-(dom/set-element-id! ...)
-(set-element-id!     ...)
+(dom/set-element-content! ...)
+(set-element-content!     ...)
 ```
+
+</details>
+
+---
+
+### set-element-id!
 
 ```
 @param (DOM-element) element
@@ -2680,17 +4465,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-element-style!
+```
+(defn set-element-id!
+  [element element-id]
+  (->     element .-id (set! element-id))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-style!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-element-id!]]))
 
-(dom/set-element-style! ...)
-(set-element-style!     ...)
+(dom/set-element-id! ...)
+(set-element-id!     ...)
 ```
+
+</details>
+
+---
+
+### set-element-style!
 
 ```
 @param (DOM-element) element
@@ -2707,17 +4509,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-element-style-value!
+```
+(defn set-element-style!
+  [element style]
+  (let [parsed-style (css/unparse style)]
+       (.setAttribute element "style" parsed-style))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-style-value!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-element-style!]]))
 
-(dom/set-element-style-value! ...)
-(set-element-style-value!     ...)
+(dom/set-element-style! ...)
+(set-element-style!     ...)
 ```
+
+</details>
+
+---
+
+### set-element-style-value!
 
 ```
 @param (DOM-element) element
@@ -2735,17 +4555,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-scroll-x!
+```
+(defn set-element-style-value!
+  [element style-name style-value]
+  (->     element .-style (aset style-name style-value))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-scroll-x!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-element-style-value!]]))
 
-(dom/set-scroll-x! ...)
-(set-scroll-x!     ...)
+(dom/set-element-style-value! ...)
+(set-element-style-value!     ...)
 ```
+
+</details>
+
+---
+
+### set-scroll-x!
 
 ```
 @param (px) scroll-x
@@ -2757,17 +4594,62 @@
 (set-scroll-x! 100)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-selection-end!
+```
+(defn set-scroll-x!
+  ([scroll-x]
+   (set-scroll-x! scroll-x {}))
+
+  ([scroll-x {:keys [smooth?]}]
+   (-> js/document .-documentElement .-scrollLeft (set! scroll-x))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-selection-end!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-scroll-x!]]))
 
-(dom/set-selection-end! ...)
-(set-selection-end!     ...)
+(dom/set-scroll-x! ...)
+(set-scroll-x!     ...)
 ```
+
+</details>
+
+---
+
+### set-scroll-y!
+
+<details>
+<summary>Source code</summary>
+
+```
+
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+@require
+(ns my-namespace (:require [dom.api :as dom :refer [set-scroll-y!]]))
+
+(dom/set-scroll-y!)
+(set-scroll-y!)
+```
+
+</details>
+
+---
+
+### set-selection-end!
 
 ```
 @param (DOM-element) element
@@ -2784,17 +4666,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-selection-range!
+```
+(defn set-selection-end!
+  [element selection-end]
+  (->     element .-selectionEnd (set! selection-end))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-selection-range!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-selection-end!]]))
 
-(dom/set-selection-range! ...)
-(set-selection-range!     ...)
+(dom/set-selection-end! ...)
+(set-selection-end!     ...)
 ```
+
+</details>
+
+---
+
+### set-selection-range!
 
 ```
 @param (DOM-element) element
@@ -2812,17 +4711,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### set-selection-start!
+```
+(defn set-selection-range!
+  [element selection-start selection-end]
+  (set-selection-start! element selection-start)
+  (set-selection-end!   element selection-end)
+  (return               element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [set-selection-start!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-selection-range!]]))
 
-(dom/set-selection-start! ...)
-(set-selection-start!     ...)
+(dom/set-selection-range! ...)
+(set-selection-range!     ...)
 ```
+
+</details>
+
+---
+
+### set-selection-start!
 
 ```
 @param (DOM-element) element
@@ -2839,17 +4756,34 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### setup-intersection-observer!
+```
+(defn set-selection-start!
+  [element selection-start]
+  (->     element .-selectionStart (set! selection-start))
+  (return element)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [setup-intersection-observer!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [set-selection-start!]]))
 
-(dom/setup-intersection-observer! ...)
-(setup-intersection-observer!     ...)
+(dom/set-selection-start! ...)
+(set-selection-start!     ...)
 ```
+
+</details>
+
+---
+
+### setup-intersection-observer!
 
 ```
 @param (DOM-element) element
@@ -2866,17 +4800,35 @@
 @return (DOM-element)
 ```
 
----
+<details>
+<summary>Source code</summary>
 
-### stop-propagation!
+```
+(defn setup-intersection-observer!
+  [element callback-f]
+  (let [observer (intersection-observer callback-f)]
+       (.observe observer element)
+       (return   observer))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
-(ns my-namespace (:require [dom.api :as dom :refer [stop-propagation!]]))
+(ns my-namespace (:require [dom.api :as dom :refer [setup-intersection-observer!]]))
 
-(dom/stop-propagation! ...)
-(stop-propagation!     ...)
+(dom/setup-intersection-observer! ...)
+(setup-intersection-observer!     ...)
 ```
+
+</details>
+
+---
+
+### stop-propagation!
 
 ```
 @param (DOM-event) event
@@ -2892,9 +4844,54 @@
 @return (*)
 ```
 
+<details>
+<summary>Source code</summary>
+
+```
+(defn stop-propagation!
+  [event]
+  (.stopPropagation event)
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+@require
+(ns my-namespace (:require [dom.api :as dom :refer [stop-propagation!]]))
+
+(dom/stop-propagation! ...)
+(stop-propagation!     ...)
+```
+
+</details>
+
 ---
 
 ### toggle-design-mode!
+
+```
+@usage
+(toggle-design-mode!)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn toggle-design-mode!
+  []
+  (let [design-mode (-> js/document .-designMode)]
+       (case design-mode "on" (aset js/document "designMode" "off")
+                              (aset js/document "designMode" "on")))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
 
 ```
 @require
@@ -2904,7 +4901,4 @@
 (toggle-design-mode!)
 ```
 
-```
-@usage
-(toggle-design-mode!)
-```
+</details>
