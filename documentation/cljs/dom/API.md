@@ -2,6 +2,10 @@
 # <strong>dom.api</strong> namespace</p>
 <p>Documentation of the <strong>dom/api.cljs</strong> file</p>
 
+[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > dom.api
+
+
+
 ### add-event-listener!
 
 ```
@@ -29,7 +33,7 @@
 
   ([type listener-f target]
    (.addEventListener target type listener-f false)
-   (return            target))
+   (return            target)))
 ```
 
 </details>
@@ -73,7 +77,7 @@
 (defn append-element!
   [parent-element child-element]
   (.appendChild parent-element child-element)
-  (return       parent-element)
+  (return       parent-element))
 ```
 
 </details>
@@ -118,7 +122,7 @@
        (attributes/set-element-attribute! script-element "type" "text/javascript")
        (node/set-element-content!         script-element script)
        (node/append-element!              body-element   script-element)
-       (return                            script-element))
+       (return                            script-element)))
 ```
 
 </details>
@@ -165,7 +169,7 @@
                      (name     prop-key)
                      (return   prop-key))]
        (.append form-data prop-key prop-value))
-  (return form-data)
+  (return form-data))
 ```
 
 </details>
@@ -207,7 +211,7 @@
 (defn blur-element!
   [element]
   (.blur  element)
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -247,7 +251,7 @@
 ```
 (defn create-element!
   [nodename]
-  (.createElement js/document nodename)
+  (.createElement js/document nodename))
 ```
 
 </details>
@@ -288,7 +292,7 @@
 ```
 (defn element-disabled?
   [element]
-  (-> element .-disabled boolean)
+  (-> element .-disabled boolean))
 ```
 
 </details>
@@ -329,7 +333,7 @@
 ```
 (defn element-enabled?
   [element]
-  (-> element .-disabled not)
+  (-> element .-disabled not))
 ```
 
 </details>
@@ -373,7 +377,7 @@
   (> (+ (-> element     .-offsetHeight (/ 2))
         (-> element     .getBoundingClientRect .-left)
         (-> js/document .-documentElement      .-scrollTop))
-     (-> js/window .-innerWidth (/ 2)))
+     (-> js/window .-innerWidth (/ 2))))
 ```
 
 </details>
@@ -417,7 +421,7 @@
   (<= (+ (-> element     .-offsetWidth (/ 2))
          (-> element     .getBoundingClientRect .-left)
          (-> js/document .-documentElement      .-scrollLeft))
-      (-> js/window .-innerWidth (/ 2)))
+      (-> js/window .-innerWidth (/ 2))))
 ```
 
 </details>
@@ -461,7 +465,7 @@
   (> (+ (-> element     .-offsetWidth (/ 2))
         (-> element     .getBoundingClientRect .-left)
         (-> js/document .-documentElement      .-scrollLeft))
-     (-> js/window .-innerWidth (/ 2)))
+     (-> js/window .-innerWidth (/ 2))))
 ```
 
 </details>
@@ -505,7 +509,7 @@
   (<= (+ (-> element     .-offsetHeight (/ 2))
          (-> element     .getBoundingClientRect .-left)
          (-> js/document .-documentElement      .-scrollTop))
-      (-> js/window .-innerWidth (/ 2)))
+      (-> js/window .-innerWidth (/ 2))))
 ```
 
 </details>
@@ -548,7 +552,7 @@
   [element]
   (while (.-firstChild element)
          (.removeChild element (.-firstChild element)))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -589,7 +593,7 @@
 ```
 (defn event->node-name
   [event]
-  (-> event .-srcElement .-nodeName)
+  (-> event .-srcElement .-nodeName))
 ```
 
 </details>
@@ -630,7 +634,7 @@
 ```
 (defn event->value
   [n]
-  (-> n .-target .-value)
+  (-> n .-target .-value))
 ```
 
 </details>
@@ -680,7 +684,7 @@
     :filename   (.-name file)
     :filesize   (.-size file)
     :mime-type  (.-type file)
-    :object-url (.createObjectURL js/URL file)})
+    :object-url (.createObjectURL js/URL file)}))
 ```
 
 </details>
@@ -722,7 +726,7 @@
 ```
 (defn file->filename
   [file]
-  (.-name file)
+  (.-name file))
 ```
 
 </details>
@@ -764,7 +768,7 @@
 ```
 (defn file->filesize
   [file]
-  (.-size file)
+  (.-size file))
 ```
 
 </details>
@@ -806,7 +810,7 @@
 ```
 (defn file->image?
   [file]
-  (-> file .-type io/mime-type->image?)
+  (-> file .-type io/mime-type->image?))
 ```
 
 </details>
@@ -848,7 +852,7 @@
 ```
 (defn file->mime-type
   [file]
-  (.-type file)
+  (.-type file))
 ```
 
 </details>
@@ -889,7 +893,7 @@
 ```
 (defn file-selector->any-file-selected?
   [file-selector]
-  (-> file-selector .-files .-length (> 0))
+  (-> file-selector .-files .-length (> 0)))
 ```
 
 </details>
@@ -930,7 +934,7 @@
 ```
 (defn file-selector->files
   [file-selector]
-  (-> file-selector .-files)
+  (-> file-selector .-files))
 ```
 
 </details>
@@ -971,7 +975,7 @@
 ```
 (defn file-selector->file-count
   [file-selector]
-  (-> file-selector .-files .-length)
+  (-> file-selector .-files .-length))
 ```
 
 </details>
@@ -1012,7 +1016,7 @@
 ```
 (defn file-selector->file-list
   [file-selector]
-  (-> file-selector .-files array-seq)
+  (-> file-selector .-files array-seq))
 ```
 
 </details>
@@ -1053,7 +1057,7 @@
 ```
 (defn file-selector->files
   [file-selector]
-  (-> file-selector .-files)
+  (-> file-selector .-files))
 ```
 
 </details>
@@ -1095,7 +1099,7 @@
 (defn file-selector->files-data
   [file-selector]
   (letfn [(f [%1 %2 %3] (conj %1 (file/file->file-data %2 %3)))]
-         (reduce-kv f [] (-> file-selector .-files array-seq vec)))
+         (reduce-kv f [] (-> file-selector .-files array-seq vec))))
 ```
 
 </details>
@@ -1137,7 +1141,7 @@
 (defn file-selector->files-meta
   [file-selector]
   {:file-count (file-selector->file-count file-selector)
-   :files-size (file-selector->files-size file-selector)}
+   :files-size (file-selector->files-size file-selector)})
 ```
 
 </details>
@@ -1179,7 +1183,7 @@
 (defn file-selector->files-size
   [file-selector]
   (letfn [(f [%1 %2] (+ %1 (.-size %2)))]
-         (reduce f 0 (-> file-selector .-files array-seq)))
+         (reduce f 0 (-> file-selector .-files array-seq))))
 ```
 
 </details>
@@ -1234,7 +1238,7 @@
        (doseq [file-key file-keys]
               (let [file (aget files file-key)]
                    (append-to-form-data! form-data file-key file)))
-       (return form-data))
+       (return form-data)))
 ```
 
 </details>
@@ -1277,7 +1281,7 @@
 (defn file-selector->image-data-url
   [file-selector file-dex]
   (let [file        (file-selector->file file-selector file-dex)
-        file-reader (js/FileReader.)])
+        file-reader (js/FileReader.)]))
 ```
 
 </details>
@@ -1319,7 +1323,7 @@
 (defn file-selector->mime-types
   [file-selector]
   (letfn [(f [%1 %2] (conj %1 (.-type %2)))]
-         (reduce f [] (-> file-selector .-files array-seq)))
+         (reduce f [] (-> file-selector .-files array-seq))))
 ```
 
 </details>
@@ -1361,7 +1365,7 @@
 (defn focus-element!
   [element]
   (.focus element)
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -1397,7 +1401,7 @@
 ```
 (defn get-active-element
   []
-  (.-activeElement js/document)
+  (.-activeElement js/document))
 ```
 
 </details>
@@ -1434,7 +1438,7 @@
 (defn get-body-element
   []
   (-> js/document (.getElementsByTagName "body")
-                  (aget 0))
+                  (aget 0)))
 ```
 
 </details>
@@ -1476,7 +1480,7 @@
   [style-name]
   (-> js/window (.getComputedStyle (-> js/document (.getElementsByTagName "body")
                                                    (aget 0)))
-                (aget style-name))
+                (aget style-name)))
 ```
 
 </details>
@@ -1512,7 +1516,7 @@
 ```
 (defn get-document-element
   []
-  (.-documentElement js/document)
+  (.-documentElement js/document))
 ```
 
 </details>
@@ -1548,7 +1552,7 @@
 ```
 (defn get-document-height
   []
-  (-> js/document .-documentElement .-scrollHeight)
+  (-> js/document .-documentElement .-scrollHeight))
 ```
 
 </details>
@@ -1584,7 +1588,7 @@
 ```
 (defn get-document-title
   []
-  (str (-> js/document .-title))
+  (str (-> js/document .-title)))
 ```
 
 </details>
@@ -1620,7 +1624,7 @@
 ```
 (defn get-document-width
   []
-  (-> js/document .-documentElement .-scrollWidth)
+  (-> js/document .-documentElement .-scrollWidth))
 ```
 
 </details>
@@ -1662,7 +1666,7 @@
 (defn get-element-absolute-left
   [element]
   (math/round (+ (-> element     .getBoundingClientRect .-left)
-                 (-> js/document .-documentElement .-scrollLeft)))
+                 (-> js/document .-documentElement .-scrollLeft))))
 ```
 
 </details>
@@ -1704,7 +1708,7 @@
 (defn get-element-absolute-top
   [element]
   (math/round (+ (-> element     .getBoundingClientRect .-top)
-                 (-> js/document .-documentElement .-scrollTop)))
+                 (-> js/document .-documentElement .-scrollTop))))
 ```
 
 </details>
@@ -1745,7 +1749,7 @@
 ```
 (defn get-element-attributes
   [element]
-  (.getAttributes element)
+  (.getAttributes element))
 ```
 
 </details>
@@ -1786,7 +1790,7 @@
 ```
 (defn get-element-attributes
   [element]
-  (.getAttributes element)
+  (.getAttributes element))
 ```
 
 </details>
@@ -1827,7 +1831,7 @@
 ```
 (defn get-element-by-id
   ([element-id]                (.getElementById js/document    element-id))
-  ([parent-element element-id] (.getElementById parent-element element-id))
+  ([parent-element element-id] (.getElementById parent-element element-id)))
 ```
 
 </details>
@@ -1878,7 +1882,7 @@
 ```
 (defn get-element-by-query
   ([query]                (-> js/document    (.querySelector query)))
-  ([parent-element query] (-> parent-element (.querySelector query)))
+  ([parent-element query] (-> parent-element (.querySelector query))))
 ```
 
 </details>
@@ -1919,7 +1923,7 @@
 ```
 (defn get-element-computed-style
   [element]
-  (.getComputedStyle js/window element)
+  (.getComputedStyle js/window element))
 ```
 
 </details>
@@ -1960,7 +1964,7 @@
 ```
 (defn get-element-height
   [element]
-  (.-offsetHeight element)
+  (.-offsetHeight element))
 ```
 
 </details>
@@ -2007,7 +2011,7 @@
           (return :br))
       (if (element-on-viewport-left? element)
           (return :tl)
-          (return :tr)))
+          (return :tr))))
 ```
 
 </details>
@@ -2050,7 +2054,7 @@
   [element]
   (math/round (+ (-> element     .-offsetWidth (/ 2))
                  (-> element     .getBoundingClientRect .-left)
-                 (-> js/document .-documentElement      .-scrollLeft)))
+                 (-> js/document .-documentElement      .-scrollLeft))))
 ```
 
 </details>
@@ -2093,7 +2097,7 @@
   [element]
   (math/round (+ (-> element     .-offsetHeight (/ 2))
                  (-> element     .getBoundingClientRect .-left)
-                 (-> js/document .-documentElement      .-scrollTop)))
+                 (-> js/document .-documentElement      .-scrollTop))))
 ```
 
 </details>
@@ -2134,7 +2138,7 @@
 ```
 (defn get-element-offset-left
   [element]
-  (-> element .-offsetLeft math/round)
+  (-> element .-offsetLeft math/round))
 ```
 
 </details>
@@ -2175,7 +2179,7 @@
 ```
 (defn get-element-offset-top
   [element]
-  (-> element .-offsetTop math/round)
+  (-> element .-offsetTop math/round))
 ```
 
 </details>
@@ -2216,7 +2220,7 @@
 ```
 (defn get-element-relative-left
   [element]
-  (-> element .getBoundingClientRect .-left math/round)
+  (-> element .getBoundingClientRect .-left math/round))
 ```
 
 </details>
@@ -2257,7 +2261,7 @@
 ```
 (defn get-element-relative-top
   [element]
-  (-> element .getBoundingClientRect .-top math/round)
+  (-> element .getBoundingClientRect .-top math/round))
 ```
 
 </details>
@@ -2293,7 +2297,7 @@
 
 ```
 (defn get-element-style
-  [element]
+  [element])
 ```
 
 </details>
@@ -2336,7 +2340,7 @@
 (defn get-element-style-value
   [element style-name]
   (-> js/window (.getComputedStyle element)
-                (aget style-name))
+                (aget style-name)))
 ```
 
 </details>
@@ -2377,7 +2381,7 @@
 ```
 (defn get-element-width
   [element]
-  (.-offsetWidth element)
+  (.-offsetWidth element))
 ```
 
 </details>
@@ -2418,7 +2422,7 @@
 ```
 (defn get-elements-by-class-name
   ([class-name]                (-> js/document    (.getElementsByClassName class-name) array-seq vec))
-  ([parent-element class-name] (-> parent-element (.getElementsByClassName class-name) array-seq vec))
+  ([parent-element class-name] (-> parent-element (.getElementsByClassName class-name) array-seq vec)))
 ```
 
 </details>
@@ -2469,7 +2473,7 @@
 ```
 (defn get-elements-by-query
   ([query]                (-> js/document    (.querySelectorAll query) array-seq vec))
-  ([parent-element query] (-> parent-element (.querySelectorAll query) array-seq vec))
+  ([parent-element query] (-> parent-element (.querySelectorAll query) array-seq vec)))
 ```
 
 </details>
@@ -2510,7 +2514,7 @@
 ```
 (defn get-elements-by-tag-name
   ([tag-name]                (-> js/document    (.getElementsByTagName tag-name) array-seq vec))
-  ([parent-element tag-name] (-> parent-element (.getElementsByTagName tag-name) array-seq vec))
+  ([parent-element tag-name] (-> parent-element (.getElementsByTagName tag-name) array-seq vec)))
 ```
 
 </details>
@@ -2547,7 +2551,7 @@
 (defn get-head-element
   []
   (-> js/document (.getElementsByTagName "head")
-                  (aget 0))
+                  (aget 0)))
 ```
 
 </details>
@@ -2599,7 +2603,7 @@
                   (<  mouse-y half-viewport-height))
              :tr
              (< mouse-x half-viewport-width)
-             :bl :return :br))
+             :bl :return :br)))
 ```
 
 </details>
@@ -2640,7 +2644,7 @@
 ```
 (defn get-mouse-x
   [mouse-event]
-  (.-clientX mouse-event)
+  (.-clientX mouse-event))
 ```
 
 </details>
@@ -2716,7 +2720,7 @@
         (math/negative? last-scroll-y)
         (return :btt)
 
-        :return nil)
+        :return nil))
 ```
 
 </details>
@@ -2757,7 +2761,7 @@
         document-height (-> js/document .-documentElement .-scrollHeight)
         max-scroll-y    (- document-height viewport-height)
         scroll-progress (math/percent max-scroll-y scroll-y)]
-      (math/between! scroll-progress 0 100))
+      (math/between! scroll-progress 0 100)))
 ```
 
 </details>
@@ -2793,7 +2797,7 @@
 ```
 (defn get-scroll-x
   []
-  (-> js/document .-documentElement .-scrollLeft)
+  (-> js/document .-documentElement .-scrollLeft))
 ```
 
 </details>
@@ -2829,7 +2833,7 @@
 ```
 (defn get-scroll-y
   []
-  (-> js/document .-documentElement .-scrollTop)
+  (-> js/document .-documentElement .-scrollTop))
 ```
 
 </details>
@@ -2870,7 +2874,7 @@
 ```
 (defn get-selection-end
   [element]
-  (.-selectionStart element)
+  (.-selectionStart element))
 ```
 
 </details>
@@ -2911,7 +2915,7 @@
 ```
 (defn get-selection-start
   [element]
-  (.-selectionStart element)
+  (.-selectionStart element))
 ```
 
 </details>
@@ -2957,7 +2961,7 @@
 (defn insert-after!
   [parent-element child-element before-element]
   (.insertBefore parent-element child-element (.-nextSibling before-element))
-  (return        parent-element)
+  (return        parent-element))
 ```
 
 </details>
@@ -3010,7 +3014,7 @@
   [parent-element child-element query]
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query) array-seq first))
-  (return parent-element)
+  (return parent-element))
 ```
 
 </details>
@@ -3058,7 +3062,7 @@
        (.insertBefore parent-element child-element
                       (-> parent-element (.querySelectorAll query)
                           array-seq first)))
-  (return parent-element)
+  (return parent-element))
 ```
 
 </details>
@@ -3111,7 +3115,7 @@
   [parent-element child-element query]
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query) array-seq last .-nextSibling))
-  (return parent-element)
+  (return parent-element))
 ```
 
 </details>
@@ -3159,7 +3163,7 @@
        (.insertBefore parent-element child-element
                       (-> parent-element (.querySelectorAll query)
                           array-seq last .-nextSibling)))
-  (return parent-element)
+  (return parent-element))
 ```
 
 </details>
@@ -3205,7 +3209,7 @@
 (defn insert-before!
   [parent-element child-element after-element]
   (.insertBefore parent-element child-element after-element)
-  (return        parent-element)
+  (return        parent-element))
 ```
 
 </details>
@@ -3246,7 +3250,7 @@
 (defn intersection-observer
   [callback-f]
   (letfn [(f [%] (callback-f (-> % (aget 0) .-isIntersecting)))]
-         (js/IntersectionObserver. f {}))
+         (js/IntersectionObserver. f {})))
 ```
 
 </details>
@@ -3297,7 +3301,7 @@
   (doseq [n xyz]
          (doseq [[k v] n]
                 (append-to-form-data! form-data k v)))
-  (return form-data)
+  (return form-data))
 ```
 
 </details>
@@ -3340,7 +3344,7 @@
   [element]
   (let [length (-> element .-value .-length)]
        (set-selection-range! element length length))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -3382,7 +3386,7 @@
 (defn move-caret-to-start!
   [element]
   (set-selection-range! element 0 0)
-  (return               element)
+  (return               element))
 ```
 
 </details>
@@ -3424,7 +3428,7 @@
 (defn on-mouse-left
   [mouse-event f]
   (if (= (.-button mouse-event) 0)
-      (f))
+      (f)))
 ```
 
 </details>
@@ -3468,7 +3472,7 @@
 (defn prepend-element!
   [parent-element child-element]
   (.insertBefore parent-element child-element (.-firstChild parent-element))
-  (return        parent-element)
+  (return        parent-element))
 ```
 
 </details>
@@ -3509,7 +3513,7 @@
 ```
 (defn prevent-default!
   [event]
-  (.preventDefault event)
+  (.preventDefault event))
 ```
 
 </details>
@@ -3553,7 +3557,7 @@
 (defn remove-child!
   [parent-element child-element]
   (.removeChild parent-element child-element)
-  (return       parent-element)
+  (return       parent-element))
 ```
 
 </details>
@@ -3594,7 +3598,7 @@
 ```
 (defn remove-element!
   [element]
-  (.remove element)
+  (.remove element))
 ```
 
 </details>
@@ -3637,7 +3641,7 @@
 (defn remove-element-attribute!
   [element attribute-name]
   (.removeAttribute element attribute-name)
-  (return           element)
+  (return           element))
 ```
 
 </details>
@@ -3679,7 +3683,7 @@
 (defn remove-element-attributes!
   [element]
   (.removeAttributes element)
-  (return            element)
+  (return            element))
 ```
 
 </details>
@@ -3722,7 +3726,7 @@
 (defn remove-element-class!
   [element class-name]
   (->     element .-classList (.remove class-name))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -3764,7 +3768,7 @@
 (defn remove-element-style!
   [element]
   (.removeAttribute element "style")
-  (return           element)
+  (return           element))
 ```
 
 </details>
@@ -3808,7 +3812,7 @@
 
   [element style-name]
   (->     element .-style (aset style-name nil))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -3855,7 +3859,7 @@
 
   ([type listener-f target]
    (.removeEventListener target type listener-f false)
-   (return               target))
+   (return               target)))
 ```
 
 </details>
@@ -3899,7 +3903,7 @@
 (defn remove-intersection-observer!
   [observer element]
   (.unobserve observer element)
-  (return     observer)
+  (return     observer))
 ```
 
 </details>
@@ -3940,7 +3944,7 @@
 (defn scroll-direction-btt?
   [last-scroll-y]
   (> (- last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
-     (-> js/document .-documentElement .-scrollTop))
+     (-> js/document .-documentElement .-scrollTop)))
 ```
 
 </details>
@@ -3981,7 +3985,7 @@
 (defn scroll-direction-ttb?
   [last-scroll-y]
   (< (+ last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
-     (-> js/document .-documentElement .-scrollTop))
+     (-> js/document .-documentElement .-scrollTop)))
 ```
 
 </details>
@@ -4024,7 +4028,7 @@
   ([element offset]
    (-> js/document .-documentElement .-scrollTop
        (set! (+ offset (-> element     .getBoundingClientRect .-top)
-                       (-> js/document .-documentElement      .-scrollTop)))))
+                       (-> js/document .-documentElement      .-scrollTop))))))
 ```
 
 </details>
@@ -4065,7 +4069,7 @@
        (when-not (or (= node-name "input")
                      (= node-name "textarea"))
                  (do (-> mouse-event .preventDefault)
-                     (-> js/document .-activeElement .blur))))
+                     (-> js/document .-activeElement .blur)))))
 ```
 
 </details>
@@ -4109,7 +4113,7 @@
   [element caret-position]
   (set-selection-start! element caret-position)
   (set-selection-end!   element caret-position)
-  (return               element)
+  (return               element))
 ```
 
 </details>
@@ -4150,7 +4154,7 @@
 (defn set-document-title!
   [title]
   (set! (-> js/document .-title) title)
-  (return title)
+  (return title))
 ```
 
 </details>
@@ -4194,7 +4198,7 @@
 (defn set-element-attribute!
   [element attribute-name attribute-value]
   (.setAttribute element attribute-name attribute-value)
-  (return        element)
+  (return        element))
 ```
 
 </details>
@@ -4241,7 +4245,7 @@
                  (.setAttribute element (name attribute-name) attribute-value)
                  (.setAttribute element       attribute-name  attribute-value)))]
          (reduce-kv f nil attributes))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -4284,7 +4288,7 @@
 (defn set-element-class!
   [element class-name]
   (->     element .-classList (.add class-name))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -4327,7 +4331,7 @@
 (defn set-element-content!
   [element content]
   (->     element .-innerHTML (set! content))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -4370,7 +4374,7 @@
 (defn set-element-id!
   [element element-id]
   (->     element .-id (set! element-id))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -4414,7 +4418,7 @@
   [element style]
   (let [parsed-style (css/unparse style)]
        (.setAttribute element "style" parsed-style))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -4458,7 +4462,7 @@
 (defn set-element-style-value!
   [element style-name style-value]
   (->     element .-style (aset style-name style-value))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -4498,7 +4502,7 @@
    (set-scroll-x! scroll-x {}))
 
   ([scroll-x {:keys [smooth?]}]
-   (-> js/document .-documentElement .-scrollLeft (set! scroll-x))
+   (-> js/document .-documentElement .-scrollLeft (set! scroll-x)))
 ```
 
 </details>
@@ -4566,7 +4570,7 @@
 (defn set-selection-end!
   [element selection-end]
   (->     element .-selectionEnd (set! selection-end))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -4611,7 +4615,7 @@
   [element selection-start selection-end]
   (set-selection-start! element selection-start)
   (set-selection-end!   element selection-end)
-  (return               element)
+  (return               element))
 ```
 
 </details>
@@ -4654,7 +4658,7 @@
 (defn set-selection-start!
   [element selection-start]
   (->     element .-selectionStart (set! selection-start))
-  (return element)
+  (return element))
 ```
 
 </details>
@@ -4698,7 +4702,7 @@
   [element callback-f]
   (let [observer (intersection-observer callback-f)]
        (.observe observer element)
-       (return   observer))
+       (return   observer)))
 ```
 
 </details>
@@ -4739,7 +4743,7 @@
 ```
 (defn stop-propagation!
   [event]
-  (.stopPropagation event)
+  (.stopPropagation event))
 ```
 
 </details>
@@ -4773,7 +4777,7 @@
   []
   (let [design-mode (-> js/document .-designMode)]
        (case design-mode "on" (aset js/document "designMode" "off")
-                              (aset js/document "designMode" "on")))
+                              (aset js/document "designMode" "on"))))
 ```
 
 </details>
