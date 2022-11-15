@@ -9,7 +9,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (file->filesize my-file)
+  ; (file->filesize my-file)
   ;
   ; @return (B)
   [file]
@@ -19,7 +19,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (file->filename my-file)
+  ; (file->filename my-file)
   ;
   ; @return (string)
   [file]
@@ -29,7 +29,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (file->mime-type my-file)
+  ; (file->mime-type my-file)
   ;
   ; @return (string)
   [file]
@@ -39,7 +39,7 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (file->image? my-file)
+  ; (file->image? my-file)
   ;
   ; @return (boolean)
   [file]
@@ -50,14 +50,14 @@
   ; @param (file object) file
   ;
   ; @usage
-  ;  (file->file-data 2 my-file)
+  ; (file->file-data 2 my-file)
   ;
   ; @return (map)
-  ;  {:file-dex (integer)
-  ;   :filename (string)
-  ;   :filesize (B)
-  ;   :mime-type (string)
-  ;   :object-url (string)}
+  ; {:file-dex (integer)
+  ;  :filename (string)
+  ;  :filesize (B)
+  ;  :mime-type (string)
+  ;  :object-url (string)}
   ([file]
    (file->file-data nil file))
 

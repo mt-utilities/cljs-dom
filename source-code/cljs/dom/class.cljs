@@ -10,7 +10,7 @@
   ; @param (string) class-name
   ;
   ; @usage
-  ;  (set-element-class! my-element "my-class")
+  ; (set-element-class! my-element "my-class")
   ;
   ; @return (DOM-element)
   [element class-name]
@@ -22,7 +22,7 @@
   ; @param (string) class-name
   ;
   ; @usage
-  ;  (remove-element-class! my-element "my-class")
+  ; (remove-element-class! my-element "my-class")
   ;
   ; @return (DOM-element)
   [element class-name]

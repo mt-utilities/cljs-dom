@@ -12,7 +12,7 @@
   ; @param (string) script
   ;
   ; @usage
-  ;  (append-script! "console.log('420')")
+  ; (append-script! "console.log('420')")
   ;
   ; @return (DOM-element)
   [script]

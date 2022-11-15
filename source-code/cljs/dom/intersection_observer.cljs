@@ -9,7 +9,7 @@
   ; @param (function) callback-f
   ;
   ; @usage
-  ;  (intersection-observer (fn [intersecting?] ...))
+  ; (intersection-observer (fn [intersecting?] ...))
   ;
   ; @return (?)
   [callback-f]
@@ -21,7 +21,7 @@
   ; @param (function) callback-f
   ;
   ; @usage
-  ;  (setup-intersection-observer! my-element (fn [intersecting?] ...))
+  ; (setup-intersection-observer! my-element (fn [intersecting?] ...))
   ;
   ; @return (DOM-element)
   [element callback-f]
@@ -34,7 +34,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (remove-intersection-observer! my-observer my-element)
+  ; (remove-intersection-observer! my-observer my-element)
   ;
   ; @return (DOM-element)
   [observer element]

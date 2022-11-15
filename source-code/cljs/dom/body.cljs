@@ -6,7 +6,7 @@
 
 (defn get-body-element
   ; @usage
-  ;  (get-body-element)
+  ; (get-body-element)
   ;
   ; @return (DOM-element)
   []
@@ -20,7 +20,7 @@
   ; @param (string) style-name
   ;
   ; @usage
-  ;  (get-element-style "background-color")
+  ; (get-element-style "background-color")
   ;
   ; @return (string)
   [style-name]

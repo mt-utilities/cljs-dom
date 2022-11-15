@@ -9,7 +9,7 @@
   ; WARNING! NOT TESTED!
   ;
   ; @usage
-  ;  (get-document-title)
+  ; (get-document-title)
   ;
   ; @return (string)
   []
@@ -19,7 +19,7 @@
   ; @param (string) title
   ;
   ; @usage
-  ;  (set-document-title! "My title")
+  ; (set-document-title! "My title")
   ;
   ; @return (string)
   [title]

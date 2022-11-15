@@ -9,7 +9,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (get-selection-start my-element)
+  ; (get-selection-start my-element)
   ;
   ; @return (integer)
   [element]
@@ -19,7 +19,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (get-selection-end my-element)
+  ; (get-selection-end my-element)
   ;
   ; @return (integer)
   [element]
@@ -33,7 +33,7 @@
   ; @param (integer) selection-start
   ;
   ; @usage
-  ;  (set-selection-start! my-element 2)
+  ; (set-selection-start! my-element 2)
   ;
   ; @return (DOM-element)
   [element selection-start]
@@ -45,7 +45,7 @@
   ; @param (integer) selection-end
   ;
   ; @usage
-  ;  (set-selection-end! my-element 2)
+  ; (set-selection-end! my-element 2)
   ;
   ; @return (DOM-element)
   [element selection-end]
@@ -61,7 +61,7 @@
   ; @param (integer) selection-end
   ;
   ; @usage
-  ;  (set-selection-range! my-element 2 10)
+  ; (set-selection-range! my-element 2 10)
   ;
   ; @return (DOM-element)
   [element selection-start selection-end]
@@ -74,7 +74,7 @@
   ; @param (integer) caret-position
   ;
   ; @usage
-  ;  (set-caret-position! my-element 20)
+  ; (set-caret-position! my-element 20)
   ;
   ; @return (DOM-element)
   [element caret-position]
@@ -86,7 +86,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (move-caret-to-start! my-element)
+  ; (move-caret-to-start! my-element)
   ;
   ; @return (DOM-element)
   [element]
@@ -97,7 +97,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (move-caret-to-end! my-element)
+  ; (move-caret-to-end! my-element)
   ;
   ; @return (DOM-element)
   [element]

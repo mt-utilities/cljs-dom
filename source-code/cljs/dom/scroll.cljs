@@ -9,7 +9,7 @@
 
 (defn get-scroll-x
   ; @usage
-  ;  (get-scroll-x)
+  ; (get-scroll-x)
   ;
   ; @return (px)
   []
@@ -17,7 +17,7 @@
 
 (defn get-scroll-y
   ; @usage
-  ;  (get-scroll-y)
+  ; (get-scroll-y)
   ;
   ; @return (px)
   []
@@ -30,7 +30,7 @@
   ; @param (integer) last-scroll-y
   ;
   ; @usage
-  ;  (scroll-direction-ttb? 100)
+  ; (scroll-direction-ttb? 100)
   ;
   ; @return (boolean)
   [last-scroll-y]
@@ -43,7 +43,7 @@
   ; @param (integer) last-scroll-y
   ;
   ; @usage
-  ;  (scroll-direction-btt? 100)
+  ; (scroll-direction-btt? 100)
   ;
   ; @return (boolean)
   [last-scroll-y]
@@ -59,10 +59,10 @@
   ; @param (integer) last-scroll-y
   ;
   ; @usage
-  ;  (get-scroll-direction 100)
+  ; (get-scroll-direction 100)
   ;
   ; @return (keyword or nil)
-  ;   nil, :btt, :ttb
+  ;  nil, :btt, :ttb
   [last-scroll-y]
   (cond (and ; XXX#0061
              (scroll-direction-ttb? last-scroll-y)
@@ -91,10 +91,10 @@
 
 (defn get-scroll-progress
   ; @usage
-  ;  (get-scroll-progress)
+  ; (get-scroll-progress)
   ;
   ; @return (percent)
-  ;  0 - 100
+  ; 0 - 100
   []
   (let [viewport-height (-> js/window   .-innerHeight)
         scroll-y        (-> js/document .-documentElement .-scrollTop)
@@ -112,11 +112,11 @@
 (defn set-scroll-x!
   ; @param (px) scroll-x
   ; @param (map)(opt) options
-  ;  {:smooth? (boolean)
-  ;    Default: false}
+  ; {:smooth? (boolean)
+  ;   Default: false}
   ;
   ; @usage
-  ;  (set-scroll-x! 100)
+  ; (set-scroll-x! 100)
   ([scroll-x]
    (set-scroll-x! scroll-x {}))
 
@@ -124,18 +124,18 @@
   ; BUG#8709
   ; Out of order!
   ;(let [scroll-behavior   (if smooth? "smooth" "auto")
-  ;       scroll-to-options {"left" scroll-x "top" 0 "behavior" scroll-behavior}
-  ;      (.scrollBy js/window (clj->js scroll-to-options))]))
+  ;      scroll-to-options {"left" scroll-x "top" 0 "behavior" scroll-behavior}
+  ;     (.scrollBy js/window (clj->js scroll-to-options))]))
    (-> js/document .-documentElement .-scrollLeft (set! scroll-x))))
 
 (defn set-scroll-y!
   ; @param (px) scroll-y
   ; @param (map)(opt) options
-  ;  {:smooth? (boolean)
-  ;    Default: false}
+  ; {:smooth? (boolean)
+  ;   Default: false}
   ;
   ; @usage
-  ;  (set-scroll-y! 100)
+  ; (set-scroll-y! 100)
   ([scroll-y]
    (set-scroll-y! scroll-y {}))
 
@@ -143,8 +143,8 @@
   ; BUG#8709
   ; Out of order!
   ;(let [scroll-behavior   (if smooth? "smooth" "auto")
-  ;     scroll-to-options {"left" 0 "top" scroll-y "behavior" scroll-behavior}
-  ;    (.scrollBy js/window (clj->js scroll-to-options))]
+  ;    scroll-to-options {"left" 0 "top" scroll-y "behavior" scroll-behavior}
+  ;   (.scrollBy js/window (clj->js scroll-to-options))]
    (-> js/document .-documentElement .-scrollTop (set! scroll-y))))
 
 (defn scroll-to-element-top!
@@ -152,7 +152,7 @@
   ; @param (px)(opt) offset
   ;
   ; @usage
-  ;  (scroll-to-element-top! my-element)
+  ; (scroll-to-element-top! my-element)
   ([element]
    (scroll-to-element-top! element 0))
 

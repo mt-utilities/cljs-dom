@@ -9,10 +9,10 @@
   ; @param (string) type
   ; @param (function) listener-f
   ; @param (DOM-element)(opt) target
-  ;  Default: js/window
+  ; Default: js/window
   ;
   ; @usage
-  ;  (add-event-listener! "mousemove" (fn [] ...))
+  ; (add-event-listener! "mousemove" (fn [event] ...))
   ;
   ; @return (DOM-element)
   ([type listener-f]
@@ -26,11 +26,11 @@
   ; @param (string) type
   ; @param (function) listener-f
   ; @param (DOM-element)(opt) target
-  ;  Default: js/window
+  ; Default: js/window
   ;
   ; @usage
-  ;  (def my-listener-f (fn []))
-  ;  (remove-event-listener! "mousemove" my-listener-f)
+  ; (def my-listener-f (fn [event]))
+  ; (remove-event-listener! "mousemove" my-listener-f)
   ;
   ; @return (DOM-element)
   ([type listener-f]

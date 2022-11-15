@@ -10,7 +10,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (get-element-style my-element)
+  ; (get-element-style my-element)
   [element])
   ; ...
 
@@ -19,7 +19,7 @@
   ; @param (map) style
   ;
   ; @usage
-  ;  (set-element-style! my-element {:position "fixed" :top "0"})
+  ; (set-element-style! my-element {:position "fixed" :top "0"})
   ;
   ; @return (DOM-element)
   [element style]
@@ -31,7 +31,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (remove-element-style! my-element)
+  ; (remove-element-style! my-element)
   ;
   ; @return (DOM-element)
   [element]
@@ -46,7 +46,7 @@
   ; @param (string) style-name
   ;
   ; @usage
-  ;  (get-element-style my-element "position")
+  ; (get-element-style my-element "position")
   ;
   ; @return (string)
   [element style-name]
@@ -59,7 +59,7 @@
   ; @param (*) style-value
   ;
   ; @usage
-  ;  (set-element-style-value! my-element "position" "fixed")
+  ; (set-element-style-value! my-element "position" "fixed")
   ;
   ; @return (DOM-element)
   [element style-name style-value]
@@ -71,7 +71,7 @@
   ; @param (string) style-name
 
   ; @usage
-  ;  (remove-element-style-value! my-element "position")
+  ; (remove-element-style-value! my-element "position")
   ;
   ; @return (DOM-element)
   [element style-name]
@@ -85,9 +85,9 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (get-element-computed-style my-element)
+  ; (get-element-computed-style my-element)
   ;
   ; @return (CSSStyleDeclarationObject)
-  ;  The returned object updates automatically when the element's styles are changed
+  ; The returned object updates automatically when the element's styles are changed
   [element]
   (.getComputedStyle js/window element))

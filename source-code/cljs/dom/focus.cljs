@@ -7,7 +7,7 @@
 
 (defn get-active-element
   ; @usage
-  ;  (get-active-element)
+  ; (get-active-element)
   ;
   ; @return (DOM-element)
   []
@@ -20,7 +20,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (focus-element!)
+  ; (focus-element!)
   ;
   ; @return (DOM-element)
   [element]
@@ -31,7 +31,7 @@
   ; @param (DOM-element) element
   ;
   ; @usage
-  ;  (blur-element!)
+  ; (blur-element!)
   ;
   ; @return (DOM-element)
   [element]

@@ -6,7 +6,7 @@
 
 (defn get-head-element
   ; @usage
-  ;  (get-head-element)
+  ; (get-head-element)
   ;
   ; @return (DOM-element)
   []

@@ -11,19 +11,19 @@
   ; @param (string)(opt) flag
   ;
   ; @example
-  ;  (value "my-namespace/my-value?")
-  ;  =>
-  ;  "my-namespace--my-value"
+  ; (value "my-namespace/my-value?")
+  ; =>
+  ; "my-namespace--my-value"
   ;
   ; @example
-  ;  (value :your-namespace/your-value!)
-  ;  =>
-  ;  "your-namespace--your-value"
+  ; (value :your-namespace/your-value!)
+  ; =>
+  ; "your-namespace--your-value"
   ;
   ; @example
-  ;  (value :our-namespace/our-value "420")
-  ;  =>
-  ;  "our-namespace--our-value--420"
+  ; (value :our-namespace/our-value "420")
+  ; =>
+  ; "our-namespace--our-value--420"
   ;
   ; @return (string)
   [n & [flag]]
