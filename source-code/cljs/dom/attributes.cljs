@@ -10,7 +10,7 @@
   ;
   ; @usage
   ; (let [my-element (get-element-by-id "my-element")]
-  ;      (get-element-attribute my-element))
+  ;      (get-element-attributes my-element))
   ;
   ; @return (map)
   [element]

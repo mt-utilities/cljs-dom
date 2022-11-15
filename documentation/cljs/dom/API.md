@@ -20,7 +20,7 @@
 
 ```
 @usage
- (add-event-listener! "mousemove" (fn [] ...))
+(add-event-listener! "mousemove" (fn [event] ...))
 ```
 
 ```
@@ -46,7 +46,7 @@
 
 ```
 @usage
- (append-element! my-parent-element my-child-element)
+(append-element! my-parent-element my-child-element)
 ```
 
 ```
@@ -71,7 +71,7 @@
 
 ```
 @usage
- (append-script! "console.log('420')")
+(append-script! "console.log('420')")
 ```
 
 ```
@@ -98,8 +98,8 @@
 
 ```
 @usage
- (def my-form-data (js/FormData.))
- (append-to-form-data! my-form-data :name "John")
+(def my-form-data (js/FormData.))
+(append-to-form-data! my-form-data :name "John")
 ```
 
 ```
@@ -124,7 +124,7 @@
 
 ```
 @usage
- (blur-element!)
+(blur-element!)
 ```
 
 ```
@@ -149,7 +149,7 @@
 
 ```
 @usage
- (create-element! "div")
+(create-element! "div")
 ```
 
 ```
@@ -174,7 +174,7 @@
 
 ```
 @usage
- (element-disabled? my-element)
+(element-disabled? my-element)
 ```
 
 ```
@@ -199,7 +199,7 @@
 
 ```
 @usage
- (element-enabled? my-element)
+(element-enabled? my-element)
 ```
 
 ```
@@ -224,7 +224,7 @@
 
 ```
 @usage
- (element-on-viewport-bottom? my-element)
+(element-on-viewport-bottom? my-element)
 ```
 
 ```
@@ -249,7 +249,7 @@
 
 ```
 @usage
- (element-on-viewport-left? my-element)
+(element-on-viewport-left? my-element)
 ```
 
 ```
@@ -274,7 +274,7 @@
 
 ```
 @usage
- (element-on-viewport-right? my-element)
+(element-on-viewport-right? my-element)
 ```
 
 ```
@@ -299,7 +299,7 @@
 
 ```
 @usage
- (element-on-viewport-top? my-element)
+(element-on-viewport-top? my-element)
 ```
 
 ```
@@ -324,7 +324,7 @@
 
 ```
 @usage
- (empty-element! my-element)
+(empty-element! my-element)
 ```
 
 ```
@@ -349,7 +349,7 @@
 
 ```
 @usage
- (event->node-name %)
+(event->node-name %)
 ```
 
 ```
@@ -374,7 +374,7 @@
 
 ```
 @usage
- (event->value %)
+(event->value %)
 ```
 
 ```
@@ -400,7 +400,7 @@
 
 ```
 @usage
- (file->file-data 2 my-file)
+(file->file-data 2 my-file)
 ```
 
 ```
@@ -425,7 +425,7 @@
 
 ```
 @usage
- (file->filename my-file)
+(file->filename my-file)
 ```
 
 ```
@@ -450,7 +450,7 @@
 
 ```
 @usage
- (file->filesize my-file)
+(file->filesize my-file)
 ```
 
 ```
@@ -475,7 +475,7 @@
 
 ```
 @usage
- (file->image? my-file)
+(file->image? my-file)
 ```
 
 ```
@@ -500,7 +500,7 @@
 
 ```
 @usage
- (file->mime-type my-file)
+(file->mime-type my-file)
 ```
 
 ```
@@ -525,7 +525,7 @@
 
 ```
 @usage
- (file-selector->any-file-selected? my-file-selector)
+(file-selector->any-file-selected? my-file-selector)
 ```
 
 ```
@@ -550,7 +550,7 @@
 
 ```
 @usage
- (file-selector->files my-file-selector)
+(file-selector->files my-file-selector)
 ```
 
 ```
@@ -575,7 +575,7 @@
 
 ```
 @usage
- (file-selector->file-count my-file-selector)
+(file-selector->file-count my-file-selector)
 ```
 
 ```
@@ -600,7 +600,7 @@
 
 ```
 @usage
- (file-selector->file-list my-file-selector)
+(file-selector->file-list my-file-selector)
 ```
 
 ```
@@ -625,7 +625,7 @@
 
 ```
 @usage
- (file-selector->files my-file-selector)
+(file-selector->files my-file-selector)
 ```
 
 ```
@@ -650,7 +650,7 @@
 
 ```
 @usage
- (file-selector->files-data my-file-selector)
+(file-selector->files-data my-file-selector)
 ```
 
 ```
@@ -675,7 +675,7 @@
 
 ```
 @usage
- (file-selector->files-meta my-file-selector)
+(file-selector->files-meta my-file-selector)
 ```
 
 ```
@@ -700,7 +700,7 @@
 
 ```
 @usage
- (file-selector->files-size my-file-selector)
+(file-selector->files-size my-file-selector)
 ```
 
 ```
@@ -726,14 +726,14 @@
 
 ```
 @usage
- (def my-file-selector (get-elementy-by-id "my-file-selector"))
- (file-selector->form-data my-file-selector)
+(def my-file-selector (get-elementy-by-id "my-file-selector"))
+(file-selector->form-data my-file-selector)
 ```
 
 ```
 @usage
- (def my-file-selector (get-elementy-by-id "my-file-selector"))
- (file-selector->form-data my-file-selector ["0" "1" "4"])
+(def my-file-selector (get-elementy-by-id "my-file-selector"))
+(file-selector->form-data my-file-selector ["0" "1" "4"])
 ```
 
 ```
@@ -759,7 +759,7 @@
 
 ```
 @usage
- (file-selector->image-data-url my-file-selector 2)
+(file-selector->image-data-url my-file-selector 2)
 ```
 
 ```
@@ -784,7 +784,7 @@
 
 ```
 @usage
- (file-selector->mime-types my-file-selector)
+(file-selector->mime-types my-file-selector)
 ```
 
 ```
@@ -809,7 +809,7 @@
 
 ```
 @usage
- (focus-element!)
+(focus-element!)
 ```
 
 ```
@@ -830,7 +830,7 @@
 
 ```
 @usage
- (get-active-element)
+(get-active-element)
 ```
 
 ```
@@ -851,7 +851,7 @@
 
 ```
 @usage
- (get-body-element)
+(get-body-element)
 ```
 
 ```
@@ -876,7 +876,7 @@
 
 ```
 @usage
- (get-element-style "background-color")
+(get-element-style "background-color")
 ```
 
 ```
@@ -897,7 +897,7 @@
 
 ```
 @usage
- (get-document-element)
+(get-document-element)
 ```
 
 ```
@@ -918,7 +918,7 @@
 
 ```
 @usage
- (get-document-height)
+(get-document-height)
 ```
 
 ```
@@ -939,7 +939,7 @@
 
 ```
 @usage
- (get-document-title)
+(get-document-title)
 ```
 
 ```
@@ -960,7 +960,7 @@
 
 ```
 @usage
- (get-document-width)
+(get-document-width)
 ```
 
 ```
@@ -985,7 +985,7 @@
 
 ```
 @usage
- (get-element-absolute-left my-element)
+(get-element-absolute-left my-element)
 ```
 
 ```
@@ -1010,7 +1010,7 @@
 
 ```
 @usage
- (get-element-absolute-top my-element)
+(get-element-absolute-top my-element)
 ```
 
 ```
@@ -1035,7 +1035,8 @@
 
 ```
 @usage
- (get-element-attribute my-element)
+(let [my-element (get-element-by-id "my-element")]
+     (get-element-attributes my-element))
 ```
 
 ```
@@ -1060,7 +1061,8 @@
 
 ```
 @usage
- (get-element-attribute my-element)
+(let [my-element (get-element-by-id "my-element")]
+     (get-element-attributes my-element))
 ```
 
 ```
@@ -1086,7 +1088,7 @@
 
 ```
 @usage
- (get-element-by-id "my-element")
+(get-element-by-id "my-element")
 ```
 
 ```
@@ -1112,17 +1114,17 @@
 
 ```
 @usage
- (get-element-by-query ":scope > div")
+(get-element-by-query ":scope > div")
 ```
 
 ```
 @usage
- (get-element-by-query "[type=\"text/css\"]")
+(get-element-by-query "[type=\"text/css\"]")
 ```
 
 ```
 @usage
- (get-element-by-query "div.my-class, div.your-class")
+(get-element-by-query "div.my-class, div.your-class")
 ```
 
 ```
@@ -1147,7 +1149,7 @@
 
 ```
 @usage
- (get-element-computed-style my-element)
+(get-element-computed-style my-element)
 ```
 
 ```
@@ -1172,7 +1174,7 @@
 
 ```
 @usage
- (get-element-height my-element)
+(get-element-height my-element)
 ```
 
 ```
@@ -1197,7 +1199,7 @@
 
 ```
 @usage
- (get-element-masspoint-orientation my-element)
+(get-element-masspoint-orientation my-element)
 ```
 
 ```
@@ -1222,7 +1224,7 @@
 
 ```
 @usage
- (get-element-masspoint-x my-element)
+(get-element-masspoint-x my-element)
 ```
 
 ```
@@ -1247,7 +1249,7 @@
 
 ```
 @usage
- (get-element-masspoint-y my-element)
+(get-element-masspoint-y my-element)
 ```
 
 ```
@@ -1272,7 +1274,7 @@
 
 ```
 @usage
- (get-element-offset-left my-element)
+(get-element-offset-left my-element)
 ```
 
 ```
@@ -1297,7 +1299,7 @@
 
 ```
 @usage
- (get-element-offset-top my-element)
+(get-element-offset-top my-element)
 ```
 
 ```
@@ -1322,7 +1324,7 @@
 
 ```
 @usage
- (get-element-relative-left my-element)
+(get-element-relative-left my-element)
 ```
 
 ```
@@ -1347,7 +1349,7 @@
 
 ```
 @usage
- (get-element-relative-top my-element)
+(get-element-relative-top my-element)
 ```
 
 ```
@@ -1372,7 +1374,7 @@
 
 ```
 @usage
- (get-element-style my-element)```
+(get-element-style my-element)```
 
 ---
 
@@ -1393,7 +1395,7 @@
 
 ```
 @usage
- (get-element-style my-element "position")
+(get-element-style my-element "position")
 ```
 
 ```
@@ -1418,7 +1420,7 @@
 
 ```
 @usage
- (get-element-width my-element)
+(get-element-width my-element)
 ```
 
 ```
@@ -1444,7 +1446,7 @@
 
 ```
 @usage
- (get-elements-by-class-name "my-class")
+(get-elements-by-class-name "my-class")
 ```
 
 ```
@@ -1470,17 +1472,17 @@
 
 ```
 @usage
- (get-elements-by-query ":scope > div")
+(get-elements-by-query ":scope > div")
 ```
 
 ```
 @usage
- (get-elements-by-query "[type=\"text/css\"]")
+(get-elements-by-query "[type=\"text/css\"]")
 ```
 
 ```
 @usage
- (get-elements-by-query "div.my-class, div.your-class")
+(get-elements-by-query "div.my-class, div.your-class")
 ```
 
 ```
@@ -1506,7 +1508,7 @@
 
 ```
 @usage
- (get-elements-by-class-name "div")
+(get-elements-by-class-name "div")
 ```
 
 ```
@@ -1527,7 +1529,7 @@
 
 ```
 @usage
- (get-head-element)
+(get-head-element)
 ```
 
 ```
@@ -1552,7 +1554,7 @@
 
 ```
 @usage
- (get-mouse-viewport-quarter %)
+(get-mouse-viewport-quarter %)
 ```
 
 ```
@@ -1577,7 +1579,7 @@
 
 ```
 @usage
- (get-mouse-x %)
+(get-mouse-x %)
 ```
 
 ```
@@ -1602,7 +1604,7 @@
 
 ```
 @usage
- (get-mouse-x %)
+(get-mouse-x %)
 ```
 
 ```
@@ -1627,7 +1629,7 @@
 
 ```
 @usage
- (get-scroll-direction 100)
+(get-scroll-direction 100)
 ```
 
 ```
@@ -1648,7 +1650,7 @@
 
 ```
 @usage
- (get-scroll-progress)
+(get-scroll-progress)
 ```
 
 ```
@@ -1669,7 +1671,7 @@
 
 ```
 @usage
- (get-scroll-x)
+(get-scroll-x)
 ```
 
 ```
@@ -1690,7 +1692,7 @@
 
 ```
 @usage
- (get-scroll-y)
+(get-scroll-y)
 ```
 
 ```
@@ -1715,7 +1717,7 @@
 
 ```
 @usage
- (get-selection-end my-element)
+(get-selection-end my-element)
 ```
 
 ```
@@ -1740,7 +1742,7 @@
 
 ```
 @usage
- (get-selection-start my-element)
+(get-selection-start my-element)
 ```
 
 ```
@@ -1767,7 +1769,7 @@
 
 ```
 @usage
- (insert-after! my-parent-element my-child-element my-before-element)
+(insert-after! my-parent-element my-child-element my-before-element)
 ```
 
 ```
@@ -1794,12 +1796,12 @@
 
 ```
 @usage
- (insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
+(insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
 ```
 
 ```
 @usage
- (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
+(insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
 ```
 
 ```
@@ -1825,7 +1827,7 @@
 
 ```
 @usage
- (insert-as-first-of-type! my-parent-element my-child-element)
+(insert-as-first-of-type! my-parent-element my-child-element)
 ```
 
 ```
@@ -1852,12 +1854,12 @@
 
 ```
 @usage
- (insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
+(insert-as-first-of-query-selected! head-element link-element "[type=\"text/css\"]")
 ```
 
 ```
 @usage
- (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
+(insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
 ```
 
 ```
@@ -1883,7 +1885,7 @@
 
 ```
 @usage
- (insert-as-last-of-type! my-parent-element my-child-element)
+(insert-as-last-of-type! my-parent-element my-child-element)
 ```
 
 ```
@@ -1910,7 +1912,7 @@
 
 ```
 @usage
- (insert-before! my-parent-element my-child-element my-after-element)
+(insert-before! my-parent-element my-child-element my-after-element)
 ```
 
 ```
@@ -1935,7 +1937,7 @@
 
 ```
 @usage
- (intersection-observer (fn [intersecting?] ...))
+(intersection-observer (fn [intersecting?] ...))
 ```
 
 ```
@@ -1961,14 +1963,14 @@
 
 ```
 @usage
- (def my-form-data (js/FormData.))
- (merge-to-form-data! my-form-data {...})
+(def my-form-data (js/FormData.))
+(merge-to-form-data! my-form-data {...})
 ```
 
 ```
 @usage
- (def my-form-data (js/FormData.))
- (merge-to-form-data! my-form-data {...} {...} {...})
+(def my-form-data (js/FormData.))
+(merge-to-form-data! my-form-data {...} {...} {...})
 ```
 
 ```
@@ -1993,7 +1995,7 @@
 
 ```
 @usage
- (move-caret-to-end! my-element)
+(move-caret-to-end! my-element)
 ```
 
 ```
@@ -2018,7 +2020,7 @@
 
 ```
 @usage
- (move-caret-to-start! my-element)
+(move-caret-to-start! my-element)
 ```
 
 ```
@@ -2044,7 +2046,7 @@
 
 ```
 @usage
- (on-mouse-left % (fn [] ...))
+(on-mouse-left % (fn [] ...))
 ```
 
 ```
@@ -2070,7 +2072,7 @@
 
 ```
 @usage
- (prepend-element! my-parent-element my-child-element)
+(prepend-element! my-parent-element my-child-element)
 ```
 
 ```
@@ -2095,7 +2097,7 @@
 
 ```
 @usage
- (prevent-default! my-event)
+(prevent-default! my-event)
 ```
 
 ```
@@ -2121,7 +2123,7 @@
 
 ```
 @usage
- (remove-child! my-parent-element my-child-element)
+(remove-child! my-parent-element my-child-element)
 ```
 
 ```
@@ -2146,7 +2148,7 @@
 
 ```
 @usage
- (remove-element! my-element)
+(remove-element! my-element)
 ```
 
 ```
@@ -2172,7 +2174,7 @@
 
 ```
 @usage
- (remove-element-attribute! my-element "my-attribute")
+(remove-element-attribute! my-element "my-attribute")
 ```
 
 ```
@@ -2197,7 +2199,7 @@
 
 ```
 @usage
- (remove-element-attribute! my-element)
+(remove-element-attribute! my-element)
 ```
 
 ```
@@ -2223,7 +2225,7 @@
 
 ```
 @usage
- (remove-element-class! my-element "my-class")
+(remove-element-class! my-element "my-class")
 ```
 
 ```
@@ -2248,7 +2250,7 @@
 
 ```
 @usage
- (remove-element-style! my-element)
+(remove-element-style! my-element)
 ```
 
 ```
@@ -2274,7 +2276,7 @@
 
 ```
 @usage
- (remove-element-style-value! my-element "position")
+(remove-element-style-value! my-element "position")
 ```
 
 ```
@@ -2301,8 +2303,8 @@
 
 ```
 @usage
- (def my-listener-f (fn []))
- (remove-event-listener! "mousemove" my-listener-f)
+(def my-listener-f (fn [event]))
+(remove-event-listener! "mousemove" my-listener-f)
 ```
 
 ```
@@ -2328,7 +2330,7 @@
 
 ```
 @usage
- (remove-intersection-observer! my-observer my-element)
+(remove-intersection-observer! my-observer my-element)
 ```
 
 ```
@@ -2353,7 +2355,7 @@
 
 ```
 @usage
- (scroll-direction-btt? 100)
+(scroll-direction-btt? 100)
 ```
 
 ```
@@ -2378,7 +2380,7 @@
 
 ```
 @usage
- (scroll-direction-ttb? 100)
+(scroll-direction-ttb? 100)
 ```
 
 ```
@@ -2404,7 +2406,7 @@
 
 ```
 @usage
- (scroll-to-element-top! my-element)```
+(scroll-to-element-top! my-element)```
 
 ---
 
@@ -2424,7 +2426,7 @@
 
 ```
 @usage
- (select-preventer %)```
+(select-preventer %)```
 
 ---
 
@@ -2445,7 +2447,7 @@
 
 ```
 @usage
- (set-caret-position! my-element 20)
+(set-caret-position! my-element 20)
 ```
 
 ```
@@ -2470,7 +2472,7 @@
 
 ```
 @usage
- (set-document-title! "My title")
+(set-document-title! "My title")
 ```
 
 ```
@@ -2497,7 +2499,7 @@
 
 ```
 @usage
- (set-element-attribute! my-element "my-attribute" "my-value")
+(set-element-attribute! my-element "my-attribute" "my-value")
 ```
 
 ```
@@ -2523,7 +2525,7 @@
 
 ```
 @usage
- (set-element-attributes! my-element {"my-attribute" "my-value"})
+(set-element-attributes! my-element {"my-attribute" "my-value"})
 ```
 
 ```
@@ -2549,7 +2551,7 @@
 
 ```
 @usage
- (set-element-class! my-element "my-class")
+(set-element-class! my-element "my-class")
 ```
 
 ```
@@ -2575,7 +2577,7 @@
 
 ```
 @usage
- (set-element-content! my-element "Hakuna Matata!")
+(set-element-content! my-element "Hakuna Matata!")
 ```
 
 ```
@@ -2601,7 +2603,7 @@
 
 ```
 @usage
- (set-element-id! my-element "my-element-id")
+(set-element-id! my-element "my-element-id")
 ```
 
 ```
@@ -2627,7 +2629,7 @@
 
 ```
 @usage
- (set-element-style! my-element {:position "fixed" :top "0"})
+(set-element-style! my-element {:position "fixed" :top "0"})
 ```
 
 ```
@@ -2654,7 +2656,7 @@
 
 ```
 @usage
- (set-element-style-value! my-element "position" "fixed")
+(set-element-style-value! my-element "position" "fixed")
 ```
 
 ```
@@ -2680,7 +2682,7 @@
 
 ```
 @usage
- (set-scroll-x! 100)```
+(set-scroll-x! 100)```
 
 ---
 
@@ -2701,7 +2703,7 @@
 
 ```
 @usage
- (set-selection-end! my-element 2)
+(set-selection-end! my-element 2)
 ```
 
 ```
@@ -2728,7 +2730,7 @@
 
 ```
 @usage
- (set-selection-range! my-element 2 10)
+(set-selection-range! my-element 2 10)
 ```
 
 ```
@@ -2754,7 +2756,7 @@
 
 ```
 @usage
- (set-selection-start! my-element 2)
+(set-selection-start! my-element 2)
 ```
 
 ```
@@ -2780,7 +2782,7 @@
 
 ```
 @usage
- (setup-intersection-observer! my-element (fn [intersecting?] ...))
+(setup-intersection-observer! my-element (fn [intersecting?] ...))
 ```
 
 ```
@@ -2805,7 +2807,7 @@
 
 ```
 @usage
- (stop-propagation! my-event)
+(stop-propagation! my-event)
 ```
 
 ```
@@ -2826,4 +2828,4 @@
 
 ```
 @usage
- (toggle-design-mode!)```
+(toggle-design-mode!)```
