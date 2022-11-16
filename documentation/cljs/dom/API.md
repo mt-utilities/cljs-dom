@@ -1,5 +1,5 @@
 
-# <strong>dom.api</strong> namespace</p>
+# <strong>dom.api</strong> namespace
 <p>Documentation of the <strong>dom/api.cljs</strong> file</p>
 
 [README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > dom.api
