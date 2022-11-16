@@ -2709,11 +2709,11 @@
 ```
 (defn get-scroll-direction
   [last-scroll-y]
-  (cond (and             (scroll-direction-ttb? last-scroll-y)
+  (cond (and (scroll-direction-ttb? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
         (return :ttb)
 
-        (and             (scroll-direction-btt? last-scroll-y)
+        (and (scroll-direction-btt? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
         (return :btt)
 

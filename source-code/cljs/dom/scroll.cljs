@@ -64,13 +64,13 @@
   ; @return (keyword or nil)
   ;  nil, :btt, :ttb
   [last-scroll-y]
-  (cond (and ; XXX#0061
-             (scroll-direction-ttb? last-scroll-y)
+             ; XXX#0061
+  (cond (and (scroll-direction-ttb? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
         (return :ttb)
 
-        (and ; XXX#0061
-             (scroll-direction-btt? last-scroll-y)
+             ; XXX#0061
+        (and (scroll-direction-btt? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
         (return :btt)
 
