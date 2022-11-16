@@ -2,7 +2,7 @@
 # <strong>dom.api</strong> namespace
 <p>Documentation of the <strong>dom/api.cljs</strong> file</p>
 
-[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > dom.api
+<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > dom.api</strong>
 
 
 
@@ -916,25 +916,26 @@
 
 ```
 @param (DOM-element) file-selector
+@param (integer) file-dex
 ```
 
 ```
 @usage
 (def my-file-selector (get-element-by-id "my-file-selector"))
-(file-selector->files my-file-selector)
+(file-selector->file my-file-selector 2)
 ```
 
 ```
-@return (?)
+@return (file object)
 ```
 
 <details>
 <summary>Source code</summary>
 
 ```
-(defn file-selector->files
-  [file-selector]
-  (-> file-selector .-files))
+(defn file-selector->file
+  [file-selector file-dex]
+  (-> file-selector .-files array-seq (nth file-dex)))
 ```
 
 </details>
@@ -1731,25 +1732,26 @@
 
 ```
 @param (DOM-element) element
+@param (string) attribute-name
 ```
 
 ```
 @usage
 (def my-element (get-element-by-id "my-element"))
-(get-element-attributes my-element)
+(get-element-attribute my-element "my-attribute")
 ```
 
 ```
-@return (map)
+@return (string)
 ```
 
 <details>
 <summary>Source code</summary>
 
 ```
-(defn get-element-attributes
-  [element]
-  (.getAttributes element))
+(defn get-element-attribute
+  [element attribute-name]
+  (.getAttribute element attribute-name))
 ```
 
 </details>

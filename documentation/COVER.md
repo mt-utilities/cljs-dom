@@ -2,7 +2,7 @@
 # <strong>dom-api</strong>
 <p>Documentation of the <strong>dom-api</strong> ClojureScript library</p>
 
-[README](../README.md) > DOCUMENTATION
+<strong>[README](../README.md) > DOCUMENTATION</strong>
 
 ### Public namespaces
 * [dom.api](cljs/dom/API.md) [cljs]
