@@ -12,6 +12,7 @@
 @param (string) type
 @param (function) listener-f
 @param (DOM-element)(opt) target
+Default: js/window
 ```
 
 ```
@@ -669,6 +670,11 @@
 
 ```
 @return (map)
+{:file-dex (integer)
+ :filename (string)
+ :filesize (B)
+ :mime-type (string)
+ :object-url (string)}
 ```
 
 <details>
@@ -1133,6 +1139,8 @@
 
 ```
 @return (map)
+{:file-count (integer)
+ :files-size (B)}
 ```
 
 <details>
@@ -1815,6 +1823,7 @@
 
 ```
 @param (DOM-element)(opt) parent-element
+Default: js/document
 @param (string) element-id
 ```
 
@@ -1856,6 +1865,7 @@
 
 ```
 @param (DOM-element)(opt) parent-element
+Default: js/document
 @param (string) query
 ```
 
@@ -1917,6 +1927,7 @@
 
 ```
 @return (CSSStyleDeclarationObject)
+The returned object updates automatically when the element's styles are changed
 ```
 
 <details>
@@ -1999,6 +2010,7 @@
 
 ```
 @return (keyword)
+:bl, :br, :tl, :tr
 ```
 
 <details>
@@ -2406,6 +2418,7 @@
 
 ```
 @param (DOM-element)(opt) parent-element
+Default: js/document
 @param (string) class-name
 ```
 
@@ -2447,6 +2460,7 @@
 
 ```
 @param (DOM-element)(opt) parent-element
+Default: js/document
 @param (string) query
 ```
 
@@ -2498,6 +2512,7 @@
 
 ```
 @param (DOM-element)(opt) parent-element
+Default: js/document
 @param (string) tag-name
 ```
 
@@ -2586,6 +2601,7 @@
 
 ```
 @return (keyword)
+:tl, :tr, :bl, :br
 ```
 
 <details>
@@ -2719,6 +2735,7 @@
 
 ```
 @return (keyword or nil)
+ nil, :btt, :ttb
 ```
 
 <details>
@@ -2766,6 +2783,7 @@
 
 ```
 @return (percent)
+0 - 100
 ```
 
 <details>
@@ -3855,6 +3873,7 @@
 @param (string) type
 @param (function) listener-f
 @param (DOM-element)(opt) target
+Default: js/window
 ```
 
 ```
@@ -4504,6 +4523,8 @@
 ```
 @param (px) scroll-x
 @param (map)(opt) options
+{:smooth? (boolean)
+  Default: false}
 ```
 
 ```
@@ -4544,6 +4565,8 @@
 ```
 @param (px) scroll-y
 @param (map)(opt) options
+{:smooth? (boolean)
+  Default: false}
 ```
 
 ```
