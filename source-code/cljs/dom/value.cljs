@@ -1,7 +1,7 @@
 
 (ns dom.value
-    (:require [candy.api          :refer [return]]
-              [mid-fruits.keyword :as keyword]))
+    (:require [candy.api   :refer [return]]
+              [keyword.api :as keyword]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

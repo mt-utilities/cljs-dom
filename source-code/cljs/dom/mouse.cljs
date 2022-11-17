@@ -1,6 +1,6 @@
 
 (ns dom.mouse
-    (:require [mid-fruits.string :as string]))
+    (:require [string.api :as string]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -21,7 +21,7 @@
   ;
   ; @usage
   ; (fn [mouse-event]
-  ;     (get-mouse-x %)
+  ;     (get-mouse-x %))
   ;
   ; @return (px)
   [mouse-event]

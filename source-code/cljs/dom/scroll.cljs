@@ -121,11 +121,11 @@
    (set-scroll-x! scroll-x {}))
 
   ([scroll-x {:keys [smooth?]}]
-  ; BUG#8709
-  ; Out of order!
-  ;(let [scroll-behavior   (if smooth? "smooth" "auto")
-  ;      scroll-to-options {"left" scroll-x "top" 0 "behavior" scroll-behavior}
-  ;     (.scrollBy js/window (clj->js scroll-to-options))]))
+   ; BUG#8709
+   ; Out of order!
+   ; (let [scroll-behavior   (if smooth? "smooth" "auto")
+   ;       scroll-to-options {"left" scroll-x "top" 0 "behavior" scroll-behavior}]
+   ;      (.scrollBy js/window (clj->js scroll-to-options)))
    (-> js/document .-documentElement .-scrollLeft (set! scroll-x))))
 
 (defn set-scroll-y!
@@ -140,11 +140,11 @@
    (set-scroll-y! scroll-y {}))
 
   ([scroll-y {:keys [smooth?]}]
-  ; BUG#8709
-  ; Out of order!
-  ;(let [scroll-behavior   (if smooth? "smooth" "auto")
-  ;    scroll-to-options {"left" 0 "top" scroll-y "behavior" scroll-behavior}
-  ;   (.scrollBy js/window (clj->js scroll-to-options))]
+   ; BUG#8709
+   ; Out of order!
+   ; (let [scroll-behavior   (if smooth? "smooth" "auto")
+   ;       scroll-to-options {"left" 0 "top" scroll-y "behavior" scroll-behavior}]
+   ;      (.scrollBy js/window (clj->js scroll-to-options)))
    (-> js/document .-documentElement .-scrollTop (set! scroll-y))))
 
 (defn scroll-to-element-top!

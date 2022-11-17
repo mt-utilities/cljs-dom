@@ -2667,11 +2667,27 @@
 
 ### get-mouse-y
 
+```
+@param (DOM-event) mouse-event
+```
+
+```
+@usage
+(fn [mouse-event]
+    (get-mouse-x %))
+```
+
+```
+@return (px)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn get-mouse-y
+  [mouse-event]
+  (.-clientY mouse-event))
 ```
 
 </details>
@@ -2682,8 +2698,8 @@
 ```
 (ns my-namespace (:require [dom.api :as dom :refer [get-mouse-y]]))
 
-(dom/get-mouse-y)
-(get-mouse-y)
+(dom/get-mouse-y ...)
+(get-mouse-y     ...)
 ```
 
 </details>
@@ -4504,7 +4520,7 @@
    (set-scroll-x! scroll-x {}))
 
   ([scroll-x {:keys [smooth?]}]
-   (-> js/document .-documentElement .-scrollLeft (set! scroll-x)))
+   (-> js/document .-documentElement .-scrollLeft (set! scroll-x))))
 ```
 
 </details>
@@ -4525,11 +4541,26 @@
 
 ### set-scroll-y!
 
+```
+@param (px) scroll-y
+@param (map)(opt) options
+```
+
+```
+@usage
+(set-scroll-y! 100)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
+(defn set-scroll-y!
+  ([scroll-y]
+   (set-scroll-y! scroll-y {}))
 
+  ([scroll-y {:keys [smooth?]}]
+   (-> js/document .-documentElement .-scrollTop (set! scroll-y))))
 ```
 
 </details>
@@ -4540,8 +4571,8 @@
 ```
 (ns my-namespace (:require [dom.api :as dom :refer [set-scroll-y!]]))
 
-(dom/set-scroll-y!)
-(set-scroll-y!)
+(dom/set-scroll-y! ...)
+(set-scroll-y!     ...)
 ```
 
 </details>
