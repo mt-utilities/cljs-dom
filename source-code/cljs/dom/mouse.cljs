@@ -63,7 +63,7 @@
   ; (fn [mouse-event]
   ;     (select-preventer mouse-event))
   [mouse-event]
-  (let [node-name (-> mouse-event .-srcElement .-nodeName string/lowercase)]
+  (let [node-name (-> mouse-event .-srcElement .-nodeName string/to-lowercase)]
        ; Az input es textarea elemek hasznalatahoz szukseg van mouse-down eventre!
        (when-not (or (= node-name "input")
                      (= node-name "textarea"))

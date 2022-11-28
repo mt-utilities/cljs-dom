@@ -4102,7 +4102,7 @@ Default: js/window
 ```
 (defn select-preventer
   [mouse-event]
-  (let [node-name (-> mouse-event .-srcElement .-nodeName string/lowercase)]
+  (let [node-name (-> mouse-event .-srcElement .-nodeName string/to-lowercase)]
        (when-not (or (= node-name "input")
                      (= node-name "textarea"))
                  (do (-> mouse-event .preventDefault)
