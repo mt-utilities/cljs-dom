@@ -271,6 +271,47 @@ Default: js/window
 
 ---
 
+### element-blurred?
+
+```
+@param (DOM-element) element
+```
+
+```
+@usage
+(def my-element (get-element-by-id "my-element"))
+(element-blurred? my-element)
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn element-blurred?
+  [element]
+  (not= element (get-active-element)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [dom.api :as dom :refer [element-blurred?]]))
+
+(dom/element-blurred? ...)
+(element-blurred?     ...)
+```
+
+</details>
+
+---
+
 ### element-disabled?
 
 ```
@@ -347,6 +388,47 @@ Default: js/window
 
 (dom/element-enabled? ...)
 (element-enabled?     ...)
+```
+
+</details>
+
+---
+
+### element-focused?
+
+```
+@param (DOM-element) element
+```
+
+```
+@usage
+(def my-element (get-element-by-id "my-element"))
+(element-focused? my-element)
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn element-focused?
+  [element]
+  (= element (get-active-element)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [dom.api :as dom :refer [element-focused?]]))
+
+(dom/element-focused? ...)
+(element-focused?     ...)
 ```
 
 </details>

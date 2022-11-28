@@ -102,6 +102,8 @@
 
 ; dom.focus
 (def get-active-element focus/get-active-element)
+(def element-focused?   focus/element-focused?)
+(def element-blurred?   focus/element-blurred?)
 (def focus-element!     focus/focus-element!)
 (def blur-element!      focus/blur-element!)
 
