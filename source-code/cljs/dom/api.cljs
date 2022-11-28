@@ -66,10 +66,14 @@
 
 ; dom.element
 (def get-element-by-id          element/get-element-by-id)
+(def get-element-by-class-name  element/get-element-by-class-name)
 (def get-elements-by-class-name element/get-elements-by-class-name)
+(def get-element-by-tag-name    element/get-element-by-tag-name)
 (def get-elements-by-tag-name   element/get-elements-by-tag-name)
 (def get-element-by-query       element/get-element-by-query)
 (def get-elements-by-query      element/get-elements-by-query)
+(def get-element-by-attribute   element/get-element-by-attribute)
+(def get-elements-by-attribute  element/get-elements-by-attribute)
 (def element-disabled?          element/element-disabled?)
 (def element-enabled?           element/element-enabled?)
 (def set-element-id!            element/set-element-id!)

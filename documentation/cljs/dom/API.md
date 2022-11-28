@@ -1901,6 +1901,91 @@ Default: js/window
 
 ---
 
+### get-element-by-attribute
+
+```
+@param (DOM-element)(opt) parent-element
+Default: js/document
+@param (string) attribute-name
+@param (string) attribute-value
+```
+
+```
+@usage
+(get-element-by-attribute "my-attribute" "My value")
+```
+
+```
+@return (DOM-element)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-element-by-attribute
+  ([attribute-name attribute-value]                (get-element-by-query                (str "["attribute-name"="attribute-value"]")))
+  ([parent-element attribute-name attribute-value] (get-element-by-query parent-element (str "["attribute-name"="attribute-value"]"))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-attribute]]))
+
+(dom/get-element-by-attribute ...)
+(get-element-by-attribute     ...)
+```
+
+</details>
+
+---
+
+### get-element-by-class-name
+
+```
+@param (DOM-element)(opt) parent-element
+Default: js/document
+@param (string) class-name
+```
+
+```
+@usage
+(get-element-by-class-name "my-class")
+```
+
+```
+@return (DOM-element)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-element-by-class-name
+  ([class-name]                (-> js/document    (.getElementsByClassName class-name) array-seq vec first))
+  ([parent-element class-name] (-> parent-element (.getElementsByClassName class-name) array-seq vec first)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-class-name]]))
+
+(dom/get-element-by-class-name ...)
+(get-element-by-class-name     ...)
+```
+
+</details>
+
+---
+
 ### get-element-by-id
 
 ```
@@ -1989,6 +2074,48 @@ Default: js/document
 
 (dom/get-element-by-query ...)
 (get-element-by-query     ...)
+```
+
+</details>
+
+---
+
+### get-element-by-tag-name
+
+```
+@param (DOM-element)(opt) parent-element
+Default: js/document
+@param (string) tag-name
+```
+
+```
+@usage
+(get-element-by-class-name "div")
+```
+
+```
+@return (DOM-element)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-element-by-tag-name
+  ([tag-name]                (-> js/document    (.getElementsByTagName tag-name) array-seq vec first))
+  ([parent-element tag-name] (-> parent-element (.getElementsByTagName tag-name) array-seq vec first)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-tag-name]]))
+
+(dom/get-element-by-tag-name ...)
+(get-element-by-tag-name     ...)
 ```
 
 </details>
@@ -2490,6 +2617,49 @@ The returned object updates automatically when the element's styles are changed
 
 (dom/get-element-width ...)
 (get-element-width     ...)
+```
+
+</details>
+
+---
+
+### get-elements-by-attribute
+
+```
+@param (DOM-element)(opt) parent-element
+Default: js/document
+@param (string) attribute-name
+@param (string) attribute-value
+```
+
+```
+@usage
+(get-elements-by-attribute "my-attribute" "My value")
+```
+
+```
+@return (vector)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn get-elements-by-attribute
+  ([attribute-name attribute-value]                (get-elements-by-query                (str "["attribute-name"="attribute-value"]")))
+  ([parent-element attribute-name attribute-value] (get-elements-by-query parent-element (str "["attribute-name"="attribute-value"]"))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-attribute]]))
+
+(dom/get-elements-by-attribute ...)
+(get-elements-by-attribute     ...)
 ```
 
 </details>
