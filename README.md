@@ -5,7 +5,9 @@
 
 ### Overview
 
-...
+The <strong>dom-api</strong> is a set of at least 100 ClojureScript utility
+functions which helps you to use the JavaScript/Document object's functionality
+in an easy and standardized way.
 
 ### deps.edn
 
