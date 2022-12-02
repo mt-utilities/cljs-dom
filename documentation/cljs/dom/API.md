@@ -1,10 +1,7 @@
 
 # <strong>dom.api</strong> namespace
-<p>Documentation of the <strong>dom/api.cljs</strong> file</p>
 
-<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > dom.api</strong>
-
-
+<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > </strong>source-code/cljs/dom/api.cljs
 
 ### add-event-listener!
 
@@ -43,10 +40,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [add-event-listener!]]))
+(ns my-namespace (:require [dom.api :refer [add-event-listener!]]))
 
-(dom/add-event-listener! ...)
-(add-event-listener!     ...)
+(dom.api/add-event-listener! ...)
+(add-event-listener!         ...)
 ```
 
 </details>
@@ -87,10 +84,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [append-element!]]))
+(ns my-namespace (:require [dom.api :refer [append-element!]]))
 
-(dom/append-element! ...)
-(append-element!     ...)
+(dom.api/append-element! ...)
+(append-element!         ...)
 ```
 
 </details>
@@ -132,10 +129,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [append-script!]]))
+(ns my-namespace (:require [dom.api :refer [append-script!]]))
 
-(dom/append-script! ...)
-(append-script!     ...)
+(dom.api/append-script! ...)
+(append-script!         ...)
 ```
 
 </details>
@@ -179,10 +176,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [append-to-form-data!]]))
+(ns my-namespace (:require [dom.api :refer [append-to-form-data!]]))
 
-(dom/append-to-form-data! ...)
-(append-to-form-data!     ...)
+(dom.api/append-to-form-data! ...)
+(append-to-form-data!         ...)
 ```
 
 </details>
@@ -221,10 +218,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [blur-element!]]))
+(ns my-namespace (:require [dom.api :refer [blur-element!]]))
 
-(dom/blur-element! ...)
-(blur-element!     ...)
+(dom.api/blur-element! ...)
+(blur-element!         ...)
 ```
 
 </details>
@@ -261,10 +258,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [create-element!]]))
+(ns my-namespace (:require [dom.api :refer [create-element!]]))
 
-(dom/create-element! ...)
-(create-element!     ...)
+(dom.api/create-element! ...)
+(create-element!         ...)
 ```
 
 </details>
@@ -302,10 +299,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [element-blurred?]]))
+(ns my-namespace (:require [dom.api :refer [element-blurred?]]))
 
-(dom/element-blurred? ...)
-(element-blurred?     ...)
+(dom.api/element-blurred? ...)
+(element-blurred?         ...)
 ```
 
 </details>
@@ -343,10 +340,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [element-disabled?]]))
+(ns my-namespace (:require [dom.api :refer [element-disabled?]]))
 
-(dom/element-disabled? ...)
-(element-disabled?     ...)
+(dom.api/element-disabled? ...)
+(element-disabled?         ...)
 ```
 
 </details>
@@ -384,10 +381,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [element-enabled?]]))
+(ns my-namespace (:require [dom.api :refer [element-enabled?]]))
 
-(dom/element-enabled? ...)
-(element-enabled?     ...)
+(dom.api/element-enabled? ...)
+(element-enabled?         ...)
 ```
 
 </details>
@@ -425,10 +422,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [element-focused?]]))
+(ns my-namespace (:require [dom.api :refer [element-focused?]]))
 
-(dom/element-focused? ...)
-(element-focused?     ...)
+(dom.api/element-focused? ...)
+(element-focused?         ...)
 ```
 
 </details>
@@ -469,10 +466,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-bottom?]]))
+(ns my-namespace (:require [dom.api :refer [element-on-viewport-bottom?]]))
 
-(dom/element-on-viewport-bottom? ...)
-(element-on-viewport-bottom?     ...)
+(dom.api/element-on-viewport-bottom? ...)
+(element-on-viewport-bottom?         ...)
 ```
 
 </details>
@@ -513,10 +510,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-left?]]))
+(ns my-namespace (:require [dom.api :refer [element-on-viewport-left?]]))
 
-(dom/element-on-viewport-left? ...)
-(element-on-viewport-left?     ...)
+(dom.api/element-on-viewport-left? ...)
+(element-on-viewport-left?         ...)
 ```
 
 </details>
@@ -557,10 +554,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-right?]]))
+(ns my-namespace (:require [dom.api :refer [element-on-viewport-right?]]))
 
-(dom/element-on-viewport-right? ...)
-(element-on-viewport-right?     ...)
+(dom.api/element-on-viewport-right? ...)
+(element-on-viewport-right?         ...)
 ```
 
 </details>
@@ -601,10 +598,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [element-on-viewport-top?]]))
+(ns my-namespace (:require [dom.api :refer [element-on-viewport-top?]]))
 
-(dom/element-on-viewport-top? ...)
-(element-on-viewport-top?     ...)
+(dom.api/element-on-viewport-top? ...)
+(element-on-viewport-top?         ...)
 ```
 
 </details>
@@ -644,10 +641,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [empty-element!]]))
+(ns my-namespace (:require [dom.api :refer [empty-element!]]))
 
-(dom/empty-element! ...)
-(empty-element!     ...)
+(dom.api/empty-element! ...)
+(empty-element!         ...)
 ```
 
 </details>
@@ -685,10 +682,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [event->node-name]]))
+(ns my-namespace (:require [dom.api :refer [event->node-name]]))
 
-(dom/event->node-name ...)
-(event->node-name     ...)
+(dom.api/event->node-name ...)
+(event->node-name         ...)
 ```
 
 </details>
@@ -726,10 +723,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [event->value]]))
+(ns my-namespace (:require [dom.api :refer [event->value]]))
 
-(dom/event->value ...)
-(event->value     ...)
+(dom.api/event->value ...)
+(event->value         ...)
 ```
 
 </details>
@@ -781,10 +778,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file->file-data]]))
+(ns my-namespace (:require [dom.api :refer [file->file-data]]))
 
-(dom/file->file-data ...)
-(file->file-data     ...)
+(dom.api/file->file-data ...)
+(file->file-data         ...)
 ```
 
 </details>
@@ -823,10 +820,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file->filename]]))
+(ns my-namespace (:require [dom.api :refer [file->filename]]))
 
-(dom/file->filename ...)
-(file->filename     ...)
+(dom.api/file->filename ...)
+(file->filename         ...)
 ```
 
 </details>
@@ -865,10 +862,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file->filesize]]))
+(ns my-namespace (:require [dom.api :refer [file->filesize]]))
 
-(dom/file->filesize ...)
-(file->filesize     ...)
+(dom.api/file->filesize ...)
+(file->filesize         ...)
 ```
 
 </details>
@@ -907,10 +904,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file->image?]]))
+(ns my-namespace (:require [dom.api :refer [file->image?]]))
 
-(dom/file->image? ...)
-(file->image?     ...)
+(dom.api/file->image? ...)
+(file->image?         ...)
 ```
 
 </details>
@@ -949,10 +946,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file->mime-type]]))
+(ns my-namespace (:require [dom.api :refer [file->mime-type]]))
 
-(dom/file->mime-type ...)
-(file->mime-type     ...)
+(dom.api/file->mime-type ...)
+(file->mime-type         ...)
 ```
 
 </details>
@@ -990,10 +987,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->any-file-selected?]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->any-file-selected?]]))
 
-(dom/file-selector->any-file-selected? ...)
-(file-selector->any-file-selected?     ...)
+(dom.api/file-selector->any-file-selected? ...)
+(file-selector->any-file-selected?         ...)
 ```
 
 </details>
@@ -1032,10 +1029,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->file]]))
 
-(dom/file-selector->file ...)
-(file-selector->file     ...)
+(dom.api/file-selector->file ...)
+(file-selector->file         ...)
 ```
 
 </details>
@@ -1073,10 +1070,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file-count]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->file-count]]))
 
-(dom/file-selector->file-count ...)
-(file-selector->file-count     ...)
+(dom.api/file-selector->file-count ...)
+(file-selector->file-count         ...)
 ```
 
 </details>
@@ -1114,10 +1111,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->file-list]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->file-list]]))
 
-(dom/file-selector->file-list ...)
-(file-selector->file-list     ...)
+(dom.api/file-selector->file-list ...)
+(file-selector->file-list         ...)
 ```
 
 </details>
@@ -1155,10 +1152,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->files]]))
 
-(dom/file-selector->files ...)
-(file-selector->files     ...)
+(dom.api/file-selector->files ...)
+(file-selector->files         ...)
 ```
 
 </details>
@@ -1197,10 +1194,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-data]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->files-data]]))
 
-(dom/file-selector->files-data ...)
-(file-selector->files-data     ...)
+(dom.api/file-selector->files-data ...)
+(file-selector->files-data         ...)
 ```
 
 </details>
@@ -1241,10 +1238,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-meta]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->files-meta]]))
 
-(dom/file-selector->files-meta ...)
-(file-selector->files-meta     ...)
+(dom.api/file-selector->files-meta ...)
+(file-selector->files-meta         ...)
 ```
 
 </details>
@@ -1283,10 +1280,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->files-size]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->files-size]]))
 
-(dom/file-selector->files-size ...)
-(file-selector->files-size     ...)
+(dom.api/file-selector->files-size ...)
+(file-selector->files-size         ...)
 ```
 
 </details>
@@ -1338,10 +1335,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->form-data]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->form-data]]))
 
-(dom/file-selector->form-data ...)
-(file-selector->form-data     ...)
+(dom.api/file-selector->form-data ...)
+(file-selector->form-data         ...)
 ```
 
 </details>
@@ -1381,10 +1378,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->image-data-url]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->image-data-url]]))
 
-(dom/file-selector->image-data-url ...)
-(file-selector->image-data-url     ...)
+(dom.api/file-selector->image-data-url ...)
+(file-selector->image-data-url         ...)
 ```
 
 </details>
@@ -1423,10 +1420,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [file-selector->mime-types]]))
+(ns my-namespace (:require [dom.api :refer [file-selector->mime-types]]))
 
-(dom/file-selector->mime-types ...)
-(file-selector->mime-types     ...)
+(dom.api/file-selector->mime-types ...)
+(file-selector->mime-types         ...)
 ```
 
 </details>
@@ -1465,10 +1462,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [focus-element!]]))
+(ns my-namespace (:require [dom.api :refer [focus-element!]]))
 
-(dom/focus-element! ...)
-(focus-element!     ...)
+(dom.api/focus-element! ...)
+(focus-element!         ...)
 ```
 
 </details>
@@ -1501,9 +1498,9 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-active-element]]))
+(ns my-namespace (:require [dom.api :refer [get-active-element]]))
 
-(dom/get-active-element)
+(dom.api/get-active-element)
 (get-active-element)
 ```
 
@@ -1538,9 +1535,9 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-body-element]]))
+(ns my-namespace (:require [dom.api :refer [get-body-element]]))
 
-(dom/get-body-element)
+(dom.api/get-body-element)
 (get-body-element)
 ```
 
@@ -1580,10 +1577,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-body-style-value]]))
+(ns my-namespace (:require [dom.api :refer [get-body-style-value]]))
 
-(dom/get-body-style-value ...)
-(get-body-style-value     ...)
+(dom.api/get-body-style-value ...)
+(get-body-style-value         ...)
 ```
 
 </details>
@@ -1616,9 +1613,9 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-document-element]]))
+(ns my-namespace (:require [dom.api :refer [get-document-element]]))
 
-(dom/get-document-element)
+(dom.api/get-document-element)
 (get-document-element)
 ```
 
@@ -1652,9 +1649,9 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-document-height]]))
+(ns my-namespace (:require [dom.api :refer [get-document-height]]))
 
-(dom/get-document-height)
+(dom.api/get-document-height)
 (get-document-height)
 ```
 
@@ -1688,9 +1685,9 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-document-title]]))
+(ns my-namespace (:require [dom.api :refer [get-document-title]]))
 
-(dom/get-document-title)
+(dom.api/get-document-title)
 (get-document-title)
 ```
 
@@ -1724,9 +1721,9 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-document-width]]))
+(ns my-namespace (:require [dom.api :refer [get-document-width]]))
 
-(dom/get-document-width)
+(dom.api/get-document-width)
 (get-document-width)
 ```
 
@@ -1766,10 +1763,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-absolute-left]]))
+(ns my-namespace (:require [dom.api :refer [get-element-absolute-left]]))
 
-(dom/get-element-absolute-left ...)
-(get-element-absolute-left     ...)
+(dom.api/get-element-absolute-left ...)
+(get-element-absolute-left         ...)
 ```
 
 </details>
@@ -1808,10 +1805,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-absolute-top]]))
+(ns my-namespace (:require [dom.api :refer [get-element-absolute-top]]))
 
-(dom/get-element-absolute-top ...)
-(get-element-absolute-top     ...)
+(dom.api/get-element-absolute-top ...)
+(get-element-absolute-top         ...)
 ```
 
 </details>
@@ -1850,10 +1847,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-attribute]]))
+(ns my-namespace (:require [dom.api :refer [get-element-attribute]]))
 
-(dom/get-element-attribute ...)
-(get-element-attribute     ...)
+(dom.api/get-element-attribute ...)
+(get-element-attribute         ...)
 ```
 
 </details>
@@ -1891,10 +1888,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-attributes]]))
+(ns my-namespace (:require [dom.api :refer [get-element-attributes]]))
 
-(dom/get-element-attributes ...)
-(get-element-attributes     ...)
+(dom.api/get-element-attributes ...)
+(get-element-attributes         ...)
 ```
 
 </details>
@@ -1934,10 +1931,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-attribute]]))
+(ns my-namespace (:require [dom.api :refer [get-element-by-attribute]]))
 
-(dom/get-element-by-attribute ...)
-(get-element-by-attribute     ...)
+(dom.api/get-element-by-attribute ...)
+(get-element-by-attribute         ...)
 ```
 
 </details>
@@ -1976,10 +1973,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-class-name]]))
+(ns my-namespace (:require [dom.api :refer [get-element-by-class-name]]))
 
-(dom/get-element-by-class-name ...)
-(get-element-by-class-name     ...)
+(dom.api/get-element-by-class-name ...)
+(get-element-by-class-name         ...)
 ```
 
 </details>
@@ -2018,10 +2015,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-id]]))
+(ns my-namespace (:require [dom.api :refer [get-element-by-id]]))
 
-(dom/get-element-by-id ...)
-(get-element-by-id     ...)
+(dom.api/get-element-by-id ...)
+(get-element-by-id         ...)
 ```
 
 </details>
@@ -2070,10 +2067,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-query]]))
+(ns my-namespace (:require [dom.api :refer [get-element-by-query]]))
 
-(dom/get-element-by-query ...)
-(get-element-by-query     ...)
+(dom.api/get-element-by-query ...)
+(get-element-by-query         ...)
 ```
 
 </details>
@@ -2112,10 +2109,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-by-tag-name]]))
+(ns my-namespace (:require [dom.api :refer [get-element-by-tag-name]]))
 
-(dom/get-element-by-tag-name ...)
-(get-element-by-tag-name     ...)
+(dom.api/get-element-by-tag-name ...)
+(get-element-by-tag-name         ...)
 ```
 
 </details>
@@ -2154,10 +2151,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-computed-style]]))
+(ns my-namespace (:require [dom.api :refer [get-element-computed-style]]))
 
-(dom/get-element-computed-style ...)
-(get-element-computed-style     ...)
+(dom.api/get-element-computed-style ...)
+(get-element-computed-style         ...)
 ```
 
 </details>
@@ -2195,10 +2192,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-height]]))
+(ns my-namespace (:require [dom.api :refer [get-element-height]]))
 
-(dom/get-element-height ...)
-(get-element-height     ...)
+(dom.api/get-element-height ...)
+(get-element-height         ...)
 ```
 
 </details>
@@ -2243,10 +2240,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-orientation]]))
+(ns my-namespace (:require [dom.api :refer [get-element-masspoint-orientation]]))
 
-(dom/get-element-masspoint-orientation ...)
-(get-element-masspoint-orientation     ...)
+(dom.api/get-element-masspoint-orientation ...)
+(get-element-masspoint-orientation         ...)
 ```
 
 </details>
@@ -2286,10 +2283,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-x]]))
+(ns my-namespace (:require [dom.api :refer [get-element-masspoint-x]]))
 
-(dom/get-element-masspoint-x ...)
-(get-element-masspoint-x     ...)
+(dom.api/get-element-masspoint-x ...)
+(get-element-masspoint-x         ...)
 ```
 
 </details>
@@ -2329,10 +2326,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-masspoint-y]]))
+(ns my-namespace (:require [dom.api :refer [get-element-masspoint-y]]))
 
-(dom/get-element-masspoint-y ...)
-(get-element-masspoint-y     ...)
+(dom.api/get-element-masspoint-y ...)
+(get-element-masspoint-y         ...)
 ```
 
 </details>
@@ -2370,10 +2367,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-offset-left]]))
+(ns my-namespace (:require [dom.api :refer [get-element-offset-left]]))
 
-(dom/get-element-offset-left ...)
-(get-element-offset-left     ...)
+(dom.api/get-element-offset-left ...)
+(get-element-offset-left         ...)
 ```
 
 </details>
@@ -2411,10 +2408,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-offset-top]]))
+(ns my-namespace (:require [dom.api :refer [get-element-offset-top]]))
 
-(dom/get-element-offset-top ...)
-(get-element-offset-top     ...)
+(dom.api/get-element-offset-top ...)
+(get-element-offset-top         ...)
 ```
 
 </details>
@@ -2452,10 +2449,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-relative-left]]))
+(ns my-namespace (:require [dom.api :refer [get-element-relative-left]]))
 
-(dom/get-element-relative-left ...)
-(get-element-relative-left     ...)
+(dom.api/get-element-relative-left ...)
+(get-element-relative-left         ...)
 ```
 
 </details>
@@ -2493,10 +2490,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-relative-top]]))
+(ns my-namespace (:require [dom.api :refer [get-element-relative-top]]))
 
-(dom/get-element-relative-top ...)
-(get-element-relative-top     ...)
+(dom.api/get-element-relative-top ...)
+(get-element-relative-top         ...)
 ```
 
 </details>
@@ -2529,10 +2526,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-style]]))
+(ns my-namespace (:require [dom.api :refer [get-element-style]]))
 
-(dom/get-element-style ...)
-(get-element-style     ...)
+(dom.api/get-element-style ...)
+(get-element-style         ...)
 ```
 
 </details>
@@ -2572,10 +2569,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-style-value]]))
+(ns my-namespace (:require [dom.api :refer [get-element-style-value]]))
 
-(dom/get-element-style-value ...)
-(get-element-style-value     ...)
+(dom.api/get-element-style-value ...)
+(get-element-style-value         ...)
 ```
 
 </details>
@@ -2613,10 +2610,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-element-width]]))
+(ns my-namespace (:require [dom.api :refer [get-element-width]]))
 
-(dom/get-element-width ...)
-(get-element-width     ...)
+(dom.api/get-element-width ...)
+(get-element-width         ...)
 ```
 
 </details>
@@ -2656,10 +2653,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-attribute]]))
+(ns my-namespace (:require [dom.api :refer [get-elements-by-attribute]]))
 
-(dom/get-elements-by-attribute ...)
-(get-elements-by-attribute     ...)
+(dom.api/get-elements-by-attribute ...)
+(get-elements-by-attribute         ...)
 ```
 
 </details>
@@ -2698,10 +2695,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-class-name]]))
+(ns my-namespace (:require [dom.api :refer [get-elements-by-class-name]]))
 
-(dom/get-elements-by-class-name ...)
-(get-elements-by-class-name     ...)
+(dom.api/get-elements-by-class-name ...)
+(get-elements-by-class-name         ...)
 ```
 
 </details>
@@ -2750,10 +2747,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-query]]))
+(ns my-namespace (:require [dom.api :refer [get-elements-by-query]]))
 
-(dom/get-elements-by-query ...)
-(get-elements-by-query     ...)
+(dom.api/get-elements-by-query ...)
+(get-elements-by-query         ...)
 ```
 
 </details>
@@ -2792,10 +2789,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-elements-by-tag-name]]))
+(ns my-namespace (:require [dom.api :refer [get-elements-by-tag-name]]))
 
-(dom/get-elements-by-tag-name ...)
-(get-elements-by-tag-name     ...)
+(dom.api/get-elements-by-tag-name ...)
+(get-elements-by-tag-name         ...)
 ```
 
 </details>
@@ -2829,9 +2826,9 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-head-element]]))
+(ns my-namespace (:require [dom.api :refer [get-head-element]]))
 
-(dom/get-head-element)
+(dom.api/get-head-element)
 (get-head-element)
 ```
 
@@ -2882,10 +2879,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-viewport-quarter]]))
+(ns my-namespace (:require [dom.api :refer [get-mouse-viewport-quarter]]))
 
-(dom/get-mouse-viewport-quarter ...)
-(get-mouse-viewport-quarter     ...)
+(dom.api/get-mouse-viewport-quarter ...)
+(get-mouse-viewport-quarter         ...)
 ```
 
 </details>
@@ -2923,10 +2920,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-x]]))
+(ns my-namespace (:require [dom.api :refer [get-mouse-x]]))
 
-(dom/get-mouse-x ...)
-(get-mouse-x     ...)
+(dom.api/get-mouse-x ...)
+(get-mouse-x         ...)
 ```
 
 </details>
@@ -2964,10 +2961,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-mouse-y]]))
+(ns my-namespace (:require [dom.api :refer [get-mouse-y]]))
 
-(dom/get-mouse-y ...)
-(get-mouse-y     ...)
+(dom.api/get-mouse-y ...)
+(get-mouse-y         ...)
 ```
 
 </details>
@@ -3016,10 +3013,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-scroll-direction]]))
+(ns my-namespace (:require [dom.api :refer [get-scroll-direction]]))
 
-(dom/get-scroll-direction ...)
-(get-scroll-direction     ...)
+(dom.api/get-scroll-direction ...)
+(get-scroll-direction         ...)
 ```
 
 </details>
@@ -3058,9 +3055,9 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-scroll-progress]]))
+(ns my-namespace (:require [dom.api :refer [get-scroll-progress]]))
 
-(dom/get-scroll-progress)
+(dom.api/get-scroll-progress)
 (get-scroll-progress)
 ```
 
@@ -3094,9 +3091,9 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-scroll-x]]))
+(ns my-namespace (:require [dom.api :refer [get-scroll-x]]))
 
-(dom/get-scroll-x)
+(dom.api/get-scroll-x)
 (get-scroll-x)
 ```
 
@@ -3130,9 +3127,9 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-scroll-y]]))
+(ns my-namespace (:require [dom.api :refer [get-scroll-y]]))
 
-(dom/get-scroll-y)
+(dom.api/get-scroll-y)
 (get-scroll-y)
 ```
 
@@ -3171,10 +3168,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-selection-end]]))
+(ns my-namespace (:require [dom.api :refer [get-selection-end]]))
 
-(dom/get-selection-end ...)
-(get-selection-end     ...)
+(dom.api/get-selection-end ...)
+(get-selection-end         ...)
 ```
 
 </details>
@@ -3212,10 +3209,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [get-selection-start]]))
+(ns my-namespace (:require [dom.api :refer [get-selection-start]]))
 
-(dom/get-selection-start ...)
-(get-selection-start     ...)
+(dom.api/get-selection-start ...)
+(get-selection-start         ...)
 ```
 
 </details>
@@ -3258,10 +3255,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [insert-after!]]))
+(ns my-namespace (:require [dom.api :refer [insert-after!]]))
 
-(dom/insert-after! ...)
-(insert-after!     ...)
+(dom.api/insert-after! ...)
+(insert-after!         ...)
 ```
 
 </details>
@@ -3311,10 +3308,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [insert-as-first-of-query-selected!]]))
+(ns my-namespace (:require [dom.api :refer [insert-as-first-of-query-selected!]]))
 
-(dom/insert-as-first-of-query-selected! ...)
-(insert-as-first-of-query-selected!     ...)
+(dom.api/insert-as-first-of-query-selected! ...)
+(insert-as-first-of-query-selected!         ...)
 ```
 
 </details>
@@ -3359,10 +3356,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [insert-as-first-of-type!]]))
+(ns my-namespace (:require [dom.api :refer [insert-as-first-of-type!]]))
 
-(dom/insert-as-first-of-type! ...)
-(insert-as-first-of-type!     ...)
+(dom.api/insert-as-first-of-type! ...)
+(insert-as-first-of-type!         ...)
 ```
 
 </details>
@@ -3412,10 +3409,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [insert-as-last-of-query-selected!]]))
+(ns my-namespace (:require [dom.api :refer [insert-as-last-of-query-selected!]]))
 
-(dom/insert-as-last-of-query-selected! ...)
-(insert-as-last-of-query-selected!     ...)
+(dom.api/insert-as-last-of-query-selected! ...)
+(insert-as-last-of-query-selected!         ...)
 ```
 
 </details>
@@ -3460,10 +3457,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [insert-as-last-of-type!]]))
+(ns my-namespace (:require [dom.api :refer [insert-as-last-of-type!]]))
 
-(dom/insert-as-last-of-type! ...)
-(insert-as-last-of-type!     ...)
+(dom.api/insert-as-last-of-type! ...)
+(insert-as-last-of-type!         ...)
 ```
 
 </details>
@@ -3506,10 +3503,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [insert-before!]]))
+(ns my-namespace (:require [dom.api :refer [insert-before!]]))
 
-(dom/insert-before! ...)
-(insert-before!     ...)
+(dom.api/insert-before! ...)
+(insert-before!         ...)
 ```
 
 </details>
@@ -3547,10 +3544,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [intersection-observer]]))
+(ns my-namespace (:require [dom.api :refer [intersection-observer]]))
 
-(dom/intersection-observer ...)
-(intersection-observer     ...)
+(dom.api/intersection-observer ...)
+(intersection-observer         ...)
 ```
 
 </details>
@@ -3598,10 +3595,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [merge-to-form-data!]]))
+(ns my-namespace (:require [dom.api :refer [merge-to-form-data!]]))
 
-(dom/merge-to-form-data! ...)
-(merge-to-form-data!     ...)
+(dom.api/merge-to-form-data! ...)
+(merge-to-form-data!         ...)
 ```
 
 </details>
@@ -3641,10 +3638,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [move-caret-to-end!]]))
+(ns my-namespace (:require [dom.api :refer [move-caret-to-end!]]))
 
-(dom/move-caret-to-end! ...)
-(move-caret-to-end!     ...)
+(dom.api/move-caret-to-end! ...)
+(move-caret-to-end!         ...)
 ```
 
 </details>
@@ -3683,10 +3680,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [move-caret-to-start!]]))
+(ns my-namespace (:require [dom.api :refer [move-caret-to-start!]]))
 
-(dom/move-caret-to-start! ...)
-(move-caret-to-start!     ...)
+(dom.api/move-caret-to-start! ...)
+(move-caret-to-start!         ...)
 ```
 
 </details>
@@ -3725,10 +3722,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [on-mouse-left]]))
+(ns my-namespace (:require [dom.api :refer [on-mouse-left]]))
 
-(dom/on-mouse-left ...)
-(on-mouse-left     ...)
+(dom.api/on-mouse-left ...)
+(on-mouse-left         ...)
 ```
 
 </details>
@@ -3769,10 +3766,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [prepend-element!]]))
+(ns my-namespace (:require [dom.api :refer [prepend-element!]]))
 
-(dom/prepend-element! ...)
-(prepend-element!     ...)
+(dom.api/prepend-element! ...)
+(prepend-element!         ...)
 ```
 
 </details>
@@ -3810,10 +3807,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [prevent-default!]]))
+(ns my-namespace (:require [dom.api :refer [prevent-default!]]))
 
-(dom/prevent-default! ...)
-(prevent-default!     ...)
+(dom.api/prevent-default! ...)
+(prevent-default!         ...)
 ```
 
 </details>
@@ -3854,10 +3851,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-child!]]))
+(ns my-namespace (:require [dom.api :refer [remove-child!]]))
 
-(dom/remove-child! ...)
-(remove-child!     ...)
+(dom.api/remove-child! ...)
+(remove-child!         ...)
 ```
 
 </details>
@@ -3895,10 +3892,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element!]]))
+(ns my-namespace (:require [dom.api :refer [remove-element!]]))
 
-(dom/remove-element! ...)
-(remove-element!     ...)
+(dom.api/remove-element! ...)
+(remove-element!         ...)
 ```
 
 </details>
@@ -3938,10 +3935,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-attribute!]]))
+(ns my-namespace (:require [dom.api :refer [remove-element-attribute!]]))
 
-(dom/remove-element-attribute! ...)
-(remove-element-attribute!     ...)
+(dom.api/remove-element-attribute! ...)
+(remove-element-attribute!         ...)
 ```
 
 </details>
@@ -3980,10 +3977,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-attributes!]]))
+(ns my-namespace (:require [dom.api :refer [remove-element-attributes!]]))
 
-(dom/remove-element-attributes! ...)
-(remove-element-attributes!     ...)
+(dom.api/remove-element-attributes! ...)
+(remove-element-attributes!         ...)
 ```
 
 </details>
@@ -4023,10 +4020,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-class!]]))
+(ns my-namespace (:require [dom.api :refer [remove-element-class!]]))
 
-(dom/remove-element-class! ...)
-(remove-element-class!     ...)
+(dom.api/remove-element-class! ...)
+(remove-element-class!         ...)
 ```
 
 </details>
@@ -4065,10 +4062,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-style!]]))
+(ns my-namespace (:require [dom.api :refer [remove-element-style!]]))
 
-(dom/remove-element-style! ...)
-(remove-element-style!     ...)
+(dom.api/remove-element-style! ...)
+(remove-element-style!         ...)
 ```
 
 </details>
@@ -4109,10 +4106,10 @@ Default: js/document
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-element-style-value!]]))
+(ns my-namespace (:require [dom.api :refer [remove-element-style-value!]]))
 
-(dom/remove-element-style-value! ...)
-(remove-element-style-value!     ...)
+(dom.api/remove-element-style-value! ...)
+(remove-element-style-value!         ...)
 ```
 
 </details>
@@ -4157,10 +4154,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-event-listener!]]))
+(ns my-namespace (:require [dom.api :refer [remove-event-listener!]]))
 
-(dom/remove-event-listener! ...)
-(remove-event-listener!     ...)
+(dom.api/remove-event-listener! ...)
+(remove-event-listener!         ...)
 ```
 
 </details>
@@ -4201,10 +4198,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [remove-intersection-observer!]]))
+(ns my-namespace (:require [dom.api :refer [remove-intersection-observer!]]))
 
-(dom/remove-intersection-observer! ...)
-(remove-intersection-observer!     ...)
+(dom.api/remove-intersection-observer! ...)
+(remove-intersection-observer!         ...)
 ```
 
 </details>
@@ -4242,10 +4239,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [scroll-direction-btt?]]))
+(ns my-namespace (:require [dom.api :refer [scroll-direction-btt?]]))
 
-(dom/scroll-direction-btt? ...)
-(scroll-direction-btt?     ...)
+(dom.api/scroll-direction-btt? ...)
+(scroll-direction-btt?         ...)
 ```
 
 </details>
@@ -4283,10 +4280,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [scroll-direction-ttb?]]))
+(ns my-namespace (:require [dom.api :refer [scroll-direction-ttb?]]))
 
-(dom/scroll-direction-ttb? ...)
-(scroll-direction-ttb?     ...)
+(dom.api/scroll-direction-ttb? ...)
+(scroll-direction-ttb?         ...)
 ```
 
 </details>
@@ -4326,10 +4323,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [scroll-to-element-top!]]))
+(ns my-namespace (:require [dom.api :refer [scroll-to-element-top!]]))
 
-(dom/scroll-to-element-top! ...)
-(scroll-to-element-top!     ...)
+(dom.api/scroll-to-element-top! ...)
+(scroll-to-element-top!         ...)
 ```
 
 </details>
@@ -4367,10 +4364,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [select-preventer]]))
+(ns my-namespace (:require [dom.api :refer [select-preventer]]))
 
-(dom/select-preventer ...)
-(select-preventer     ...)
+(dom.api/select-preventer ...)
+(select-preventer         ...)
 ```
 
 </details>
@@ -4411,10 +4408,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-caret-position!]]))
+(ns my-namespace (:require [dom.api :refer [set-caret-position!]]))
 
-(dom/set-caret-position! ...)
-(set-caret-position!     ...)
+(dom.api/set-caret-position! ...)
+(set-caret-position!         ...)
 ```
 
 </details>
@@ -4452,10 +4449,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-document-title!]]))
+(ns my-namespace (:require [dom.api :refer [set-document-title!]]))
 
-(dom/set-document-title! ...)
-(set-document-title!     ...)
+(dom.api/set-document-title! ...)
+(set-document-title!         ...)
 ```
 
 </details>
@@ -4496,10 +4493,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-attribute!]]))
+(ns my-namespace (:require [dom.api :refer [set-element-attribute!]]))
 
-(dom/set-element-attribute! ...)
-(set-element-attribute!     ...)
+(dom.api/set-element-attribute! ...)
+(set-element-attribute!         ...)
 ```
 
 </details>
@@ -4543,10 +4540,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-attributes!]]))
+(ns my-namespace (:require [dom.api :refer [set-element-attributes!]]))
 
-(dom/set-element-attributes! ...)
-(set-element-attributes!     ...)
+(dom.api/set-element-attributes! ...)
+(set-element-attributes!         ...)
 ```
 
 </details>
@@ -4586,10 +4583,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-class!]]))
+(ns my-namespace (:require [dom.api :refer [set-element-class!]]))
 
-(dom/set-element-class! ...)
-(set-element-class!     ...)
+(dom.api/set-element-class! ...)
+(set-element-class!         ...)
 ```
 
 </details>
@@ -4629,10 +4626,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-content!]]))
+(ns my-namespace (:require [dom.api :refer [set-element-content!]]))
 
-(dom/set-element-content! ...)
-(set-element-content!     ...)
+(dom.api/set-element-content! ...)
+(set-element-content!         ...)
 ```
 
 </details>
@@ -4672,10 +4669,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-id!]]))
+(ns my-namespace (:require [dom.api :refer [set-element-id!]]))
 
-(dom/set-element-id! ...)
-(set-element-id!     ...)
+(dom.api/set-element-id! ...)
+(set-element-id!         ...)
 ```
 
 </details>
@@ -4716,10 +4713,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-style!]]))
+(ns my-namespace (:require [dom.api :refer [set-element-style!]]))
 
-(dom/set-element-style! ...)
-(set-element-style!     ...)
+(dom.api/set-element-style! ...)
+(set-element-style!         ...)
 ```
 
 </details>
@@ -4760,10 +4757,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-element-style-value!]]))
+(ns my-namespace (:require [dom.api :refer [set-element-style-value!]]))
 
-(dom/set-element-style-value! ...)
-(set-element-style-value!     ...)
+(dom.api/set-element-style-value! ...)
+(set-element-style-value!         ...)
 ```
 
 </details>
@@ -4802,10 +4799,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-scroll-x!]]))
+(ns my-namespace (:require [dom.api :refer [set-scroll-x!]]))
 
-(dom/set-scroll-x! ...)
-(set-scroll-x!     ...)
+(dom.api/set-scroll-x! ...)
+(set-scroll-x!         ...)
 ```
 
 </details>
@@ -4844,10 +4841,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-scroll-y!]]))
+(ns my-namespace (:require [dom.api :refer [set-scroll-y!]]))
 
-(dom/set-scroll-y! ...)
-(set-scroll-y!     ...)
+(dom.api/set-scroll-y! ...)
+(set-scroll-y!         ...)
 ```
 
 </details>
@@ -4887,10 +4884,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-selection-end!]]))
+(ns my-namespace (:require [dom.api :refer [set-selection-end!]]))
 
-(dom/set-selection-end! ...)
-(set-selection-end!     ...)
+(dom.api/set-selection-end! ...)
+(set-selection-end!         ...)
 ```
 
 </details>
@@ -4932,10 +4929,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-selection-range!]]))
+(ns my-namespace (:require [dom.api :refer [set-selection-range!]]))
 
-(dom/set-selection-range! ...)
-(set-selection-range!     ...)
+(dom.api/set-selection-range! ...)
+(set-selection-range!         ...)
 ```
 
 </details>
@@ -4975,10 +4972,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [set-selection-start!]]))
+(ns my-namespace (:require [dom.api :refer [set-selection-start!]]))
 
-(dom/set-selection-start! ...)
-(set-selection-start!     ...)
+(dom.api/set-selection-start! ...)
+(set-selection-start!         ...)
 ```
 
 </details>
@@ -5019,10 +5016,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [setup-intersection-observer!]]))
+(ns my-namespace (:require [dom.api :refer [setup-intersection-observer!]]))
 
-(dom/setup-intersection-observer! ...)
-(setup-intersection-observer!     ...)
+(dom.api/setup-intersection-observer! ...)
+(setup-intersection-observer!         ...)
 ```
 
 </details>
@@ -5060,10 +5057,10 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [stop-propagation!]]))
+(ns my-namespace (:require [dom.api :refer [stop-propagation!]]))
 
-(dom/stop-propagation! ...)
-(stop-propagation!     ...)
+(dom.api/stop-propagation! ...)
+(stop-propagation!         ...)
 ```
 
 </details>
@@ -5094,9 +5091,9 @@ Default: js/window
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :as dom :refer [toggle-design-mode!]]))
+(ns my-namespace (:require [dom.api :refer [toggle-design-mode!]]))
 
-(dom/toggle-design-mode!)
+(dom.api/toggle-design-mode!)
 (toggle-design-mode!)
 ```
 
