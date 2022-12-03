@@ -1,11 +1,11 @@
 
 # <strong>dom-api</strong>
 
-<p>Documentation of the <strong>dom-api</strong> Clojure / ClojureScript library</p>
+<p>Documentation of the <strong>dom-api</strong> ClojureScript library</p>
 
 <strong>[README](../README.md) > DOCUMENTATION</strong>
 
-### Public namespaces
+### ClojureScript namespaces
 
 * [dom.api](cljs/dom/API.md) [cljs]
 
