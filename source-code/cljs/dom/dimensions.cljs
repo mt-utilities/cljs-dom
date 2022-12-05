@@ -120,12 +120,12 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn get-element-masspoint-x
+(defn get-element-mass-point-x
   ; @param (DOM-element) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (get-element-masspoint-x my-element)
+  ; (get-element-mass-point-x my-element)
   ;
   ; @return (px)
   [element]
@@ -133,12 +133,12 @@
                  (-> element     .getBoundingClientRect .-left)
                  (-> js/document .-documentElement      .-scrollLeft))))
 
-(defn get-element-masspoint-y
+(defn get-element-mass-point-y
   ; @param (DOM-element) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (get-element-masspoint-y my-element)
+  ; (get-element-mass-point-y my-element)
   ;
   ; @return (px)
   [element]
@@ -208,12 +208,12 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn get-element-masspoint-orientation
+(defn get-element-mass-point-orientation
   ; @param (DOM-element) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (get-element-masspoint-orientation my-element)
+  ; (get-element-mass-point-orientation my-element)
   ;
   ; @return (keyword)
   ; :bl, :br, :tl, :tr

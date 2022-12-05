@@ -1,7 +1,247 @@
 
-# <strong>dom.api</strong> namespace
+# dom.api ClojureScript namespace
 
-<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > </strong>source-code/cljs/dom/api.cljs
+##### [README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > dom.api
+
+### Index
+
+- [add-event-listener!](#add-event-listener)
+
+- [append-element!](#append-element)
+
+- [append-script!](#append-script)
+
+- [append-to-form-data!](#append-to-form-data)
+
+- [blur-element!](#blur-element)
+
+- [create-element!](#create-element)
+
+- [element-blurred?](#element-blurred)
+
+- [element-disabled?](#element-disabled)
+
+- [element-enabled?](#element-enabled)
+
+- [element-focused?](#element-focused)
+
+- [element-on-viewport-bottom?](#element-on-viewport-bottom)
+
+- [element-on-viewport-left?](#element-on-viewport-left)
+
+- [element-on-viewport-right?](#element-on-viewport-right)
+
+- [element-on-viewport-top?](#element-on-viewport-top)
+
+- [empty-element!](#empty-element)
+
+- [event->node-name](#event-node-name)
+
+- [event->value](#event-value)
+
+- [file->file-data](#file-file-data)
+
+- [file->filename](#file-filename)
+
+- [file->filesize](#file-filesize)
+
+- [file->image?](#file-image)
+
+- [file->mime-type](#file-mime-type)
+
+- [file-selector->any-file-selected?](#file-selector-any-file-selected)
+
+- [file-selector->file](#file-selector-file)
+
+- [file-selector->file-count](#file-selector-file-count)
+
+- [file-selector->file-list](#file-selector-file-list)
+
+- [file-selector->files](#file-selector-files)
+
+- [file-selector->files-data](#file-selector-files-data)
+
+- [file-selector->files-meta](#file-selector-files-meta)
+
+- [file-selector->files-size](#file-selector-files-size)
+
+- [file-selector->form-data](#file-selector-form-data)
+
+- [file-selector->image-data-url](#file-selector-image-data-url)
+
+- [file-selector->mime-types](#file-selector-mime-types)
+
+- [focus-element!](#focus-element)
+
+- [get-active-element](#get-active-element)
+
+- [get-body-element](#get-body-element)
+
+- [get-body-style-value](#get-body-style-value)
+
+- [get-document-element](#get-document-element)
+
+- [get-document-height](#get-document-height)
+
+- [get-document-title](#get-document-title)
+
+- [get-document-width](#get-document-width)
+
+- [get-element-absolute-left](#get-element-absolute-left)
+
+- [get-element-absolute-top](#get-element-absolute-top)
+
+- [get-element-attribute](#get-element-attribute)
+
+- [get-element-attributes](#get-element-attributes)
+
+- [get-element-by-attribute](#get-element-by-attribute)
+
+- [get-element-by-class-name](#get-element-by-class-name)
+
+- [get-element-by-id](#get-element-by-id)
+
+- [get-element-by-query](#get-element-by-query)
+
+- [get-element-by-tag-name](#get-element-by-tag-name)
+
+- [get-element-computed-style](#get-element-computed-style)
+
+- [get-element-height](#get-element-height)
+
+- [get-element-mass-point-orientation](#get-element-mass-point-orientation)
+
+- [get-element-mass-point-x](#get-element-mass-point-x)
+
+- [get-element-mass-point-y](#get-element-mass-point-y)
+
+- [get-element-offset-left](#get-element-offset-left)
+
+- [get-element-offset-top](#get-element-offset-top)
+
+- [get-element-relative-left](#get-element-relative-left)
+
+- [get-element-relative-top](#get-element-relative-top)
+
+- [get-element-style](#get-element-style)
+
+- [get-element-style-value](#get-element-style-value)
+
+- [get-element-width](#get-element-width)
+
+- [get-elements-by-attribute](#get-elements-by-attribute)
+
+- [get-elements-by-class-name](#get-elements-by-class-name)
+
+- [get-elements-by-query](#get-elements-by-query)
+
+- [get-elements-by-tag-name](#get-elements-by-tag-name)
+
+- [get-head-element](#get-head-element)
+
+- [get-mouse-viewport-quarter](#get-mouse-viewport-quarter)
+
+- [get-mouse-x](#get-mouse-x)
+
+- [get-mouse-y](#get-mouse-y)
+
+- [get-scroll-direction](#get-scroll-direction)
+
+- [get-scroll-progress](#get-scroll-progress)
+
+- [get-scroll-x](#get-scroll-x)
+
+- [get-scroll-y](#get-scroll-y)
+
+- [get-selection-end](#get-selection-end)
+
+- [get-selection-start](#get-selection-start)
+
+- [insert-after!](#insert-after)
+
+- [insert-as-first-of-query-selected!](#insert-as-first-of-query-selected)
+
+- [insert-as-first-of-type!](#insert-as-first-of-type)
+
+- [insert-as-last-of-query-selected!](#insert-as-last-of-query-selected)
+
+- [insert-as-last-of-type!](#insert-as-last-of-type)
+
+- [insert-before!](#insert-before)
+
+- [intersection-observer](#intersection-observer)
+
+- [merge-to-form-data!](#merge-to-form-data)
+
+- [move-caret-to-end!](#move-caret-to-end)
+
+- [move-caret-to-start!](#move-caret-to-start)
+
+- [on-mouse-left](#on-mouse-left)
+
+- [prepend-element!](#prepend-element)
+
+- [prevent-default!](#prevent-default)
+
+- [remove-child!](#remove-child)
+
+- [remove-element!](#remove-element)
+
+- [remove-element-attribute!](#remove-element-attribute)
+
+- [remove-element-attributes!](#remove-element-attributes)
+
+- [remove-element-class!](#remove-element-class)
+
+- [remove-element-style!](#remove-element-style)
+
+- [remove-element-style-value!](#remove-element-style-value)
+
+- [remove-event-listener!](#remove-event-listener)
+
+- [remove-intersection-observer!](#remove-intersection-observer)
+
+- [scroll-direction-btt?](#scroll-direction-btt)
+
+- [scroll-direction-ttb?](#scroll-direction-ttb)
+
+- [scroll-to-element-top!](#scroll-to-element-top)
+
+- [select-preventer](#select-preventer)
+
+- [set-caret-position!](#set-caret-position)
+
+- [set-document-title!](#set-document-title)
+
+- [set-element-attribute!](#set-element-attribute)
+
+- [set-element-attributes!](#set-element-attributes)
+
+- [set-element-class!](#set-element-class)
+
+- [set-element-content!](#set-element-content)
+
+- [set-element-id!](#set-element-id)
+
+- [set-element-style!](#set-element-style)
+
+- [set-element-style-value!](#set-element-style-value)
+
+- [set-scroll-x!](#set-scroll-x)
+
+- [set-scroll-y!](#set-scroll-y)
+
+- [set-selection-end!](#set-selection-end)
+
+- [set-selection-range!](#set-selection-range)
+
+- [set-selection-start!](#set-selection-start)
+
+- [setup-intersection-observer!](#setup-intersection-observer)
+
+- [stop-propagation!](#stop-propagation)
+
+- [toggle-design-mode!](#toggle-design-mode)
 
 ### add-event-listener!
 
@@ -2202,7 +2442,7 @@ The returned object updates automatically when the element's styles are changed
 
 ---
 
-### get-element-masspoint-orientation
+### get-element-mass-point-orientation
 
 ```
 @param (DOM-element) element
@@ -2211,7 +2451,7 @@ The returned object updates automatically when the element's styles are changed
 ```
 @usage
 (def my-element (get-element-by-id "my-element"))
-(get-element-masspoint-orientation my-element)
+(get-element-mass-point-orientation my-element)
 ```
 
 ```
@@ -2223,7 +2463,7 @@ The returned object updates automatically when the element's styles are changed
 <summary>Source code</summary>
 
 ```
-(defn get-element-masspoint-orientation
+(defn get-element-mass-point-orientation
   [element]
   (if (element-on-viewport-bottom? element)
       (if (element-on-viewport-left? element)
@@ -2240,17 +2480,17 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :refer [get-element-masspoint-orientation]]))
+(ns my-namespace (:require [dom.api :refer [get-element-mass-point-orientation]]))
 
-(dom.api/get-element-masspoint-orientation ...)
-(get-element-masspoint-orientation         ...)
+(dom.api/get-element-mass-point-orientation ...)
+(get-element-mass-point-orientation         ...)
 ```
 
 </details>
 
 ---
 
-### get-element-masspoint-x
+### get-element-mass-point-x
 
 ```
 @param (DOM-element) element
@@ -2259,7 +2499,7 @@ The returned object updates automatically when the element's styles are changed
 ```
 @usage
 (def my-element (get-element-by-id "my-element"))
-(get-element-masspoint-x my-element)
+(get-element-mass-point-x my-element)
 ```
 
 ```
@@ -2270,7 +2510,7 @@ The returned object updates automatically when the element's styles are changed
 <summary>Source code</summary>
 
 ```
-(defn get-element-masspoint-x
+(defn get-element-mass-point-x
   [element]
   (math/round (+ (-> element     .-offsetWidth (/ 2))
                  (-> element     .getBoundingClientRect .-left)
@@ -2283,17 +2523,17 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :refer [get-element-masspoint-x]]))
+(ns my-namespace (:require [dom.api :refer [get-element-mass-point-x]]))
 
-(dom.api/get-element-masspoint-x ...)
-(get-element-masspoint-x         ...)
+(dom.api/get-element-mass-point-x ...)
+(get-element-mass-point-x         ...)
 ```
 
 </details>
 
 ---
 
-### get-element-masspoint-y
+### get-element-mass-point-y
 
 ```
 @param (DOM-element) element
@@ -2302,7 +2542,7 @@ The returned object updates automatically when the element's styles are changed
 ```
 @usage
 (def my-element (get-element-by-id "my-element"))
-(get-element-masspoint-y my-element)
+(get-element-mass-point-y my-element)
 ```
 
 ```
@@ -2313,7 +2553,7 @@ The returned object updates automatically when the element's styles are changed
 <summary>Source code</summary>
 
 ```
-(defn get-element-masspoint-y
+(defn get-element-mass-point-y
   [element]
   (math/round (+ (-> element     .-offsetHeight (/ 2))
                  (-> element     .getBoundingClientRect .-left)
@@ -2326,10 +2566,10 @@ The returned object updates automatically when the element's styles are changed
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [dom.api :refer [get-element-masspoint-y]]))
+(ns my-namespace (:require [dom.api :refer [get-element-mass-point-y]]))
 
-(dom.api/get-element-masspoint-y ...)
-(get-element-masspoint-y         ...)
+(dom.api/get-element-mass-point-y ...)
+(get-element-mass-point-y         ...)
 ```
 
 </details>
@@ -5098,3 +5338,8 @@ Default: js/window
 ```
 
 </details>
+
+---
+
+This documentation is generated by the [docs-api](https://github.com/bithandshake/docs-api) engine
+
