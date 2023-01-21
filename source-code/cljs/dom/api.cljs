@@ -13,7 +13,6 @@
               [dom.form-data             :as form-data]
               [dom.head                  :as head]
               [dom.intersection-observer :as intersection-observer]
-              [dom.listeners             :as listeners]
               [dom.mouse                 :as mouse]
               [dom.node                  :as node]
               [dom.script                :as script]
@@ -123,10 +122,6 @@
 (def intersection-observer         intersection-observer/intersection-observer)
 (def setup-intersection-observer!  intersection-observer/setup-intersection-observer!)
 (def remove-intersection-observer! intersection-observer/remove-intersection-observer!)
-
-; dom.listeners
-(def add-event-listener!    listeners/add-event-listener!)
-(def remove-event-listener! listeners/remove-event-listener!)
 
 ; dom.mouse
 (def get-mouse-x                mouse/get-mouse-x)
