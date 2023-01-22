@@ -1,7 +1,7 @@
 
-# dom-api documentation
+# cljs-dom documentation
 
-Documentation of the [dom-api](https://github.com/bithandshake/dom-api) ClojureScript library
+Documentation of the [cljs-dom](https://github.com/bithandshake/cljs-dom) ClojureScript library
 
 ##### [README](../README.md) > DOCUMENTATION
 

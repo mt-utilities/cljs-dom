@@ -5,13 +5,13 @@
 
 ### Index
 
-- [add-event-listener!](#add-event-listener)
-
 - [append-element!](#append-element)
 
 - [append-script!](#append-script)
 
 - [append-to-form-data!](#append-to-form-data)
+
+- [blur-active-element!](#blur-active-element)
 
 - [blur-element!](#blur-element)
 
@@ -197,8 +197,6 @@
 
 - [remove-element-style-value!](#remove-element-style-value)
 
-- [remove-event-listener!](#remove-event-listener)
-
 - [remove-intersection-observer!](#remove-intersection-observer)
 
 - [scroll-direction-btt?](#scroll-direction-btt)
@@ -242,53 +240,6 @@
 - [stop-propagation!](#stop-propagation)
 
 - [toggle-design-mode!](#toggle-design-mode)
-
-### add-event-listener!
-
-```
-@param (string) type
-@param (function) listener-f
-@param (DOM-element)(opt) target
-Default: js/window
-```
-
-```
-@usage
-(add-event-listener! "mousemove" (fn [event] ...))
-```
-
-```
-@return (DOM-element)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn add-event-listener!
-  ([type listener-f]
-   (add-event-listener! type listener-f js/window))
-
-  ([type listener-f target]
-   (.addEventListener target type listener-f false)
-   (return            target)))
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [dom.api :refer [add-event-listener!]]))
-
-(dom.api/add-event-listener! ...)
-(add-event-listener!         ...)
-```
-
-</details>
-
----
 
 ### append-element!
 
@@ -420,6 +371,43 @@ Default: js/window
 
 (dom.api/append-to-form-data! ...)
 (append-to-form-data!         ...)
+```
+
+</details>
+
+---
+
+### blur-active-element!
+
+```
+@usage
+(blur-active-element!)
+```
+
+```
+@return (DOM-element)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn blur-active-element!
+  []
+  (if-let [active-element (get-active-element)]
+          (blur-element! active-element)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [dom.api :refer [blur-active-element!]]))
+
+(dom.api/blur-active-element!)
+(blur-active-element!)
 ```
 
 </details>
@@ -4350,54 +4338,6 @@ Default: js/document
 
 (dom.api/remove-element-style-value! ...)
 (remove-element-style-value!         ...)
-```
-
-</details>
-
----
-
-### remove-event-listener!
-
-```
-@param (string) type
-@param (function) listener-f
-@param (DOM-element)(opt) target
-Default: js/window
-```
-
-```
-@usage
-(def my-listener-f (fn [event]))
-(remove-event-listener! "mousemove" my-listener-f)
-```
-
-```
-@return (DOM-element)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn remove-event-listener!
-  ([type listener-f]
-   (remove-event-listener! type listener-f js/window))
-
-  ([type listener-f target]
-   (.removeEventListener target type listener-f false)
-   (return               target)))
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [dom.api :refer [remove-event-listener!]]))
-
-(dom.api/remove-event-listener! ...)
-(remove-event-listener!         ...)
 ```
 
 </details>

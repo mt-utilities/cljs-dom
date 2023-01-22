@@ -64,3 +64,12 @@
   [element]
   (.blur  element)
   (return element))
+
+(defn blur-active-element!
+  ; @usage
+  ; (blur-active-element!)
+  ;
+  ; @return (DOM-element)
+  []
+  (if-let [active-element (get-active-element)]
+          (blur-element! active-element)))
