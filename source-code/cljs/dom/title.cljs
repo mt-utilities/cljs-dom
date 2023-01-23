@@ -1,19 +1,17 @@
 
 (ns dom.title
-    (:require [candy.api :refer [return]]))
+    (:require [noop.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn get-document-title
-  ; WARNING! NOT TESTED!
-  ;
   ; @usage
   ; (get-document-title)
   ;
   ; @return (string)
   []
-  (str (-> js/document .-title)))
+  (-> js/document .-title str))
 
 (defn set-document-title!
   ; @param (string) title

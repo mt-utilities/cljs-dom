@@ -1,7 +1,7 @@
 
 (ns dom.form-data
-    (:require [candy.api         :refer [return]]
-              [dom.file-selector :as file-selector]))
+    (:require [dom.file-selector :as file-selector]
+              [noop.api          :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

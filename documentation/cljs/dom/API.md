@@ -1904,7 +1904,7 @@
 ```
 (defn get-document-title
   []
-  (str (-> js/document .-title)))
+  (-> js/document .-title str))
 ```
 
 </details>

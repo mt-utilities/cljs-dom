@@ -1,8 +1,8 @@
 
 (ns dom.scroll
-    (:require [candy.api  :refer [return]]
-              [dom.config :as config]
-              [math.api   :as math]))
+    (:require [dom.config :as config]
+              [math.api   :as math]
+              [noop.api   :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

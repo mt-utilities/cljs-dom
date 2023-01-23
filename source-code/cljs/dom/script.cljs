@@ -1,9 +1,9 @@
 
 (ns dom.script
-    (:require [candy.api      :refer [return]]
-              [dom.attributes :as attributes]
+    (:require [dom.attributes :as attributes]
               [dom.body       :as body]
-              [dom.node       :as node]))
+              [dom.node       :as node]
+              [noop.api       :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

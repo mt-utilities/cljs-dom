@@ -1,7 +1,7 @@
 
 (ns dom.dimensions
-    (:require [candy.api :refer [return]]
-              [math.api  :as math]))
+    (:require [math.api :as math]
+              [noop.api :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
