@@ -1,6 +1,7 @@
 
 (ns dom.api
-    (:require [dom.attributes            :as attributes]
+    (:require [dom.animations            :as animations]
+              [dom.attributes            :as attributes]
               [dom.body                  :as body]
               [dom.class                 :as class]
               [dom.dimensions            :as dimensions]
@@ -23,6 +24,11 @@
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
+
+; dom.animations
+(def remove-element-animated! animations/remove-element-animated!)
+(def hide-element-animated!   animations/hide-element-animated!)
+(def reveal-element-animated! animations/reveal-element-animated!)
 
 ; dom.attributes
 (def get-element-attributes     attributes/get-element-attributes)
