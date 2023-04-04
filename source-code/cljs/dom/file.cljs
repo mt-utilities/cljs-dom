@@ -60,6 +60,11 @@
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (def my-file          (file-selector->file my-file-selector 0))
+  ; (file->file-data my-file)
+  ;
+  ; @usage
+  ; (def my-file-selector (get-element-by-id "my-file-selector"))
+  ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->file-data 2 my-file)
   ;
   ; @return (map)
