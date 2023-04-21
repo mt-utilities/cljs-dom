@@ -16,6 +16,7 @@
               [dom.intersection-observer :as intersection-observer]
               [dom.mouse                 :as mouse]
               [dom.node                  :as node]
+              [dom.parse                 :as parse]
               [dom.script                :as script]
               [dom.scroll                :as scroll]
               [dom.selection             :as selection]
@@ -150,6 +151,9 @@
 (def remove-child!                      node/remove-child!)
 (def empty-element!                     node/empty-element!)
 (def set-element-content!               node/set-element-content!)
+
+; dom.parse
+(def parse-html parse/parse-html)
 
 ; dom.script
 (def append-script! script/append-script!)
