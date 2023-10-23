@@ -1,8 +1,7 @@
 
 (ns dom.scroll
     (:require [dom.config :as config]
-              [math.api   :as math]
-              [noop.api   :refer [return]]))
+              [math.api   :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -34,8 +33,8 @@
   ;
   ; @return (boolean)
   [last-scroll-y]
-  ; Ha a scroll-y értéke legalább a config.SCROLL-DIRECTION-SENSITIVITY
-  ; értékével nagyobb, mint a last-scroll-y értéke ...
+  ; If the 'scroll-y' value is at least as much greater than the value of
+  ; 'config.SCROLL-DIRECTION-SENSITIVITY' as the last-scroll-y value...
   (< (+ last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
      (-> js/document .-documentElement .-scrollTop)))
 
@@ -47,8 +46,8 @@
   ;
   ; @return (boolean)
   [last-scroll-y]
-  ; Ha a scroll-y értéke legalább a config.SCROLL-DIRECTION-SENSITIVITY
-  ; értékével kisebb, mint a last-scroll-y értéke ...
+  ; If the 'scroll-y' value is at least as much smaller than the value of 
+  ; 'config.SCROLL-DIRECTION-SENSITIVITY' as the last-scroll-y value...
   (> (- last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
      (-> js/document .-documentElement .-scrollTop)))
 
@@ -67,26 +66,26 @@
              ; XXX#0061
   (cond (and (scroll-direction-ttb? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
-        (return :ttb)
+        (-> :ttb)
 
              ; XXX#0061
         (and (scroll-direction-btt? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
-        (return :btt)
+        (-> :btt)
 
         ; XXX#0061
-        ; Bizonyos böngészőknél, a "scroll bounce effect" az oldal
-        ; tetejére nagy lendülettel hirtelen visszagörgetéskor,
-        ; a bounce közben – amikor már a scroll-y értéke
-        ; a 0 felé közelít negatív irányból – a scroll-direction értékét
-        ; :ttb-ként állítaná be, miközben az eredeti gesztus a felfelé görgetés.
+        ; In certain browsers, the 'scroll bounce effect' at the top of the page,
+        ; when quickly scrolling back up with a strong momentum, during the bounce
+        ; – when the 'scroll-y' value approaches 0 from the negative direction –
+        ; would set the 'scroll-direction' value to ':ttb,' even though the original
+        ; gesture was upward scrolling.
         (math/negative? last-scroll-y)
-        (return :btt)
+        (-> :btt)
 
         ; XXX#0088
-        ; Ha a last-scroll-y és scroll-y értékének különbségének abszolút értéke
-        ; nem nagyobb, mint a SCROLL-DIRECTION-SENSITIVITY és nem igaz az XXX#0061
-        ; kivétel, akkor a scroll-direction nem megállapítható
+        ; If the absolute difference between the 'last-scroll-y' and 'scroll-y'
+        ; values is not greater than the 'SCROLL-DIRECTION-SENSITIVITY' and the 'XXX#0061'
+        ; exception is not true, then the scroll direction cannot be determined.
         :return nil))
 
 (defn get-scroll-progress
@@ -101,9 +100,9 @@
         document-height (-> js/document .-documentElement .-scrollHeight)
         max-scroll-y    (- document-height viewport-height)
         scroll-progress (math/percent max-scroll-y scroll-y)]
-      ; A DOM-struktúra felépülése közben előfordul olyan pillanat, amikor
-      ; a document-height értéke nem valós, ebből kifolyólag a scroll-progress
-      ; értéke ilyenkor kisebb lenne, mint 0.
+      ; During the construction of the DOM structure, there are moments when the value
+      ; of 'document-height' is not accurate, and as a result, the 'scroll-progress'
+      ; value would be less than 0.
       (math/between! scroll-progress 0 100)))
 
 ;; ----------------------------------------------------------------------------

@@ -1,6 +1,5 @@
 
-(ns dom.focus
-    (:require [noop.api :refer [return]]))
+(ns dom.focus)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -50,8 +49,8 @@
   ;
   ; @return (DOM-element)
   [element]
-  (.focus element)
-  (return element))
+  (-> element .focus)
+  (-> element))
 
 (defn blur-element!
   ; @param (DOM-element) element
@@ -62,8 +61,8 @@
   ;
   ; @return (DOM-element)
   [element]
-  (.blur  element)
-  (return element))
+  (-> element .blur)
+  (-> element))
 
 (defn blur-active-element!
   ; @usage

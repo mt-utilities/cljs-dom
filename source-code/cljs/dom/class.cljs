@@ -1,6 +1,5 @@
 
-(ns dom.class
-    (:require [noop.api :refer [return]]))
+(ns dom.class)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -15,8 +14,8 @@
   ;
   ; @return (DOM-element)
   [element class-name]
-  (->     element .-classList (.add class-name))
-  (return element))
+  (-> element .-classList (.add class-name))
+  (-> element))
 
 (defn remove-element-class!
   ; @param (DOM-element) element
@@ -28,5 +27,5 @@
   ;
   ; @return (DOM-element)
   [element class-name]
-  (->     element .-classList (.remove class-name))
-  (return element))
+  (-> element .-classList (.remove class-name))
+  (-> element))

@@ -1,7 +1,6 @@
 
 (ns dom.form-data
-    (:require [dom.file-selector :as file-selector]
-              [noop.api          :refer [return]]))
+    (:require [dom.file-selector :as file-selector]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -17,11 +16,11 @@
   ;
   ; @return (FormData object)
   [form-data prop-key prop-value]
-  (let [prop-key (if (keyword? prop-key)
-                     (name     prop-key)
-                     (return   prop-key))]
+  (let [prop-key (if (-> prop-key keyword?)
+                     (-> prop-key name)
+                     (-> prop-key))]
        (.append form-data prop-key prop-value))
-  (return form-data))
+  (-> form-data))
 
 (defn merge-to-form-data!
   ; @param (FormData object) form-data
@@ -40,7 +39,7 @@
   (doseq [n xyz]
          (doseq [[k v] n]
                 (append-to-form-data! form-data k v)))
-  (return form-data))
+  (-> form-data))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -66,4 +65,4 @@
        (doseq [file-key file-keys]
               (let [file (aget files file-key)]
                    (append-to-form-data! form-data file-key file)))
-       (return form-data)))
+       (-> form-data)))

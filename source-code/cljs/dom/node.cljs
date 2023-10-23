@@ -1,6 +1,5 @@
 
-(ns dom.node
-    (:require [noop.api :refer [return]]))
+(ns dom.node)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -19,7 +18,7 @@
   ; @return (DOM-element)
   [parent-element child-element after-element]
   (.insertBefore parent-element child-element after-element)
-  (return        parent-element))
+  (-> parent-element))
 
 (defn insert-after!
   ; https://www.javascripttutorial.net/javascript-dom/javascript-insertafter/
@@ -37,7 +36,7 @@
   ; @return (DOM-element)
   [parent-element child-element before-element]
   (.insertBefore parent-element child-element (.-nextSibling before-element))
-  (return        parent-element))
+  (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -62,7 +61,7 @@
        (.insertBefore parent-element child-element
                       (-> parent-element (.querySelectorAll query)
                           array-seq first)))
-  (return parent-element))
+  (-> parent-element))
 
 (defn insert-as-last-of-type!
   ; @param (DOM-element) parent-element
@@ -81,7 +80,7 @@
        (.insertBefore parent-element child-element
                       (-> parent-element (.querySelectorAll query)
                           array-seq last .-nextSibling)))
-  (return parent-element))
+  (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -105,7 +104,7 @@
   [parent-element child-element query]
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query) array-seq first))
-  (return parent-element))
+  (-> parent-element))
 
 (defn insert-as-last-of-query-selected!
   ; @param (DOM-element) parent-element
@@ -126,7 +125,7 @@
   [parent-element child-element query]
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query) array-seq last .-nextSibling))
-  (return parent-element))
+  (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -143,7 +142,7 @@
   ; @return (DOM-element)
   [parent-element child-element]
   (.appendChild parent-element child-element)
-  (return       parent-element))
+  (-> parent-element))
 
 (defn prepend-element!
   ; @param (DOM-element) parent-element
@@ -157,7 +156,7 @@
   ; @return (DOM-element)
   [parent-element child-element]
   (.insertBefore parent-element child-element (.-firstChild parent-element))
-  (return        parent-element))
+  (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -195,7 +194,7 @@
   ; @return (DOM-element)
   [parent-element child-element]
   (.removeChild parent-element child-element)
-  (return       parent-element))
+  (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -211,7 +210,7 @@
   [element]
   (while (.-firstChild element)
          (.removeChild element (.-firstChild element)))
-  (return element))
+  (-> element))
 
 (defn set-element-content!
   ; @param (DOM-element) element
@@ -224,4 +223,4 @@
   ; @return (DOM-element)
   [element content]
   (->     element .-innerHTML (set! content))
-  (return element))
+  (-> element))

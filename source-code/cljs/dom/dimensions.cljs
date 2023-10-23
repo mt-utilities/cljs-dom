@@ -1,7 +1,6 @@
 
 (ns dom.dimensions
-    (:require [math.api :as math]
-              [noop.api :refer [return]]))
+    (:require [math.api :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -219,9 +218,5 @@
   ; :bl, :br, :tl, :tr
   [element]
   (if (element-on-viewport-bottom? element)
-      (if (element-on-viewport-left? element)
-          (return :bl)
-          (return :br))
-      (if (element-on-viewport-left? element)
-          (return :tl)
-          (return :tr))))
+      (if (element-on-viewport-left? element) :bl :br)
+      (if (element-on-viewport-left? element) :tl :tr)))

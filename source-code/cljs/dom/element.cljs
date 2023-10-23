@@ -1,6 +1,5 @@
 
-(ns dom.element
-    (:require [noop.api :refer [return]]))
+(ns dom.element)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -165,5 +164,5 @@
   ;
   ; @return (DOM-element)
   [element element-id]
-  (->     element .-id (set! element-id))
-  (return element))
+  (-> element .-id (set! element-id))
+  (-> element))

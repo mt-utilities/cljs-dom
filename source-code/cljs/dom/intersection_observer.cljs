@@ -1,6 +1,5 @@
 
-(ns dom.intersection-observer
-    (:require [noop.api :refer [return]]))
+(ns dom.intersection-observer)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -28,7 +27,7 @@
   [element callback-f]
   (let [observer (intersection-observer callback-f)]
        (.observe observer element)
-       (return   observer)))
+       (-> observer)))
 
 (defn remove-intersection-observer!
   ; @param (?) observer
@@ -42,4 +41,4 @@
   ; @return (DOM-element)
   [observer element]
   (.unobserve observer element)
-  (return     observer))
+  (-> observer))

@@ -2,9 +2,8 @@
 (ns dom.animations
     (:require [dom.attributes :as attributes]
               [dom.node       :as node]
-              [dom.style      :as style]
-              [noop.api       :refer [return]]))
-              
+              [dom.style      :as style]))
+
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
@@ -34,7 +33,7 @@
   (letfn [(f [] (style/set-element-style-value!       element "display" "none")
                 (attributes/remove-element-attribute! element "data-animation"))]
          (.setTimeout js/window f timeout))
-  (return element))
+  (-> element))
 
 (defn reveal-element-animated!
   ; @param (DOM-element) element
@@ -50,4 +49,4 @@
   (attributes/set-element-attribute! element "data-animation" "reveal")
   (letfn [(f [] (attributes/remove-element-attribute! element "data-animation"))]
          (.setTimeout js/window f timeout))
-  (return element))
+  (-> element))

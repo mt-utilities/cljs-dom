@@ -274,7 +274,7 @@
 (defn append-element!
   [parent-element child-element]
   (.appendChild parent-element child-element)
-  (return       parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -318,8 +318,8 @@
         script-element (node/create-element! "script")]
        (attributes/set-element-attribute! script-element "type" "text/javascript")
        (node/set-element-content!         script-element script)
-       (node/append-element!              body-element   script-element)
-       (return                            script-element)))
+       (node/append-element! body-element script-element)
+       (->                                script-element)))
 ```
 
 </details>
@@ -362,11 +362,11 @@
 ```
 (defn append-to-form-data!
   [form-data prop-key prop-value]
-  (let [prop-key (if (keyword? prop-key)
-                     (name     prop-key)
-                     (return   prop-key))]
+  (let [prop-key (if (-> prop-key keyword?)
+                     (-> prop-key name)
+                     (-> prop-key))]
        (.append form-data prop-key prop-value))
-  (return form-data))
+  (-> form-data))
 ```
 
 </details>
@@ -444,8 +444,8 @@
 ```
 (defn blur-element!
   [element]
-  (.blur  element)
-  (return element))
+  (-> element .blur)
+  (-> element))
 ```
 
 </details>
@@ -868,7 +868,7 @@
   [element]
   (while (.-firstChild element)
          (.removeChild element (.-firstChild element)))
-  (return element))
+  (-> element))
 ```
 
 </details>
@@ -1569,7 +1569,7 @@
        (doseq [file-key file-keys]
               (let [file (aget files file-key)]
                    (append-to-form-data! form-data file-key file)))
-       (return form-data)))
+       (-> form-data)))
 ```
 
 </details>
@@ -1695,8 +1695,8 @@
 ```
 (defn focus-element!
   [element]
-  (.focus element)
-  (return element))
+  (-> element .focus)
+  (-> element))
 ```
 
 </details>
@@ -2469,12 +2469,8 @@ The returned object updates automatically when the element's styles are changed
 (defn get-element-mass-point-orientation
   [element]
   (if (element-on-viewport-bottom? element)
-      (if (element-on-viewport-left? element)
-          (return :bl)
-          (return :br))
-      (if (element-on-viewport-left? element)
-          (return :tl)
-          (return :tr))))
+      (if (element-on-viewport-left? element) :bl :br)
+      (if (element-on-viewport-left? element) :tl :tr)))
 ```
 
 </details>
@@ -3238,14 +3234,14 @@ Default: js/document
   [last-scroll-y]
   (cond (and (scroll-direction-ttb? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
-        (return :ttb)
+        (-> :ttb)
 
         (and (scroll-direction-btt? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
-        (return :btt)
+        (-> :btt)
 
         (math/negative? last-scroll-y)
-        (return :btt)
+        (-> :btt)
 
         :return nil))
 ```
@@ -3489,7 +3485,7 @@ Default: js/document
   (letfn [(f [] (style/set-element-style-value!       element "display" "none")
                 (attributes/remove-element-attribute! element "data-animation"))]
          (.setTimeout js/window f timeout))
-  (return element))
+  (-> element))
 ```
 
 </details>
@@ -3535,7 +3531,7 @@ Default: js/document
 (defn insert-after!
   [parent-element child-element before-element]
   (.insertBefore parent-element child-element (.-nextSibling before-element))
-  (return        parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -3588,7 +3584,7 @@ Default: js/document
   [parent-element child-element query]
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query) array-seq first))
-  (return parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -3636,7 +3632,7 @@ Default: js/document
        (.insertBefore parent-element child-element
                       (-> parent-element (.querySelectorAll query)
                           array-seq first)))
-  (return parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -3689,7 +3685,7 @@ Default: js/document
   [parent-element child-element query]
   (.insertBefore parent-element child-element
                  (-> parent-element (.querySelectorAll query) array-seq last .-nextSibling))
-  (return parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -3737,7 +3733,7 @@ Default: js/document
        (.insertBefore parent-element child-element
                       (-> parent-element (.querySelectorAll query)
                           array-seq last .-nextSibling)))
-  (return parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -3783,7 +3779,7 @@ Default: js/document
 (defn insert-before!
   [parent-element child-element after-element]
   (.insertBefore parent-element child-element after-element)
-  (return        parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -3875,7 +3871,7 @@ Default: js/document
   (doseq [n xyz]
          (doseq [[k v] n]
                 (append-to-form-data! form-data k v)))
-  (return form-data))
+  (-> form-data))
 ```
 
 </details>
@@ -4088,7 +4084,7 @@ Default: js/document
 (defn prepend-element!
   [parent-element child-element]
   (.insertBefore parent-element child-element (.-firstChild parent-element))
-  (return        parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -4173,7 +4169,7 @@ Default: js/document
 (defn remove-child!
   [parent-element child-element]
   (.removeChild parent-element child-element)
-  (return       parent-element))
+  (-> parent-element))
 ```
 
 </details>
@@ -4297,7 +4293,7 @@ Default: js/document
 (defn remove-element-attribute!
   [element attribute-name]
   (.removeAttribute element attribute-name)
-  (return           element))
+  (-> element))
 ```
 
 </details>
@@ -4338,8 +4334,8 @@ Default: js/document
 ```
 (defn remove-element-attributes!
   [element]
-  (.removeAttributes element)
-  (return            element))
+  (-> element .removeAttributes)
+  (-> element))
 ```
 
 </details>
@@ -4381,8 +4377,8 @@ Default: js/document
 ```
 (defn remove-element-class!
   [element class-name]
-  (->     element .-classList (.remove class-name))
-  (return element))
+  (-> element .-classList (.remove class-name))
+  (-> element))
 ```
 
 </details>
@@ -4512,7 +4508,7 @@ Default: js/document
 (defn remove-intersection-observer!
   [observer element]
   (.unobserve observer element)
-  (return     observer))
+  (-> observer))
 ```
 
 </details>
@@ -4558,7 +4554,7 @@ Default: js/document
   (attributes/set-element-attribute! element "data-animation" "reveal")
   (letfn [(f [] (attributes/remove-element-attribute! element "data-animation"))]
          (.setTimeout js/window f timeout))
-  (return element))
+  (-> element))
 ```
 
 </details>
@@ -4853,7 +4849,7 @@ Default: js/document
 (defn set-element-attribute!
   [element attribute-name attribute-value]
   (.setAttribute element attribute-name attribute-value)
-  (return        element))
+  (-> element))
 ```
 
 </details>
@@ -4900,7 +4896,7 @@ Default: js/document
                  (.setAttribute element (name attribute-name) attribute-value)
                  (.setAttribute element       attribute-name  attribute-value)))]
          (reduce-kv f nil attributes))
-  (return element))
+  (-> element))
 ```
 
 </details>
@@ -4942,8 +4938,8 @@ Default: js/document
 ```
 (defn set-element-class!
   [element class-name]
-  (->     element .-classList (.add class-name))
-  (return element))
+  (-> element .-classList (.add class-name))
+  (-> element))
 ```
 
 </details>
@@ -4986,7 +4982,7 @@ Default: js/document
 (defn set-element-content!
   [element content]
   (->     element .-innerHTML (set! content))
-  (return element))
+  (-> element))
 ```
 
 </details>
@@ -5028,8 +5024,8 @@ Default: js/document
 ```
 (defn set-element-id!
   [element element-id]
-  (->     element .-id (set! element-id))
-  (return element))
+  (-> element .-id (set! element-id))
+  (-> element))
 ```
 
 </details>
@@ -5376,7 +5372,7 @@ Default: js/document
   [element callback-f]
   (let [observer (intersection-observer callback-f)]
        (.observe observer element)
-       (return   observer)))
+       (-> observer)))
 ```
 
 </details>

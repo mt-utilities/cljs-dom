@@ -2,8 +2,7 @@
 (ns dom.script
     (:require [dom.attributes :as attributes]
               [dom.body       :as body]
-              [dom.node       :as node]
-              [noop.api       :refer [return]]))
+              [dom.node       :as node]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -20,5 +19,5 @@
         script-element (node/create-element! "script")]
        (attributes/set-element-attribute! script-element "type" "text/javascript")
        (node/set-element-content!         script-element script)
-       (node/append-element!              body-element   script-element)
-       (return                            script-element)))
+       (node/append-element! body-element script-element)
+       (->                                script-element)))

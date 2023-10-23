@@ -1,6 +1,5 @@
 
-(ns dom.attributes
-    (:require [noop.api :refer [return]]))
+(ns dom.attributes)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -31,7 +30,7 @@
                  (.setAttribute element (name attribute-name) attribute-value)
                  (.setAttribute element       attribute-name  attribute-value)))]
          (reduce-kv f nil attributes))
-  (return element))
+  (-> element))
 
 (defn remove-element-attributes!
   ; @param (DOM-element) element
@@ -42,8 +41,8 @@
   ;
   ; @return (DOM-element)
   [element]
-  (.removeAttributes element)
-  (return            element))
+  (-> element .removeAttributes)
+  (-> element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -72,7 +71,7 @@
   ; @return (DOM-element)
   [element attribute-name attribute-value]
   (.setAttribute element attribute-name attribute-value)
-  (return        element))
+  (-> element))
 
 (defn remove-element-attribute!
   ; @param (DOM-element) element
@@ -85,4 +84,4 @@
   ; @return (DOM-element)
   [element attribute-name]
   (.removeAttribute element attribute-name)
-  (return           element))
+  (-> element))
