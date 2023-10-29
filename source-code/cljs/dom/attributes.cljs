@@ -13,7 +13,7 @@
   ;
   ; @return (map)
   [element]
-  (.getAttributes element))
+  (-> element .getAttributes))
 
 (defn set-element-attributes!
   ; @param (DOM-element) element
@@ -57,7 +57,7 @@
   ;
   ; @return (string)
   [element attribute-name]
-  (.getAttribute element attribute-name))
+  (-> element (.getAttribute attribute-name)))
 
 (defn set-element-attribute!
   ; @param (DOM-element) element
@@ -70,7 +70,7 @@
   ;
   ; @return (DOM-element)
   [element attribute-name attribute-value]
-  (.setAttribute element attribute-name attribute-value)
+  (-> element (.setAttribute attribute-name attribute-value))
   (-> element))
 
 (defn remove-element-attribute!
@@ -83,5 +83,5 @@
   ;
   ; @return (DOM-element)
   [element attribute-name]
-  (.removeAttribute element attribute-name)
+  (-> element (.removeAttribute attribute-name))
   (-> element))

@@ -1,6 +1,5 @@
 
-(ns dom.title
-    (:require [noop.api :refer [return]]))
+(ns dom.title)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -22,4 +21,4 @@
   ; @return (string)
   [title]
   (set! (-> js/document .-title) title)
-  (return title))
+  (-> title))

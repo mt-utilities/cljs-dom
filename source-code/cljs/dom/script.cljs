@@ -17,7 +17,7 @@
   [script]
   (let [body-element   (body/get-body-element)
         script-element (node/create-element! "script")]
-       (attributes/set-element-attribute! script-element "type" "text/javascript")
-       (node/set-element-content!         script-element script)
-       (node/append-element! body-element script-element)
-       (->                                script-element)))
+       (-> script-element (attributes/set-element-attribute! "type" "text/javascript"))
+       (-> script-element (node/set-element-content! script))
+       (-> body-element   (node/append-element! script-element))
+       (-> script-element)))

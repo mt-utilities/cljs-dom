@@ -17,7 +17,7 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element after-element]
-  (.insertBefore parent-element child-element after-element)
+  (-> parent-element (.insertBefore child-element after-element))
   (-> parent-element))
 
 (defn insert-after!
@@ -35,7 +35,7 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element before-element]
-  (.insertBefore parent-element child-element (.-nextSibling before-element))
+  (-> parent-element (.insertBefore child-element (-> before-element .-nextSibling)))
   (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
@@ -58,9 +58,8 @@
   ; only matching selectors on descendants of the base element:
   (let [tag-name (-> child-element .-tagName)
         query    (str ":scope > "tag-name)]
-       (.insertBefore parent-element child-element
-                      (-> parent-element (.querySelectorAll query)
-                          array-seq first)))
+       (-> parent-element (.insertBefore child-element (-> parent-element (-> query .querySelectorAll)
+                                                           array-seq first))))
   (-> parent-element))
 
 (defn insert-as-last-of-type!
@@ -77,9 +76,8 @@
   ; XXX#5507
   (let [tag-name (-> child-element .-tagName)
         query    (str ":scope > "tag-name)]
-       (.insertBefore parent-element child-element
-                      (-> parent-element (.querySelectorAll query)
-                          array-seq last .-nextSibling)))
+       (-> parent-element (.insertBefore child-element (-> parent-element (.querySelectorAll query)
+                                                           array-seq last .-nextSibling))))
   (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
@@ -102,8 +100,7 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element query]
-  (.insertBefore parent-element child-element
-                 (-> parent-element (.querySelectorAll query) array-seq first))
+  (-> parent-element (.insertBefore child-element (-> parent-element (-> query .querySelectorAll) array-seq first)))
   (-> parent-element))
 
 (defn insert-as-last-of-query-selected!
@@ -123,8 +120,7 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element query]
-  (.insertBefore parent-element child-element
-                 (-> parent-element (.querySelectorAll query) array-seq last .-nextSibling))
+  (-> parent-element (.insertBefore child-element (-> parent-element (-> query .querySelectorAll) array-seq last .-nextSibling)))
   (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
@@ -141,7 +137,7 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element]
-  (.appendChild parent-element child-element)
+  (-> parent-element (.appendChild child-element))
   (-> parent-element))
 
 (defn prepend-element!
@@ -155,7 +151,7 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element]
-  (.insertBefore parent-element child-element (.-firstChild parent-element))
+  (-> parent-element (.insertBefore child-element (.-firstChild parent-element)))
   (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
@@ -169,7 +165,7 @@
   ;
   ; @return (DOM-element)
   [nodename]
-  (.createElement js/document nodename))
+  (-> js/document (.createElement nodename)))
 
 (defn remove-element!
   ; @param (DOM-element) element
@@ -180,7 +176,7 @@
   ;
   ; @return (undefined)
   [element]
-  (.remove element))
+  (-> element .remove))
 
 (defn remove-child!
   ; @param (DOM-element) parent-element
@@ -193,7 +189,7 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element]
-  (.removeChild parent-element child-element)
+  (-> parent-element (.removeChild child-element))
   (-> parent-element))
 
 ;; ----------------------------------------------------------------------------
@@ -208,8 +204,8 @@
   ;
   ; @return (DOM-element)
   [element]
-  (while (.-firstChild element)
-         (.removeChild element (.-firstChild element)))
+  (while (-> element .-firstChild)
+         (-> element (.removeChild (-> element .-firstChild))))
   (-> element))
 
 (defn set-element-content!
@@ -222,5 +218,5 @@
   ;
   ; @return (DOM-element)
   [element content]
-  (->     element .-innerHTML (set! content))
+  (-> element .-innerHTML (set! content))
   (-> element))

@@ -1,6 +1,5 @@
 
-(ns dom.stick-observer
-    (:require [noop.api :refer [return]]))
+(ns dom.stick-observer)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -15,5 +14,5 @@
                                   (.removeAttribute element "data-sticky"))))]
          (let [observer (js/IntersectionObserver. f (clj->js {:threshold [1]}))]
               (.observe observer observed-element)))
-  (return element))
+  (-> element))
 ; TEMP

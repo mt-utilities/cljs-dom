@@ -14,7 +14,7 @@
   ;
   ; @return (px)
   [mouse-event]
-  (.-clientX mouse-event))
+  (-> mouse-event .-clientX))
 
 (defn get-mouse-y
   ; @param (DOM-event) mouse-event
@@ -25,7 +25,7 @@
   ;
   ; @return (px)
   [mouse-event]
-  (.-clientY mouse-event))
+  (-> mouse-event .-clientY))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -64,7 +64,7 @@
   ;     (select-preventer mouse-event))
   [mouse-event]
   (let [node-name (-> mouse-event .-srcElement .-nodeName string/to-lowercase)]
-       ; Az input es textarea elemek hasznalatahoz szukseg van mouse-down eventre!
+       ; To use input and textarea elements, we need a mouse-down event!
        (when-not (or (= node-name "input")
                      (= node-name "textarea"))
                  (do (-> mouse-event .preventDefault)

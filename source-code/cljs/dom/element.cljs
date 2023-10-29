@@ -13,8 +13,8 @@
   ; (get-element-by-id "my-element")
   ;
   ; @return (DOM-element or nil)
-  ([element-id]                (.getElementById js/document    element-id))
-  ([parent-element element-id] (.getElementById parent-element element-id)))
+  ([element-id]                (-> js/document    (.getElementById element-id)))
+  ([parent-element element-id] (-> parent-element (.getElementById element-id))))
 
 (defn get-element-by-class-name
   ; @param (DOM-element)(opt) parent-element

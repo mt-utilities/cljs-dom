@@ -1,7 +1,6 @@
 
 (ns dom.style
-    (:require [css.api  :as css]
-              [noop.api :refer [return]]))
+    (:require [css.api  :as css]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -26,8 +25,8 @@
   ; @return (DOM-element)
   [element style]
   (let [parsed-style (css/unparse style)]
-       (.setAttribute element "style" parsed-style))
-  (return element))
+       (-> element (.setAttribute "style" parsed-style)))
+  (-> element))
 
 (defn remove-element-style!
   ; @param (DOM-element) element
@@ -38,8 +37,8 @@
   ;
   ; @return (DOM-element)
   [element]
-  (.removeAttribute element "style")
-  (return           element))
+  (-> element (.removeAttribute "style"))
+  (-> element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -68,8 +67,8 @@
   ;
   ; @return (DOM-element)
   [element style-name style-value]
-  (->     element .-style (aset style-name style-value))
-  (return element))
+  (-> element .-style (aset style-name style-value))
+  (-> element))
 
 (defn remove-element-style-value!
   ; @param (DOM-element) element
@@ -81,8 +80,8 @@
   ;
   ; @return (DOM-element)
   [element style-name]
-  (->     element .-style (aset style-name nil))
-  (return element))
+  (-> element .-style (aset style-name nil))
+  (-> element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

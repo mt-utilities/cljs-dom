@@ -15,7 +15,7 @@
   ;
   ; @return (B)
   [file]
-  (.-size file))
+  (-> file .-size))
 
 (defn file->filename
   ; @param (file object) file
@@ -27,7 +27,7 @@
   ;
   ; @return (string)
   [file]
-  (.-name file))
+  (-> file .-name))
 
 (defn file->mime-type
   ; @param (file object) file
@@ -39,7 +39,7 @@
   ;
   ; @return (string)
   [file]
-  (.-type file))
+  (-> file .-type))
 
 (defn file->image?
   ; @param (file object) file

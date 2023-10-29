@@ -28,7 +28,7 @@
   ;
   ; @return (*)
   [event]
-  (.stopPropagation event))
+  (-> event .stopPropagation))
 
 (defn prevent-default!
   ; @param (DOM-event) event
@@ -39,7 +39,7 @@
   ;
   ; @return (*)
   [event]
-  (.preventDefault event))
+  (-> event .preventDefault))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

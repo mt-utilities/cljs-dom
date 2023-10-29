@@ -1,12 +1,14 @@
 
 (ns dom.value
-    (:require [keyword.api :as keyword]
-              [noop.api    :refer [return]]))
+    (:require [keyword.api :as keyword]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn value
+  ; @description
+  ; Transforms the given 'n' value into a valid HTML attribute value.
+  ;
   ; @param (keyword or string) n
   ; @param (string)(opt) flag
   ;
@@ -27,10 +29,8 @@
   ;
   ; @return (string)
   [n & [flag]]
-  ; A value függvény az n paraméterként átadott kulcsszó vagy string típusú
-  ; értéket úgy alakítja át, hogy az megfeleljen a HTML attribute
-  (let [x (cond (keyword? n) (keyword/to-string n)
-                (string?  n) (return            n))]
+  (let [x (cond (keyword? n) (-> n keyword/to-string)
+                (string?  n) (-> n))]
        (letfn [(f [result tag] (case tag "." (str result "--")
                                          "/" (str result "--")
                                          "?" result

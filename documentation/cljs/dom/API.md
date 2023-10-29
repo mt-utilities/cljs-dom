@@ -273,7 +273,7 @@
 ```
 (defn append-element!
   [parent-element child-element]
-  (.appendChild parent-element child-element)
+  (-> parent-element (.appendChild child-element))
   (-> parent-element))
 ```
 
@@ -316,10 +316,10 @@
   [script]
   (let [body-element   (body/get-body-element)
         script-element (node/create-element! "script")]
-       (attributes/set-element-attribute! script-element "type" "text/javascript")
-       (node/set-element-content!         script-element script)
-       (node/append-element! body-element script-element)
-       (->                                script-element)))
+       (-> script-element (attributes/set-element-attribute! "type" "text/javascript"))
+       (-> script-element (node/set-element-content! script))
+       (-> body-element   (node/append-element! script-element))
+       (-> script-element)))
 ```
 
 </details>
@@ -485,7 +485,7 @@
 ```
 (defn create-element!
   [nodename]
-  (.createElement js/document nodename))
+  (-> js/document (.createElement nodename)))
 ```
 
 </details>
@@ -866,8 +866,8 @@
 ```
 (defn empty-element!
   [element]
-  (while (.-firstChild element)
-         (.removeChild element (.-firstChild element)))
+  (while (-> element .-firstChild)
+         (-> element (.removeChild (-> element .-firstChild))))
   (-> element))
 ```
 
@@ -1054,7 +1054,7 @@
 ```
 (defn file->filename
   [file]
-  (.-name file))
+  (-> file .-name))
 ```
 
 </details>
@@ -1096,7 +1096,7 @@
 ```
 (defn file->filesize
   [file]
-  (.-size file))
+  (-> file .-size))
 ```
 
 </details>
@@ -1180,7 +1180,7 @@
 ```
 (defn file->mime-type
   [file]
-  (.-type file))
+  (-> file .-type))
 ```
 
 </details>
@@ -1732,7 +1732,7 @@
 ```
 (defn get-active-element
   []
-  (.-activeElement js/document))
+  (-> js/document .-activeElement))
 ```
 
 </details>
@@ -1847,7 +1847,7 @@
 ```
 (defn get-document-element
   []
-  (.-documentElement js/document))
+  (-> js/document .-documentElement))
 ```
 
 </details>
@@ -2081,7 +2081,7 @@
 ```
 (defn get-element-attribute
   [element attribute-name]
-  (.getAttribute element attribute-name))
+  (-> element (.getAttribute attribute-name)))
 ```
 
 </details>
@@ -2122,7 +2122,7 @@
 ```
 (defn get-element-attributes
   [element]
-  (.getAttributes element))
+  (-> element .getAttributes))
 ```
 
 </details>
@@ -2248,8 +2248,8 @@ Default: js/document
 
 ```
 (defn get-element-by-id
-  ([element-id]                (.getElementById js/document    element-id))
-  ([parent-element element-id] (.getElementById parent-element element-id)))
+  ([element-id]                (-> js/document    (.getElementById element-id)))
+  ([parent-element element-id] (-> parent-element (.getElementById element-id))))
 ```
 
 </details>
@@ -2426,7 +2426,7 @@ The returned object updates automatically when the element's styles are changed
 ```
 (defn get-element-height
   [element]
-  (.-offsetHeight element))
+  (-> element .-offsetHeight))
 ```
 
 </details>
@@ -2840,7 +2840,7 @@ The returned object updates automatically when the element's styles are changed
 ```
 (defn get-element-width
   [element]
-  (.-offsetWidth element))
+  (-> element .-offsetWidth))
 ```
 
 </details>
@@ -3150,7 +3150,7 @@ Default: js/document
 ```
 (defn get-mouse-x
   [mouse-event]
-  (.-clientX mouse-event))
+  (-> mouse-event .-clientX))
 ```
 
 </details>
@@ -3191,7 +3191,7 @@ Default: js/document
 ```
 (defn get-mouse-y
   [mouse-event]
-  (.-clientY mouse-event))
+  (-> mouse-event .-clientY))
 ```
 
 </details>
@@ -3530,7 +3530,7 @@ Default: js/document
 ```
 (defn insert-after!
   [parent-element child-element before-element]
-  (.insertBefore parent-element child-element (.-nextSibling before-element))
+  (-> parent-element (.insertBefore child-element (-> before-element .-nextSibling)))
   (-> parent-element))
 ```
 
@@ -3582,8 +3582,7 @@ Default: js/document
 ```
 (defn insert-as-first-of-query-selected!
   [parent-element child-element query]
-  (.insertBefore parent-element child-element
-                 (-> parent-element (.querySelectorAll query) array-seq first))
+  (-> parent-element (.insertBefore child-element (-> parent-element (-> query .querySelectorAll) array-seq first)))
   (-> parent-element))
 ```
 
@@ -3629,9 +3628,8 @@ Default: js/document
   [parent-element child-element]
   (let [tag-name (-> child-element .-tagName)
         query    (str ":scope > "tag-name)]
-       (.insertBefore parent-element child-element
-                      (-> parent-element (.querySelectorAll query)
-                          array-seq first)))
+       (-> parent-element (.insertBefore child-element (-> parent-element (-> query .querySelectorAll)
+                                                           array-seq first))))
   (-> parent-element))
 ```
 
@@ -3683,8 +3681,7 @@ Default: js/document
 ```
 (defn insert-as-last-of-query-selected!
   [parent-element child-element query]
-  (.insertBefore parent-element child-element
-                 (-> parent-element (.querySelectorAll query) array-seq last .-nextSibling))
+  (-> parent-element (.insertBefore child-element (-> parent-element (-> query .querySelectorAll) array-seq last .-nextSibling)))
   (-> parent-element))
 ```
 
@@ -3730,9 +3727,8 @@ Default: js/document
   [parent-element child-element]
   (let [tag-name (-> child-element .-tagName)
         query    (str ":scope > "tag-name)]
-       (.insertBefore parent-element child-element
-                      (-> parent-element (.querySelectorAll query)
-                          array-seq last .-nextSibling)))
+       (-> parent-element (.insertBefore child-element (-> parent-element (.querySelectorAll query)
+                                                           array-seq last .-nextSibling))))
   (-> parent-element))
 ```
 
@@ -3778,7 +3774,7 @@ Default: js/document
 ```
 (defn insert-before!
   [parent-element child-element after-element]
-  (.insertBefore parent-element child-element after-element)
+  (-> parent-element (.insertBefore child-element after-element))
   (-> parent-element))
 ```
 
@@ -3913,8 +3909,8 @@ Default: js/document
 (defn move-caret-to-end!
   [element]
   (let [length (-> element .-value .-length)]
-       (set-selection-range! element length length))
-  (return element))
+       (-> element (set-selection-range! length length)))
+  (-> element))
 ```
 
 </details>
@@ -3955,8 +3951,8 @@ Default: js/document
 ```
 (defn move-caret-to-start!
   [element]
-  (set-selection-range! element 0 0)
-  (return               element))
+  (-> element (set-selection-range! 0 0))
+  (-> element))
 ```
 
 </details>
@@ -4083,7 +4079,7 @@ Default: js/document
 ```
 (defn prepend-element!
   [parent-element child-element]
-  (.insertBefore parent-element child-element (.-firstChild parent-element))
+  (-> parent-element (.insertBefore child-element (.-firstChild parent-element)))
   (-> parent-element))
 ```
 
@@ -4125,7 +4121,7 @@ Default: js/document
 ```
 (defn prevent-default!
   [event]
-  (.preventDefault event))
+  (-> event .preventDefault))
 ```
 
 </details>
@@ -4168,7 +4164,7 @@ Default: js/document
 ```
 (defn remove-child!
   [parent-element child-element]
-  (.removeChild parent-element child-element)
+  (-> parent-element (.removeChild child-element))
   (-> parent-element))
 ```
 
@@ -4210,7 +4206,7 @@ Default: js/document
 ```
 (defn remove-element!
   [element]
-  (.remove element))
+  (-> element .remove))
 ```
 
 </details>
@@ -4292,7 +4288,7 @@ Default: js/document
 ```
 (defn remove-element-attribute!
   [element attribute-name]
-  (.removeAttribute element attribute-name)
+  (-> element (.removeAttribute attribute-name))
   (-> element))
 ```
 
@@ -4419,8 +4415,8 @@ Default: js/document
 ```
 (defn remove-element-style!
   [element]
-  (.removeAttribute element "style")
-  (return           element))
+  (-> element (.removeAttribute "style"))
+  (-> element))
 ```
 
 </details>
@@ -4463,8 +4459,8 @@ Default: js/document
 (defn remove-element-style-value!
 
   [element style-name]
-  (->     element .-style (aset style-name nil))
-  (return element))
+  (-> element .-style (aset style-name nil))
+  (-> element))
 ```
 
 </details>
@@ -4507,7 +4503,7 @@ Default: js/document
 ```
 (defn remove-intersection-observer!
   [observer element]
-  (.unobserve observer element)
+  (-> observer (.unobserve element))
   (-> observer))
 ```
 
@@ -4762,9 +4758,9 @@ Default: js/document
 ```
 (defn set-caret-position!
   [element caret-position]
-  (set-selection-start! element caret-position)
-  (set-selection-end!   element caret-position)
-  (return               element))
+  (-> element (set-selection-start! caret-position))
+  (-> element (set-selection-end!   caret-position))
+  (-> element))
 ```
 
 </details>
@@ -4805,7 +4801,7 @@ Default: js/document
 (defn set-document-title!
   [title]
   (set! (-> js/document .-title) title)
-  (return title))
+  (-> title))
 ```
 
 </details>
@@ -4848,7 +4844,7 @@ Default: js/document
 ```
 (defn set-element-attribute!
   [element attribute-name attribute-value]
-  (.setAttribute element attribute-name attribute-value)
+  (-> element (.setAttribute attribute-name attribute-value))
   (-> element))
 ```
 
@@ -4981,7 +4977,7 @@ Default: js/document
 ```
 (defn set-element-content!
   [element content]
-  (->     element .-innerHTML (set! content))
+  (-> element .-innerHTML (set! content))
   (-> element))
 ```
 
@@ -5068,8 +5064,8 @@ Default: js/document
 (defn set-element-style!
   [element style]
   (let [parsed-style (css/unparse style)]
-       (.setAttribute element "style" parsed-style))
-  (return element))
+       (-> element (.setAttribute "style" parsed-style)))
+  (-> element))
 ```
 
 </details>
@@ -5112,8 +5108,8 @@ Default: js/document
 ```
 (defn set-element-style-value!
   [element style-name style-value]
-  (->     element .-style (aset style-name style-value))
-  (return element))
+  (-> element .-style (aset style-name style-value))
+  (-> element))
 ```
 
 </details>
@@ -5239,8 +5235,8 @@ Default: js/document
 ```
 (defn set-selection-end!
   [element selection-end]
-  (->     element .-selectionEnd (set! selection-end))
-  (return element))
+  (-> element .-selectionEnd (set! selection-end))
+  (-> element))
 ```
 
 </details>
@@ -5285,7 +5281,7 @@ Default: js/document
   [element selection-start selection-end]
   (set-selection-start! element selection-start)
   (set-selection-end!   element selection-end)
-  (return               element))
+  (->                   element))
 ```
 
 </details>
@@ -5327,8 +5323,8 @@ Default: js/document
 ```
 (defn set-selection-start!
   [element selection-start]
-  (->     element .-selectionStart (set! selection-start))
-  (return element))
+  (-> element .-selectionStart (set! selection-start))
+  (-> element))
 ```
 
 </details>
@@ -5371,7 +5367,7 @@ Default: js/document
 (defn setup-intersection-observer!
   [element callback-f]
   (let [observer (intersection-observer callback-f)]
-       (.observe observer element)
+       (-> observer (.observe element))
        (-> observer)))
 ```
 
@@ -5413,7 +5409,7 @@ Default: js/document
 ```
 (defn stop-propagation!
   [event]
-  (.stopPropagation event))
+  (-> event .stopPropagation))
 ```
 
 </details>

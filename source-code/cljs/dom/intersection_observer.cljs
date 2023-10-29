@@ -26,7 +26,7 @@
   ; @return (DOM-element)
   [element callback-f]
   (let [observer (intersection-observer callback-f)]
-       (.observe observer element)
+       (-> observer (.observe element))
        (-> observer)))
 
 (defn remove-intersection-observer!
@@ -40,5 +40,5 @@
   ;
   ; @return (DOM-element)
   [observer element]
-  (.unobserve observer element)
+  (-> observer (.unobserve element))
   (-> observer))

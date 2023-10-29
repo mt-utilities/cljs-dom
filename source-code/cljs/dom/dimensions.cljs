@@ -14,7 +14,7 @@
   ;
   ; @return (px)
   [element]
-  (.-offsetWidth element))
+  (-> element .-offsetWidth))
 
 (defn get-element-height
   ; @param (DOM-element) element
@@ -25,7 +25,7 @@
   ;
   ; @return (px)
   [element]
-  (.-offsetHeight element))
+  (-> element .-offsetHeight))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
