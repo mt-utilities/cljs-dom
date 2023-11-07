@@ -1,8 +1,6 @@
 
 # cljs-dom
 
-> "A man is but a product of his thoughts. What he thinks he becomes." – Mahatma Gandhi
-
 ### Overview
 
 The <strong>cljs-dom</strong> is a set of ClojureScript utility functions which
