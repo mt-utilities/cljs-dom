@@ -12,8 +12,8 @@
   ;
   ; @return (?)
   [callback-f]
-  (letfn [(f [%] (callback-f (-> % (aget 0) .-isIntersecting)))]
-         (js/IntersectionObserver. f {})))
+  (letfn [(f0 [%] (callback-f (-> % (aget 0) .-isIntersecting)))]
+         (js/IntersectionObserver. f0 {})))
 
 (defn setup-intersection-observer!
   ; @param (DOM-element) element

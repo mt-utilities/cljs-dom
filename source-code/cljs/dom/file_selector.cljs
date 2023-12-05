@@ -48,8 +48,8 @@
   ;
   ; @return (B)
   [file-selector]
-  (letfn [(f [%1 %2] (+ %1 (.-size %2)))]
-         (reduce f 0 (-> file-selector .-files array-seq))))
+  (letfn [(f0 [%1 %2] (+ %1 (.-size %2)))]
+         (reduce f0 0 (-> file-selector .-files array-seq))))
 
 (defn file-selector->file-count
   ; @param (DOM-element) file-selector
@@ -82,8 +82,8 @@
   ;
   ; @return (strings in vector)
   [file-selector]
-  (letfn [(f [%1 %2] (conj %1 (.-type %2)))]
-         (reduce f [] (-> file-selector .-files array-seq))))
+  (letfn [(f0 [%1 %2] (conj %1 (.-type %2)))]
+         (reduce f0 [] (-> file-selector .-files array-seq))))
 
 (defn file-selector->files-data
   ; @param (DOM-element) file-selector
@@ -94,8 +94,8 @@
   ;
   ; @return (maps in vector)
   [file-selector]
-  (letfn [(f [%1 %2 %3] (conj %1 (file/file->file-data %2 %3)))]
-         (reduce-kv f [] (-> file-selector .-files array-seq vec))))
+  (letfn [(f0 [%1 %2 %3] (conj %1 (file/file->file-data %2 %3)))]
+         (reduce-kv f0 [] (-> file-selector .-files array-seq vec))))
 
 (defn file-selector->files-meta
   ; @param (DOM-element) file-selector

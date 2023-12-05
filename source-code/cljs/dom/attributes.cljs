@@ -25,11 +25,11 @@
   ;
   ; @return (DOM-element)
   [element attributes]
-  (letfn [(f [_ attribute-name attribute-value]
-             (if (keyword? attribute-name)
-                 (.setAttribute element (name attribute-name) attribute-value)
-                 (.setAttribute element       attribute-name  attribute-value)))]
-         (reduce-kv f nil attributes))
+  (letfn [(f0 [_ attribute-name attribute-value]
+              (if (keyword? attribute-name)
+                  (.setAttribute element (name attribute-name) attribute-value)
+                  (.setAttribute element       attribute-name  attribute-value)))]
+         (reduce-kv f0 nil attributes))
   (-> element))
 
 (defn remove-element-attributes!

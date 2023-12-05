@@ -16,8 +16,8 @@
   ; (remove-element-animated! my-element 500)
   [element timeout]
   (attributes/set-element-attribute! element "data-animation" "hide")
-  (letfn [(f [] (node/remove-element! element))]
-         (.setTimeout js/window f timeout)))
+  (letfn [(f0 [] (node/remove-element! element))]
+         (.setTimeout js/window f0 timeout)))
 
 (defn hide-element-animated!
   ; @param (DOM-element) element
@@ -30,9 +30,9 @@
   ; @return (DOM-element)
   [element timeout]
   (attributes/set-element-attribute! element "data-animation" "hide")
-  (letfn [(f [] (style/set-element-style-value!       element "display" "none")
-                (attributes/remove-element-attribute! element "data-animation"))]
-         (.setTimeout js/window f timeout))
+  (letfn [(f0 [] (style/set-element-style-value!       element "display" "none")
+                 (attributes/remove-element-attribute! element "data-animation"))]
+         (.setTimeout js/window f0 timeout))
   (-> element))
 
 (defn reveal-element-animated!
@@ -47,6 +47,6 @@
   [element timeout]
   (style/set-element-style-value!    element "display"        "block")
   (attributes/set-element-attribute! element "data-animation" "reveal")
-  (letfn [(f [] (attributes/remove-element-attribute! element "data-animation"))]
-         (.setTimeout js/window f timeout))
+  (letfn [(f0 [] (attributes/remove-element-attribute! element "data-animation"))]
+         (.setTimeout js/window f0 timeout))
   (-> element))

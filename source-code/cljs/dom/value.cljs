@@ -31,11 +31,11 @@
   [n & [flag]]
   (let [x (cond (keyword? n) (-> n keyword/to-string)
                 (string?  n) (-> n))]
-       (letfn [(f [result tag] (case tag "." (str result "--")
-                                         "/" (str result "--")
-                                         "?" result
-                                         "!" result
-                                         ">" result
-                                             (str result tag)))]
-              (str (reduce f nil x)
+       (letfn [(f0 [result tag] (case tag "." (str result "--")
+                                          "/" (str result "--")
+                                          "?" result
+                                          "!" result
+                                          ">" result
+                                              (str result tag)))]
+              (str (reduce f0 nil x)
                    (if flag (str "--" flag))))))
