@@ -1,7 +1,7 @@
 
 (ns dom.scroll
-    (:require [dom.config :as config]
-              [math.api   :as math]))
+    (:require [dom.config      :as config]
+              [fruits.math.api :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
