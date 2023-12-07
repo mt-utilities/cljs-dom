@@ -26,12 +26,12 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; dom.animations
+; @redirect (dom.animations)
 (def remove-element-animated! animations/remove-element-animated!)
 (def hide-element-animated!   animations/hide-element-animated!)
 (def reveal-element-animated! animations/reveal-element-animated!)
 
-; dom.attributes
+; @redirect (dom.attributes)
 (def get-element-attributes     attributes/get-element-attributes)
 (def set-element-attributes!    attributes/set-element-attributes!)
 (def remove-element-attributes! attributes/remove-element-attributes!)
@@ -39,15 +39,15 @@
 (def set-element-attribute!     attributes/set-element-attribute!)
 (def remove-element-attribute!  attributes/remove-element-attribute!)
 
-; dom.body
+; @redirect (dom.body)
 (def get-body-element     body/get-body-element)
 (def get-body-style-value body/get-body-style-value)
 
-; dom.class
+; @redirect (dom.class)
 (def set-element-class!    class/set-element-class!)
 (def remove-element-class! class/remove-element-class!)
 
-; dom.dimensions
+; @redirect (dom.dimensions)
 (def get-element-width                  dimensions/get-element-width)
 (def get-element-height                 dimensions/get-element-height)
 (def get-element-relative-left          dimensions/get-element-relative-left)
@@ -64,13 +64,13 @@
 (def element-on-viewport-bottom?        dimensions/element-on-viewport-bottom?)
 (def get-element-mass-point-orientation dimensions/get-element-mass-point-orientation)
 
-; dom.document
+; @redirect (dom.document)
 (def get-document-element document/get-document-element)
 (def get-document-height  document/get-document-height)
 (def get-document-width   document/get-document-width)
 (def toggle-design-mode!  document/toggle-design-mode!)
 
-; dom.element
+; @redirect (dom.element)
 (def get-element-by-id          element/get-element-by-id)
 (def get-element-by-class-name  element/get-element-by-class-name)
 (def get-elements-by-class-name element/get-elements-by-class-name)
@@ -84,14 +84,14 @@
 (def element-enabled?           element/element-enabled?)
 (def set-element-id!            element/set-element-id!)
 
-; dom.event
+; @redirect (dom.event)
 (def on-mouse-left     event/on-mouse-left)
 (def stop-propagation! event/stop-propagation!)
 (def prevent-default!  event/prevent-default!)
 (def event->node-name  event/event->node-name)
 (def event->value      event/event->value)
 
-; dom.file-selector
+; @redirect (dom.file-selector)
 (def file-selector->files              file-selector/file-selector->files)
 (def file-selector->file-list          file-selector/file-selector->file-list)
 (def file-selector->file               file-selector/file-selector->file)
@@ -103,14 +103,14 @@
 (def file-selector->files-meta         file-selector/file-selector->files-meta)
 (def file-selector->image-data-url     file-selector/file-selector->image-data-url)
 
-; dom.file
+; @redirect (dom.file)
 (def file->filesize  file/file->filesize)
 (def file->filename  file/file->filename)
 (def file->mime-type file/file->mime-type)
 (def file->image?    file/file->image?)
 (def file->file-data file/file->file-data)
 
-; dom.focus
+; @redirect (dom.focus)
 (def get-active-element   focus/get-active-element)
 (def element-focused?     focus/element-focused?)
 (def element-blurred?     focus/element-blurred?)
@@ -118,15 +118,15 @@
 (def blur-element!        focus/blur-element!)
 (def blur-active-element! focus/blur-active-element!)
 
-; dom.form-data
+; @redirect (dom.form-data)
 (def append-to-form-data!     form-data/append-to-form-data!)
 (def merge-to-form-data!      form-data/merge-to-form-data!)
 (def file-selector->form-data form-data/file-selector->form-data)
 
-; dom.head
+; @redirect (dom.head)
 (def get-head-element head/get-head-element)
 
-; dom.intersection-observer
+; @redirect (dom.intersection-observer)
 (def intersection-observer         intersection-observer/intersection-observer)
 (def setup-intersection-observer!  intersection-observer/setup-intersection-observer!)
 (def remove-intersection-observer! intersection-observer/remove-intersection-observer!)
@@ -152,13 +152,13 @@
 (def empty-element!                     node/empty-element!)
 (def set-element-content!               node/set-element-content!)
 
-; dom.parse
+; @redirect (dom.parse)
 (def parse-html parse/parse-html)
 
-; dom.script
+; @redirect (dom.script)
 (def append-script! script/append-script!)
 
-; dom.scroll
+; @redirect (dom.scroll)
 (def get-scroll-x           scroll/get-scroll-x)
 (def get-scroll-y           scroll/get-scroll-y)
 (def scroll-direction-ttb?  scroll/scroll-direction-ttb?)
@@ -169,7 +169,7 @@
 (def set-scroll-y!          scroll/set-scroll-y!)
 (def scroll-to-element-top! scroll/scroll-to-element-top!)
 
-; dom.selection
+; @redirect (dom.selection)
 (def get-selection-start  selection/get-selection-start)
 (def get-selection-end    selection/get-selection-end)
 (def set-selection-start! selection/set-selection-start!)
@@ -179,7 +179,7 @@
 (def move-caret-to-start! selection/move-caret-to-start!)
 (def move-caret-to-end!   selection/move-caret-to-end!)
 
-; dom.style
+; @redirect (dom.style)
 (def get-element-style           style/get-element-style)
 (def set-element-style!          style/set-element-style!)
 (def remove-element-style!       style/remove-element-style!)
@@ -188,6 +188,6 @@
 (def remove-element-style-value! style/remove-element-style-value!)
 (def get-element-computed-style  style/get-element-computed-style)
 
-; dom.title
+; @redirect (dom.title)
 (def get-document-title  title/get-document-title)
 (def set-document-title! title/set-document-title!)
