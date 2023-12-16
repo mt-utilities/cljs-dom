@@ -46,7 +46,7 @@
   ;
   ; @return (boolean)
   [last-scroll-y]
-  ; If the 'scroll-y' value is at least as much smaller than the value of 
+  ; If the 'scroll-y' value is at least as much smaller than the value of
   ; 'config.SCROLL-DIRECTION-SENSITIVITY' as the last-scroll-y value...
   (> (- last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
      (-> js/document .-documentElement .-scrollTop)))
@@ -63,29 +63,29 @@
   ; @return (keyword or nil)
   ;  nil, :btt, :ttb
   [last-scroll-y]
-             ; XXX#0061
-  (cond (and (scroll-direction-ttb? last-scroll-y)
+  (cond ; @NOTE (#0061)
+        (and (scroll-direction-ttb? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
         (-> :ttb)
 
-             ; XXX#0061
+        ; @NOTE (#0061)
         (and (scroll-direction-btt? last-scroll-y)
              (math/nonnegative?     last-scroll-y))
         (-> :btt)
 
-        ; XXX#0061
-        ; In certain browsers, the 'scroll bounce effect' at the top of the page,
-        ; when quickly scrolling back up with a strong momentum, during the bounce
-        ; – when the 'scroll-y' value approaches 0 from the negative direction –
-        ; would set the 'scroll-direction' value to ':ttb,' even though the original
-        ; gesture was upward scrolling.
+        ; @NOTE (#0061)
+        ; In some browsers, there is a 'scroll bounce effect' at the top of the page
+        ; when quickly scrolling upward (i.e., btt) with a strong momentum.
+        ; During that bounce – when the 'scroll-y' value approaches 0 from negative direction –
+        ; the 'scroll-direction' value can be ':ttb,' even though the original gesture was upward scrolling.
+        ; Therefore, negative 'scroll-y' values are ... as ...
         (math/negative? last-scroll-y)
         (-> :btt)
 
-        ; XXX#0088
+        ; @NOTE (#0088)
         ; If the absolute difference between the 'last-scroll-y' and 'scroll-y'
-        ; values is not greater than the 'SCROLL-DIRECTION-SENSITIVITY' and the 'XXX#0061'
-        ; exception is not true, then the scroll direction cannot be determined.
+        ; values is not greater than the 'SCROLL-DIRECTION-SENSITIVITY' and the @NOTE (#0061)
+        ; case is not true, then the scroll direction cannot be determined.
         :return nil))
 
 (defn get-scroll-progress
@@ -95,14 +95,16 @@
   ; @return (percent)
   ; 0 - 100
   []
+  ; @NOTE
+  ; During the construction of the DOM structure, there are moments when the value
+  ; of 'document-height' is not accurate, and as a result, the 'scroll-progress'
+  ; value would be less than 0.
+  ; Therefore, this function's output is limited between 0 and 100.
   (let [viewport-height (-> js/window   .-innerHeight)
         scroll-y        (-> js/document .-documentElement .-scrollTop)
         document-height (-> js/document .-documentElement .-scrollHeight)
         max-scroll-y    (- document-height viewport-height)
         scroll-progress (math/percent max-scroll-y scroll-y)]
-      ; During the construction of the DOM structure, there are moments when the value
-      ; of 'document-height' is not accurate, and as a result, the 'scroll-progress'
-      ; value would be less than 0.
       (math/between! scroll-progress 0 100)))
 
 ;; ----------------------------------------------------------------------------
@@ -120,7 +122,7 @@
    (set-scroll-x! scroll-x {}))
 
   ([scroll-x {:keys [smooth?]}]
-   ; BUG#8709
+   ; @BUG (#8709)
    ; Out of order!
    ; (let [scroll-behavior   (if smooth? "smooth" "auto")
    ;       scroll-to-options {"left" scroll-x "top" 0 "behavior" scroll-behavior}]
@@ -139,7 +141,7 @@
    (set-scroll-y! scroll-y {}))
 
   ([scroll-y {:keys [smooth?]}]
-   ; BUG#8709
+   ; @BUG (#8709)
    ; Out of order!
    ; (let [scroll-behavior   (if smooth? "smooth" "auto")
    ;       scroll-to-options {"left" 0 "top" scroll-y "behavior" scroll-behavior}]
