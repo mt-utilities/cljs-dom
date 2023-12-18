@@ -11,7 +11,7 @@ standardized way.
 
 ```
 {:deps {bithandshake/cljs-dom {:git/url "https://github.com/bithandshake/cljs-dom"
-                               :sha     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}}
+                               :sha     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}}}
 ```
 
 ### Current version
