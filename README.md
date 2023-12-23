@@ -3,9 +3,7 @@
 
 ### Overview
 
-The <strong>cljs-dom</strong> is a set of ClojureScript utility functions which
-help you to use the JavaScript Document object's functionality in an easy and
-standardized way.
+The <strong>cljs-dom</strong> is a set of JS/Document object utility functions for Clojure projects.
 
 ### deps.edn
 
