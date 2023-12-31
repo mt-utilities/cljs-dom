@@ -76,7 +76,7 @@
   ; (get-element-by-query "[type=\"text/css\"]")
   ;
   ; @usage
-  ; (get-element-by-query "div.my-class, div.your-class")
+  ; (get-element-by-query "div.my-class, div.another-class")
   ;
   ; @return (DOM-element)
   ([query]                (-> js/document    (.querySelector query)))
@@ -94,7 +94,7 @@
   ; (get-elements-by-query "[type=\"text/css\"]")
   ;
   ; @usage
-  ; (get-elements-by-query "div.my-class, div.your-class")
+  ; (get-elements-by-query "div.my-class, div.another-class")
   ;
   ; @return (vector)
   ([query]                (-> js/document    (.querySelectorAll query) array-seq vec))

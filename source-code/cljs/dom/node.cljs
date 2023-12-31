@@ -96,7 +96,7 @@
   ; @usage
   ; (def body-element (get-body-element))
   ; (def my-element   (create-element! "div"))
-  ; (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
+  ; (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.another-class")
   ;
   ; @return (DOM-element)
   [parent-element child-element query]
@@ -116,7 +116,7 @@
   ; @usage
   ; (def body-element (get-body-element))
   ; (def my-element   (create-element! "div"))
-  ; (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.your-class")
+  ; (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.another-class")
   ;
   ; @return (DOM-element)
   [parent-element child-element query]
