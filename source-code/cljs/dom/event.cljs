@@ -19,23 +19,23 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn stop-propagation!
+(defn stop-propagation
   ; @param (DOM-event) event
   ;
   ; @usage
   ; (fn [my-event]
-  ;     (stop-propagation! my-event))
+  ;     (stop-propagation my-event))
   ;
   ; @return (*)
   [event]
   (-> event .stopPropagation))
 
-(defn prevent-default!
+(defn prevent-default
   ; @param (DOM-event) event
   ;
   ; @usage
   ; (fn [my-event]
-  ;     (prevent-default! my-event))
+  ;     (prevent-default my-event))
   ;
   ; @return (*)
   [event]

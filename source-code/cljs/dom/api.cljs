@@ -85,11 +85,11 @@
 (def set-element-id!            element/set-element-id!)
 
 ; @redirect (dom.event)
-(def on-mouse-left     event/on-mouse-left)
-(def stop-propagation! event/stop-propagation!)
-(def prevent-default!  event/prevent-default!)
-(def event->node-name  event/event->node-name)
-(def event->value      event/event->value)
+(def on-mouse-left    event/on-mouse-left)
+(def stop-propagation event/stop-propagation)
+(def prevent-default  event/prevent-default)
+(def event->node-name event/event->node-name)
+(def event->value     event/event->value)
 
 ; @redirect (dom.file-selector)
 (def file-selector->files              file-selector/file-selector->files)
