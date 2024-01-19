@@ -63,17 +63,17 @@
   ; @return (keyword or nil)
   ;  nil, :btt, :ttb
   [last-scroll-y]
-  (cond ; @NOTE (#0061)
+  (cond ; @note (#0061)
         (and (scroll-direction-ttb? last-scroll-y)
-             (math/nonnegative?     last-scroll-y))
+             (math/not-negative?    last-scroll-y))
         (-> :ttb)
 
-        ; @NOTE (#0061)
+        ; @note (#0061)
         (and (scroll-direction-btt? last-scroll-y)
-             (math/nonnegative?     last-scroll-y))
+             (math/not-negative?    last-scroll-y))
         (-> :btt)
 
-        ; @NOTE (#0061)
+        ; @note (#0061)
         ; In some browsers, there is a 'scroll bounce effect' at the top of the page
         ; when quickly scrolling upward (i.e., btt) with a strong momentum.
         ; During that bounce – when the 'scroll-y' value approaches 0 from negative direction –
@@ -82,9 +82,9 @@
         (math/negative? last-scroll-y)
         (-> :btt)
 
-        ; @NOTE (#0088)
+        ; @note (#0088)
         ; If the absolute difference between the 'last-scroll-y' and 'scroll-y'
-        ; values is not greater than the 'SCROLL-DIRECTION-SENSITIVITY' and the @NOTE (#0061)
+        ; values is not greater than the 'SCROLL-DIRECTION-SENSITIVITY' and the @note (#0061)
         ; case is not true, then the scroll direction cannot be determined.
         :return nil))
 
@@ -95,7 +95,7 @@
   ; @return (percent)
   ; 0 - 100
   []
-  ; @NOTE
+  ; @note
   ; During the construction of the DOM structure, there are moments when the value
   ; of 'document-height' is not accurate, and as a result, the 'scroll-progress'
   ; value would be less than 0.
