@@ -13,6 +13,6 @@
                                    (.setAttribute    element "data-sticky" true)
                                    (.removeAttribute element "data-sticky"))))]
          (let [observer (js/IntersectionObserver. f0 (clj->js {:threshold [1]}))]
-              (.observe observer observed-element)))
-  (-> element))
+              (-> observer (.observe observed-element))
+              (-> element))))
 ; TEMP

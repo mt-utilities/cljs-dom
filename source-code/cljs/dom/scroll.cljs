@@ -122,7 +122,7 @@
    (set-scroll-x! scroll-x {}))
 
   ([scroll-x {:keys [smooth?]}]
-   ; @BUG (#8709)
+   ; @bug (#8709)
    ; Out of order!
    ; (let [scroll-behavior   (if smooth? "smooth" "auto")
    ;       scroll-to-options {"left" scroll-x "top" 0 "behavior" scroll-behavior}]
@@ -141,7 +141,7 @@
    (set-scroll-y! scroll-y {}))
 
   ([scroll-y {:keys [smooth?]}]
-   ; @BUG (#8709)
+   ; @bug (#8709)
    ; Out of order!
    ; (let [scroll-behavior   (if smooth? "smooth" "auto")
    ;       scroll-to-options {"left" 0 "top" scroll-y "behavior" scroll-behavior}]

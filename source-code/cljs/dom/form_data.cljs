@@ -19,8 +19,8 @@
   (let [prop-key (if (-> prop-key keyword?)
                      (-> prop-key name)
                      (-> prop-key))]
-       (.append form-data prop-key prop-value))
-  (-> form-data))
+       (-> form-data (.append prop-key prop-value))
+       (-> form-data)))
 
 (defn merge-to-form-data!
   ; @param (FormData object) form-data

@@ -109,5 +109,18 @@
   ; @return (DOM-element)
   [element]
   (let [length (-> element .-value .-length)]
-       (-> element (set-selection-range! length length)))
-  (-> element))
+       (-> element (set-selection-range! length length))
+       (-> element)))
+
+(defn select-content!
+  ; @param (DOM-element) element
+  ;
+  ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
+  ; (select-content! my-element)
+  ;
+  ; @return (DOM-element)
+  [element]
+  (let [length (-> element .-value .-length)]
+       (-> element (set-selection-range! 0 length))
+       (-> element)))

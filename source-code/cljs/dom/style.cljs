@@ -25,8 +25,8 @@
   ; @return (DOM-element)
   [element style]
   (let [parsed-style (css/unparse style)]
-       (-> element (.setAttribute "style" parsed-style)))
-  (-> element))
+       (-> element (.setAttribute "style" parsed-style))
+       (-> element)))
 
 (defn remove-element-style!
   ; @param (DOM-element) element

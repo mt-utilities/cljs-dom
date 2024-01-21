@@ -8,6 +8,10 @@
 ;; ----------------------------------------------------------------------------
 
 (defn remove-element-animated!
+  ; @description
+  ; 1. Sets the 'data-animation' attribute value to 'hide'.
+  ; 2. Removes the element from the DOM-tree when the given 'timeout' elapsed.
+  ;
   ; @param (DOM-element) element
   ; @param (ms) timeout
   ;
@@ -20,6 +24,11 @@
          (.setTimeout js/window f0 timeout)))
 
 (defn hide-element-animated!
+  ; @description
+  ; 1. Sets the 'data-animation' attribute value to 'hide'.
+  ; 2. Sets the 'display' CSS property value to 'none' when the given 'timeout' elapsed.
+  ; 3. Removes the 'data-animation' attribute when the element is already hidden.
+  ;
   ; @param (DOM-element) element
   ; @param (ms) timeout
   ;
@@ -36,6 +45,11 @@
   (-> element))
 
 (defn reveal-element-animated!
+  ; @description
+  ; 1. Sets the 'display' CSS property value to 'block' in case the value is 'hidden'.
+  ; 2. Sets the 'data-animation' attribute value to 'reveal'.
+  ; 3. Removes the 'data-animation' attribute when the given 'timeout' elapsed.
+  ;
   ; @param (DOM-element) element
   ; @param (ms) timeout
   ;
@@ -45,7 +59,9 @@
   ;
   ; @return (DOM-element)
   [element timeout]
-  (style/set-element-style-value!    element "display"        "block")
+  (if-let [display-value (style/get-element-style-value element "display")]
+          (if (= display-value "none")
+              (style/set-element-style-value! element "display" "block")))
   (attributes/set-element-attribute! element "data-animation" "reveal")
   (letfn [(f0 [] (attributes/remove-element-attribute! element "data-animation"))]
          (.setTimeout js/window f0 timeout))

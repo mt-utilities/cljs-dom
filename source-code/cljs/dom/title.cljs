@@ -20,5 +20,5 @@
   ;
   ; @return (string)
   [title]
-  (set! (-> js/document .-title) title)
+  (-> js/document .-title (set! title))
   (-> title))

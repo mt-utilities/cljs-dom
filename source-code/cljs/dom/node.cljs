@@ -52,7 +52,7 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element]
-  ; @NOTE (#5507)
+  ; @note (#5507)
   ; https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
   ; The :scope pseudo-class restores the expected behavior,
   ; only matching selectors on descendants of the base element:
@@ -73,12 +73,11 @@
   ;
   ; @return (DOM-element)
   [parent-element child-element]
-  ; @NOTE (#5507)
+  ; @note (#5507)
   (let [tag-name (-> child-element .-tagName)
         query    (str ":scope > "tag-name)]
-       (-> parent-element (.insertBefore child-element (-> parent-element (.querySelectorAll query)
-                                                           array-seq last .-nextSibling))))
-  (-> parent-element))
+       (-> parent-element (.insertBefore child-element (-> parent-element (.querySelectorAll query) array-seq last .-nextSibling)))
+       (-> parent-element)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
