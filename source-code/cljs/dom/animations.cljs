@@ -10,7 +10,7 @@
 (defn remove-element-animated!
   ; @description
   ; 1. Sets the 'data-animation' attribute value to 'hide'.
-  ; 2. Removes the element from the DOM-tree when the given 'timeout' elapsed.
+  ; 2. Removes the element from the DOM tree when the given 'timeout' elapsed.
   ;
   ; @param (DOM-element) element
   ; @param (ms) timeout
