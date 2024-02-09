@@ -6,7 +6,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-width
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -17,7 +17,7 @@
   (-> element .-offsetWidth))
 
 (defn get-element-height
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -33,7 +33,7 @@
 (defn get-element-relative-left
   ; Relative position: relative to viewport position
   ;
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -46,7 +46,7 @@
 (defn get-element-relative-top
   ; Relative position: relative to viewport position
   ;
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -62,7 +62,7 @@
 (defn get-element-absolute-left
   ; Absolute position: relative to document position
   ;
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -76,7 +76,7 @@
 (defn get-element-absolute-top
   ; Absolute position: relative to document position
   ;
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -93,7 +93,7 @@
 (defn get-element-offset-left
   ; Offset position: relative to parent position
   ;
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -106,7 +106,7 @@
 (defn get-element-offset-top
   ; Offset position: relative to parent position
   ;
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -120,7 +120,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-mass-point-x
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -133,7 +133,7 @@
                  (-> js/document .-documentElement      .-scrollLeft))))
 
 (defn get-element-mass-point-y
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -149,7 +149,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn element-on-viewport-left?
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -163,7 +163,7 @@
       (-> js/window .-innerWidth (/ 2))))
 
 (defn element-on-viewport-right?
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -177,7 +177,7 @@
      (-> js/window .-innerWidth (/ 2))))
 
 (defn element-on-viewport-top?
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -191,7 +191,7 @@
       (-> js/window .-innerWidth (/ 2))))
 
 (defn element-on-viewport-bottom?
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -208,7 +208,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-mass-point-orientation
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))

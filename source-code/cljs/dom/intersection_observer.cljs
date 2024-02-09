@@ -1,44 +1,85 @@
 
-(ns dom.intersection-observer)
+(ns dom.intersection-observer
+    (:require [fruits.vector.api :as vector]
+              [fruits.mixed.api :as mixed]
+              [fruits.math.api :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn intersection-observer
+(defn create-intersection-observer!
   ; @param (function) callback-f
+  ; @param (map)(opt) options
+  ; {:root-element (DOM Element object)(opt)
+  ;   Default: js/document
+  ;  :root-margin (string)(opt)
+  ;   Default: "0px 0px 0px 0px"
+  ;  :threshold (percentage or percentages in vector)(opt)
+  ;   Default: 0}
   ;
   ; @usage
-  ; (intersection-observer (fn [intersecting?] ...))
-  ;
-  ; @return (?)
-  [callback-f]
-  (letfn [(f0 [%] (callback-f (-> % (aget 0) .-isIntersecting)))]
-         (js/IntersectionObserver. f0 {})))
-
-(defn setup-intersection-observer!
-  ; @param (DOM-element) element
-  ; @param (function) callback-f
+  ; (create-intersection-observer! (fn [intersecting?] ...))
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (setup-intersection-observer! my-element (fn [intersecting?] ...))
+  ; (create-intersection-observer! (fn [intersecting?] ...) {...})
   ;
-  ; @return (DOM-element)
-  [element callback-f]
-  (let [observer (intersection-observer callback-f)]
-       (-> observer (.observe element))
-       (-> observer)))
+  ; @return (DOM IntersectionObserver object)
+  ([callback-f]
+   (create-intersection-observer! callback-f {}))
 
-(defn remove-intersection-observer!
-  ; @param (?) observer
-  ; @param (DOM-element) element
+  ([callback-f {:keys [root-element root-margin threshold]}]
+   (letfn [(f0 [%] (-> % (aget 0) .-isIntersecting callback-f))
+           (f1 [%] (-> % (mixed/to-vector) f2))
+           (f2 [%] (-> % (vector/update-all-item f3)))
+           (f3 [%] (-> % (mixed/to-number) (/ 100) (math/between 0 1)))]
+          (js/IntersectionObserver. f0 {:root       (or root-element js/document)
+                                        :rootMargin (or root-margin "0px 0px 0px 0px")
+                                        :threshold  (-> threshold f1)}))))
+
+(defn disconnect-intersection-observer!
+  ; @param (DOM IntersectionObserver object) observer
+  ;
+  ; @usage
+  ; (def my-observer (create-intersection-observer! (fn [intersecting?] ...)))
+  ; (disconnect-intersection-observer! my-observer)
+  ;
+  ; @return (nil)
+  [observer]
+  (-> observer (.disconnect)))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn observe-element-intersection!
+  ; @description
+  ; Adds the given element as a target element of the given intersection observer.
+  ;
+  ; @param (DOM IntersectionObserver object) observer
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element  (get-element-by-id "my-element"))
-  ; (def my-observer (intersection-observer! my-element (fn [intersecting?])))
-  ; (remove-intersection-observer! my-observer my-element)
+  ; (def my-observer (create-intersection-observer! (fn [intersecting?] ...)))
+  ; (observe-element-intersection! my-observer my-element)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM IntersectionObserver object)
+  [observer element]
+  (-> observer (.observe element))
+  (-> observer))
+
+(defn unobserve-element-intersection!
+  ; @description
+  ; Removes the given element from the target elements of the given intersection observer.
+  ;
+  ; @param (DOM IntersectionObserver object) observer
+  ; @param (DOM Element object) element
+  ;
+  ; @usage
+  ; (def my-element  (get-element-by-id "my-element"))
+  ; (def my-observer (create-intersection-observer! (fn [intersecting?] ...)))
+  ; (unobserve-element-intersection! my-observer my-element)
+  ;
+  ; @return (DOM IntersectionObserver object)
   [observer element]
   (-> observer (.unobserve element))
   (-> observer))

@@ -13,7 +13,7 @@
   ; @usage
   ; (append-script! "console.log('420')")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [script]
   (let [body-element   (body/get-body-element)
         script-element (node/create-element! "script")]

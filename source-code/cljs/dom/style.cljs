@@ -6,7 +6,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-style
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -15,27 +15,27 @@
   ; ...
 
 (defn set-element-style!
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ; @param (map) style
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-style! my-element {:position "fixed" :top "0"})
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [element style]
   (let [parsed-style (css/unparse style)]
        (-> element (.setAttribute "style" parsed-style))
        (-> element)))
 
 (defn remove-element-style!
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-style! my-element)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [element]
   (-> element (.removeAttribute "style"))
   (-> element))
@@ -44,7 +44,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-style-value
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ; @param (string) style-name
   ;
   ; @usage
@@ -57,7 +57,7 @@
                 (aget style-name)))
 
 (defn set-element-style-value!
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ; @param (string) style-name
   ; @param (*) style-value
   ;
@@ -65,20 +65,20 @@
   ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-style-value! my-element "position" "fixed")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [element style-name style-value]
   (-> element .-style (aset style-name style-value))
   (-> element))
 
 (defn remove-element-style-value!
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ; @param (string) style-name
 
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-style-value! my-element "position")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [element style-name]
   (-> element .-style (aset style-name nil))
   (-> element))
@@ -87,7 +87,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-computed-style
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))

@@ -8,7 +8,7 @@
   ; @usage
   ; (get-document-element)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Document object)
   []
   (-> js/document .-documentElement))
 

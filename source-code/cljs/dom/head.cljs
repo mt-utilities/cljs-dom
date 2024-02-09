@@ -8,7 +8,7 @@
   ; @usage
   ; (get-head-element)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   []
   (-> js/document (.getElementsByTagName "head")
                   (aget 0)))

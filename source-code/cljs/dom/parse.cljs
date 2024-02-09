@@ -10,7 +10,7 @@
   ; @usage
   ; (parse-html "<div>My element</div>")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [n]
   (let [wrapper (.createElement js/document "div")]
        (-> wrapper .-innerHTML (set! n))

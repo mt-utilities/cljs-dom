@@ -8,7 +8,7 @@
   ; @usage
   ; (get-active-element)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   []
   (-> js/document .-activeElement))
 
@@ -16,7 +16,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn element-focused?
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -27,7 +27,7 @@
   (= element (get-active-element)))
 
 (defn element-blurred?
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -41,25 +41,25 @@
 ;; ----------------------------------------------------------------------------
 
 (defn focus-element!
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (focus-element! my-element)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [element]
   (-> element .focus)
   (-> element))
 
 (defn blur-element!
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (blur-element! my-element)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [element]
   (-> element .blur)
   (-> element))
@@ -68,7 +68,7 @@
   ; @usage
   ; (blur-active-element!)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   []
   (if-let [active-element (get-active-element)]
           (blur-element! active-element)))

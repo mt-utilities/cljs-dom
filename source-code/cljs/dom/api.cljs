@@ -5,6 +5,7 @@
               [dom.body                  :as body]
               [dom.class                 :as class]
               [dom.dimensions            :as dimensions]
+              [dom.image :as image]
               [dom.document              :as document]
               [dom.element               :as element]
               [dom.event                 :as event]
@@ -71,6 +72,7 @@
 (def toggle-design-mode!  document/toggle-design-mode!)
 
 ; @redirect (dom.element/*)
+(def element->tag-name          element/element->tag-name)
 (def get-element-by-id          element/get-element-by-id)
 (def get-element-by-class-name  element/get-element-by-class-name)
 (def get-elements-by-class-name element/get-elements-by-class-name)
@@ -126,10 +128,14 @@
 ; @redirect (dom.head/*)
 (def get-head-element head/get-head-element)
 
+; @redirect (dom.image/*)
+(def set-image-source! image/set-image-source!)
+
 ; @redirect (dom.intersection-observer/*)
-(def intersection-observer         intersection-observer/intersection-observer)
-(def setup-intersection-observer!  intersection-observer/setup-intersection-observer!)
-(def remove-intersection-observer! intersection-observer/remove-intersection-observer!)
+(def create-intersection-observer!     intersection-observer/create-intersection-observer!)
+(def disconnect-intersection-observer! intersection-observer/disconnect-intersection-observer!)
+(def observe-element-intersection!     intersection-observer/observe-element-intersection!)
+(def unobserve-element-intersection!   intersection-observer/unobserve-element-intersection!)
 
 ; dom.mouse
 (def get-mouse-x                mouse/get-mouse-x)

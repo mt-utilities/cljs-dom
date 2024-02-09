@@ -92,8 +92,7 @@
   ; @usage
   ; (get-scroll-progress)
   ;
-  ; @return (percent)
-  ; 0 - 100
+  ; @return (percentage)
   []
   ; @note
   ; During the construction of the DOM structure, there are moments when the value
@@ -105,7 +104,7 @@
         document-height (-> js/document .-documentElement .-scrollHeight)
         max-scroll-y    (- document-height viewport-height)
         scroll-progress (math/percent max-scroll-y scroll-y)]
-      (math/between! scroll-progress 0 100)))
+      (math/between scroll-progress 0 100)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -149,7 +148,7 @@
    (-> js/document .-documentElement .-scrollTop (set! scroll-y))))
 
 (defn scroll-to-element-top!
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ; @param (px)(opt) offset
   ;
   ; @usage

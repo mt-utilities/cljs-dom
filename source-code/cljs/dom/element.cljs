@@ -1,35 +1,53 @@
 
-(ns dom.element)
+(ns dom.element
+    (:require [fruits.string.api :as string]))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn element->tag-name
+  ; @param (DOM Element object) element
+  ;
+  ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
+  ; (element->tag-name my-element)
+  ; =>
+  ; "div"
+  ;
+  ; @return (string)
+  [element]
+  (if-let [tag-name (.-tagName element)]
+          (string/to-lowercase tag-name)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-by-id
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) element-id
   ;
   ; @usage
   ; (get-element-by-id "my-element")
   ;
-  ; @return (DOM-element or nil)
+  ; @return (DOM Element object or nil)
   ([element-id]                (-> js/document    (.getElementById element-id)))
   ([parent-element element-id] (-> parent-element (.getElementById element-id))))
 
 (defn get-element-by-class-name
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) class-name
   ;
   ; @usage
   ; (get-element-by-class-name "my-class")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   ([class-name]                (-> js/document    (.getElementsByClassName class-name) array-seq vec first))
   ([parent-element class-name] (-> parent-element (.getElementsByClassName class-name) array-seq vec first)))
 
 (defn get-elements-by-class-name
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) class-name
   ;
@@ -41,19 +59,19 @@
   ([parent-element class-name] (-> parent-element (.getElementsByClassName class-name) array-seq vec)))
 
 (defn get-element-by-tag-name
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) tag-name
   ;
   ; @usage
   ; (get-element-by-class-name "div")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   ([tag-name]                (-> js/document    (.getElementsByTagName tag-name) array-seq vec first))
   ([parent-element tag-name] (-> parent-element (.getElementsByTagName tag-name) array-seq vec first)))
 
 (defn get-elements-by-tag-name
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) tag-name
   ;
@@ -65,7 +83,7 @@
   ([parent-element tag-name] (-> parent-element (.getElementsByTagName tag-name) array-seq vec)))
 
 (defn get-element-by-query
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) query
   ;
@@ -78,12 +96,12 @@
   ; @usage
   ; (get-element-by-query "div.my-class, div.another-class")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   ([query]                (-> js/document    (.querySelector query)))
   ([parent-element query] (-> parent-element (.querySelector query))))
 
 (defn get-elements-by-query
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) query
   ;
@@ -101,7 +119,7 @@
   ([parent-element query] (-> parent-element (.querySelectorAll query) array-seq vec)))
 
 (defn get-element-by-attribute
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) attribute-name
   ; @param (string) attribute-value
@@ -109,12 +127,12 @@
   ; @usage
   ; (get-element-by-attribute "my-attribute" "My value")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   ([attribute-name attribute-value]                (get-element-by-query                (str "["attribute-name"="attribute-value"]")))
   ([parent-element attribute-name attribute-value] (get-element-by-query parent-element (str "["attribute-name"="attribute-value"]"))))
 
 (defn get-elements-by-attribute
-  ; @param (DOM-element)(opt) parent-element
+  ; @param (DOM Element object)(opt) parent-element
   ; Default: js/document
   ; @param (string) attribute-name
   ; @param (string) attribute-value
@@ -130,7 +148,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn element-disabled?
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -141,7 +159,7 @@
   (-> element .-disabled boolean))
 
 (defn element-enabled?
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
@@ -155,14 +173,14 @@
 ;; ----------------------------------------------------------------------------
 
 (defn set-element-id!
-  ; @param (DOM-element) element
+  ; @param (DOM Element object) element
   ; @param (string) element-id
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-id! my-element "my-element-id")
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   [element element-id]
   (-> element .-id (set! element-id))
   (-> element))

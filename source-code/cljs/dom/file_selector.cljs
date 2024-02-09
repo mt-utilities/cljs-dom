@@ -6,7 +6,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn file-selector->files
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -17,7 +17,7 @@
   (-> file-selector .-files))
 
 (defn file-selector->file-list
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -28,7 +28,7 @@
   (-> file-selector .-files array-seq))
 
 (defn file-selector->file
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ; @param (integer) file-dex
   ;
   ; @usage
@@ -40,7 +40,7 @@
   (-> file-selector .-files array-seq (nth file-dex)))
 
 (defn file-selector->files-size
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -52,7 +52,7 @@
          (reduce f0 0 (-> file-selector .-files array-seq))))
 
 (defn file-selector->file-count
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -63,7 +63,7 @@
   (-> file-selector .-files .-length))
 
 (defn file-selector->any-file-selected?
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -74,7 +74,7 @@
   (-> file-selector .-files .-length (> 0)))
 
 (defn file-selector->mime-types
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -86,7 +86,7 @@
          (reduce f0 [] (-> file-selector .-files array-seq))))
 
 (defn file-selector->files-data
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -98,7 +98,7 @@
          (reduce-kv f0 [] (-> file-selector .-files array-seq vec))))
 
 (defn file-selector->files-meta
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -112,7 +112,7 @@
    :files-size (file-selector->files-size file-selector)})
 
 (defn file-selector->image-data-url
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ; @param (integer) file-dex
   ;
   ; @usage

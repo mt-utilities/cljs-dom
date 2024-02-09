@@ -45,7 +45,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn file-selector->form-data
-  ; @param (DOM-element) file-selector
+  ; @param (DOM Element object) file-selector
   ; @param (strings in vector)(opt) filtered-file-keys
   ;
   ; @usage

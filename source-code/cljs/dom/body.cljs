@@ -8,7 +8,7 @@
   ; @usage
   ; (get-body-element)
   ;
-  ; @return (DOM-element)
+  ; @return (DOM Element object)
   []
   (-> js/document (.getElementsByTagName "body")
                   (aget 0)))
