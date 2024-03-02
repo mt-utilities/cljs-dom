@@ -14,6 +14,8 @@
   ; (def my-after-element  (get-element-by-id "my-after-element"))
   ; (def my-child-element  (create-element! "div"))
   ; (insert-before! my-parent-element my-child-element my-after-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element after-element]
@@ -32,6 +34,8 @@
   ; (def my-before-element (get-element-by-id "my-before-element"))
   ; (def my-child-element  (create-element! "div"))
   ; (insert-after! my-parent-element my-child-element my-before-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element before-element]
@@ -49,6 +53,8 @@
   ; (def my-parent-element (get-element-by-id "my-parent-element"))
   ; (def my-child-element  (create-element! "div"))
   ; (insert-as-first-of-type! my-parent-element my-child-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element]
@@ -70,6 +76,8 @@
   ; (def my-parent-element (get-element-by-id "my-parent-element"))
   ; (def my-child-element  (create-element! "div"))
   ; (insert-as-last-of-type! my-parent-element my-child-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element]
@@ -91,11 +99,15 @@
   ; (def head-element    (get-head-element))
   ; (def my-link-element (create-element! "link"))
   ; (insert-as-first-of-query-selected! head-element my-link-element "[type=\"text/css\"]")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @usage
   ; (def body-element (get-body-element))
   ; (def my-element   (create-element! "div"))
   ; (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.another-class")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element query]
@@ -111,11 +123,15 @@
   ; (def head-element    (get-head-element))
   ; (def my-link-element (create-element! "link"))
   ; (insert-as-first-of-query-selected! head-element my-link-element "[type=\"text/css\"]")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @usage
   ; (def body-element (get-body-element))
   ; (def my-element   (create-element! "div"))
   ; (insert-as-first-of-query-selected! body-element my-element "div.my-class, div.another-class")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element query]
@@ -133,6 +149,8 @@
   ; (def my-parent-element (get-element-by-id "my-parent-element"))
   ; (def my-child-element  (create-element! "div"))
   ; (append-element! my-parent-element my-child-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element]
@@ -147,6 +165,8 @@
   ; (def my-parent-element (get-element-by-id "my-parent-element"))
   ; (def my-child-element  (create-element! "div"))
   ; (prepend-element! my-parent-element my-child-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element]
@@ -161,6 +181,8 @@
   ;
   ; @usage
   ; (create-element! "div")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [nodename]
@@ -172,6 +194,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element! my-element)
+  ; =>
+  ; nil
   ;
   ; @return (nil)
   [element]
@@ -185,6 +209,8 @@
   ; (def my-parent-element (get-element-by-id "my-parent-element"))
   ; (def my-child-element  (get-element-by-id "my-child-element"))
   ; (remove-child! my-parent-element my-child-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [parent-element child-element]
@@ -200,6 +226,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (empty-element! my-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element]
@@ -214,6 +242,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-content! my-element "Hakuna Matata!")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element content]

@@ -7,6 +7,8 @@
 (defn get-active-element
   ; @usage
   ; (get-active-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   []
@@ -21,6 +23,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (element-focused? my-element)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [element]
@@ -32,6 +36,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (element-blurred? my-element)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [element]
@@ -46,6 +52,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (focus-element! my-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element]
@@ -58,6 +66,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (blur-element! my-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element]
@@ -67,6 +77,8 @@
 (defn blur-active-element!
   ; @usage
   ; (blur-active-element!)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   []

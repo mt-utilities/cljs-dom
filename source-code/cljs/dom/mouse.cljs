@@ -9,8 +9,10 @@
   ; @param (DOM-event) mouse-event
   ;
   ; @usage
-  ; (fn [mouse-event]
-  ;     (get-mouse-x mouse-event))
+  ; (fn [my-mouse-event]
+  ;     (get-mouse-x my-mouse-event))
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [mouse-event]
@@ -20,8 +22,10 @@
   ; @param (DOM-event) mouse-event
   ;
   ; @usage
-  ; (fn [mouse-event]
-  ;     (get-mouse-x %))
+  ; (fn [my-mouse-event]
+  ;     (get-mouse-y my-mouse-event))
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [mouse-event]
@@ -34,8 +38,10 @@
   ; @param (DOM-event) mouse-event
   ;
   ; @usage
-  ; (fn [mouse-event]
-  ;     (get-mouse-viewport-quarter mouse-event))
+  ; (fn [my-mouse-event]
+  ;     (get-mouse-viewport-quarter my-mouse-event))
+  ; =>
+  ; :tl
   ;
   ; @return (keyword)
   ; :tl, :tr, :bl, :br
@@ -60,8 +66,8 @@
   ; @param (DOM-event) mouse-event
   ;
   ; @usage
-  ; (fn [mouse-event]
-  ;     (select-preventer mouse-event))
+  ; (fn [my-mouse-event]
+  ;     (select-preventer my-mouse-event))
   [mouse-event]
   (let [node-name (-> mouse-event .-srcElement .-nodeName string/to-lowercase)]
        ; To use input and textarea elements, we need a mouse-down event!

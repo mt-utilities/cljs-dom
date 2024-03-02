@@ -12,6 +12,8 @@
   ;
   ; @usage
   ; (append-script! "console.log('420')")
+  ; =>
+  ; #object[HTMLScriptElement]
   ;
   ; @return (DOM Element object)
   [script]

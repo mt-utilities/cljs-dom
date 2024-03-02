@@ -7,6 +7,8 @@
 (defn get-document-title
   ; @usage
   ; (get-document-title)
+  ; =>
+  ; "My title"
   ;
   ; @return (string)
   []
@@ -17,6 +19,8 @@
   ;
   ; @usage
   ; (set-document-title! "My title")
+  ; =>
+  ; "My title"
   ;
   ; @return (string)
   [title]

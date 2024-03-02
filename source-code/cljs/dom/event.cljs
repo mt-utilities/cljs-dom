@@ -50,6 +50,8 @@
   ; @usage
   ; (fn [my-event]
   ;     (event->node-name my-event))
+  ; =>
+  ; "DIV"
   ;
   ; @return (string)
   [event]

@@ -12,6 +12,8 @@
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->filesize my-file)
+  ; =>
+  ; 420
   ;
   ; @return (B)
   [file]
@@ -24,6 +26,8 @@
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->filename my-file)
+  ; =>
+  ; "my-image.png"
   ;
   ; @return (string)
   [file]
@@ -36,6 +40,8 @@
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->mime-type my-file)
+  ; =>
+  ; "png"
   ;
   ; @return (string)
   [file]
@@ -48,6 +54,8 @@
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->image? my-file)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [file]
@@ -61,11 +69,23 @@
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->file-data my-file)
+  ; =>
+  ; {:file-dex   nil
+  ;  :filename   "my-image.png"
+  ;  :filesize   420
+  ;  :mime-type  "image/png"
+  ;  :object-uri "..."}
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
   ; (def my-file          (file-selector->file my-file-selector 0))
   ; (file->file-data 2 my-file)
+  ; =>
+  ; {:file-dex   2
+  ;  :filename   "my-image.png"
+  ;  :filesize   420
+  ;  :mime-type  "image/png"
+  ;  :object-uri "..."}
   ;
   ; @return (map)
   ; {:file-dex (integer)

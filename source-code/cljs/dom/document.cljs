@@ -7,6 +7,8 @@
 (defn get-document-element
   ; @usage
   ; (get-document-element)
+  ; =>
+  ; #object[HTMLHtmlElement]
   ;
   ; @return (DOM Document object)
   []
@@ -18,6 +20,8 @@
 (defn get-document-height
   ; @usage
   ; (get-document-height)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   []
@@ -26,6 +30,8 @@
 (defn get-document-width
   ; @usage
   ; (get-document-width)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   []

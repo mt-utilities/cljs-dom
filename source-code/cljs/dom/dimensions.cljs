@@ -11,6 +11,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-width my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -22,6 +24,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-height my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -38,6 +42,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-relative-left my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -51,6 +57,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-relative-top my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -67,6 +75,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-absolute-left my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -81,6 +91,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-absolute-top my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -98,6 +110,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-offset-left my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -111,6 +125,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-offset-top my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -125,6 +141,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-mass-point-x my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -138,6 +156,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-mass-point-y my-element)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   [element]
@@ -154,6 +174,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (element-on-viewport-left? my-element)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [element]
@@ -168,6 +190,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (element-on-viewport-right? my-element)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [element]
@@ -182,6 +206,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (element-on-viewport-top? my-element)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [element]
@@ -196,6 +222,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (element-on-viewport-bottom? my-element)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [element]
@@ -213,6 +241,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-mass-point-orientation my-element)
+  ; =>
+  ; :tl
   ;
   ; @return (keyword)
   ; :bl, :br, :tl, :tr

@@ -10,6 +10,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-selection-start my-element)
+  ; =>
+  ; 0
   ;
   ; @return (integer)
   [element]
@@ -21,6 +23,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-selection-end my-element)
+  ; =>
+  ; 420
   ;
   ; @return (integer)
   [element]
@@ -35,7 +39,9 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (set-selection-start! my-element 2)
+  ; (set-selection-start! my-element 0)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element selection-start]
@@ -48,7 +54,9 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (set-selection-end! my-element 2)
+  ; (set-selection-end! my-element 420)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element selection-end]
@@ -65,7 +73,9 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (set-selection-range! my-element 2 10)
+  ; (set-selection-range! my-element 0 420)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element selection-start selection-end]
@@ -79,7 +89,9 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (set-caret-position! my-element 20)
+  ; (set-caret-position! my-element 420)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element caret-position]
@@ -93,6 +105,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (move-caret-to-start! my-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element]
@@ -118,6 +132,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (select-content! my-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element]

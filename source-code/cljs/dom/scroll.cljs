@@ -9,6 +9,8 @@
 (defn get-scroll-x
   ; @usage
   ; (get-scroll-x)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   []
@@ -17,6 +19,8 @@
 (defn get-scroll-y
   ; @usage
   ; (get-scroll-y)
+  ; =>
+  ; 420
   ;
   ; @return (px)
   []
@@ -30,6 +34,8 @@
   ;
   ; @usage
   ; (scroll-direction-ttb? 100)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [last-scroll-y]
@@ -43,6 +49,8 @@
   ;
   ; @usage
   ; (scroll-direction-btt? 100)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [last-scroll-y]
@@ -59,6 +67,8 @@
   ;
   ; @usage
   ; (get-scroll-direction 100)
+  ; =>
+  ; :btt
   ;
   ; @return (keyword or nil)
   ;  nil, :btt, :ttb
@@ -91,6 +101,8 @@
 (defn get-scroll-progress
   ; @usage
   ; (get-scroll-progress)
+  ; =>
+  ; 100
   ;
   ; @return (percentage)
   []

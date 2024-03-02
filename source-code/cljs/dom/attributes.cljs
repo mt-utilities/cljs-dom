@@ -21,7 +21,9 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (set-element-attributes! my-element {"my-attribute" "my-value"})
+  ; (set-element-attributes! my-element {"my-attribute" "My value"})
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element attributes]
@@ -38,6 +40,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-attribute! my-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element]
@@ -54,6 +58,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-attribute my-element "my-attribute")
+  ; =>
+  ; "My value"
   ;
   ; @return (string)
   [element attribute-name]
@@ -66,7 +72,9 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (set-element-attribute! my-element "my-attribute" "my-value")
+  ; (set-element-attribute! my-element "my-attribute" "My value")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element attribute-name attribute-value]
@@ -80,6 +88,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-attribute! my-element "my-attribute")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element attribute-name]

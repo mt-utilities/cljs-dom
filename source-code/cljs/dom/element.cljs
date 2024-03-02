@@ -29,6 +29,8 @@
   ;
   ; @usage
   ; (get-element-by-id "my-element")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object or nil)
   ([element-id]                (-> js/document    (.getElementById element-id)))
@@ -41,6 +43,8 @@
   ;
   ; @usage
   ; (get-element-by-class-name "my-class")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   ([class-name]                (-> js/document    (.getElementsByClassName class-name) array-seq vec first))
@@ -53,8 +57,10 @@
   ;
   ; @usage
   ; (get-elements-by-class-name "my-class")
+  ; =>
+  ; [#object[HTMLDivElement] #object[HTMLDivElement]]
   ;
-  ; @return (vector)
+  ; @return (DOM Element objects in vector)
   ([class-name]                (-> js/document    (.getElementsByClassName class-name) array-seq vec))
   ([parent-element class-name] (-> parent-element (.getElementsByClassName class-name) array-seq vec)))
 
@@ -65,6 +71,8 @@
   ;
   ; @usage
   ; (get-element-by-class-name "div")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   ([tag-name]                (-> js/document    (.getElementsByTagName tag-name) array-seq vec first))
@@ -77,8 +85,10 @@
   ;
   ; @usage
   ; (get-elements-by-class-name "div")
+  ; =>
+  ; [#object[HTMLDivElement] #object[HTMLDivElement]]
   ;
-  ; @return (vector)
+  ; @return (DOM Element objects in vector)
   ([tag-name]                (-> js/document    (.getElementsByTagName tag-name) array-seq vec))
   ([parent-element tag-name] (-> parent-element (.getElementsByTagName tag-name) array-seq vec)))
 
@@ -89,12 +99,18 @@
   ;
   ; @usage
   ; (get-element-by-query ":scope > div")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @usage
   ; (get-element-by-query "[type=\"text/css\"]")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @usage
   ; (get-element-by-query "div.my-class, div.another-class")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   ([query]                (-> js/document    (.querySelector query)))
@@ -107,14 +123,20 @@
   ;
   ; @usage
   ; (get-elements-by-query ":scope > div")
+  ; =>
+  ; [#object[HTMLDivElement] #object[HTMLDivElement]]
   ;
   ; @usage
   ; (get-elements-by-query "[type=\"text/css\"]")
+  ; =>
+  ; [#object[HTMLDivElement] #object[HTMLDivElement]]
   ;
   ; @usage
   ; (get-elements-by-query "div.my-class, div.another-class")
+  ; =>
+  ; [#object[HTMLDivElement] #object[HTMLDivElement]]
   ;
-  ; @return (vector)
+  ; @return (DOM Element objects in vector)
   ([query]                (-> js/document    (.querySelectorAll query) array-seq vec))
   ([parent-element query] (-> parent-element (.querySelectorAll query) array-seq vec)))
 
@@ -126,6 +148,8 @@
   ;
   ; @usage
   ; (get-element-by-attribute "my-attribute" "My value")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   ([attribute-name attribute-value]                (get-element-by-query                (str "["attribute-name"="attribute-value"]")))
@@ -139,8 +163,10 @@
   ;
   ; @usage
   ; (get-elements-by-attribute "my-attribute" "My value")
+  ; =>
+  ; [#object[HTMLDivElement] #object[HTMLDivElement]]
   ;
-  ; @return (vector)
+  ; @return (DOM Element objects in vector)
   ([attribute-name attribute-value]                (get-elements-by-query                (str "["attribute-name"="attribute-value"]")))
   ([parent-element attribute-name attribute-value] (get-elements-by-query parent-element (str "["attribute-name"="attribute-value"]"))))
 
@@ -153,6 +179,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (element-disabled? my-element)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [element]
@@ -164,6 +192,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (element-enabled? my-element)
+  ; =>
+  ; true
   ;
   ; @return (boolean)
   [element]
@@ -179,6 +209,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-id! my-element "my-element-id")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element element-id]

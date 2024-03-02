@@ -6,13 +6,20 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-element-style
+  ; @important
+  ; This function is incomplete and may not behave as expected.
+  ;
   ; @param (DOM Element object) element
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-style my-element)
+  ; =>
+  ; ?
+  ;
+  ; @return (?)
   [element])
-  ; ...
+  ; TODO
 
 (defn set-element-style!
   ; @param (DOM Element object) element
@@ -21,6 +28,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (set-element-style! my-element {:position "fixed" :top "0"})
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element style]
@@ -34,6 +43,8 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (remove-element-style! my-element)
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element]
@@ -49,7 +60,9 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (get-element-style my-element "position")
+  ; (get-element-style my-element "background-color")
+  ; =>
+  ; "white"
   ;
   ; @return (string)
   [element style-name]
@@ -63,7 +76,9 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (set-element-style-value! my-element "position" "fixed")
+  ; (set-element-style-value! my-element "background-color" "white")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element style-name style-value]
@@ -76,7 +91,9 @@
 
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (remove-element-style-value! my-element "position")
+  ; (remove-element-style-value! my-element "background-color")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element style-name]
@@ -92,8 +109,9 @@
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
   ; (get-element-computed-style my-element)
+  ; =>
+  ; #object[CSSStyleDeclaration]
   ;
   ; @return (CSSStyleDeclarationObject)
-  ; The returned object updates automatically when the element's styles are changed
   [element]
   (.getComputedStyle js/window element))

@@ -7,6 +7,8 @@
 (defn get-body-element
   ; @usage
   ; (get-body-element)
+  ; =>
+  ; #object[HTMLBodyElement]
   ;
   ; @return (DOM Element object)
   []
@@ -21,6 +23,8 @@
   ;
   ; @usage
   ; (get-body-style-value "background-color")
+  ; =>
+  ; "white"
   ;
   ; @return (string)
   [style-name]

@@ -19,6 +19,8 @@
   ;
   ; @usage
   ; (create-intersection-observer! (fn [intersecting?] ...))
+  ; =>
+  ; #object[IntersectionObserver]
   ;
   ; @usage
   ; (create-intersection-observer! (fn [intersecting?] ...) {...})
@@ -42,6 +44,8 @@
   ; @usage
   ; (def my-observer (create-intersection-observer! (fn [intersecting?] ...)))
   ; (disconnect-intersection-observer! my-observer)
+  ; =>
+  ; nil
   ;
   ; @return (nil)
   [observer]
@@ -61,6 +65,8 @@
   ; (def my-element  (get-element-by-id "my-element"))
   ; (def my-observer (create-intersection-observer! (fn [intersecting?] ...)))
   ; (observe-element-intersection! my-observer my-element)
+  ; =>
+  ; #object[IntersectionObserver]
   ;
   ; @return (DOM IntersectionObserver object)
   [observer element]
@@ -78,6 +84,8 @@
   ; (def my-element  (get-element-by-id "my-element"))
   ; (def my-observer (create-intersection-observer! (fn [intersecting?] ...)))
   ; (unobserve-element-intersection! my-observer my-element)
+  ; =>
+  ; #object[IntersectionObserver]
   ;
   ; @return (DOM IntersectionObserver object)
   [observer element]

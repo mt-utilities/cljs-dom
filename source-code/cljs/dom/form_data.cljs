@@ -13,7 +13,9 @@
   ; @usage
   ; (def my-form-data (js/FormData.))
   ; (append-to-form-data! my-form-data :name "John")
-  ;
+  ; =>
+  ; #object[FormData]
+
   ; @return (FormData object)
   [form-data prop-key prop-value]
   (let [prop-key (if (-> prop-key keyword?)
@@ -29,10 +31,14 @@
   ; @usage
   ; (def my-form-data (js/FormData.))
   ; (merge-to-form-data! my-form-data {...})
+  ; =>
+  ; #object[FormData]
   ;
   ; @usage
   ; (def my-form-data (js/FormData.))
   ; (merge-to-form-data! my-form-data {...} {...} {...})
+  ; =>
+  ; #object[FormData]
   ;
   ; @return (FormData object)
   [form-data & xyz]
@@ -51,10 +57,14 @@
   ; @usage
   ; (def my-file-selector (get-elementy-by-id "my-file-selector"))
   ; (file-selector->form-data my-file-selector)
+  ; =>
+  ; #object[FormData]
   ;
   ; @usage
   ; (def my-file-selector (get-elementy-by-id "my-file-selector"))
   ; (file-selector->form-data my-file-selector ["0" "1" "4"])
+  ; =>
+  ; #object[FormData]
   ;
   ; @return (FormData object)
   [file-selector & [filtered-file-keys]]

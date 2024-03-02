@@ -9,6 +9,8 @@
   ;
   ; @usage
   ; (parse-html "<div>My element</div>")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [n]

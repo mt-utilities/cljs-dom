@@ -11,6 +11,8 @@
   ; @usage
   ; (def my-image (get-element-by-id "my-image"))
   ; (set-image-source! my-image "/my-image.png")
+  ; =>
+  ; #object[HTMLDivElement]
   ;
   ; @return (DOM Element object)
   [element uri]
