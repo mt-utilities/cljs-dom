@@ -1,8 +1,8 @@
 
 (ns dom.intersection-observer
-    (:require [fruits.vector.api :as vector]
-              [fruits.mixed.api :as mixed]
-              [fruits.math.api :as math]))
+    (:require [fruits.math.api   :as math]
+              [fruits.mixed.api  :as mixed]
+              [fruits.vector.api :as vector]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
