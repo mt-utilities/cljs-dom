@@ -104,7 +104,7 @@
   ; =>
   ; 100
   ;
-  ; @return (percentage)
+  ; @return (percent)
   []
   ; @note
   ; During the construction of the DOM structure, there are moments when the value
