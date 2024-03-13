@@ -7,7 +7,7 @@
 
 (defn get-element-attribute-names
   ; @description
-  ; Returns the attributes of the given element.
+  ; Returns the attribute names of the given element.
   ;
   ; @param (DOM Element object) element
   ;

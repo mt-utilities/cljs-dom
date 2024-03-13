@@ -10,7 +10,7 @@
 
 (defn file-selector->files
   ; @description
-  ; Returns the selected file list of the given file selector (input) element.
+  ; Returns the selected file list of the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ;
@@ -26,7 +26,7 @@
 
 (defn file-selector->file-list
   ; @description
-  ; Returns the selected files (in a vector) of the given file selector (input) element.
+  ; Returns the selected files (in a vector) of the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ;
@@ -42,7 +42,7 @@
 
 (defn file-selector->file
   ; @description
-  ; Returns the nth selected file of the given file selector (input) element.
+  ; Returns the nth selected file of the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ; @param (integer) file-dex
@@ -59,7 +59,7 @@
 
 (defn file-selector->files-size
   ; @description
-  ; Returns the summary size of selected files of the given file selector (input) element.
+  ; Returns the summary size of selected files of the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ;
@@ -74,7 +74,7 @@
 
 (defn file-selector->file-count
   ; @description
-  ; Returns the count of selected files of the given file selector (input) element.
+  ; Returns the count of selected files of the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ;
@@ -90,7 +90,7 @@
 
 (defn file-selector->any-file-selected?
   ; @description
-  ; Returns TRUE if any file is selected with the given file selector (input) element.
+  ; Returns TRUE if any file is selected by the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ;
@@ -106,7 +106,7 @@
 
 (defn file-selector->mime-types
   ; @description
-  ; Returns the list of MIME types of the selected files of the given file selector (input) element.
+  ; Returns the list of MIME types of the selected files of the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ;
@@ -123,7 +123,7 @@
 
 (defn file-selector->files-data
   ; @description
-  ; Returns the details of the selected files of the given file selector (input) element.
+  ; Returns the details of the selected files of the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ;
@@ -148,7 +148,7 @@
 
 (defn file-selector->files-meta
   ; @description
-  ; Returns the details of the file selection of the given file selector (input) element.
+  ; Returns the details of the file selection of the given file selector input element.
   ;
   ; @param (DOM Element object) file-selector
   ;
@@ -168,7 +168,7 @@
 
 (defn file-selector->file-data-url
   ; @description
-  ; Converts the nth selected file of the given file selector (input) into data URL and applies the given callback function on the result.
+  ; Converts the nth selected file of the given file selector input element into data URL and applies the given callback function on the result.
   ;
   ; @param (DOM Element object) file-selector
   ; @param (integer) file-dex

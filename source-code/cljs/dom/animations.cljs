@@ -9,8 +9,8 @@
 
 (defn remove-element-animated!
   ; @description
-  ; 1. Sets the given element's 'data-animation' attribute value to 'hide'.
-  ; 2. Removes the given element from the DOM tree when the given 'timeout' is elapsed.
+  ; 1. Sets the 'data-animation' attribute of the given element to 'hide'.
+  ; 2. Removes the given element from the DOM tree when the given timeout is elapsed.
   ;
   ; @param (DOM Element object) element
   ; @param (ms) timeout
@@ -25,9 +25,9 @@
 
 (defn hide-element-animated!
   ; @description
-  ; 1. Sets the given element's 'data-animation' attribute value to 'hide'.
-  ; 2. Sets the given element's 'display' CSS property value to 'none' when the given 'timeout' is elapsed.
-  ; 3. Removes the given element's 'data-animation' attribute when the element is hidden.
+  ; 1. Sets the 'data-animation' attribute of the given element to 'hide'.
+  ; 2. Sets the 'display' CSS property of the given element to 'none' when the given timeout is elapsed.
+  ; 3. Removes the 'data-animation' attribute of the given element when the  given timeout is elapsed.
   ;
   ; @param (DOM Element object) element
   ; @param (ms) timeout
@@ -48,9 +48,9 @@
 
 (defn reveal-element-animated!
   ; @description
-  ; 1. Sets the given element's 'display' CSS property value to 'block' in case its value is 'hidden'.
-  ; 2. Sets the given element's 'data-animation' attribute value to 'reveal'.
-  ; 3. Removes the given element's 'data-animation' attribute when the given 'timeout' is elapsed.
+  ; 1. Sets the 'display' CSS property of the given element to 'block' in case its value is 'hidden'.
+  ; 2. Sets the 'data-animation' attribute of the given element to 'reveal'.
+  ; 3. Removes the 'data-animation' attribute of the given element when the given timeout is elapsed.
   ;
   ; @param (DOM Element object) element
   ; @param (ms) timeout

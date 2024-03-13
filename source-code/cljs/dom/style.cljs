@@ -8,7 +8,7 @@
 
 (defn get-element-computed-style
   ; @description
-  ; Returns the computed style of the given element.
+  ; Returns the computed style map of the given element.
   ;
   ; @param (DOM Element object) element
   ;
@@ -48,7 +48,7 @@
 
 (defn get-element-inline-style
   ; @description
-  ; Returns the inline style of the given element.
+  ; Returns the inline style map of the given element.
   ;
   ; @param (DOM Element object) element
   ;
@@ -123,7 +123,7 @@
 
 (defn get-element-inline-style-value
   ; @description
-  ; Returns a specific inline style value of the element.
+  ; Returns a specific inline style value of the given element.
   ;
   ; @param (DOM Element object) element
   ; @param (keyword or string) style-name
@@ -141,7 +141,7 @@
 
 (defn set-element-inline-style-value!
   ; @description
-  ; Updates a specific inline style value of the element.
+  ; Updates a specific inline style value of the given element.
   ;
   ; @param (DOM Element object) element
   ; @param (keyword or string) style-name
@@ -161,7 +161,7 @@
 
 (defn remove-element-inline-style-value!
   ; @description
-  ; Removes a specific inline style value of the element.
+  ; Removes a specific inline style value of the given element.
   ;
   ; @param (DOM Element object) element
   ; @param (keyword or string) style-name

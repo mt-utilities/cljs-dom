@@ -6,7 +6,7 @@
 
 (defn get-document-element
   ; @description
-  ; Returns the DOCUMENT element object.
+  ; Returns the DOCUMENT element.
   ;
   ; @usage
   ; (get-document-element)

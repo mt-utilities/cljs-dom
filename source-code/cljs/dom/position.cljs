@@ -151,7 +151,7 @@
 
 (defn element-on-viewport-left?
   ; @description
-  ; Returns TRUE if the mass point of the element is on the left side of the viewport.
+  ; Returns TRUE if the mass point of the given element is on the left side of the viewport.
   ;
   ; @param (DOM Element object) element
   ;
@@ -168,7 +168,7 @@
 
 (defn element-on-viewport-right?
   ; @description
-  ; Returns TRUE if the mass point of the element is on the right side of the viewport.
+  ; Returns TRUE if the mass point of the given element is on the right side of the viewport.
   ;
   ; @param (DOM Element object) element
   ;
@@ -185,7 +185,7 @@
 
 (defn element-on-viewport-top?
   ; @description
-  ; Returns TRUE if the mass point of the element is on the top side of the viewport.
+  ; Returns TRUE if the mass point of the given element is on the top side of the viewport.
   ;
   ; @param (DOM Element object) element
   ;
@@ -202,7 +202,7 @@
 
 (defn element-on-viewport-bottom?
   ; @description
-  ; Returns TRUE if the mass point of the element is on the bottom side of the viewport.
+  ; Returns TRUE if the mass point of the given element is on the bottom side of the viewport.
   ;
   ; @param (DOM Element object) element
   ;
@@ -222,7 +222,7 @@
 
 (defn get-element-mass-point-orientation
   ; @description
-  ; Returns which quarter of the viewport is the element mass point in.
+  ; Returns which quarter of the viewport is the given element's mass point in.
   ;
   ; @param (DOM Element object) element
   ;

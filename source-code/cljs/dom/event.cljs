@@ -84,7 +84,7 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn event->value
+(defn get-event-value
   ; @description
   ; Returns the value property of the element which the given event was dispatched.
   ;
@@ -92,7 +92,7 @@
   ;
   ; @usage
   ; (fn [my-event]
-  ;     (event->value my-event))
+  ;     (get-event-value my-event))
   ;
   ; @return (*)
   [event]

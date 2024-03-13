@@ -6,7 +6,7 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn element->tag-name
+(defn get-element-tag-name
   ; @description
   ; Returns the tag name of the given element.
   ;
@@ -14,7 +14,7 @@
   ;
   ; @usage
   ; (def my-element (get-element-by-id "my-element"))
-  ; (element->tag-name my-element)
+  ; (get-element-tag-name my-element)
   ; =>
   ; "div"
   ;
@@ -86,7 +86,7 @@
   ; @param (keyword or string) tag-name
   ;
   ; @usage
-  ; (get-element-by-class-name "div")
+  ; (get-element-by-tag-name "div")
   ; =>
   ; #object[HTMLDivElement]
   ;
@@ -103,7 +103,7 @@
   ; @param (keyword or string) tag-name
   ;
   ; @usage
-  ; (get-elements-by-class-name "div")
+  ; (get-elements-by-tag-name "div")
   ; =>
   ; [#object[HTMLDivElement] #object[HTMLDivElement]]
   ;

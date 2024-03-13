@@ -63,7 +63,7 @@
 (def toggle-design-mode!        document/toggle-design-mode!)
 
 ; @redirect (dom.element/*)
-(def element->tag-name          element/element->tag-name)
+(def get-element-tag-name       element/get-element-tag-name)
 (def get-element-by-id          element/get-element-by-id)
 (def get-element-by-class-name  element/get-element-by-class-name)
 (def get-elements-by-class-name element/get-elements-by-class-name)
@@ -83,7 +83,7 @@
 (def on-mouse-right   event/on-mouse-right)
 (def stop-propagation event/stop-propagation)
 (def prevent-default  event/prevent-default)
-(def event->value     event/event->value)
+(def get-event-value  event/get-event-value)
 
 ; @redirect (dom.file-selector/*)
 (def file-selector->files              file-selector/file-selector->files)
@@ -129,12 +129,12 @@
 (def observe-element-intersection!     intersection-observer/observe-element-intersection!)
 (def unobserve-element-intersection!   intersection-observer/unobserve-element-intersection!)
 
-; dom.mouse
+; @redirect (dom.mouse/*)
 (def get-mouse-x                mouse/get-mouse-x)
 (def get-mouse-y                mouse/get-mouse-y)
 (def get-mouse-viewport-quarter mouse/get-mouse-viewport-quarter)
 
-; dom.node
+; @redirect (dom.node/*)
 (def insert-before!                     node/insert-before!)
 (def insert-after!                      node/insert-after!)
 (def insert-as-first-of-type!           node/insert-as-first-of-type!)

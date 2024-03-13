@@ -7,7 +7,7 @@
 
 (defn get-body-element
   ; @description
-  ; Returns the BODY element object.
+  ; Returns the BODY element.
   ;
   ; @usage
   ; (get-body-element)
