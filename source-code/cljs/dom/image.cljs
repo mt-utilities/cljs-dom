@@ -5,16 +5,19 @@
 ;; ----------------------------------------------------------------------------
 
 (defn set-image-source!
-  ; @param (DOM Element object) element
+  ; @description
+  ; Updates the source attribute of the given image.
+  ;
+  ; @param (DOM Element object) image
   ; @param (string) uri
   ;
   ; @usage
   ; (def my-image (get-element-by-id "my-image"))
   ; (set-image-source! my-image "/my-image.png")
   ; =>
-  ; #object[HTMLDivElement]
+  ; #object[HTMLImgElement]
   ;
   ; @return (DOM Element object)
-  [element uri]
-  (-> element .-src (set! uri))
-  (-> element))
+  [image uri]
+  (-> image .-src (set! uri))
+  (-> image))

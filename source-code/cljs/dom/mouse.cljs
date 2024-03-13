@@ -6,7 +6,10 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-mouse-x
-  ; @param (DOM-event) mouse-event
+  ; @description
+  ; Returns the X position of the given mouse event.
+  ;
+  ; @param (DOM Event object) mouse-event
   ;
   ; @usage
   ; (fn [my-mouse-event]
@@ -19,7 +22,10 @@
   (-> mouse-event .-clientX))
 
 (defn get-mouse-y
-  ; @param (DOM-event) mouse-event
+  ; @description
+  ; Returns the Y position of the given mouse event.
+  ;
+  ; @param (DOM Event object) mouse-event
   ;
   ; @usage
   ; (fn [my-mouse-event]
@@ -35,7 +41,10 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-mouse-viewport-quarter
-  ; @param (DOM-event) mouse-event
+  ; @description
+  ; Returns in which viewport quarter was the given mouse event dispatched.
+  ;
+  ; @param (DOM Event object) mouse-event
   ;
   ; @usage
   ; (fn [my-mouse-event]
@@ -58,20 +67,3 @@
              :tr
              (< mouse-x half-viewport-width)
              :bl :return :br)))
-
-;; ----------------------------------------------------------------------------
-;; ----------------------------------------------------------------------------
-
-(defn select-preventer
-  ; @param (DOM-event) mouse-event
-  ;
-  ; @usage
-  ; (fn [my-mouse-event]
-  ;     (select-preventer my-mouse-event))
-  [mouse-event]
-  (let [node-name (-> mouse-event .-srcElement .-nodeName string/to-lowercase)]
-       ; To use input and textarea elements, we need a mouse-down event!
-       (when-not (or (= node-name "input")
-                     (= node-name "textarea"))
-                 (do (-> mouse-event .preventDefault)
-                     (-> js/document .-activeElement .blur)))))

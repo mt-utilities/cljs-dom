@@ -5,6 +5,9 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-document-element
+  ; @description
+  ; Returns the DOCUMENT element object.
+  ;
   ; @usage
   ; (get-document-element)
   ; =>
@@ -17,7 +20,10 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn get-document-height
+(defn get-document-scroll-height
+  ; @description
+  ; Returns the scroll height of the DOCUMENT element.
+  ;
   ; @usage
   ; (get-document-height)
   ; =>
@@ -27,9 +33,12 @@
   []
   (-> js/document .-documentElement .-scrollHeight))
 
-(defn get-document-width
+(defn get-document-scroll-width
+  ; @description
+  ; Returns the scroll width of the DOCUMENT element.
+  ;
   ; @usage
-  ; (get-document-width)
+  ; (get-document-scroll-width)
   ; =>
   ; 420
   ;
@@ -41,6 +50,9 @@
 ;; ----------------------------------------------------------------------------
 
 (defn toggle-design-mode!
+  ; @description
+  ; Turns on/off the desing mode of the DOCUMENT element.
+  ;
   ; @usage
   ; (toggle-design-mode!)
   []

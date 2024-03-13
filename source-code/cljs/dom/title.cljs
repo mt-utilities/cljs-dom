@@ -5,6 +5,9 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-document-title
+  ; @description
+  ; Returns the DOCUMENT element title (page title).
+  ;
   ; @usage
   ; (get-document-title)
   ; =>
@@ -15,6 +18,9 @@
   (-> js/document .-title str))
 
 (defn set-document-title!
+  ; @description
+  ; Updates the DOCUMENT element title (page title).
+  ;
   ; @param (string) title
   ;
   ; @usage

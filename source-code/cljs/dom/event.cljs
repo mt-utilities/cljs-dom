@@ -1,11 +1,15 @@
 
-(ns dom.event)
+(ns dom.event
+    (:require [fruits.string.api :as string]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn on-mouse-left
-  ; @param (DOM-event) mouse-event
+  ; @description
+  ; Applies the given function in case the given mouse event is triggered by the main button.
+  ;
+  ; @param (DOM Event object) mouse-event
   ; @param (function) f
   ;
   ; @usage
@@ -14,13 +18,46 @@
   ; @return (*)
   [mouse-event f]
   (if (= (.-button mouse-event) 0)
-      (f)))
+      (f mouse-event)))
+
+(defn on-mouse-middle
+  ; @description
+  ; Applies the given function in case the given mouse event is triggered by the auxiliary button.
+  ;
+  ; @param (DOM Event object) mouse-event
+  ; @param (function) f
+  ;
+  ; @usage
+  ; (on-mouse-middle % (fn [mouse-event] ...))
+  ;
+  ; @return (*)
+  [mouse-event f]
+  (if (= (.-button mouse-event) 1)
+      (f mouse-event)))
+
+(defn on-mouse-right
+  ; @description
+  ; Applies the given function in case the given mouse event is triggered by the secondary button.
+  ;
+  ; @param (DOM Event object) mouse-event
+  ; @param (function) f
+  ;
+  ; @usage
+  ; (on-mouse-right % (fn [mouse-event] ...))
+  ;
+  ; @return (*)
+  [mouse-event f]
+  (if (= (.-button mouse-event) 2)
+      (f mouse-event)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn stop-propagation
-  ; @param (DOM-event) event
+  ; @description
+  ; Prevents further propagation of the given event.
+  ;
+  ; @param (DOM Event object) event
   ;
   ; @usage
   ; (fn [my-event]
@@ -31,7 +68,10 @@
   (-> event .stopPropagation))
 
 (defn prevent-default
-  ; @param (DOM-event) event
+  ; @description
+  ; Prevents the default action of the given event.
+  ;
+  ; @param (DOM Event object) event
   ;
   ; @usage
   ; (fn [my-event]
@@ -44,26 +84,16 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn event->node-name
-  ; @param (DOM-event) event
-  ;
-  ; @usage
-  ; (fn [my-event]
-  ;     (event->node-name my-event))
-  ; =>
-  ; "DIV"
-  ;
-  ; @return (string)
-  [event]
-  (-> event .-srcElement .-nodeName))
-
 (defn event->value
-  ; @param (dom-event) n
+  ; @description
+  ; Returns the value property of the element which the given event was dispatched.
+  ;
+  ; @param (DOM Event object) event
   ;
   ; @usage
   ; (fn [my-event]
   ;     (event->value my-event))
   ;
   ; @return (*)
-  [n]
-  (-> n .-target .-value))
+  [event]
+  (-> event .-target .-value))

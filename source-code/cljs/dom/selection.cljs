@@ -5,138 +5,165 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-selection-start
-  ; @param (DOM Element object) element
+  ; @description
+  ; Returns the starting cursor position of the selected text within the given input element, or the caret position if nothing is selected.
+  ;
+  ; @param (DOM Input Element object) input-element
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (get-selection-start my-element)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (get-selection-start my-input-element)
   ; =>
   ; 0
   ;
   ; @return (integer)
-  [element]
-  (.-selectionStart element))
+  [input-element]
+  (.-selectionStart input-element))
 
 (defn get-selection-end
-  ; @param (DOM Element object) element
+  ; @description
+  ; Returns the ending cursor position of the selected text within the given input element, or the caret position if nothing is selected.
+  ;
+  ; @param (DOM Input Element object) input-element
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (get-selection-end my-element)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (get-selection-end my-input-element)
   ; =>
   ; 420
   ;
   ; @return (integer)
-  [element]
-  (.-selectionStart element))
+  [input-element]
+  (.-selectionStart input-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn set-selection-start!
-  ; @param (DOM Element object) element
+  ; @description
+  ; Updates the starting cursor position of the selected text within the given input element.
+  ;
+  ; @param (DOM Input Element object) input-element
   ; @param (integer) selection-start
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (set-selection-start! my-element 0)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (set-selection-start! my-input-element 0)
   ; =>
-  ; #object[HTMLDivElement]
+  ; #object[HTMLInputElement]
   ;
-  ; @return (DOM Element object)
-  [element selection-start]
-  (-> element .-selectionStart (set! selection-start))
-  (-> element))
+  ; @return (DOM Input Element object)
+  [input-element selection-start]
+  (-> input-element .-selectionStart (set! selection-start))
+  (-> input-element))
 
 (defn set-selection-end!
-  ; @param (DOM Element object) element
+  ; @description
+  ; Updates the ending cursor position of the selected text within the given input element.
+  ;
+  ; @param (DOM Input Element object) input-element
   ; @param (integer) selection-end
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (set-selection-end! my-element 420)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (set-selection-end! my-input-element 420)
   ; =>
-  ; #object[HTMLDivElement]
+  ; #object[HTMLInputElement]
   ;
-  ; @return (DOM Element object)
-  [element selection-end]
-  (-> element .-selectionEnd (set! selection-end))
-  (-> element))
+  ; @return (DOM Input Element object)
+  [input-element selection-end]
+  (-> input-element .-selectionEnd (set! selection-end))
+  (-> input-element))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn set-selection-range!
-  ; @param (DOM Element object) element
+  ; @description
+  ; Updates both the starting and ending cursor positions of the selected text within the given input element.
+  ;
+  ; @param (DOM Input Element object) input-element
   ; @param (integer) selection-start
   ; @param (integer) selection-end
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (set-selection-range! my-element 0 420)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (set-selection-range! my-input-element 0 420)
   ; =>
-  ; #object[HTMLDivElement]
+  ; #object[HTMLInputElement]
   ;
-  ; @return (DOM Element object)
-  [element selection-start selection-end]
-  (set-selection-start! element selection-start)
-  (set-selection-end!   element selection-end)
-  (->                   element))
+  ; @return (DOM Input Element object)
+  [input-element selection-start selection-end]
+  (set-selection-start! input-element selection-start)
+  (set-selection-end!   input-element selection-end)
+  (->                   input-element))
 
 (defn set-caret-position!
-  ; @param (DOM Element object) element
+  ; @description
+  ; Updates the caret position of the given input element.
+  ;
+  ; @param (DOM Input Element object) input-element
   ; @param (integer) caret-position
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (set-caret-position! my-element 420)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (set-caret-position! my-input-element 420)
   ; =>
-  ; #object[HTMLDivElement]
+  ; #object[HTMLInputElement]
   ;
-  ; @return (DOM Element object)
-  [element caret-position]
-  (-> element (set-selection-start! caret-position))
-  (-> element (set-selection-end!   caret-position))
-  (-> element))
+  ; @return (DOM Input Element object)
+  [input-element caret-position]
+  (-> input-element (set-selection-start! caret-position))
+  (-> input-element (set-selection-end!   caret-position))
+  (-> input-element))
 
 (defn move-caret-to-start!
-  ; @param (DOM Element object) element
+  ; @description
+  ; Moves the caret position to the beginning of the content within the given input element.
+  ;
+  ; @param (DOM Input Element object) input-element
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (move-caret-to-start! my-element)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (move-caret-to-start! my-input-element)
   ; =>
-  ; #object[HTMLDivElement]
+  ; #object[HTMLInputElement]
   ;
-  ; @return (DOM Element object)
-  [element]
-  (-> element (set-selection-range! 0 0))
-  (-> element))
+  ; @return (DOM Input Element object)
+  [input-element]
+  (-> input-element (set-selection-range! 0 0))
+  (-> input-element))
 
 (defn move-caret-to-end!
-  ; @param (DOM Element object) element
+  ; @description
+  ; Moves the caret position to the end of the content within the given input element.
+  ;
+  ; @param (DOM Input Element object) input-element
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (move-caret-to-end! my-element)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (move-caret-to-end! my-input-element)
   ;
-  ; @return (DOM Element object)
-  [element]
-  (let [length (-> element .-value .-length)]
-       (-> element (set-selection-range! length length))
-       (-> element)))
+  ; @return (DOM Input Element object)
+  [input-element]
+  (let [length (-> input-element .-value .-length)]
+       (-> input-element (set-selection-range! length length))
+       (-> input-element)))
 
 (defn select-content!
-  ; @param (DOM Element object) element
+  ; @description
+  ; Selects all the content within the given input element.
+  ;
+  ; @param (DOM Input Element object) input-element
   ;
   ; @usage
-  ; (def my-element (get-element-by-id "my-element"))
-  ; (select-content! my-element)
+  ; (def my-input-element (get-element-by-id "my-input-element"))
+  ; (select-content! my-input-element)
   ; =>
-  ; #object[HTMLDivElement]
+  ; #object[HTMLInputElement]
   ;
-  ; @return (DOM Element object)
-  [element]
-  (let [length (-> element .-value .-length)]
-       (-> element (set-selection-range! 0 length))
-       (-> element)))
+  ; @return (DOM Input Element object)
+  [input-element]
+  (let [length (-> input-element .-value .-length)]
+       (-> input-element (set-selection-range! 0 length))
+       (-> input-element)))

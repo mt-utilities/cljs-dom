@@ -5,6 +5,9 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-head-element
+  ; @description
+  ; Returns the HEAD element.
+  ;
   ; @usage
   ; (get-head-element)
   ; =>

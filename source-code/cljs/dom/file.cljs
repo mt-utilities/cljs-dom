@@ -6,7 +6,10 @@
 ;; ----------------------------------------------------------------------------
 
 (defn file->filesize
-  ; @param (file object) file
+  ; @description
+  ; Returns the filesize of the given file.
+  ;
+  ; @param (DOM File object) file
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -20,7 +23,10 @@
   (-> file .-size))
 
 (defn file->filename
-  ; @param (file object) file
+  ; @description
+  ; Returns the filename of the given file.
+  ;
+  ; @param (DOM File object) file
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -34,7 +40,10 @@
   (-> file .-name))
 
 (defn file->mime-type
-  ; @param (file object) file
+  ; @description
+  ; Returns the MIME type of the given file.
+  ;
+  ; @param (DOM File object) file
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -48,7 +57,10 @@
   (-> file .-type))
 
 (defn file->image?
-  ; @param (file object) file
+  ; @description
+  ; Returns TRUE if the given file is an image (based on its MIME type).
+  ;
+  ; @param (DOM File object) file
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))
@@ -62,19 +74,11 @@
   (-> file .-type io/mime-type->image?))
 
 (defn file->file-data
-  ; @param (integer)(opt) file-dex
-  ; @param (file object) file
+  ; @description
+  ; Returns the details of the given file.
   ;
-  ; @usage
-  ; (def my-file-selector (get-element-by-id "my-file-selector"))
-  ; (def my-file          (file-selector->file my-file-selector 0))
-  ; (file->file-data my-file)
-  ; =>
-  ; {:file-dex   nil
-  ;  :filename   "my-image.png"
-  ;  :filesize   420
-  ;  :mime-type  "image/png"
-  ;  :object-uri "..."}
+  ; @param (integer)(opt) file-dex
+  ; @param (DOM File object) file
   ;
   ; @usage
   ; (def my-file-selector (get-element-by-id "my-file-selector"))

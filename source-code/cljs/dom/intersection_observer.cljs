@@ -8,6 +8,9 @@
 ;; ----------------------------------------------------------------------------
 
 (defn create-intersection-observer!
+  ; @description
+  ; Returns an intersection observer.
+  ;
   ; @param (function) callback-f
   ; @param (map)(opt) options
   ; {:root-element (DOM Element object)(opt)
@@ -39,6 +42,9 @@
                                         :threshold  (-> threshold f1)}))))
 
 (defn disconnect-intersection-observer!
+  ; @description
+  ; Disconnects the given intersection observer.
+  ;
   ; @param (DOM IntersectionObserver object) observer
   ;
   ; @usage

@@ -1,12 +1,17 @@
 
 (ns dom.scroll
     (:require [dom.config      :as config]
-              [fruits.math.api :as math]))
+              [fruits.math.api :as math]
+              [dom.position :as position]
+              [dom.dimensions :as dimensions]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn get-scroll-x
+  ; @description
+  ; Returns the scroll X position of the DOCUMENT element.
+  ;
   ; @usage
   ; (get-scroll-x)
   ; =>
@@ -17,6 +22,9 @@
   (-> js/document .-documentElement .-scrollLeft))
 
 (defn get-scroll-y
+  ; @description
+  ; Returns the scroll Y position of the DOCUMENT element.
+  ;
   ; @usage
   ; (get-scroll-y)
   ; =>
@@ -29,137 +37,247 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn scroll-direction-ttb?
-  ; @param (integer) last-scroll-y
+(defn scroll-x-direction-ltr?
+  ; @description
+  ; Returns TRUE if the DOCUMENT element is scrolled rightward (left to right) based on the given last scroll X position.
+  ;
+  ; @param (integer) last-scroll-x
+  ; @param (integer)(opt) sensitivity
+  ; Default: 10
   ;
   ; @usage
-  ; (scroll-direction-ttb? 100)
+  ; (scroll-x-direction-ltr? 420)
   ; =>
   ; true
   ;
   ; @return (boolean)
-  [last-scroll-y]
-  ; If the 'scroll-y' value is at least as much greater than the value of
-  ; 'config.SCROLL-DIRECTION-SENSITIVITY' as the last-scroll-y value...
-  (< (+ last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
-     (-> js/document .-documentElement .-scrollTop)))
+  ([last-scroll-x]
+   (scroll-x-direction-ltr? last-scroll-x config/DEFAULT-SCROLL-DIRECTION-SENSITIVITY))
 
-(defn scroll-direction-btt?
-  ; @param (integer) last-scroll-y
+  ([last-scroll-x sensitivity]
+   (< (+  last-scroll-x sensitivity)
+      (-> js/document .-documentElement .-scrollLeft))))
+
+(defn scroll-x-direction-rtl?
+  ; @description
+  ; Returns TRUE if the DOCUMENT element is scrolled leftward (right to left) based on the given last scroll X position.
+  ;
+  ; @param (integer) last-scroll-x
+  ; @param (integer)(opt) sensitivity
+  ; Default: 10
   ;
   ; @usage
-  ; (scroll-direction-btt? 100)
+  ; (scroll-x-direction-rtl? 420)
   ; =>
   ; true
   ;
   ; @return (boolean)
-  [last-scroll-y]
-  ; If the 'scroll-y' value is at least as much smaller than the value of
-  ; 'config.SCROLL-DIRECTION-SENSITIVITY' as the last-scroll-y value...
-  (> (- last-scroll-y config/SCROLL-DIRECTION-SENSITIVITY)
-     (-> js/document .-documentElement .-scrollTop)))
+  ([last-scroll-x]
+   (scroll-x-direction-rtl? last-scroll-x config/DEFAULT-SCROLL-DIRECTION-SENSITIVITY))
 
-;; ----------------------------------------------------------------------------
-;; ----------------------------------------------------------------------------
+  ([last-scroll-x sensitivity]
+   (> (-  last-scroll-x sensitivity)
+      (-> js/document .-documentElement .-scrollLeft))))
 
-(defn get-scroll-direction
+(defn scroll-y-direction-ttb?
+  ; @description
+  ; Returns TRUE if the DOCUMENT element is scrolled downward (top to bottom) based on the given last scroll Y position.
+  ;
   ; @param (integer) last-scroll-y
+  ; @param (integer)(opt) sensitivity
+  ; Default: 10
   ;
   ; @usage
-  ; (get-scroll-direction 100)
+  ; (scroll-y-direction-ttb? 420)
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  ([last-scroll-y]
+   (scroll-y-direction-ttb? last-scroll-y config/DEFAULT-SCROLL-DIRECTION-SENSITIVITY))
+
+  ([last-scroll-y sensitivity]
+   (< (+  last-scroll-y sensitivity)
+      (-> js/document .-documentElement .-scrollTop))))
+
+(defn scroll-y-direction-btt?
+  ; @description
+  ; Returns TRUE if the DOCUMENT element is scrolled upward (bottom to top) based on the given last scroll Y position.
+  ;
+  ; @param (integer) last-scroll-y
+  ; @param (integer)(opt) sensitivity
+  ; Default: 10
+  ;
+  ; @usage
+  ; (scroll-y-direction-btt? 420)
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  ([last-scroll-y]
+   (scroll-y-direction-btt? last-scroll-y config/DEFAULT-SCROLL-DIRECTION-SENSITIVITY))
+
+  ([last-scroll-y sensitivity]
+   (> (-  last-scroll-y sensitivity)
+      (-> js/document .-documentElement .-scrollTop))))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn get-scroll-x-direction
+  ; @description
+  ; Returns the direction in which the DOCUMENT element was scrolled based on the given last scroll X position.
+  ;
+  ; @param (integer) last-scroll-x
+  ; @param (integer)(opt) sensitivity
+  ; Default: 10
+  ;
+  ; @usage
+  ; (get-scroll-x-direction 420)
+  ; =>
+  ; :ltr
+  ;
+  ; @return (keyword)
+  ; :ltr, :rtl
+  ([last-scroll-x]
+   (get-scroll-x-direction last-scroll-x config/DEFAULT-SCROLL-DIRECTION-SENSITIVITY))
+
+  ([last-scroll-x sensitivity]
+   (cond (scroll-x-direction-ltr? last-scroll-x sensitivity) (-> :ltr)
+         (scroll-x-direction-rtl? last-scroll-x sensitivity) (-> :rtl))))
+
+(defn get-scroll-y-direction
+  ; @description
+  ; Returns the direction in which the DOCUMENT element was scrolled based on the given last scroll Y position.
+  ;
+  ; @param (integer) last-scroll-y
+  ; @param (integer)(opt) sensitivity
+  ; Default: 10
+  ;
+  ; @usage
+  ; (get-scroll-y-direction 420)
   ; =>
   ; :btt
   ;
-  ; @return (keyword or nil)
-  ;  nil, :btt, :ttb
-  [last-scroll-y]
-  (cond ; @note (#0061)
-        (and (scroll-direction-ttb? last-scroll-y)
-             (math/not-negative?    last-scroll-y))
-        (-> :ttb)
+  ; @return (keyword)
+  ; :btt, :ttb
+  ([last-scroll-y]
+   (get-scroll-y-direction last-scroll-y config/DEFAULT-SCROLL-DIRECTION-SENSITIVITY))
 
-        ; @note (#0061)
-        (and (scroll-direction-btt? last-scroll-y)
-             (math/not-negative?    last-scroll-y))
-        (-> :btt)
+  ([last-scroll-y sensitivity]
+   (cond ; If the last scroll Y position is negative, a bounce effect occurs at the top of the page.
+         (math/negative?          last-scroll-y)             (-> :btt)
+         (scroll-y-direction-ttb? last-scroll-y sensitivity) (-> :ttb)
+         (scroll-y-direction-btt? last-scroll-y sensitivity) (-> :btt))))
 
-        ; @note (#0061)
-        ; In some browsers, there is a 'scroll bounce effect' at the top of the page
-        ; when quickly scrolling upward (i.e., btt) with a strong momentum.
-        ; During that bounce – when the 'scroll-y' value approaches 0 from negative direction –
-        ; the 'scroll-direction' value can be ':ttb,' even though the original gesture was upward scrolling.
-        ; Therefore, negative 'scroll-y' values are ... as ...
-        (math/negative? last-scroll-y)
-        (-> :btt)
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
 
-        ; @note (#0088)
-        ; If the absolute difference between the 'last-scroll-y' and 'scroll-y'
-        ; values is not greater than the 'SCROLL-DIRECTION-SENSITIVITY' and the @note (#0061)
-        ; case is not true, then the scroll direction cannot be determined.
-        :return nil))
-
-(defn get-scroll-progress
+(defn get-scroll-x-progress
+  ; @description
+  ; Returns the scroll X distance of the DOCUMENT element (in percent).
+  ;
   ; @usage
-  ; (get-scroll-progress)
+  ; (get-scroll-x-progress)
   ; =>
   ; 100
   ;
   ; @return (percent)
   []
-  ; @note
-  ; During the construction of the DOM structure, there are moments when the value
-  ; of 'document-height' is not accurate, and as a result, the 'scroll-progress'
-  ; value would be less than 0.
-  ; Therefore, this function's output is limited between 0 and 100.
+  (let [viewport-width  (-> js/window   .-innerWidth)
+        scroll-x        (-> js/document .-documentElement .-scrollLeft)
+        document-width  (-> js/document .-documentElement .-scrollWidth)
+        max-scroll-x    (- document-width viewport-width)
+        scroll-progress (math/percent max-scroll-x scroll-x)]
+      ; During DOM construction, the document width might be inaccurate, leading to scroll progress values outside the 0-100 range.
+      (math/between scroll-progress 0 100)))
+
+(defn get-scroll-y-progress
+  ; @description
+  ; Returns the scroll Y distance of the DOCUMENT element (in percent).
+  ;
+  ; @usage
+  ; (get-scroll-y-progress)
+  ; =>
+  ; 100
+  ;
+  ; @return (percent)
+  []
   (let [viewport-height (-> js/window   .-innerHeight)
         scroll-y        (-> js/document .-documentElement .-scrollTop)
         document-height (-> js/document .-documentElement .-scrollHeight)
         max-scroll-y    (- document-height viewport-height)
         scroll-progress (math/percent max-scroll-y scroll-y)]
+      ; During DOM construction, the document height might be inaccurate, leading to scroll progress values outside the 0-100 range.
       (math/between scroll-progress 0 100)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn set-scroll-x!
+  ; @description
+  ; Sets the scroll X position of the DOCUMENT element to the given value.
+  ;
   ; @param (px) scroll-x
-  ; @param (map)(opt) options
-  ; {:smooth? (boolean)
-  ;   Default: false}
   ;
   ; @usage
-  ; (set-scroll-x! 100)
-  ([scroll-x]
-   (set-scroll-x! scroll-x {}))
-
-  ([scroll-x {:keys [smooth?]}]
-   ; @bug (#8709)
-   ; Out of order!
-   ; (let [scroll-behavior   (if smooth? "smooth" "auto")
-   ;       scroll-to-options {"left" scroll-x "top" 0 "behavior" scroll-behavior}]
-   ;      (.scrollBy js/window (clj->js scroll-to-options)))
-   (-> js/document .-documentElement .-scrollLeft (set! scroll-x))))
+  ; (set-scroll-x! 420)
+  [scroll-x]
+  (-> js/document .-documentElement .-scrollLeft (set! scroll-x)))
 
 (defn set-scroll-y!
+  ; @description
+  ; Sets the scroll Y position of the DOCUMENT element to the given value.
+  ;
   ; @param (px) scroll-y
-  ; @param (map)(opt) options
-  ; {:smooth? (boolean)
-  ;   Default: false}
   ;
   ; @usage
-  ; (set-scroll-y! 100)
-  ([scroll-y]
-   (set-scroll-y! scroll-y {}))
+  ; (set-scroll-y! 420)
+  [scroll-y]
+  (-> js/document .-documentElement .-scrollTop (set! scroll-y)))
 
-  ([scroll-y {:keys [smooth?]}]
-   ; @bug (#8709)
-   ; Out of order!
-   ; (let [scroll-behavior   (if smooth? "smooth" "auto")
-   ;       scroll-to-options {"left" 0 "top" scroll-y "behavior" scroll-behavior}]
-   ;      (.scrollBy js/window (clj->js scroll-to-options)))
-   (-> js/document .-documentElement .-scrollTop (set! scroll-y))))
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn scroll-to-element-left!
+  ; @description
+  ; Sets the scroll X position of the DOCUMENT element to the absolute X position of the given element.
+  ;
+  ; @param (DOM Element object) element
+  ; @param (px)(opt) offset
+  ;
+  ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
+  ; (scroll-to-element-left! my-element)
+  ([element]
+   (scroll-to-element-left! element 0))
+
+  ([element offset]
+   (let [absolute-x (position/get-element-absolute-x element)]
+        (set-scroll-x! (+ offset absolute-x)))))
+
+(defn scroll-to-element-right!
+  ; @description
+  ; Sets the scroll X position of the DOCUMENT element to the absolute X position + offset width of the given element.
+  ;
+  ; @param (DOM Element object) element
+  ; @param (px)(opt) offset
+  ;
+  ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
+  ; (scroll-to-element-right! my-element)
+  ([element]
+   (scroll-to-element-right! element 0))
+
+  ([element offset]
+   (let [absolute-x   (position/get-element-absolute-x     element)
+         offset-width (dimensions/get-element-offset-width element)]
+        (set-scroll-x! (+ offset absolute-x offset-width)))))
 
 (defn scroll-to-element-top!
+  ; @description
+  ; Sets the scroll y position of the DOCUMENT element to the absolute Y position of the given element.
+  ;
   ; @param (DOM Element object) element
   ; @param (px)(opt) offset
   ;
@@ -170,6 +288,23 @@
    (scroll-to-element-top! element 0))
 
   ([element offset]
-   (-> js/document .-documentElement .-scrollTop
-       (set! (+ offset (-> element     .getBoundingClientRect .-top)
-                       (-> js/document .-documentElement      .-scrollTop))))))
+   (let [absolute-y (position/get-element-absolute-y element)]
+        (set-scroll-y! (+ offset absolute-y)))))
+
+(defn scroll-to-element-bottom!
+  ; @description
+  ; Sets the scroll y position of the DOCUMENT element to the absolute Y position + offset height of the given element.
+  ;
+  ; @param (DOM Element object) element
+  ; @param (px)(opt) offset
+  ;
+  ; @usage
+  ; (def my-element (get-element-by-id "my-element"))
+  ; (scroll-to-element-bottom! my-element)
+  ([element]
+   (scroll-to-element-bottom! element 0))
+
+  ([element offset]
+   (let [absolute-y    (position/get-element-absolute-y      element)
+         offset-height (dimensions/get-element-offset-height element)]
+        (set-scroll-y! (+ offset absolute-y offset-height)))))
