@@ -20,7 +20,7 @@
   ; @return (px)
   []
   (-> js/document .-documentElement .-scrollLeft))
-
+ 
 (defn get-scroll-y
   ; @description
   ; Returns the scroll Y position of the DOCUMENT element.
