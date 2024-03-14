@@ -16,10 +16,10 @@ The <strong>cljs-dom</strong> is a set of DOM utility functions for Clojure proj
 
 Check out the latest commit on the [release branch](https://github.com/mt-utilities/cljs-dom/tree/release).
 
-### Documentation
-
-The <strong>cljs-dom</strong> functional documentation is [available here](https://mt-utilities.github.io/cljs-dom).
-
 ### Changelog
 
 You can track the changes of the <strong>cljs-dom</strong> library [here](CHANGES.md).
+
+# Documentation
+
+The <strong>cljs-dom</strong> functional documentation is [available here](https://mt-utilities.github.io/cljs-dom).
