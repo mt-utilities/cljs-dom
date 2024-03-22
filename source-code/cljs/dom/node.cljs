@@ -72,8 +72,7 @@
   ; only matching selectors on descendants of the base element:
   (let [tag-name (-> child-element .-tagName)
         query    (str ":scope > "tag-name)]
-       (-> parent-element (.insertBefore child-element (-> parent-element (-> query .querySelectorAll)
-                                                           array-seq first))))
+       (-> parent-element (.insertBefore child-element (-> parent-element (-> query .querySelectorAll) array-seq first))))
   (-> parent-element))
 
 (defn insert-as-last-of-type!

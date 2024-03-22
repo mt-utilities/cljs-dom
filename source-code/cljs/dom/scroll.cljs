@@ -20,7 +20,7 @@
   ; @return (px)
   []
   (-> js/document .-documentElement .-scrollLeft))
- 
+
 (defn get-scroll-y
   ; @description
   ; Returns the scroll Y position of the DOCUMENT element.
@@ -41,8 +41,8 @@
   ; @description
   ; Returns TRUE if the DOCUMENT element is scrolled rightward (left to right) based on the given last scroll X position.
   ;
-  ; @param (integer) last-scroll-x
-  ; @param (integer)(opt) sensitivity
+  ; @param (px) last-scroll-x
+  ; @param (px)(opt) sensitivity
   ; Default: 10
   ;
   ; @usage
@@ -62,8 +62,8 @@
   ; @description
   ; Returns TRUE if the DOCUMENT element is scrolled leftward (right to left) based on the given last scroll X position.
   ;
-  ; @param (integer) last-scroll-x
-  ; @param (integer)(opt) sensitivity
+  ; @param (px) last-scroll-x
+  ; @param (px)(opt) sensitivity
   ; Default: 10
   ;
   ; @usage
@@ -83,8 +83,8 @@
   ; @description
   ; Returns TRUE if the DOCUMENT element is scrolled downward (top to bottom) based on the given last scroll Y position.
   ;
-  ; @param (integer) last-scroll-y
-  ; @param (integer)(opt) sensitivity
+  ; @param (px) last-scroll-y
+  ; @param (px)(opt) sensitivity
   ; Default: 10
   ;
   ; @usage
@@ -104,8 +104,8 @@
   ; @description
   ; Returns TRUE if the DOCUMENT element is scrolled upward (bottom to top) based on the given last scroll Y position.
   ;
-  ; @param (integer) last-scroll-y
-  ; @param (integer)(opt) sensitivity
+  ; @param (px) last-scroll-y
+  ; @param (px)(opt) sensitivity
   ; Default: 10
   ;
   ; @usage
@@ -128,8 +128,8 @@
   ; @description
   ; Returns the direction in which the DOCUMENT element was scrolled based on the given last scroll X position.
   ;
-  ; @param (integer) last-scroll-x
-  ; @param (integer)(opt) sensitivity
+  ; @param (px) last-scroll-x
+  ; @param (px)(opt) sensitivity
   ; Default: 10
   ;
   ; @usage
@@ -150,8 +150,8 @@
   ; @description
   ; Returns the direction in which the DOCUMENT element was scrolled based on the given last scroll Y position.
   ;
-  ; @param (integer) last-scroll-y
-  ; @param (integer)(opt) sensitivity
+  ; @param (px) last-scroll-y
+  ; @param (px)(opt) sensitivity
   ; Default: 10
   ;
   ; @usage

@@ -19,7 +19,7 @@
 
 (defn set-document-title!
   ; @description
-  ; Updates the DOCUMENT element title (page title).
+  ; Sets the DOCUMENT element title (page title).
   ;
   ; @param (string) title
   ;

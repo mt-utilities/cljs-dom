@@ -41,7 +41,7 @@
 
 (defn set-selection-start!
   ; @description
-  ; Updates the starting cursor position of the selected text within the given input element.
+  ; Sets the starting cursor position of the selected text within the given input element.
   ;
   ; @param (DOM Input Element object) input-element
   ; @param (integer) selection-start
@@ -59,7 +59,7 @@
 
 (defn set-selection-end!
   ; @description
-  ; Updates the ending cursor position of the selected text within the given input element.
+  ; Sets the ending cursor position of the selected text within the given input element.
   ;
   ; @param (DOM Input Element object) input-element
   ; @param (integer) selection-end
@@ -80,7 +80,7 @@
 
 (defn set-selection-range!
   ; @description
-  ; Updates both the starting and ending cursor positions of the selected text within the given input element.
+  ; Sets both the starting and ending cursor positions of the selected text within the given input element.
   ;
   ; @param (DOM Input Element object) input-element
   ; @param (integer) selection-start
@@ -100,7 +100,7 @@
 
 (defn set-caret-position!
   ; @description
-  ; Updates the caret position of the given input element.
+  ; Sets the caret position of the given input element.
   ;
   ; @param (DOM Input Element object) input-element
   ; @param (integer) caret-position

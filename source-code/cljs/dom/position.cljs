@@ -7,7 +7,7 @@
 
 (defn get-element-relative-x
   ; @description
-  ; Returns the relative X position (relative to the viewport) of the given element.
+  ; Returns the relative X position of the given element (relative to the viewport).
   ;
   ; @param (DOM Element object) element
   ;
@@ -23,7 +23,7 @@
 
 (defn get-element-relative-y
   ; @description
-  ; Returns the relative Y position (relative to the viewport) of the given element.
+  ; Returns the relative Y position of the given element (relative to the viewport).
   ;
   ; @param (DOM Element object) element
   ;
@@ -42,7 +42,7 @@
 
 (defn get-element-absolute-x
   ; @description
-  ; Returns the absolute X position (relative to the document) of the given element.
+  ; Returns the absolute X position of the given element (relative to the document).
   ;
   ; @param (DOM Element object) element
   ;
@@ -59,7 +59,7 @@
 
 (defn get-element-absolute-y
   ; @description
-  ; Returns the absolute Y position (relative to the document) of the given element.
+  ; Returns the absolute Y position of the given element (relative to the document).
   ;
   ; @param (DOM Element object) element
   ;
@@ -79,7 +79,7 @@
 
 (defn get-element-offset-x
   ; @description
-  ; Returns the offset X position (relative to the parent) of the given element.
+  ; Returns the offset X position of the given element (relative to the parent).
   ;
   ; @param (DOM Element object) element
   ;
@@ -95,7 +95,7 @@
 
 (defn get-element-offset-y
   ; @description
-  ; Returns the offset Y position (relative to the parent) of the given element.
+  ; Returns the offset Y position of the given element (relative to the parent).
   ;
   ; @param (DOM Element object) element
   ;
@@ -114,7 +114,7 @@
 
 (defn get-element-mass-point-x
   ; @description
-  ; Returns the relative X position (relative to the viewport) of the mass point of the given element.
+  ; Returns the relative X position of the mass point of the given element (relative to the viewport).
   ;
   ; @param (DOM Element object) element
   ;
@@ -131,7 +131,7 @@
 
 (defn get-element-mass-point-y
   ; @description
-  ; Returns the relative Y position (relative to the viewport) of the mass point of the given element.
+  ; Returns the relative Y position of the mass point of the given element (relative to the viewport).
   ;
   ; @param (DOM Element object) element
   ;

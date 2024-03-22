@@ -67,7 +67,7 @@
 
 (defn merge-element-inline-style!
   ; @description
-  ; Merges the given style onto the inline style of the given element.
+  ; Merges the given style map onto the inline style of the given element.
   ;
   ; @param (DOM Element object) element
   ; @param (map) style
@@ -87,7 +87,7 @@
 
 (defn set-element-inline-style!
   ; @description
-  ; Sets the given style as the inline style of the given element.
+  ; Sets the given style map as the inline style of the given element.
   ;
   ; @param (DOM Element object) element
   ; @param (map) style

@@ -6,7 +6,7 @@
 
 (defn parse-html
   ; @description
-  ; Parses the given HTML string into element.
+  ; Parses the given HTML string into an element.
   ;
   ; @param (string) n
   ;

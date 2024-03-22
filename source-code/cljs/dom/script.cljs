@@ -9,7 +9,7 @@
 
 (defn append-script!
   ; @description
-  ; Appends a script element to the BODY element.
+  ; Appends a script element (containing the given script) to the BODY element.
   ;
   ; @param (string) script
   ;

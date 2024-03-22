@@ -25,9 +25,6 @@
   ; =>
   ; #object[IntersectionObserver]
   ;
-  ; @usage
-  ; (create-intersection-observer! (fn [intersecting?] ...) {...})
-  ;
   ; @return (DOM IntersectionObserver object)
   ([callback-f]
    (create-intersection-observer! callback-f {}))
@@ -89,6 +86,7 @@
   ; @usage
   ; (def my-element  (get-element-by-id "my-element"))
   ; (def my-observer (create-intersection-observer! (fn [intersecting?] ...)))
+  ; (observe-element-intersection!   my-observer my-element)
   ; (unobserve-element-intersection! my-observer my-element)
   ; =>
   ; #object[IntersectionObserver]
