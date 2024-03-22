@@ -1,7 +1,7 @@
 
 (ns dom.style
-    (:require [fruits.css.api :as css]
-              [dom.utils :as utils]))
+    (:require [dom.utils      :as utils]
+              [fruits.css.api :as css]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

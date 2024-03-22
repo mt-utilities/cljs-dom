@@ -1,7 +1,7 @@
 
 (ns dom.element
-    (:require [fruits.string.api :as string]
-              [dom.utils :as utils]))
+    (:require [dom.utils         :as utils]
+              [fruits.string.api :as string]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

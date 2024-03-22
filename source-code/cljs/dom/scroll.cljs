@@ -1,9 +1,9 @@
 
 (ns dom.scroll
     (:require [dom.config      :as config]
-              [fruits.math.api :as math]
-              [dom.position :as position]
-              [dom.dimensions :as dimensions]))
+              [dom.dimensions  :as dimensions]
+              [dom.position    :as position]
+              [fruits.math.api :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

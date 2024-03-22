@@ -1,9 +1,9 @@
 
 (ns dom.file-selector
-    (:require [dom.file :as file]
-              [fruits.vector.api :as vector]
+    (:require [dom.file           :as file]
+              [dom.form-data      :as form-data]
               [fruits.seqable.api :as seqable]
-              [dom.form-data :as form-data]))
+              [fruits.vector.api  :as vector]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
